@@ -5,7 +5,7 @@ import configViewEngine from "./config/viewEngine";
 import initAllWebRoutes from "./routes/web";
 import { job } from "./cron/cronTask";
 
-let app = express();
+const app = express();
 
 //config body-parser to post data to server
 app.use(bodyParser.json());
