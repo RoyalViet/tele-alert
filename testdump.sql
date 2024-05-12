@@ -1,0 +1,16 @@
+CREATE TABLE Token(
+  token_id INT PRIMARY KEY AUTO_INCREMENT, 
+  token_contract VARCHAR(200), 
+  pool_id VARCHAR(200),
+  token_name VARCHAR(100), 
+  network VARCHAR(100),
+  description TEXT,
+);
+
+INSERT INTO Token(network) 
+VALUES(
+"0x0c90C756350FB803A7D5D9F9Ee5ac29E77369973",
+'0x4557eacd191e266d4166c603131ef3b006836cae', 
+'UBPS',
+'BASE_NETWORK'
+);
