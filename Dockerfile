@@ -10,4 +10,5 @@ RUN npm install
 COPY . .
 # Specify the command to run your application
 RUN npm run build
-# CMD ["node", "src/server.ts"]
+
+CMD ["node", "dist/server.js"]
