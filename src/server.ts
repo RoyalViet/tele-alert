@@ -1,16 +1,15 @@
 require("dotenv").config();
 import express from "express";
-import bodyParser from "body-parser";
+// import bodyParser from "body-parser";
 import configViewEngine from "./config/viewEngine";
 import initAllWebRoutes from "./routes/web";
-import { checkReleasePoolToken, job } from "./cron/cronTask";
-import { main } from "./test";
+import { checkReleasePoolToken } from "./cron/cronTask";
 
 const app = express();
 
 //config body-parser to post data to server
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
 
 //config view Engine
 configViewEngine(app);
