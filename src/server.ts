@@ -3,7 +3,8 @@ import express from "express";
 import bodyParser from "body-parser";
 import configViewEngine from "./config/viewEngine";
 import initAllWebRoutes from "./routes/web";
-import { job } from "./cron/cronTask";
+import { checkReleasePoolToken, job } from "./cron/cronTask";
+import { main } from "./test";
 
 const app = express();
 
@@ -18,7 +19,11 @@ configViewEngine(app);
 initAllWebRoutes(app);
 
 // cron job
-job.start();
+// job.start();
+checkReleasePoolToken.start();
+
+// test
+// main();
 
 const port = process.env.PORT || 8080;
 

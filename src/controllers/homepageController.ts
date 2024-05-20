@@ -4,16 +4,17 @@ const getHomePage = (req: any, res: any) => {
   return res.render("homepage.ejs");
 };
 
-const handlePushTelegramNotification = async (req: any, res: any) => {
+// const handlePushTelegramNotification = async (req: any, res?: any) => {
+const handlePushTelegramNotification = async (req: any, res?: any) => {
   //send notification to telegram
-  let user = {
-    fullName: req.body.fullName,
-    // email: req.body.email,
-    description: req.body.description,
-  };
-  await telegramService.sendNotification(user);
+
+  // const msg = `Fullname: <b>${user.fullName}</b>
+  //       Description: <i>${user.description}</i>
+  // `;
+
+  await telegramService.sendNotification(req.body);
   //then redirect to the telegram page
-  return res.redirect("/telegram");
+  return res?.redirect("/telegram");
 };
 
 const getTelegramPage = (req: any, res: any) => {

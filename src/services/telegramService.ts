@@ -2,7 +2,7 @@ import axios from "axios";
 
 require("dotenv").config();
 
-const sendNotification = (user: any) => {
+const sendNotification = (msg: any) => {
   return new Promise((resolve, reject) => {
     try {
       let TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
@@ -11,9 +11,7 @@ const sendNotification = (user: any) => {
       let data = {
         chat_id: TELEGRAM_GROUP_ID,
         parse_mode: "HTML",
-        text: `Fullname: <b>${user.fullName}</b>
-Description: <i>${user.description}</i>
-`,
+        text: msg,
       };
 
       axios
