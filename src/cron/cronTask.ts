@@ -10,13 +10,14 @@ const job = new CronJob("*/10 * * * * *", () => {
 });
 
 const checkReleasePoolToken = new CronJob("*/10 * * * * *", async () => {
-  console.log("running cron job checkReleasePoolToken...");
+  const contract = "dd.tg";
+  console.log(`running cron job checkReleasePoolToken ${contract}...`);
   const raw = await axios.get(`https://api.ref.finance/list-pools`, {});
 
   const filterToken = raw?.data?.filter(
     (i: any) =>
       (bigNumber(i?.tvl).gt(100) || bigNumber(i?.tvl).eq(0)) &&
-      (i?.token_account_ids as Array<string>).includes("usmeme.tg") &&
+      (i?.token_account_ids as Array<string>).includes(contract) &&
       ((i?.token_account_ids as Array<string>).includes("wrap.near") ||
         (i?.token_account_ids as Array<string>).includes(
           "usdt.tether-token.near"
