@@ -1,7 +1,8 @@
 import * as telegramService from "../services/telegramService";
 
 const getHomePage = (req: any, res: any) => {
-  return res.render("homepage.ejs");
+  // return res.render("homepage.ejs");
+  return res.send("Express TS on Vercel");
 };
 
 // const handlePushTelegramNotification = async (req: any, res?: any) => {
