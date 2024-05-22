@@ -26,9 +26,10 @@ exports.job = job;
 const checkReleasePoolToken = new cron_1.CronJob("*/10 * * * * *", () => __awaiter(void 0, void 0, void 0, function* () {
     var _a;
     const contract = "dd.tg";
-    console.log(`running cron job checkReleasePoolToken ${contract}...`);
+    console.log(`running cron job crawl Pool Token ${contract}...`);
     const raw = yield axios_1.default.get(`https://api.ref.finance/list-pools`, {});
-    const filterToken = (_a = raw === null || raw === void 0 ? void 0 : raw.data) === null || _a === void 0 ? void 0 : _a.filter((i) => ((0, bigNumber_1.bigNumber)(i === null || i === void 0 ? void 0 : i.tvl).gt(100) || (0, bigNumber_1.bigNumber)(i === null || i === void 0 ? void 0 : i.tvl).eq(0)) &&
+    const filterToken = (_a = raw === null || raw === void 0 ? void 0 : raw.data) === null || _a === void 0 ? void 0 : _a.filter((i) => (0, bigNumber_1.bigNumber)(i === null || i === void 0 ? void 0 : i.tvl).gt(0) &&
+        (0, bigNumber_1.bigNumber)(i === null || i === void 0 ? void 0 : i.tvl).gt(0) &&
         (i === null || i === void 0 ? void 0 : i.token_account_ids).includes(contract) &&
         ((i === null || i === void 0 ? void 0 : i.token_account_ids).includes("wrap.near") ||
             (i === null || i === void 0 ? void 0 : i.token_account_ids).includes("usdt.tether-token.near")));

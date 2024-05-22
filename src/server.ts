@@ -1,31 +1,27 @@
 require("dotenv").config();
-import express from "express";
-import bodyParser from "body-parser";
-import configViewEngine from "./config/viewEngine";
-import initAllWebRoutes from "./routes/web";
+import "module-alias/register";
+
+import app from "./configs/express.config";
+import logger from "./configs/logger.config";
 import { checkReleasePoolToken } from "./cron/cronTask";
+import connectDB from "./database/db.mysql";
 
-const app = express();
+const PORT = process.env.PORT || 8000;
 
-//config body-parser to post data to server
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+const main = async () => {
+  // connectDB
+  await connectDB();
 
-//config view Engine
-configViewEngine(app);
+  // cron job
+  // job.start();
+  // checkReleasePoolToken.start();
 
-//init all web routes
-initAllWebRoutes(app);
+  // test
+  // testF()
 
-// cron job
-// job.start();
-checkReleasePoolToken.start();
+  app.listen(PORT, () => {
+    logger.info(`Server running at ${PORT}`);
+  });
+};
 
-// test
-// main();
-
-const port = process.env.PORT || 8080;
-
-app.listen(port, () => {
-  console.log(`App is running at the port ${port}`);
-});
+main();
