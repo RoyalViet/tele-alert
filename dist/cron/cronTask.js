@@ -26,28 +26,34 @@ exports.job = job;
 const checkReleasePoolToken = new cron_1.CronJob("*/10 * * * * *", () => __awaiter(void 0, void 0, void 0, function* () {
     var _a;
     const contract = "dd.tg";
-    console.log(`running cron job checkReleasePoolToken ${contract}...`);
-    const raw = yield axios_1.default.get(`https://api.ref.finance/list-pools`, {});
-    const filterToken = (_a = raw === null || raw === void 0 ? void 0 : raw.data) === null || _a === void 0 ? void 0 : _a.filter((i) => ((0, bigNumber_1.bigNumber)(i === null || i === void 0 ? void 0 : i.tvl).gt(100) || (0, bigNumber_1.bigNumber)(i === null || i === void 0 ? void 0 : i.tvl).eq(0)) &&
-        (i === null || i === void 0 ? void 0 : i.token_account_ids).includes(contract) &&
-        ((i === null || i === void 0 ? void 0 : i.token_account_ids).includes("wrap.near") ||
-            (i === null || i === void 0 ? void 0 : i.token_account_ids).includes("usdt.tether-token.near")));
-    const rsFocus = filterToken
-        .sort((a, b) => ((0, bigNumber_1.bigNumber)(a.tvl).gte(b.tvl) ? -1 : 1))
-        .map((i) => {
-        return {
-            // ...i,
-            id: i === null || i === void 0 ? void 0 : i.id,
-            token_account_ids: i === null || i === void 0 ? void 0 : i.token_account_ids,
-            token_symbols: i === null || i === void 0 ? void 0 : i.token_symbols,
-            token_price: i === null || i === void 0 ? void 0 : i.token0_ref_price,
-            liq: (0, bigNumber_1.formatBalance)(i === null || i === void 0 ? void 0 : i.tvl),
-        };
-    });
-    if (rsFocus.length) {
-        (0, homepageController_1.handlePushTelegramNotification)({
-            body: rsFocus.map((i) => (0, common_helper_1.generateTelegramHTML)(i)).join("\n\n"),
+    console.log(`running cron job crawl pool token ${contract}...`);
+    try {
+        const raw = yield axios_1.default.get(`https://api.ref.finance/list-pools`, {});
+        const filterToken = (_a = raw === null || raw === void 0 ? void 0 : raw.data) === null || _a === void 0 ? void 0 : _a.filter((i) => (0, bigNumber_1.bigNumber)(i === null || i === void 0 ? void 0 : i.tvl).gt(0) &&
+            (0, bigNumber_1.bigNumber)(i === null || i === void 0 ? void 0 : i.tvl).gt(0) &&
+            (i === null || i === void 0 ? void 0 : i.token_account_ids).includes(contract) &&
+            ((i === null || i === void 0 ? void 0 : i.token_account_ids).includes("wrap.near") ||
+                (i === null || i === void 0 ? void 0 : i.token_account_ids).includes("usdt.tether-token.near")));
+        const rsFocus = filterToken
+            .sort((a, b) => ((0, bigNumber_1.bigNumber)(a.tvl).gte(b.tvl) ? -1 : 1))
+            .map((i) => {
+            return {
+                // ...i,
+                id: i === null || i === void 0 ? void 0 : i.id,
+                token_account_ids: i === null || i === void 0 ? void 0 : i.token_account_ids,
+                token_symbols: i === null || i === void 0 ? void 0 : i.token_symbols,
+                token_price: i === null || i === void 0 ? void 0 : i.token0_ref_price,
+                liq: (0, bigNumber_1.formatBalance)(i === null || i === void 0 ? void 0 : i.tvl),
+            };
         });
+        if (rsFocus.length) {
+            (0, homepageController_1.handlePushTelegramNotification)({
+                body: rsFocus.map((i) => (0, common_helper_1.generateTelegramHTML)(i)).join("\n\n"),
+            });
+        }
+    }
+    catch (error) {
+        console.log(`error`);
     }
     return;
 }));

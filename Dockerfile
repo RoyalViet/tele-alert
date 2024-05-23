@@ -11,5 +11,5 @@ COPY . .
 # Specify the command to run your application
 RUN npm run build
 
-CMD ["node", "dist/server.js"]
+CMD ["node", "dist/server.js"] 
  
