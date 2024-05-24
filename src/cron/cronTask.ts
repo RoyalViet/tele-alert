@@ -44,8 +44,12 @@ const checkReleasePoolToken = new CronJob("*/10 * * * * *", async () => {
         body: rsFocus.map((i: any) => generateTelegramHTML(i)).join("\n\n"),
       });
     }
+    throw new Error(`Don't Have Pool`);
   } catch (error) {
     console.log(`error`);
+    handlePushTelegramNotification({
+      body: generateTelegramHTML({ error }),
+    });
   }
 
   return;

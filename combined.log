@@ -42,3 +42,11 @@
 {"level":"info","message":"Server running at 3007","timestamp":"2024-05-23T13:39:55.802Z"}
 {"level":"info","message":"The connection to database was failed with error: Error: connect ECONNREFUSED ::1:3306","timestamp":"2024-05-23T13:40:09.747Z"}
 {"level":"info","message":"Server running at 3007","timestamp":"2024-05-23T13:40:09.747Z"}
+{"level":"info","message":"The connection to database was failed with error: Error: connect ECONNREFUSED ::1:3306","timestamp":"2024-05-23T16:23:58.687Z"}
+{"level":"info","message":"Server running at 3007","timestamp":"2024-05-23T16:23:58.687Z"}
+{"level":"info","message":"The connection to database was failed with error: Error: connect ECONNREFUSED ::1:3306","timestamp":"2024-05-24T03:10:26.632Z"}
+{"level":"info","message":"Server running at 3007","timestamp":"2024-05-24T03:10:26.632Z"}
+{"level":"info","message":"The connection to database was failed with error: Error: connect ECONNREFUSED ::1:3306","timestamp":"2024-05-24T03:10:47.290Z"}
+{"level":"info","message":"Server running at 3007","timestamp":"2024-05-24T03:10:47.290Z"}
+{"level":"info","message":"The connection to database was failed with error: Error: connect ECONNREFUSED ::1:3306","timestamp":"2024-05-24T03:11:46.406Z"}
+{"level":"info","message":"Server running at 3007","timestamp":"2024-05-24T03:11:46.406Z"}
