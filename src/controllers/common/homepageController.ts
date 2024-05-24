@@ -1,20 +1,16 @@
-import * as telegramService from "../services/telegramService";
+import * as telegramService from "../../services/telegram/telegramService";
 
 const getHomePage = (req: any, res: any) => {
   // return res.render("homepage.ejs");
   return res.send("Express TS on Vercel");
 };
 
-// const handlePushTelegramNotification = async (req: any, res?: any) => {
-const handlePushTelegramNotification = async (req: any, res?: any) => {
-  //send notification to telegram
-
-  // const msg = `Fullname: <b>${user.fullName}</b>
-  //       Description: <i>${user.description}</i>
-  // `;
-
+// const handlePushTelegramNotificationController = async (req: any, res?: any) => {
+const handlePushTelegramNotificationController = async (
+  req: any,
+  res?: any
+) => {
   await telegramService.sendNotification(req.body);
-  //then redirect to the telegram page
   return res?.redirect("/telegram");
 };
 
@@ -29,7 +25,7 @@ const sendAnimation = async (req: any, res: any) => {
 
 export {
   getHomePage,
-  handlePushTelegramNotification,
+  handlePushTelegramNotificationController,
   getTelegramPage,
   sendAnimation,
 };

@@ -1,3 +1,5 @@
+import fs from "fs";
+
 function generateTelegramHTML(data: { [key: string]: any }): string {
   let html = "";
 
@@ -8,4 +10,15 @@ function generateTelegramHTML(data: { [key: string]: any }): string {
   return html.trim();
 }
 
-export { generateTelegramHTML };
+function writeFile(name: string, data: any) {
+  const jsonData = JSON.stringify(data, null, 2); // Convert the JSON object to a string with indentation
+  fs.writeFile(name, jsonData, "utf8", (err) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    console.log(`File ${name} saved successfully.`);
+  });
+}
+
+export { generateTelegramHTML, writeFile };

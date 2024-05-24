@@ -1,11 +1,11 @@
-import { Request } from 'express';
+import { Request } from "express";
 
 // Entities
-import { User } from '../entities/user/user.entity';
-import { BaseEntity } from '../entities/base/base.entity';
+import { User } from "../entities/user/user.entity";
+import { BaseEntity } from "../entities/base/base.entity";
 
 // Interfaces
-import { IPagination } from '../interfaces/common.interface';
+import { IPagination } from "../interfaces/common.interface";
 
 export default class ApiUtility {
   static getCookieFromRequest(req: Request, key: string) {
@@ -14,13 +14,13 @@ export default class ApiUtility {
     }
 
     if (req.headers.cookie) {
-      const results = req.headers.cookie.split(';');
+      const results = req.headers.cookie.split(";");
       const filtered = results.filter((result: string) => {
         return result.startsWith(`${key}=`);
       });
 
       if (filtered.length > 0) {
-        return filtered[0].split('=')[1];
+        return filtered[0].split("=")[1];
       }
     }
 
@@ -28,7 +28,7 @@ export default class ApiUtility {
   }
 
   static sanitizeData(data: BaseEntity) {
-    const { createdAt, updatedAt, ...basicData } = data;
+    const { created_at, updated_at, ...basicData } = data;
     return basicData;
   }
 
@@ -38,12 +38,12 @@ export default class ApiUtility {
   }
 
   static getQueryParam(req: any, type: string) {
-    if (req && type && type !== '') {
+    if (req && type && type !== "") {
       switch (type) {
-        case 'limit': {
+        case "limit": {
           return req.query.limit ? parseInt(req.query.limit.toString(), 10) : 5;
         }
-        case 'page': {
+        case "page": {
           return req.query.page ? parseInt(req.query.page.toString(), 10) : 1;
         }
         default: {
@@ -64,7 +64,7 @@ export default class ApiUtility {
         currentPage,
         totalPages: Math.ceil(total / limit),
         previousPage: currentPage <= 1 ? null : currentPage - 1,
-        nextPage: total - (currentPage * limit) > 0 ? currentPage + 1 : null,
+        nextPage: total - currentPage * limit > 0 ? currentPage + 1 : null,
         totalItems: total,
       };
       return { pagination };

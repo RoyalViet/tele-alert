@@ -1,8 +1,12 @@
 import axios from "axios";
+import { generateTelegramHTML } from "../../common/helper/common.helper";
 
 require("dotenv").config();
 
-const sendNotification = (msg: any) => {
+const sendNotification = (
+  msg: any,
+  options?: Partial<{ isGenerateTelegramHTML: boolean }>
+) => {
   return new Promise((resolve, reject) => {
     try {
       let TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
@@ -11,7 +15,7 @@ const sendNotification = (msg: any) => {
       let data = {
         chat_id: TELEGRAM_GROUP_ID,
         parse_mode: "HTML",
-        text: msg,
+        text: options?.isGenerateTelegramHTML ? generateTelegramHTML(msg) : msg,
       };
 
       axios

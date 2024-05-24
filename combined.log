@@ -50,3 +50,45 @@
 {"level":"info","message":"Server running at 3007","timestamp":"2024-05-24T03:10:47.290Z"}
 {"level":"info","message":"The connection to database was failed with error: Error: connect ECONNREFUSED ::1:3306","timestamp":"2024-05-24T03:11:46.406Z"}
 {"level":"info","message":"Server running at 3007","timestamp":"2024-05-24T03:11:46.406Z"}
+{"level":"info","message":"The connection to database was failed with error: Error: ER_BAD_DB_ERROR: Unknown database 'checking_token'","timestamp":"2024-05-24T09:55:06.292Z"}
+{"level":"info","message":"Server running at 3007","timestamp":"2024-05-24T09:55:06.292Z"}
+{"level":"info","message":"The connection to database was failed with error: Error: ER_BAD_DB_ERROR: Unknown database 'checking_token'","timestamp":"2024-05-24T09:57:19.674Z"}
+{"level":"info","message":"Server running at 3007","timestamp":"2024-05-24T09:57:19.674Z"}
+{"level":"info","message":"The connection to database was failed with error: Error: ER_BAD_DB_ERROR: Unknown database 'checking_token'","timestamp":"2024-05-24T10:05:17.678Z"}
+{"level":"info","message":"Server running at 3007","timestamp":"2024-05-24T10:05:17.678Z"}
+{"level":"info","message":"Connect to database successfully","timestamp":"2024-05-24T15:39:50.567Z"}
+{"level":"info","message":"Server running at 3007","timestamp":"2024-05-24T15:39:50.567Z"}
+{"level":"info","message":"Connect to database successfully","timestamp":"2024-05-24T15:47:09.579Z"}
+{"level":"info","message":"Server running at 3007","timestamp":"2024-05-24T15:47:09.579Z"}
+{"level":"info","message":"Connect to database successfully","timestamp":"2024-05-24T15:51:09.048Z"}
+{"level":"info","message":"Server running at 3007","timestamp":"2024-05-24T15:51:09.048Z"}
+{"level":"info","message":"Connect to database successfully","timestamp":"2024-05-24T15:53:43.049Z"}
+{"level":"info","message":"Server running at 3007","timestamp":"2024-05-24T15:53:43.049Z"}
+{"level":"info","message":"Connect to database successfully","timestamp":"2024-05-24T16:05:53.812Z"}
+{"level":"info","message":"Server running at 3007","timestamp":"2024-05-24T16:05:53.812Z"}
+{"level":"info","message":"Connect to database successfully","timestamp":"2024-05-25T08:06:28.280Z"}
+{"level":"info","message":"Server running at 3007","timestamp":"2024-05-25T08:06:28.280Z"}
+{"level":"info","message":"Connect to database successfully","timestamp":"2024-05-25T08:06:35.192Z"}
+{"level":"info","message":"Server running at 3007","timestamp":"2024-05-25T08:06:35.192Z"}
+{"level":"info","message":"Connect to database successfully","timestamp":"2024-05-25T08:11:29.851Z"}
+{"level":"info","message":"Server running at 3007","timestamp":"2024-05-25T08:11:29.851Z"}
+{"level":"info","message":"The connection to database was failed with error: QueryFailedError: ER_NO_DEFAULT_FOR_FIELD: Field 'created_at' doesn't have a default value","timestamp":"2024-05-25T10:02:17.812Z"}
+{"level":"info","message":"Server running at 3007","timestamp":"2024-05-25T10:02:17.812Z"}
+{"level":"info","message":"The connection to database was failed with error: TSError: ⨯ Unable to compile TypeScript:\n\u001b[96msrc/migrations/1716627142243-SeedTokenTable.ts\u001b[0m:\u001b[93m3\u001b[0m:\u001b[93m27\u001b[0m - \u001b[91merror\u001b[0m\u001b[90m TS2306: \u001b[0mFile '/Users/vuviet/Desktop/Code/tele-alerts/src/seeds/token.seed.ts' is not a module.\n\n\u001b[7m3\u001b[0m import { tokenSeed } from \"../seeds/token.seed\";\n\u001b[7m \u001b[0m \u001b[91m                          ~~~~~~~~~~~~~~~~~~~~~\u001b[0m\n","timestamp":"2024-05-25T10:02:25.311Z"}
+{"level":"info","message":"Server running at 3007","timestamp":"2024-05-25T10:02:25.311Z"}
+{"level":"info","message":"Connect to database successfully","timestamp":"2024-05-25T10:04:43.701Z"}
+{"level":"info","message":"Server running at 3007","timestamp":"2024-05-25T10:04:43.701Z"}
+{"level":"info","message":"Connect to database successfully","timestamp":"2024-05-25T10:31:40.001Z"}
+{"level":"info","message":"Server running at 3007","timestamp":"2024-05-25T10:31:40.001Z"}
+{"level":"info","message":"Connect to database successfully","timestamp":"2024-05-25T10:35:32.056Z"}
+{"level":"info","message":"Server running at 3007","timestamp":"2024-05-25T10:35:32.056Z"}
+{"level":"info","message":"Connect to database successfully","timestamp":"2024-05-25T10:40:21.127Z"}
+{"level":"info","message":"Server running at 3007","timestamp":"2024-05-25T10:40:21.127Z"}
+{"level":"info","message":"Connect to database successfully","timestamp":"2024-05-25T10:43:19.550Z"}
+{"level":"info","message":"Server running at 3007","timestamp":"2024-05-25T10:43:19.550Z"}
+{"level":"info","message":"Connect to database successfully","timestamp":"2024-05-25T10:45:30.329Z"}
+{"level":"info","message":"Server running at 3007","timestamp":"2024-05-25T10:45:30.329Z"}
+{"level":"info","message":"Connect to database successfully","timestamp":"2024-05-25T10:50:12.299Z"}
+{"level":"info","message":"Server running at 3007","timestamp":"2024-05-25T10:50:12.299Z"}
+{"level":"info","message":"Connect to database successfully","timestamp":"2024-05-25T10:51:03.315Z"}
+{"level":"info","message":"Server running at 3007","timestamp":"2024-05-25T10:51:03.315Z"}

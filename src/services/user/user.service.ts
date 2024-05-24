@@ -37,8 +37,8 @@ const login = async (params: ILoginUser) => {
     .createQueryBuilder("user")
     .where("user.email = :email", { email: params.email })
     .select([
-      "user.createdAt",
-      "user.updatedAt",
+      "user.created_at",
+      "user.updated_at",
       "user.id",
       "user.email",
       "user.password",
@@ -92,7 +92,7 @@ const update = async (params: IUpdateUser) => {
   return await getRepository(User).update(query, {
     firstName: params.firstName,
     lastName: params.lastName,
-    updatedAt: DateTimeUtility.getCurrentTimeStamp(),
+    updated_at: DateTimeUtility.getCurrentTimeStamp(),
   });
 };
 
@@ -142,7 +142,7 @@ const remove = async (params: IDeleteById) => {
 
   return await getRepository(User).update(query, {
     isDeleted: true,
-    updatedAt: DateTimeUtility.getCurrentTimeStamp(),
+    updated_at: DateTimeUtility.getCurrentTimeStamp(),
   });
 };
 
