@@ -1,4 +1,4 @@
-import { MigrationInterface, QueryRunner, TableUnique } from "typeorm";
+import { MigrationInterface, QueryRunner } from "typeorm";
 
 export class UpdateTokenTable1716624887897 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {

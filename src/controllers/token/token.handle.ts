@@ -17,25 +17,30 @@ export const createTokenHandle = async (params: ICreateToken) => {
   }
 };
 
+const telegramAlertToken = async (params: ICreateToken) => {
+  await telegramService.sendNotification(
+    {
+      ...params,
+      pool_id: params.pool_id,
+      token_account_ids: params.token_account_ids,
+      token_symbols: params.token_symbols,
+      token_price: formatBalance(params.token_price),
+      liq: formatBalance(params.liq),
+    },
+    {
+      isGenerateTelegramHTML: true,
+    }
+  );
+};
+
 export const alertTokenHandle = async (params: ICreateToken) => {
   try {
-    const token = (await tokenService.getDetailToken(params)) as any;
+    const token = await tokenService.getDetailToken(params);
     if (!token) {
-      throw new StringError("Token New");
+      telegramAlertToken(params);
+      await tokenService.createToken(params);
     }
   } catch (error) {
-    await telegramService.sendNotification(
-      {
-        ...params,
-        pool_id: params.pool_id,
-        token_account_ids: params.token_account_ids,
-        token_symbols: params.token_symbols,
-        token_price: formatBalance(params.token_price),
-        liq: formatBalance(params.liq),
-      },
-      {
-        isGenerateTelegramHTML: true,
-      }
-    );
+    await telegramAlertToken(params);
   }
 };

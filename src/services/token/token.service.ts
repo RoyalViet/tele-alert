@@ -2,7 +2,6 @@ import { getRepository } from "typeorm";
 import { Token } from "../../entities/token/token.entity";
 import { ICreateToken } from "../../interfaces/token.interface";
 import ApiUtility from "../../utilities/api.utility";
-import { StringError } from "../../errors/string.error";
 
 const where = {};
 
@@ -30,9 +29,6 @@ export const getDetailToken = async (
     },
   };
   const tokenInfo = await getRepository(Token).findOne(query);
-  if (!tokenInfo) {
-    throw new StringError("Token is not existed");
-  }
   return ApiUtility.sanitizeData(tokenInfo);
 };
 
