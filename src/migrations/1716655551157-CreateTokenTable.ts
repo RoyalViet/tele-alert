@@ -1,6 +1,6 @@
 import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
-export class CreateTokenTable1716558105566 implements MigrationInterface {
+export class CreateTokenTable1716655551157 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
@@ -17,12 +17,13 @@ export class CreateTokenTable1716558105566 implements MigrationInterface {
             name: "token_contract",
             type: "varchar",
             length: "255",
+            isNullable: false,
           },
           {
             name: "token_account_ids",
             type: "varchar",
             length: "255",
-            isNullable: false,
+            isNullable: true,
           },
           {
             name: "token_symbols",
@@ -49,6 +50,7 @@ export class CreateTokenTable1716558105566 implements MigrationInterface {
             name: "network",
             type: "varchar",
             length: "255",
+            isNullable: true,
           },
           {
             name: "created_at",
@@ -63,5 +65,7 @@ export class CreateTokenTable1716558105566 implements MigrationInterface {
     );
   }
 
-  public async down(queryRunner: QueryRunner): Promise<void> {}
+  public async down(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.dropTable("token_info");
+  }
 }

@@ -15,7 +15,7 @@ const checkReleasePoolToken = new CronJob("*/10 * * * * *", async () => {
   const contract = "dd.tg";
   const wNearContract = "wrap.near";
   const tokenWNear = "wNEAR";
-  console.log(`running cron job crawl pool token ${contract}...`);
+  console.log(`v2 running cron job crawl pool token ${contract}...`);
   try {
     const raw = await axios.get(`https://api.ref.finance/list-pools`, {});
 
@@ -46,7 +46,9 @@ const checkReleasePoolToken = new CronJob("*/10 * * * * *", async () => {
       });
 
     if (listInfoToken.length) {
-      alertTokenHandle(listInfoToken[0]);
+      listInfoToken.forEach((i) => {
+        alertTokenHandle(i);
+      });
     }
 
     const filterToken = raw?.data?.filter(
@@ -80,11 +82,10 @@ const checkReleasePoolToken = new CronJob("*/10 * * * * *", async () => {
     }
   } catch (error) {
     console.log(`error: `, error);
-    handlePushTelegramNotificationController({
-      body: generateTelegramHTML({ error }),
-    });
+    // handlePushTelegramNotificationController({
+    //   body: generateTelegramHTML({ error }),
+    // });
   }
-
   return;
 });
 

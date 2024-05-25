@@ -27,11 +27,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const homepageController = __importStar(require("../controllers/homepageController"));
+const homepageController = __importStar(require("../controllers/common/homepageController"));
 const router = express_1.default.Router();
 const initAllWebRoutes = (app) => {
     router.get("/", homepageController.getHomePage);
-    router.post("/send-notification", homepageController.handlePushTelegramNotification);
+    router.post("/send-notification", homepageController.handlePushTelegramNotificationController);
     router.get("/telegram", homepageController.getTelegramPage);
     router.get("/send-animation", homepageController.sendAnimation);
     return app.use("/", router);

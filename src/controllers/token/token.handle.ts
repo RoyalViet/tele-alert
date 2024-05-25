@@ -17,13 +17,8 @@ export const createTokenHandle = async (params: ICreateToken) => {
   }
 };
 
-export const alertTokenHandle = async (params: ICreateToken) => {
+const telegramAlertToken = async (params: ICreateToken) => {
   try {
-    const token = (await tokenService.getDetailToken(params)) as any;
-    if (!token) {
-      throw new StringError("Token New");
-    }
-  } catch (error) {
     await telegramService.sendNotification(
       {
         ...params,
@@ -37,5 +32,19 @@ export const alertTokenHandle = async (params: ICreateToken) => {
         isGenerateTelegramHTML: true,
       }
     );
+  } catch (error) {}
+};
+
+export const alertTokenHandle = async (params: ICreateToken) => {
+  try {
+    const token = await tokenService.getDetailToken(params);
+    if (!token) {
+      telegramAlertToken(params);
+      await tokenService.createToken(params);
+    }
+  } catch (error) {
+    if (params.token_contract === "dd.tg") {
+      await telegramAlertToken(params);
+    }
   }
 };

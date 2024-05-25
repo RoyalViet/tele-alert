@@ -9,43 +9,46 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.User = void 0;
+exports.Token = void 0;
 const typeorm_1 = require("typeorm");
 // Entities
 const base_entity_1 = require("../base/base.entity");
-let User = class User extends base_entity_1.BaseEntity {
-    toJSON() {
-        delete this.isDeleted;
-        return this;
-    }
+let Token = class Token extends base_entity_1.BaseEntity {
 };
-exports.User = User;
+exports.Token = Token;
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)({ type: "int" }),
     __metadata("design:type", Number)
-], User.prototype, "id", void 0);
+], Token.prototype, "id", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ length: 100, nullable: false }),
-    (0, typeorm_1.Unique)(["email"]),
+    (0, typeorm_1.Column)({ type: "varchar", default: "" }),
     __metadata("design:type", String)
-], User.prototype, "email", void 0);
+], Token.prototype, "token_contract", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ length: 100, nullable: false, select: false }),
+    (0, typeorm_1.Column)({ type: "varchar", default: "" }),
     __metadata("design:type", String)
-], User.prototype, "password", void 0);
+], Token.prototype, "token_account_ids", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ length: 255, nullable: false }),
+    (0, typeorm_1.Column)({ type: "varchar", default: "" }),
     __metadata("design:type", String)
-], User.prototype, "firstName", void 0);
+], Token.prototype, "token_symbols", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ length: 255, nullable: false }),
+    (0, typeorm_1.Column)({ type: "double", nullable: false, default: 0 }),
+    __metadata("design:type", Number)
+], Token.prototype, "token_price", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ type: "float", nullable: false, default: 0 }),
+    __metadata("design:type", Number)
+], Token.prototype, "liq", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ type: "int", nullable: false, default: 0 }),
+    __metadata("design:type", Number)
+], Token.prototype, "pool_id", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ type: "varchar", nullable: false, default: "" }),
     __metadata("design:type", String)
-], User.prototype, "lastName", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ default: false }),
-    __metadata("design:type", Boolean)
-], User.prototype, "isDeleted", void 0);
-exports.User = User = __decorate([
-    (0, typeorm_1.Entity)("user", { orderBy: { id: "DESC" } })
-], User);
-//# sourceMappingURL=user.entity.js.map
+], Token.prototype, "network", void 0);
+exports.Token = Token = __decorate([
+    (0, typeorm_1.Entity)("token_info", { orderBy: { id: "DESC" } })
+], Token);
+//# sourceMappingURL=token.entity.js.map

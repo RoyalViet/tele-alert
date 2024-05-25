@@ -1,65 +1,85 @@
 import bcrypt from "bcrypt";
 import { ICreateUser } from "src/interfaces/user.interface";
 
-export const userSeed: Array<ICreateUser> = [
+export const userSeed = [
   {
     email: "admin@gmail.com",
     password: bcrypt.hashSync("password", 10),
     firstName: "Administrator",
     lastName: "",
+    created_at: "1716631493607",
+    updated_at: "1716631493607",
   },
   {
     email: "matteo@gmail.com",
     password: bcrypt.hashSync("password", 10),
     firstName: "Matteo",
     lastName: "Gleichner",
+    created_at: "1716631493607",
+    updated_at: "1716631493607",
   },
   {
     email: "titus@gmail.com",
     password: bcrypt.hashSync("password", 10),
     firstName: "Titus",
     lastName: "Marvin",
+    created_at: "1716631493607",
+    updated_at: "1716631493607",
   },
   {
     email: "diamond@gmail.com",
     password: bcrypt.hashSync("password", 10),
     firstName: "Diamond",
     lastName: "Beahan",
+    created_at: "1716631493607",
+    updated_at: "1716631493607",
   },
   {
     email: "ivy@gmail.com",
     password: bcrypt.hashSync("password", 10),
     firstName: "Ivy",
     lastName: "Homenick",
+    created_at: "1716631493607",
+    updated_at: "1716631493607",
   },
   {
     email: "diana@gmail.com",
     password: bcrypt.hashSync("password", 10),
     firstName: "Dianna",
     lastName: "McLaughlin",
+    created_at: "1716631493607",
+    updated_at: "1716631493607",
   },
   {
     email: "gwen@gmail.com",
     password: bcrypt.hashSync("password", 10),
     firstName: "Gwen",
     lastName: "McKenzie",
+    created_at: "1716631493607",
+    updated_at: "1716631493607",
   },
   {
     email: "emmalee@gmail.com",
     password: bcrypt.hashSync("password", 10),
     firstName: "Emmalee",
     lastName: "Braun",
+    created_at: "1716631493607",
+    updated_at: "1716631493607",
   },
   {
     email: "angeline@gmail.com",
     password: bcrypt.hashSync("password", 10),
     firstName: "Angeline",
     lastName: "Hyatt",
+    created_at: "1716631493607",
+    updated_at: "1716631493607",
   },
   {
     email: "josephine@gmail.com",
     password: bcrypt.hashSync("password", 10),
     firstName: "Josephine",
     lastName: "Mann",
+    created_at: "1716631493607",
+    updated_at: "1716631493607",
   },
 ];

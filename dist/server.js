@@ -16,6 +16,7 @@ require("dotenv").config();
 require("module-alias/register");
 const express_config_1 = __importDefault(require("./configs/express.config"));
 const logger_config_1 = __importDefault(require("./configs/logger.config"));
+const cronTask_1 = require("./cron/cronTask");
 const db_mysql_1 = __importDefault(require("./database/db.mysql"));
 const PORT = process.env.PORT || 8000;
 const main = () => __awaiter(void 0, void 0, void 0, function* () {
@@ -23,7 +24,7 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
     yield (0, db_mysql_1.default)();
     // cron job
     // job.start();
-    // checkReleasePoolToken.start();
+    cronTask_1.checkReleasePoolToken.start();
     // test
     // testF()
     express_config_1.default.listen(PORT, () => {

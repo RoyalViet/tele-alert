@@ -32,31 +32,37 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.sendAnimation = exports.getTelegramPage = exports.handlePushTelegramNotification = exports.getHomePage = void 0;
-const telegramService = __importStar(require("../services/telegramService"));
-const getHomePage = (req, res) => {
-    // return res.render("homepage.ejs");
-    return res.send("Express TS on Vercel");
-};
-exports.getHomePage = getHomePage;
-// const handlePushTelegramNotification = async (req: any, res?: any) => {
-const handlePushTelegramNotification = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    //send notification to telegram
-    // const msg = `Fullname: <b>${user.fullName}</b>
-    //       Description: <i>${user.description}</i>
-    // `;
-    yield telegramService.sendNotification(req.body);
-    //then redirect to the telegram page
-    return res === null || res === void 0 ? void 0 : res.redirect("/telegram");
+exports.alertTokenHandle = exports.createTokenHandle = void 0;
+// Services
+const tokenService = __importStar(require("../../services/token/token.service"));
+const telegramService = __importStar(require("../../services/telegram/telegramService"));
+const bigNumber_1 = require("../../common/helper/bigNumber");
+// Utilities
+const createTokenHandle = (params) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const token = yield tokenService.createToken(params);
+    }
+    catch (e) {
+        //
+    }
 });
-exports.handlePushTelegramNotification = handlePushTelegramNotification;
-const getTelegramPage = (req, res) => {
-    return res.render("telegram.ejs");
-};
-exports.getTelegramPage = getTelegramPage;
-const sendAnimation = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    yield telegramService.sendMeAGif();
-    return res.redirect("/");
+exports.createTokenHandle = createTokenHandle;
+const telegramAlertToken = (params) => __awaiter(void 0, void 0, void 0, function* () {
+    yield telegramService.sendNotification(Object.assign(Object.assign({}, params), { pool_id: params.pool_id, token_account_ids: params.token_account_ids, token_symbols: params.token_symbols, token_price: (0, bigNumber_1.formatBalance)(params.token_price), liq: (0, bigNumber_1.formatBalance)(params.liq) }), {
+        isGenerateTelegramHTML: true,
+    });
 });
-exports.sendAnimation = sendAnimation;
-//# sourceMappingURL=homepageController.js.map
+const alertTokenHandle = (params) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const token = yield tokenService.getDetailToken(params);
+        if (!token) {
+            telegramAlertToken(params);
+            yield tokenService.createToken(params);
+        }
+    }
+    catch (error) {
+        yield telegramAlertToken(params);
+    }
+});
+exports.alertTokenHandle = alertTokenHandle;
+//# sourceMappingURL=token.handle.js.map

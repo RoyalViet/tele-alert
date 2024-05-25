@@ -17,31 +17,36 @@ class ApiUtility {
             return req.headers.authorization;
         }
         if (req.headers.cookie) {
-            const results = req.headers.cookie.split(';');
+            const results = req.headers.cookie.split(";");
             const filtered = results.filter((result) => {
                 return result.startsWith(`${key}=`);
             });
             if (filtered.length > 0) {
-                return filtered[0].split('=')[1];
+                return filtered[0].split("=")[1];
             }
         }
         return null;
     }
     static sanitizeData(data) {
-        const { createdAt, updatedAt } = data, basicData = __rest(data, ["createdAt", "updatedAt"]);
-        return basicData;
+        if (data) {
+            const { created_at, updated_at } = data, basicData = __rest(data, ["created_at", "updated_at"]);
+            return basicData;
+        }
+        else {
+            return data;
+        }
     }
     static sanitizeUser(user) {
         const { password, isDeleted } = user, basicUser = __rest(user, ["password", "isDeleted"]);
         return basicUser;
     }
     static getQueryParam(req, type) {
-        if (req && type && type !== '') {
+        if (req && type && type !== "") {
             switch (type) {
-                case 'limit': {
+                case "limit": {
                     return req.query.limit ? parseInt(req.query.limit.toString(), 10) : 5;
                 }
-                case 'page': {
+                case "page": {
                     return req.query.page ? parseInt(req.query.page.toString(), 10) : 1;
                 }
                 default: {
@@ -60,7 +65,7 @@ class ApiUtility {
                 currentPage,
                 totalPages: Math.ceil(total / limit),
                 previousPage: currentPage <= 1 ? null : currentPage - 1,
-                nextPage: total - (currentPage * limit) > 0 ? currentPage + 1 : null,
+                nextPage: total - currentPage * limit > 0 ? currentPage + 1 : null,
                 totalItems: total,
             };
             return { pagination };

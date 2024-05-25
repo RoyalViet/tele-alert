@@ -1,15 +1,26 @@
 export const tokenSeed = [
-  // {
-  //   pool_id: 3563,
-  //   token_contract: "nearx.stader-labs.near",
-  //   token_account_ids: "nearx.stader-labs.near,wrap.near",
-  //   token_symbols: "nearx.stader-labs.near,wNEAR",
-  //   token_price: 1.169500855401045e-24,
-  //   liq: 4.3635551792638875e25,
-  //   network: "Near",
-  //   created_at: "1716631493607",
-  //   updated_at: "1716631493607",
-  // },
+  {
+    pool_id: 3563,
+    token_contract: "nearx.stader-labs.near",
+    token_account_ids: "nearx.stader-labs.near,wrap.near",
+    token_symbols: "nearx.stader-labs.near,wNEAR",
+    token_price: 1.169500855401045e-24,
+    liq: 4.3635551792638875e25,
+    network: "Near",
+    created_at: "1716631493607",
+    updated_at: "1716631493607",
+  },
+  {
+    pool_id: 5093,
+    token_contract: "draft.near",
+    token_account_ids: "draft,wrap.near",
+    token_symbols: "draft,wNEAR",
+    token_price: 0,
+    liq: 0,
+    network: "Near",
+    created_at: "1716631493607",
+    updated_at: "1716631493607",
+  },
   {
     pool_id: 4512,
     token_contract:

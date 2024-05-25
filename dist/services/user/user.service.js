@@ -36,8 +36,8 @@ const login = (params) => __awaiter(void 0, void 0, void 0, function* () {
         .createQueryBuilder("user")
         .where("user.email = :email", { email: params.email })
         .select([
-        "user.createdAt",
-        "user.updatedAt",
+        "user.created_at",
+        "user.updated_at",
         "user.id",
         "user.email",
         "user.password",
@@ -82,7 +82,7 @@ const update = (params) => __awaiter(void 0, void 0, void 0, function* () {
     return yield (0, typeorm_1.getRepository)(user_entity_1.User).update(query, {
         firstName: params.firstName,
         lastName: params.lastName,
-        updatedAt: date_time_utility_1.default.getCurrentTimeStamp(),
+        updated_at: date_time_utility_1.default.getCurrentTimeStamp(),
     });
 });
 const list = (params) => __awaiter(void 0, void 0, void 0, function* () {
@@ -117,7 +117,7 @@ const remove = (params) => __awaiter(void 0, void 0, void 0, function* () {
     }
     return yield (0, typeorm_1.getRepository)(user_entity_1.User).update(query, {
         isDeleted: true,
-        updatedAt: date_time_utility_1.default.getCurrentTimeStamp(),
+        updated_at: date_time_utility_1.default.getCurrentTimeStamp(),
     });
 });
 exports.default = {

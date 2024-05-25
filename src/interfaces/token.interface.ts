@@ -3,7 +3,7 @@ import BigNumber from "bignumber.js";
 import { IBaseQueryParams } from "./common.interface";
 
 export interface ICreateToken {
-  network: string;
+  network?: string;
   token_contract: string;
   token_account_ids: string[];
   token_symbols: string[];
@@ -14,7 +14,7 @@ export interface ICreateToken {
 
 export interface IUpdateToken {
   id: number;
-  network: string;
+  network?: string;
   token_contract: string;
   token_account_ids: string[];
   token_symbols: string[];

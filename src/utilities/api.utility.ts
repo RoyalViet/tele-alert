@@ -28,8 +28,12 @@ export default class ApiUtility {
   }
 
   static sanitizeData(data: BaseEntity) {
-    const { created_at, updated_at, ...basicData } = data;
-    return basicData;
+    if (data) {
+      const { created_at, updated_at, ...basicData } = data;
+      return basicData;
+    } else {
+      return data;
+    }
   }
 
   static sanitizeUser(user: User) {

@@ -12,14 +12,43 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.BaseEntity = void 0;
 const typeorm_1 = require("typeorm");
 class BaseEntity {
+    beforeInsert() {
+        if (!this.created_at) {
+            this.created_at = new Date().getTime().toString();
+            this.updated_at = new Date().getTime().toString();
+        }
+    }
+    beforeUpdated() {
+        this.updated_at = new Date().getTime().toString();
+    }
 }
 exports.BaseEntity = BaseEntity;
 __decorate([
-    (0, typeorm_1.CreateDateColumn)(),
-    __metadata("design:type", Date)
-], BaseEntity.prototype, "createdAt", void 0);
+    (0, typeorm_1.Column)("bigint", {
+        name: "created_at",
+        nullable: true,
+        default: new Date().getTime().toString(),
+    }),
+    __metadata("design:type", String)
+], BaseEntity.prototype, "created_at", void 0);
 __decorate([
-    (0, typeorm_1.UpdateDateColumn)(),
-    __metadata("design:type", Date)
-], BaseEntity.prototype, "updatedAt", void 0);
+    (0, typeorm_1.Column)("bigint", {
+        name: "updated_at",
+        nullable: true,
+        default: new Date().getTime().toString(),
+    }),
+    __metadata("design:type", String)
+], BaseEntity.prototype, "updated_at", void 0);
+__decorate([
+    (0, typeorm_1.BeforeInsert)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], BaseEntity.prototype, "beforeInsert", null);
+__decorate([
+    (0, typeorm_1.BeforeUpdate)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], BaseEntity.prototype, "beforeUpdated", null);
 //# sourceMappingURL=base.entity.js.map
