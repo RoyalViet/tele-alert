@@ -130,3 +130,11 @@
 {"level":"info","message":"Server running at 3007","timestamp":"2024-05-26T03:59:26.950Z"}
 {"level":"info","message":"Connect to database successfully","timestamp":"2024-05-26T04:47:30.273Z"}
 {"level":"info","message":"Server running at 3007","timestamp":"2024-05-26T04:47:30.273Z"}
+{"level":"info","message":"The connection to database was failed with error: TSError: ⨯ Unable to compile TypeScript:\n\u001b[96msrc/seeds/user.seed.ts\u001b[0m:\u001b[93m1\u001b[0m:\u001b[93m20\u001b[0m - \u001b[91merror\u001b[0m\u001b[90m TS7016: \u001b[0mCould not find a declaration file for module 'bcrypt'. 'D:/3.Code/tele-alerts/node_modules/.pnpm/bcrypt@5.1.1/node_modules/bcrypt/bcrypt.js' implicitly has an 'any' type.\r\n  Try `npm i --save-dev @types/bcrypt` if it exists or add a new declaration (.d.ts) file containing `declare module 'bcrypt';`\r\n\r\n\u001b[7m1\u001b[0m import bcrypt from \"bcrypt\";\r\n\u001b[7m \u001b[0m \u001b[91m                   ~~~~~~~~\u001b[0m\r\n","timestamp":"2024-05-26T11:11:29.457Z"}
+{"level":"info","message":"Server running at 3007","timestamp":"2024-05-26T11:11:29.457Z"}
+{"level":"info","message":"Connect to database successfully","timestamp":"2024-05-26T11:13:15.579Z"}
+{"level":"info","message":"Server running at 3007","timestamp":"2024-05-26T11:13:15.579Z"}
+{"level":"info","message":"Connect to database successfully","timestamp":"2024-05-26T11:22:52.282Z"}
+{"level":"info","message":"Server running at 3007","timestamp":"2024-05-26T11:22:52.282Z"}
+{"level":"info","message":"The connection to database was failed with error: Error: connect ECONNREFUSED 127.0.0.1:3306","timestamp":"2024-05-29T01:29:00.885Z"}
+{"level":"info","message":"Server running at 3007","timestamp":"2024-05-29T01:29:00.885Z"}
