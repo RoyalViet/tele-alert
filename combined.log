@@ -150,3 +150,5 @@
 {"level":"info","message":"Server running at 3007","timestamp":"2024-05-29T15:24:08.122Z"}
 {"level":"info","message":"The connection to database was failed with error: Error: connect ECONNREFUSED 127.0.0.1:3306","timestamp":"2024-05-30T01:27:28.899Z"}
 {"level":"info","message":"Server running at 3007","timestamp":"2024-05-30T01:27:28.899Z"}
+{"level":"info","message":"The connection to database was failed with error: Error: connect ECONNREFUSED 127.0.0.1:3306","timestamp":"2024-05-30T16:24:23.073Z"}
+{"level":"info","message":"Server running at 3007","timestamp":"2024-05-30T16:24:23.073Z"}

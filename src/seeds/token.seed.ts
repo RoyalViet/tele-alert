@@ -18,7 +18,7 @@ export const tokenSeed = [
       "wrap.near,4e807467ba9e3119d5356c5568ef63e9c321b471.factory.bridge.near",
     token_symbols: "wNEAR,OTTO",
     token_price: 7.47748558,
-    liq: "33888.77935968",
+    liq: 33888.77935968,
     network: "Near",
     created_at: "1716631493607",
     updated_at: "1716631493607",
