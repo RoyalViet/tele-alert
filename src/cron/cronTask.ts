@@ -11,6 +11,7 @@ const job = new CronJob("*/10 * * * * *", () => {
   console.log("Đây là một log message.");
 });
 
+let count = 1;
 const checkReleasePoolToken = new CronJob("*/10 * * * * *", async () => {
   const contract = "dd.tg";
   const wNearContract = "wrap.near";
@@ -75,7 +76,8 @@ const checkReleasePoolToken = new CronJob("*/10 * * * * *", async () => {
         };
       });
 
-    if (rsFocus.length) {
+    if (rsFocus.length && count < 100) {
+      count++;
       handlePushTelegramNotificationController({
         body: rsFocus.map((i: any) => generateTelegramHTML(i)).join("\n\n"),
       });

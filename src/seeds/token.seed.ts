@@ -11,6 +11,30 @@ export const tokenSeed = [
     updated_at: "1716631493607",
   },
   {
+    pool_id: 4479,
+    token_contract:
+      "4e807467ba9e3119d5356c5568ef63e9c321b471.factory.bridge.near",
+    token_account_ids:
+      "wrap.near,4e807467ba9e3119d5356c5568ef63e9c321b471.factory.bridge.near",
+    token_symbols: "wNEAR,OTTO",
+    token_price: 7.47748558,
+    liq: "33888.77935968",
+    network: "Near",
+    created_at: "1716631493607",
+    updated_at: "1716631493607",
+  },
+  {
+    pool_id: 5115,
+    token_contract: "draft",
+    token_account_ids: "nearx.stader-labs.near,wrap.near",
+    token_symbols: "nearx.stader-labs.near,wNEAR",
+    token_price: 1.169500855401045e-24,
+    liq: 4.3635551792638875e25,
+    network: "Near",
+    created_at: "1716631493607",
+    updated_at: "1716631493607",
+  },
+  {
     pool_id: 5093,
     token_contract: "draft.near",
     token_account_ids: "draft,wrap.near",
