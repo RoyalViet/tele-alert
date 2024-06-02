@@ -11,6 +11,28 @@ export const tokenSeed = [
     updated_at: "1716631493607",
   },
   {
+    pool_id: 5119,
+    token_contract: "Draft",
+    token_account_ids: "Draft,wrap.near",
+    token_symbols: "Draft,wNEAR",
+    token_price: 1.169500855401045e-24,
+    liq: 4.3635551792638875e25,
+    network: "Near",
+    created_at: "1716631493607",
+    updated_at: "1716631493607",
+  },
+  {
+    pool_id: 5121,
+    token_contract: "pnx.tkn.near",
+    token_account_ids: "pnx.tkn.near,wrap.near",
+    token_symbols: "pnx.tkn.near,wNEAR",
+    token_price: 1.169500855401045e-24,
+    liq: 4.3635551792638875e25,
+    network: "Near",
+    created_at: "1716631493607",
+    updated_at: "1716631493607",
+  },
+  {
     pool_id: 4479,
     token_contract:
       "4e807467ba9e3119d5356c5568ef63e9c321b471.factory.bridge.near",
