@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 8000;
 
 const main = async () => {
   // connectDB
-  await connectDB();
+  // await connectDB();
 
   // cron job
   // job.start();
