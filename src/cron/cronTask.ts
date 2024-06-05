@@ -5,6 +5,7 @@ import { bigNumber, formatBalance } from "../common/helper/bigNumber";
 import { generateTelegramHTML } from "../common/helper/common.helper";
 import { handlePushTelegramNotificationController } from "../controllers/common/homepageController";
 import { alertTokenHandle } from "../controllers/token/token.handle";
+import { listPriceSeed } from "../seeds/price-token.seed";
 
 const job = new CronJob("*/10 * * * * *", () => {
   // Tác vụ log message
@@ -19,6 +20,32 @@ const checkReleasePoolToken = new CronJob("*/10 * * * * *", async () => {
   console.log(`v2 running cron job crawl pool token ${contract}...`);
   try {
     const raw = await axios.get(`https://api.ref.finance/list-pools`, {});
+
+    try {
+      const listPrice = await axios.get(
+        `https://api.ref.finance/list-token-price`,
+        {}
+      );
+
+      if (listPrice.data[contract]) {
+        if (bigNumber(listPrice.data[contract]?.price).gt(0) && count < 100) {
+          count++;
+          handlePushTelegramNotificationController({
+            body: generateTelegramHTML(listPrice.data[contract]),
+          });
+        }
+      }
+      if (Object.keys(listPrice.data || {})) {
+        Object.keys(listPrice.data || {}).forEach((key: string) => {
+          if (!listPriceSeed[key]) {
+            handlePushTelegramNotificationController({
+              body: generateTelegramHTML(listPrice.data[key]),
+            });
+            listPriceSeed[key] = listPrice.data[key];
+          }
+        });
+      }
+    } catch (error) {}
 
     const listInfoToken: Array<ICreateToken> = raw?.data
       ?.filter(
