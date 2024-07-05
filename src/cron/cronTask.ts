@@ -39,9 +39,12 @@ const checkReleasePoolToken = new CronJob("*/10 * * * * *", async () => {
         Object.keys(listPrice.data || {}).forEach((key: string) => {
           if (!listPriceSeed[key]) {
             handlePushTelegramNotificationController({
-              body: generateTelegramHTML(listPrice.data[key]),
+              body: generateTelegramHTML({
+                ...listPrice.data[key],
+                contract: key,
+              }),
             });
-            listPriceSeed[key] = listPrice.data[key];
+            listPriceSeed[key] = { ...listPrice.data[key], contract: key };
           }
         });
       }

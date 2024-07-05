@@ -1,5 +1,19 @@
 export const listPriceSeed: Record<string, any> = {
+  "hat.tkn.near": { price: "7.5", decimal: 18, symbol: "HAT" },
+  "intel.tkn.near": { price: "7.5", decimal: 24, symbol: "near" },
   "wrap.near": { price: "7.5", decimal: 24, symbol: "near" },
+  "edge-fast.near": {
+    price: 0.180642305175,
+    symbol: "FAST",
+    decimal: 24,
+    contract: "edge-fast.near",
+  },
+  "babyblackdragon.tkn.near": {
+    price: 0.000000002086,
+    symbol: "BABYBLACKDRAGON",
+    decimal: 24,
+    contract: "babyblackdragon.tkn.near",
+  },
   "a0b86991c6218b36c1d19d4a2e9eb0ce3606eb48.factory.bridge.near": {
     price: "0.99993",
     decimal: 6,
