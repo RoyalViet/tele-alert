@@ -1,4 +1,10 @@
 export const listPriceSeed: Record<string, any> = {
+  "16.contract.portalbridge.near": {
+    price: "7.5",
+    decimal: 18,
+    symbol: "Draft",
+  },
+  "dv31egkulq.vrtx": { price: "7.5", decimal: 18, symbol: "WB" },
   "hat.tkn.near": { price: "7.5", decimal: 18, symbol: "HAT" },
   "intel.tkn.near": { price: "7.5", decimal: 24, symbol: "near" },
   "wrap.near": { price: "7.5", decimal: 24, symbol: "near" },
