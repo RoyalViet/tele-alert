@@ -13,10 +13,10 @@ const job = new CronJob("*/10 * * * * *", () => {
 });
 
 let count = 1;
+export const contract = "aa-harvest-moon.near";
+const wNearContract = "wrap.near";
+
 const checkReleasePoolToken = new CronJob("*/10 * * * * *", async () => {
-  const contract = "dd.tg";
-  const wNearContract = "wrap.near";
-  const tokenWNear = "wNEAR";
   console.log(`v2 running cron job crawl pool token ${contract}...`);
   try {
     const raw = await axios.get(`https://api.ref.finance/list-pools`, {});

@@ -6,6 +6,7 @@ import * as tokenService from "../../services/token/token.service";
 import * as telegramService from "../../services/telegram/telegramService";
 import { formatBalance } from "../../common/helper/bigNumber";
 import { tokenSeed } from "../../seeds/token.seed";
+import { contract } from "../../cron/cronTask";
 
 // Utilities
 
@@ -46,7 +47,7 @@ export const alertTokenHandle = async (params: ICreateToken) => {
       tokenSeed.push({ ...(params as any) });
     }
   } catch (error) {
-    if (params.token_contract === "dd.tg") {
+    if (params.token_contract === contract) {
       await telegramAlertToken(params);
     }
   }
