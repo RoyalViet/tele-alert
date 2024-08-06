@@ -1,4 +1,14 @@
 export const listPriceSeed: Record<string, any> = {
+  "dd.tg": {
+    price: "7.5",
+    decimal: 18,
+    symbol: "DD",
+  },
+  "neiro.token0.near": {
+    price: "7.5",
+    decimal: 18,
+    symbol: "NEIRO",
+  },
   "16.contract.portalbridge.near": {
     price: "7.5",
     decimal: 18,
