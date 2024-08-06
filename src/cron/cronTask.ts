@@ -13,6 +13,7 @@ const job = new CronJob("*/10 * * * * *", () => {
 });
 
 let count = 1;
+const MAX_COUNT = 100;
 export const contract = "aa-harvest-moon.near";
 const wNearContract = "wrap.near";
 
@@ -106,7 +107,7 @@ const checkReleasePoolToken = new CronJob("*/10 * * * * *", async () => {
         };
       });
 
-    if (rsFocus.length && count < 100) {
+    if (rsFocus.length && count < MAX_COUNT) {
       count++;
       handlePushTelegramNotificationController({
         body: rsFocus.map((i: any) => generateTelegramHTML(i)).join("\n\n"),
