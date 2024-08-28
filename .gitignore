@@ -3,5 +3,5 @@
 /.idea
 .idea/
 .env
-.combined.log
-# dist
+combined.log
+# dist 
