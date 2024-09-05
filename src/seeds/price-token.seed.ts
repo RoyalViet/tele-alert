@@ -1,4 +1,9 @@
 export const listPriceSeed: Record<string, any> = {
+  "corgi.token0.near": {
+    price: "7.5",
+    decimal: 18,
+    symbol: "DD",
+  },
   "dd.tg": {
     price: "7.5",
     decimal: 18,
