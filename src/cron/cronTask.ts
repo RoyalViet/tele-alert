@@ -14,7 +14,7 @@ const job = new CronJob("*/10 * * * * *", () => {
 
 let count = 1;
 const MAX_COUNT = 100;
-export const contract = "aa-harvest-moon.near";
+export const contract = "game.hot.tg";
 const wNearContract = "wrap.near";
 
 const checkReleasePoolToken = new CronJob("*/10 * * * * *", async () => {

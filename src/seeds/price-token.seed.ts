@@ -1,4 +1,9 @@
 export const listPriceSeed: Record<string, any> = {
+  "kat.token0.near": {
+    price: "7.5",
+    decimal: 18,
+    symbol: "KAT",
+  },
   "corgi.token0.near": {
     price: "7.5",
     decimal: 18,
