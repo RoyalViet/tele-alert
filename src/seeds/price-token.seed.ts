@@ -1,4 +1,9 @@
 export const listPriceSeed: Record<string, any> = {
+  "chill-129.meme-cooking.near": {
+    price: "7.5",
+    decimal: 18,
+    symbol: "KAT",
+  },
   "gp.token0.near": {
     price: "7.5",
     decimal: 18,
