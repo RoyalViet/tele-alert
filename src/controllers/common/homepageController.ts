@@ -11,6 +11,8 @@ const handlePushTelegramNotificationController = async (
   res?: any
 ) => {
   await telegramService.sendNotification(req.body);
+  console.log("send :", req.body);
+
   return res?.redirect("/telegram");
 };
 
