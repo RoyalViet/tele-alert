@@ -7,13 +7,50 @@ import { bigNumber, formatBalance } from "../common/helper/bigNumber";
 import { generateTelegramHTML } from "../common/helper/common.helper";
 import { handlePushTelegramNotificationController } from "../controllers/common/homepageController";
 import { alertTokenHandle } from "../controllers/token/token.handle";
-import { listPriceSeed } from "../seeds/price-token.seed";
-// import { existingMemes } from "../seeds/meme-cook.seed";
 
-const job = new CronJob("*/10 * * * * *", () => {
-  // Tác vụ log message
-  console.log("Đây là một log message.");
-});
+// Đường dẫn tới file chứa các meme
+const tokenFilePath = path.join(
+  process.cwd(),
+  "src",
+  "seeds",
+  "token.seed.json"
+);
+
+// Đường dẫn tới file chứa các meme
+const priceTokenPath = path.join(
+  process.cwd(),
+  "src",
+  "seeds",
+  "price-token.seed.json"
+);
+
+// Hàm để đọc danh sách token từ file
+const readTokenList = (): Array<any> => {
+  if (fs.existsSync(tokenFilePath)) {
+    const data = fs.readFileSync(tokenFilePath, "utf-8");
+    return JSON.parse(data);
+  }
+  return [];
+};
+
+// Hàm để ghi danh sách token vào file
+const writeTokenList = (tokenList: Array<any>) => {
+  fs.writeFileSync(tokenFilePath, JSON.stringify(tokenList, null, 2), "utf-8");
+};
+
+//
+const readPriceTokenList = (): Record<string, any> => {
+  if (fs.existsSync(priceTokenPath)) {
+    const data = fs.readFileSync(priceTokenPath, "utf-8");
+    return JSON.parse(data);
+  }
+  return {};
+};
+
+// Hàm để ghi danh sách token vào file
+const writePriceTokenList = (tokenList: Record<string, any>) => {
+  fs.writeFileSync(priceTokenPath, JSON.stringify(tokenList, null, 2), "utf-8");
+};
 
 let count = 1;
 const MAX_COUNT = 100;
@@ -23,8 +60,6 @@ const wNearContract = "wrap.near";
 const checkReleasePoolToken = new CronJob("*/10 * * * * *", async () => {
   console.log(`v2 running cron job crawl pool token ${contract}...`);
   try {
-    const raw = await axios.get(`https://api.ref.finance/list-pools`, {});
-
     try {
       const listPrice = await axios.get(
         `https://api.ref.finance/list-token-price`,
@@ -39,6 +74,9 @@ const checkReleasePoolToken = new CronJob("*/10 * * * * *", async () => {
           });
         }
       }
+
+      const listPriceSeed = readPriceTokenList();
+
       if (Object.keys(listPrice.data || {})) {
         Object.keys(listPrice.data || {}).forEach((key: string) => {
           if (!listPriceSeed[key]) {
@@ -49,10 +87,13 @@ const checkReleasePoolToken = new CronJob("*/10 * * * * *", async () => {
               }),
             });
             listPriceSeed[key] = { ...listPrice.data[key], contract: key };
+            writePriceTokenList(listPriceSeed);
           }
         });
       }
     } catch (error) {}
+
+    const raw = await axios.get(`https://api.ref.finance/list-pools`, {});
 
     const listInfoToken: Array<ICreateToken> = raw?.data
       ?.filter(
@@ -80,9 +121,14 @@ const checkReleasePoolToken = new CronJob("*/10 * * * * *", async () => {
         } as ICreateToken;
       });
 
+    const tokenSeed = readTokenList();
     if (listInfoToken.length) {
-      listInfoToken.forEach((i) => {
-        // alertTokenHandle(i);
+      listInfoToken.forEach((t) => {
+        const token = tokenSeed.find((i) => i.pool_id === t.pool_id);
+        if (!token) {
+          alertTokenHandle(t);
+          writeTokenList([t, ...tokenSeed]);
+        }
       });
     }
 
@@ -239,10 +285,5 @@ async function fetchActiveMemes(): Promise<Meme[]> {
     return [];
   }
 }
-const checkMemeCooking = new CronJob("*/10 * * * * *", async () => {
-  console.log(`v2 running cron job crawl meme cook ...`);
-  fetchActiveMemes();
-  return;
-});
 
-export { checkReleasePoolToken, job, checkMemeCooking };
+export { checkReleasePoolToken };

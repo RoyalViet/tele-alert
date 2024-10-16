@@ -5,7 +5,6 @@ import { ICreateToken } from "../../interfaces/token.interface";
 import * as tokenService from "../../services/token/token.service";
 import * as telegramService from "../../services/telegram/telegramService";
 import { formatBalance } from "../../common/helper/bigNumber";
-import { tokenSeed } from "../../seeds/token.seed";
 import { contract } from "../../cron/cronTask";
 
 // Utilities
@@ -39,13 +38,13 @@ const telegramAlertToken = async (params: ICreateToken) => {
 export const alertTokenHandle = async (params: ICreateToken) => {
   try {
     // const token = await tokenService.getDetailToken(params);
-    const token2 = tokenSeed.find((i) => i.pool_id === params.pool_id);
+    // const token2 = tokenSeed.find((i) => i.pool_id === params.pool_id);
     // if (!token) {
-    if (!token2) {
-      telegramAlertToken(params);
-      // await tokenService.createToken(params);
-      tokenSeed.push({ ...(params as any) });
-    }
+    // if (!token2) {
+    telegramAlertToken(params);
+    // await tokenService.createToken(params);
+    // tokenSeed.push({ ...(params as any) });
+    // }
   } catch (error) {
     if (params.token_contract === contract) {
       await telegramAlertToken(params);

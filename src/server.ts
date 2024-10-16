@@ -3,8 +3,10 @@ import "module-alias/register";
 
 import app from "./configs/express.config";
 import logger from "./configs/logger.config";
-import { checkReleasePoolToken } from "./cron/cronTask";
-import connectDB from "./database/db.mysql";
+// import { checkMemeCooking, checkReleasePoolToken } from "./cron/cronTask";
+// import connectDB from "./database/db.mysql";
+import { checkReleasePoolToken } from "./cron/pool-token.cron";
+import { checkMemeCooking } from "./cron/meme-cook.cron";
 
 const PORT = process.env.PORT || 8000;
 
@@ -15,6 +17,7 @@ const main = async () => {
   // cron job
   // job.start();
   checkReleasePoolToken.start();
+  // checkMemeCooking.start();
 
   // test
   // testF()

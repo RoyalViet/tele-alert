@@ -10,10 +10,13 @@ const handlePushTelegramNotificationController = async (
   req: any,
   res?: any
 ) => {
-  await telegramService.sendNotification(req.body);
-  console.log("send :", req.body);
-
-  return res?.redirect("/telegram");
+  try {
+    await telegramService.sendNotification(req.body);
+    console.log("send :", req.body);
+    return res?.redirect("/telegram");
+  } catch (error) {
+    console.log("error :", error?.message);
+  }
 };
 
 const getTelegramPage = (req: any, res: any) => {
