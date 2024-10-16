@@ -132,10 +132,11 @@ async function fetchActiveMemes(): Promise<Meme[]> {
     });
 
     // Lọc các meme còn thời gian
-    const currentTime = Date.now();
-    const activeMemes = response.data.filter(
-      (meme) => meme.end_timestamp_ms + 30 * 60 * 1000 > currentTime
-    );
+    const activeMemes = response.data;
+    // const currentTime = Date.now();
+    // const activeMemes = response.data.filter(
+    //   (meme) => meme.end_timestamp_ms + 30 * 60 * 1000 > currentTime
+    // );
 
     response.data.forEach((m) => {
       const hasHardCap =
