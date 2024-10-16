@@ -4,6 +4,7 @@ import fs from "fs";
 import path from "path";
 import { bigNumber, formatBalance } from "../common/helper/bigNumber";
 import { handlePushTelegramNotificationController } from "../controllers/common/homepageController";
+import { generateTelegramHTML } from "../common/helper/common.helper";
 
 // Đường dẫn tới file chứa các meme
 const idsPath = path.join(
@@ -78,26 +79,47 @@ function generateTelegramHTMLMemeCook(meme: any): string {
     .dividedBy(Math.pow(10, 24))
     .toFixed(2);
 
-  return `
-*OwnerLink:* https://nearblocks.io/address/${meme.owner}?tab=tokentxns
-*Total Deposit:* ${formatBalance(totalDeposit)} Near
-*HardCap:* ${formatBalance(hardCap)} Near
-*ID:* ${meme.meme_id}
-*Owner:* ${meme.owner}
-*Name:* ${meme.name}
-*Symbol:* ${meme.symbol}
-*SoftCap:* ${formatBalance(softCap)} Near
-*Decimals:* ${meme.decimals}
-*Total Supply:* ${formatBalance(totalSupply)}
-*Contract:* ${meme.token_id ? meme.token_id : "N/A"}
-*PoodID:* ${meme.pool_id ? meme.pool_id : "N/A"}
-*Twitter:* ${meme.twitterLink ? meme.twitterLink : "N/A"}
-*Telegram:* ${meme.telegramLink ? meme.telegramLink : "N/A"}
-*Description:* ${meme.description ? meme.description : "N/A"}
-*Image:* [View Image](https://plum-necessary-chameleon-942.mypinata.cloud/ipfs/${
-    meme.image
-  })
-  `;
+  const memeDetails = {
+    OwnerLink: `https://nearblocks.io/address/${meme.owner}?tab=tokentxns`,
+    TotalDeposit: `${formatBalance(totalDeposit)} Near`,
+    HardCap: `${formatBalance(hardCap)} Near`,
+    ID: meme.meme_id,
+    Owner: meme.owner,
+    Name: meme.name,
+    Symbol: meme.symbol,
+    SoftCap: `${formatBalance(softCap)} Near`,
+    Decimals: meme.decimals,
+    TotalSupply: `${formatBalance(totalSupply)}`,
+    Contract: meme.token_id ? meme.token_id : "N/A",
+    PoolID: meme.pool_id ? meme.pool_id : "N/A",
+    Twitter: meme.twitterLink ? meme.twitterLink : "N/A",
+    Telegram: meme.telegramLink ? meme.telegramLink : "N/A",
+    Description: meme.description ? meme.description : "N/A",
+    Image: `![View Image](https://plum-necessary-chameleon-942.mypinata.cloud/ipfs/${meme.image})`,
+  };
+
+  return generateTelegramHTML(memeDetails);
+
+  //   return `
+  // *OwnerLink:* https://nearblocks.io/address/${meme.owner}?tab=tokentxns
+  // *Total Deposit:* ${formatBalance(totalDeposit)} Near
+  // *HardCap:* ${formatBalance(hardCap)} Near
+  // *ID:* ${meme.meme_id}
+  // *Owner:* ${meme.owner}
+  // *Name:* ${meme.name}
+  // *Symbol:* ${meme.symbol}
+  // *SoftCap:* ${formatBalance(softCap)} Near
+  // *Decimals:* ${meme.decimals}
+  // *Total Supply:* ${formatBalance(totalSupply)}
+  // *Contract:* ${meme.token_id ? meme.token_id : "N/A"}
+  // *PoodID:* ${meme.pool_id ? meme.pool_id : "N/A"}
+  // *Twitter:* ${meme.twitterLink ? meme.twitterLink : "N/A"}
+  // *Telegram:* ${meme.telegramLink ? meme.telegramLink : "N/A"}
+  // *Description:* ${meme.description ? meme.description : "N/A"}
+  // *Image:* [View Image](https://plum-necessary-chameleon-942.mypinata.cloud/ipfs/${
+  //     meme.image
+  //   })
+  //   `;
 }
 
 const existingMemes = readExistingMemes();

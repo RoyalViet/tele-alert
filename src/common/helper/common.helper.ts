@@ -1,11 +1,13 @@
 import fs from "fs";
 
 function generateTelegramHTML(data: { [key: string]: any }): string {
-  let html = "";
+  let html = "==========\n"; // Thêm đường gạch ngang ở trên
 
   for (const key in data) {
     html += `<b>${key}:</b> ${data[key]}\n`;
   }
+
+  html += "=========="; // Thêm đường gạch ngang ở dưới
 
   return html.trim();
 }
