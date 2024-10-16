@@ -1,5 +1,36 @@
 [
   {
+    "pool_id": 5510,
+    "token_contract": "nchad-243.meme-cooking.near",
+    "token_account_ids": [
+      "nchad-243.meme-cooking.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "NCHAD",
+      "wNEAR"
+    ],
+    "token_price": 0.000005322919913870415,
+    "liq": 5152.41063732011,
+    "network": "Near",
+    "tvl": "5152.41063732011"
+  },
+  {
+    "pool_id": 5508,
+    "token_contract": "bcc-242.meme-cooking.near",
+    "token_account_ids": [
+      "bcc-242.meme-cooking.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "BCC",
+      "wNEAR"
+    ],
+    "token_price": 0.00000502,
+    "liq": 5020,
+    "network": "Near"
+  },
+  {
     "pool_id": 3563,
     "token_contract": "nearx.stader-labs.near",
     "token_account_ids": [

@@ -2,12 +2,42 @@ import axios from "axios";
 import { CronJob } from "cron";
 import fs from "fs";
 import path from "path";
-import { formatBalance } from "../common/helper/bigNumber";
+import { bigNumber, formatBalance } from "../common/helper/bigNumber";
 import { handlePushTelegramNotificationController } from "../controllers/common/homepageController";
+
+// Đường dẫn tới file chứa các meme
+const idsPath = path.join(
+  process.cwd(),
+  "src",
+  "seeds",
+  "ids-meme-full-cap.seed.json"
+);
+
+// Hàm để đọc meme_id từ file vào Set
+const readMemeIdsFromFile = () => {
+  if (fs.existsSync(idsPath)) {
+    const data = fs.readFileSync(idsPath, "utf-8"); // Đọc file
+    const memeIdArray = JSON.parse(data); // Chuyển đổi JSON thành mảng
+    return new Set(memeIdArray); // Trả về Set
+  }
+  return new Set(); // Trả về Set rỗng nếu file không tồn tại
+};
+
+// Hàm để ghi Set vào file
+const writeMemeIdsToFile = () => {
+  const memeIdArray = Array.from(sentMemeIds); // Chuyển đổi Set thành mảng
+  fs.writeFileSync(idsPath, JSON.stringify(memeIdArray, null, 2), "utf-8"); // Ghi vào file
+};
+
+// Đọc meme_id từ file vào Set
+const sentMemeIds = readMemeIdsFromFile();
 
 interface Meme {
   meme_id: number;
   end_timestamp_ms: number;
+  total_deposit: string;
+  hard_cap: string;
+  soft_cap: string;
   // Các thuộc tính khác nếu cần
 }
 
@@ -35,28 +65,42 @@ function writeExistingMemes(memes: Meme[]): void {
 
 function generateTelegramHTMLMemeCook(meme: any): string {
   const decimals = meme.decimals || 18; // Mặc định là 18 nếu không có
-  const totalSupply = (
-    parseFloat(meme.total_supply) / Math.pow(10, decimals)
-  ).toFixed(2);
-  const totalDeposit = (
-    parseFloat(meme.total_deposit) / Math.pow(10, 24)
-  ).toFixed(2);
+  const totalSupply = bigNumber(meme.total_supply)
+    .dividedBy(Math.pow(10, decimals))
+    .toFixed(2);
+  const totalDeposit = bigNumber(meme.total_deposit)
+    .dividedBy(Math.pow(10, 24))
+    .toFixed(2);
+  const softCap = bigNumber(meme.soft_cap)
+    .dividedBy(Math.pow(10, 24))
+    .toFixed(2);
+  const hardCap = bigNumber(meme.hard_cap || 0)
+    .dividedBy(Math.pow(10, 24))
+    .toFixed(2);
 
   return `
-*Total Deposit:* ${formatBalance(totalDeposit)} N
+*OwnerLink:* https://nearblocks.io/address/${meme.owner}?tab=tokentxns
+*Total Deposit:* ${formatBalance(totalDeposit)} Near
+*HardCap:* ${formatBalance(hardCap)} Near
 *ID:* ${meme.meme_id}
 *Owner:* ${meme.owner}
 *Name:* ${meme.name}
 *Symbol:* ${meme.symbol}
+*SoftCap:* ${formatBalance(softCap)} Near
 *Decimals:* ${meme.decimals}
 *Total Supply:* ${formatBalance(totalSupply)}
+*Contract:* ${meme.token_id ? meme.token_id : "N/A"}
+*PoodID:* ${meme.pool_id ? meme.pool_id : "N/A"}
 *Twitter:* ${meme.twitterLink ? meme.twitterLink : "N/A"}
 *Telegram:* ${meme.telegramLink ? meme.telegramLink : "N/A"}
+*Description:* ${meme.description ? meme.description : "N/A"}
 *Image:* [View Image](https://plum-necessary-chameleon-942.mypinata.cloud/ipfs/${
     meme.image
   })
   `;
 }
+
+const existingMemes = readExistingMemes();
 
 // Hàm để lấy các meme chưa hết thời gian countdown
 async function fetchActiveMemes(): Promise<Meme[]> {
@@ -86,21 +130,32 @@ async function fetchActiveMemes(): Promise<Meme[]> {
     // Lọc các meme còn thời gian
     const currentTime = Date.now();
     const activeMemes = response.data.filter(
-      (meme) => meme.end_timestamp_ms > currentTime
+      (meme) => meme.end_timestamp_ms + 30 * 60 * 1000 > currentTime
     );
 
-    const existingMemes = readExistingMemes();
+    response.data.forEach((m) => {
+      const hasHardCap =
+        bigNumber(m.total_deposit).gte(m.hard_cap) &&
+        bigNumber(m.hard_cap).gte(m.soft_cap);
 
-    // So sánh với mảng có sẵn để tìm các meme_id mới
-    const newMemes = activeMemes.filter(
-      (activeMeme) =>
-        !existingMemes.some(
-          (existingMeme) => existingMeme.meme_id === activeMeme.meme_id
-        )
-    );
+      if (hasHardCap && !sentMemeIds.has(m.meme_id)) {
+        handlePushTelegramNotificationController({
+          body: generateTelegramHTMLMemeCook(m),
+        });
+        // Thêm meme_id vào Set để tránh gửi lại
+        sentMemeIds.add(m.meme_id);
+        console.log([...sentMemeIds]);
+        writeMemeIdsToFile();
+      }
+    });
 
-    // Log ra các meme_id mới
-    console.log("New meme IDs:", newMemes);
+    const newMemes = activeMemes.filter((activeMeme) => {
+      const isNotInExistingMemes = !existingMemes.some(
+        (existingMeme) => existingMeme.meme_id === activeMeme.meme_id
+      );
+      return isNotInExistingMemes;
+    });
+
     if (newMemes.length) {
       handlePushTelegramNotificationController({
         body: newMemes
@@ -109,8 +164,9 @@ async function fetchActiveMemes(): Promise<Meme[]> {
       });
 
       // Thêm các meme mới vào mảng hiện có và ghi lại vào file
-      const updatedMemes = [...newMemes, ...existingMemes];
-      writeExistingMemes(updatedMemes);
+      existingMemes.unshift(...newMemes);
+      // const updatedMemes = [...newMemes, ...existingMemes];
+      writeExistingMemes(existingMemes);
     }
 
     return newMemes;

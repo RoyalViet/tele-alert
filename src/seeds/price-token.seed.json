@@ -17,12 +17,6 @@
     "decimal": 6,
     "contract": "17208628f84f5d6ad33f0da3bbbeb27ffcb398eac501a31bd6ad2011e36133a1"
   },
-  "1f9840a85d5af5bf1d1762f925bdaddc4201f984.factory.bridge.near": {
-    "price": "7.88",
-    "symbol": "UNI",
-    "decimal": 18,
-    "contract": "1f9840a85d5af5bf1d1762f925bdaddc4201f984.factory.bridge.near"
-  },
   "2260fac5e5542a773aa44fbcfedf7c193bc2c599.factory.bridge.near": {
     "price": "66850",
     "symbol": "WBTC",
@@ -592,5 +586,11 @@
     "symbol": "SOL",
     "decimal": 8,
     "contract": "22.contract.portalbridge.near"
+  },
+  "1f9840a85d5af5bf1d1762f925bdaddc4201f984.factory.bridge.near": {
+    "price": "7.74",
+    "symbol": "UNI",
+    "decimal": 18,
+    "contract": "1f9840a85d5af5bf1d1762f925bdaddc4201f984.factory.bridge.near"
   }
 }
