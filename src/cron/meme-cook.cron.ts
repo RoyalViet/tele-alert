@@ -92,6 +92,9 @@ function generateTelegramHTMLMemeCook(meme: any): string {
     TotalSupply: `${formatBalance(totalSupply)}`,
     Contract: meme.token_id ? meme.token_id : "N/A",
     PoolID: meme.pool_id ? meme.pool_id : "N/A",
+    LinkDex: meme.pool_id
+      ? `https://dexscreener.com/near/refv1-${meme.pool_id}`
+      : "N/A",
     Twitter: meme.twitterLink ? meme.twitterLink : "N/A",
     Telegram: meme.telegramLink ? meme.telegramLink : "N/A",
     Description: meme.description ? meme.description : "N/A",
@@ -99,27 +102,6 @@ function generateTelegramHTMLMemeCook(meme: any): string {
   };
 
   return generateTelegramHTML(memeDetails);
-
-  //   return `
-  // *OwnerLink:* https://nearblocks.io/address/${meme.owner}?tab=tokentxns
-  // *Total Deposit:* ${formatBalance(totalDeposit)} Near
-  // *HardCap:* ${formatBalance(hardCap)} Near
-  // *ID:* ${meme.meme_id}
-  // *Owner:* ${meme.owner}
-  // *Name:* ${meme.name}
-  // *Symbol:* ${meme.symbol}
-  // *SoftCap:* ${formatBalance(softCap)} Near
-  // *Decimals:* ${meme.decimals}
-  // *Total Supply:* ${formatBalance(totalSupply)}
-  // *Contract:* ${meme.token_id ? meme.token_id : "N/A"}
-  // *PoodID:* ${meme.pool_id ? meme.pool_id : "N/A"}
-  // *Twitter:* ${meme.twitterLink ? meme.twitterLink : "N/A"}
-  // *Telegram:* ${meme.telegramLink ? meme.telegramLink : "N/A"}
-  // *Description:* ${meme.description ? meme.description : "N/A"}
-  // *Image:* [View Image](https://plum-necessary-chameleon-942.mypinata.cloud/ipfs/${
-  //     meme.image
-  //   })
-  //   `;
 }
 
 const existingMemes = readExistingMemes();
@@ -150,10 +132,11 @@ async function fetchActiveMemes(): Promise<Meme[]> {
     });
 
     // Lọc các meme còn thời gian
-    const currentTime = Date.now();
-    const activeMemes = response.data.filter(
-      (meme) => meme.end_timestamp_ms + 30 * 60 * 1000 > currentTime
-    );
+    const activeMemes = response.data;
+    // const currentTime = Date.now();
+    // const activeMemes = response.data.filter(
+    //   (meme) => meme.end_timestamp_ms + 30 * 60 * 1000 > currentTime
+    // );
 
     response.data.forEach((m) => {
       const hasHardCap =
