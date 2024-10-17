@@ -66,4 +66,35 @@ const sendMeAGif = () => {
   });
 };
 
-export { sendNotification, sendMeAGif };
+const sendPhoto = (msg: any, imageUrl: string) => {
+  return new Promise((resolve, reject) => {
+    try {
+      let TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+      let TELEGRAM_GROUP_ID = process.env.TELEGRAM_GROUP_ID;
+
+      let data = {
+        chat_id: TELEGRAM_GROUP_ID,
+        parse_mode: "HTML",
+        photo: imageUrl,
+        caption: msg,
+      };
+
+      axios
+        .post(
+          `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`,
+          data
+        )
+        .then(() => {
+          resolve("done!");
+        })
+        .catch((err) => {
+          console.log(err);
+          reject(err);
+        });
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
+
+export { sendNotification, sendMeAGif, sendPhoto };
