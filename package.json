@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon",
+    "push": "git add --all && git commit -a -m \"update\" && git push",
     "dev:old": "nodemon --watch 'src/**' --ext 'ts,json' --ignore 'src/**/*.spec.ts' --exec 'ts-node src/server.ts'",
     "watch-ts": "tsc -w",
     "dev:node": "node --watch dist/server.js",
