@@ -5,16 +5,46 @@ const getHomePage = (req: any, res: any) => {
   return res.send("Express TS on Vercel");
 };
 
-const handlePushTelegramNotificationController = async (
-  req: any,
-  _res?: any
-) => {
+interface Request {
+  body: any; // Thay đổi kiểu dữ liệu nếu cần
+}
+
+interface QueueItem {
+  req: Request;
+  resolve: () => void;
+  reject: (error: any) => void;
+}
+
+const queue: QueueItem[] = [];
+let isProcessing = false;
+
+const processQueue = async () => {
+  if (isProcessing || queue.length === 0) return;
+
+  isProcessing = true;
+  const { req, resolve, reject } = queue.shift()!; // Sử dụng '!' để đảm bảo không null
+
   try {
     await telegramService.sendNotification(req.body);
-    return;
+    resolve();
   } catch (error) {
     console.log("error :", error?.message);
+    reject(error);
+  } finally {
+    isProcessing = false;
+    // Gọi lại processQueue sau 1 giây nếu còn yêu cầu trong hàng đợi
+    setTimeout(processQueue, 1000);
   }
+};
+
+const handlePushTelegramNotificationController = (
+  req: Request,
+  _res?: any
+): Promise<void> => {
+  return new Promise((resolve, reject) => {
+    queue.push({ req, resolve, reject });
+    processQueue();
+  });
 };
 
 const handlePushPhotoTelegramNotificationController = async (
