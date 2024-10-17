@@ -7,6 +7,7 @@ import logger from "./configs/logger.config";
 // import connectDB from "./database/db.mysql";
 import { checkReleasePoolToken } from "./cron/pool-token.cron";
 import { checkMemeCooking } from "./cron/meme-cook.cron";
+import { testF } from "./test";
 
 const PORT = process.env.PORT || 8000;
 
@@ -16,11 +17,11 @@ const main = async () => {
 
   // cron job
   // job.start();
-  checkReleasePoolToken.start();
-  checkMemeCooking.start();
+  // checkReleasePoolToken.start();
+  // checkMemeCooking.start();
 
   // test
-  // testF()
+  testF();
 
   app.listen(PORT, () => {
     logger.info(`Server running at ${PORT}`);

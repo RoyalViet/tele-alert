@@ -64,9 +64,10 @@ const getTelegramPage = (req: any, res: any) => {
   return res.render("telegram.ejs");
 };
 
-const sendAnimation = async (req: any, res: any) => {
+const sendAnimation = async () => {
   await telegramService.sendMeAGif();
-  return res.redirect("/");
+  // return res.redirect("/");
+  return;
 };
 
 export {
