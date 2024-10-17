@@ -92,6 +92,7 @@ function generateTelegramHTMLMemeCook(meme: any): string {
     TotalSupply: `${formatBalance(totalSupply)}`,
     Contract: meme.token_id ? meme.token_id : "N/A",
     PoolID: meme.pool_id ? meme.pool_id : "N/A",
+    MemeLink: `https://meme.cooking/meme/${meme.meme_id}`,
     LinkDex: meme.pool_id
       ? `https://dexscreener.com/near/refv1-${meme.pool_id}`
       : "N/A",
