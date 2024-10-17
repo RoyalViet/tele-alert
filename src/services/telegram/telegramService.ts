@@ -3,14 +3,16 @@ import { generateTelegramHTML } from "../../common/helper/common.helper";
 
 require("dotenv").config();
 
+const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+const TELEGRAM_GROUP_ID = process.env.TELEGRAM_GROUP_ID;
+
 const sendNotification = (
   msg: any,
   options?: Partial<{ isGenerateTelegramHTML: boolean }>
 ) => {
   return new Promise((resolve, reject) => {
     try {
-      let TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-      let TELEGRAM_GROUP_ID = process.env.TELEGRAM_GROUP_ID;
+      console.log("send :", msg);
 
       let data = {
         chat_id: TELEGRAM_GROUP_ID,
@@ -23,10 +25,12 @@ const sendNotification = (
           params: data,
         })
         .then(() => {
+          console.log("done!");
+
           resolve("done!");
         })
         .catch((err) => {
-          console.log(err);
+          console.log("err :", err?.message);
           reject(err);
         });
     } catch (e) {
@@ -38,9 +42,6 @@ const sendNotification = (
 const sendMeAGif = () => {
   return new Promise((resolve, reject) => {
     try {
-      let TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-      let TELEGRAM_GROUP_ID = process.env.TELEGRAM_GROUP_ID;
-
       let data = {
         chat_id: TELEGRAM_GROUP_ID,
         parse_mode: "HTML",
@@ -69,9 +70,6 @@ const sendMeAGif = () => {
 const sendPhoto = (msg: any, imageUrl: string) => {
   return new Promise((resolve, reject) => {
     try {
-      let TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-      let TELEGRAM_GROUP_ID = process.env.TELEGRAM_GROUP_ID;
-
       let data = {
         chat_id: TELEGRAM_GROUP_ID,
         parse_mode: "HTML",

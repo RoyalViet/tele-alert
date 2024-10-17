@@ -7,12 +7,11 @@ const getHomePage = (req: any, res: any) => {
 
 const handlePushTelegramNotificationController = async (
   req: any,
-  res?: any
+  _res?: any
 ) => {
   try {
     await telegramService.sendNotification(req.body);
-    console.log("send :", req.body);
-    return res?.redirect("/telegram");
+    return;
   } catch (error) {
     console.log("error :", error?.message);
   }
