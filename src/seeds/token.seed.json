@@ -1,5 +1,37 @@
 [
   {
+    "pool_id": 5519,
+    "token_contract": "hijack-252.meme-cooking.near",
+    "token_account_ids": [
+      "hijack-252.meme-cooking.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "Hijack",
+      "wNEAR"
+    ],
+    "token_price": 0.00000952,
+    "liq": 9520,
+    "network": "Near",
+    "tvl": "9520.0"
+  },
+  {
+    "pool_id": 5518,
+    "token_contract": "hijack-251.meme-cooking.near",
+    "token_account_ids": [
+      "hijack-251.meme-cooking.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "HiJack",
+      "wNEAR"
+    ],
+    "token_price": 9.52e-7,
+    "liq": 952,
+    "network": "Near",
+    "tvl": "952.0"
+  },
+  {
     "pool_id": 5514,
     "token_contract": "updog-237.meme-cooking.near",
     "token_account_ids": [
