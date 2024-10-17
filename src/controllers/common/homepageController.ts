@@ -33,7 +33,7 @@ const processQueue = async () => {
   } finally {
     isProcessing = false;
     // Gọi lại processQueue sau 1 giây nếu còn yêu cầu trong hàng đợi
-    setTimeout(processQueue, 1500);
+    setTimeout(processQueue, 1000);
   }
 };
 

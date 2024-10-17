@@ -164,11 +164,15 @@ async function fetchActiveMemes(): Promise<Meme[]> {
     });
 
     if (newMemes.length) {
-      handlePushTelegramNotificationController({
-        body: newMemes
-          .map((i: any) => generateTelegramHTMLMemeCook(i))
-          .join("\n\n"),
-      });
+      try {
+        handlePushTelegramNotificationController({
+          body: newMemes
+            .map((i: any) => generateTelegramHTMLMemeCook(i))
+            .join("\n\n"),
+        });
+      } catch (error) {
+        console.log("error :", error);
+      }
 
       // Thêm các meme mới vào mảng hiện có và ghi lại vào file
       existingMemes.unshift(...newMemes);
