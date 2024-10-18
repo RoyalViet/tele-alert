@@ -5,7 +5,7 @@ import { IBaseQueryParams } from "./common.interface";
 export interface ICreateToken {
   network?: string;
   token_contract: string;
-  tvl: string;
+  tvl?: string;
   token_account_ids: string[];
   token_symbols: string[];
   token_price: number;

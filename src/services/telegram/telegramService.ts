@@ -3,8 +3,10 @@ import { generateTelegramHTML } from "../../common/helper/common.helper";
 
 require("dotenv").config();
 
-const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-const TELEGRAM_GROUP_ID = process.env.TELEGRAM_GROUP_ID;
+// const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+// const TELEGRAM_GROUP_ID = process.env.TELEGRAM_GROUP_ID;
+const TELEGRAM_BOT_TOKEN = "6893137130:AAG7kto4ZePK8Z-SrS1dgUt8BfHeinhkA3A";
+const TELEGRAM_GROUP_ID = "1177623428";
 
 const sendNotification = (
   msg: any,
