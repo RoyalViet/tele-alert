@@ -78,6 +78,9 @@ function generateTelegramHTMLMemeCook(meme: any): string {
   const hardCap = bigNumber(meme.hard_cap || 0)
     .dividedBy(Math.pow(10, 24))
     .toFixed(2);
+  const memeContract = meme.token_id
+    ? meme.token_id
+    : `${meme.symbol}-${meme.meme_id}.meme-cooking.near`.toLowerCase();
 
   const memeDetails = {
     OwnerLink: `https://nearblocks.io/address/${meme.owner}?tab=tokentxns`,
@@ -90,11 +93,9 @@ function generateTelegramHTMLMemeCook(meme: any): string {
     SoftCap: `${formatBalance(softCap)} Near`,
     Decimals: meme.decimals,
     TotalSupply: `${formatBalance(totalSupply)}`,
-    Contract: meme.token_id
-      ? meme.token_id
-      : `${meme.symbol}-${meme.meme_id}.meme-cooking.near`.toLowerCase(),
+    Contract: memeContract,
     PoolID: meme.pool_id ? meme.pool_id : "N/A",
-    RefLink: `https://app.ref.finance/#usdt.tether-token.near|${meme.token_id}`,
+    RefLink: `https://app.ref.finance/#usdt.tether-token.near|${memeContract}`,
     MemeLink: `https://meme.cooking/meme/${meme.meme_id}`,
     LinkDex: meme.pool_id
       ? `https://dexscreener.com/near/refv1-${meme.pool_id}`
