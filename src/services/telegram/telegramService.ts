@@ -55,13 +55,15 @@ const sendMeAGif = () => {
           data
         )
         .then(() => {
+          console.log("sendMeAGif done");
           resolve("done!");
         })
         .catch((err) => {
-          console.log(err);
+          console.log("err sendMeAGif :", err);
           reject(err);
         });
     } catch (e) {
+      console.log("e sendMeAGif :", e);
       reject(e);
     }
   });

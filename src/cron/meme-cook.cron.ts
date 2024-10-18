@@ -90,7 +90,9 @@ function generateTelegramHTMLMemeCook(meme: any): string {
     SoftCap: `${formatBalance(softCap)} Near`,
     Decimals: meme.decimals,
     TotalSupply: `${formatBalance(totalSupply)}`,
-    Contract: meme.token_id ? meme.token_id : "N/A",
+    Contract: meme.token_id
+      ? meme.token_id
+      : `${meme.symbol}-${meme.meme_id}.meme-cooking.near`.toLowerCase(),
     PoolID: meme.pool_id ? meme.pool_id : "N/A",
     RefLink: `https://app.ref.finance/#usdt.tether-token.near|${meme.token_id}`,
     MemeLink: `https://meme.cooking/meme/${meme.meme_id}`,
@@ -128,8 +130,8 @@ async function fetchActiveMemes(): Promise<Meme[]> {
         "sec-fetch-dest": "empty",
         "sec-fetch-mode": "cors",
         "sec-fetch-site": "same-site",
-        "user-agent":
-          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36",
+        // "user-agent":
+        //   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36",
       },
     });
 
