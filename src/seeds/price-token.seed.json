@@ -592,5 +592,11 @@
     "symbol": "UNI",
     "decimal": 18,
     "contract": "1f9840a85d5af5bf1d1762f925bdaddc4201f984.factory.bridge.near"
+  },
+  "v1.guild-covenant.near": {
+    "price": "1.002404210502",
+    "symbol": "zNEARnM-USDC",
+    "decimal": 18,
+    "contract": "v1.guild-covenant.near"
   }
 }
