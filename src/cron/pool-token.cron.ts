@@ -117,10 +117,8 @@ const fetchAndProcessTokenPrices = async (): Promise<void> => {
     const updates = updatePriceTokenList(listPrice, listPriceSeed);
 
     if (updates.length) {
-      updates.forEach((update: any) => {
-        handlePushTelegramNotificationController({
-          body: generateTelegramHTML(update),
-        });
+      handlePushTelegramNotificationController({
+        body: updates.map((i: any) => generateTelegramHTML(i)).join("\n\n"),
       });
       writePriceTokenList(listPriceSeed);
     }
@@ -139,35 +137,39 @@ const filterValidPools = (data: any[]): any[] => {
 };
 
 const createTokenInfo = (pool: any): ICreateToken => {
+  const contract = (pool?.token_account_ids as string[])?.find(
+    (i) => i !== wNearContract
+  );
   return {
     pool_id: Number(pool?.id),
-    token_contract: (pool?.token_account_ids as string[])?.find(
-      (i) => i !== wNearContract
-    ),
+    token_contract: contract,
     token_account_ids: pool?.token_account_ids as string[],
     token_symbols: pool?.token_symbols as string[],
     token_price: bigNumber(pool?.token0_ref_price).toNumber(),
     liq: bigNumber(pool?.tvl).toNumber(),
     network: "Near",
     tvl: pool?.tvl,
+    refLink: `https://app.ref.finance/#usdt.tether-token.near|${contract}`,
+    dexLink: pool?.id
+      ? `https://dexscreener.com/near/refv1-${pool?.id}`
+      : "N/A",
   };
 };
 
 interface PoolItem {
-  pool_kind: string; // Loại pool, ví dụ: "SIMPLE_POOL"
-  token_account_ids: string[]; // Danh sách địa chỉ tài khoản token
-  amounts: string[]; // Danh sách số lượng tương ứng với token
-  total_fee: number; // Phí tổng
-  shares_total_supply: string; // Tổng số cổ phần được phát hành
-  amp: number; // Hệ số điều chỉnh (nếu có)
-  farming: boolean; // Trạng thái farming
-  token_symbols: string[]; // Danh sách ký hiệu của token
-  update_time: number; // Thời gian cập nhật (timestamp)
-  id: string; // ID của pool
-  tvl: string; // Tổng giá trị bị khóa (TVL)
-  token0_ref_price: string; // Giá tham chiếu của token0
+  pool_kind: string;
+  token_account_ids: string[];
+  amounts: string[];
+  total_fee: number;
+  shares_total_supply: string;
+  amp: number;
+  farming: boolean;
+  token_symbols: string[];
+  update_time: number;
+  id: string;
+  tvl: string;
+  token0_ref_price: string;
 }
-
 const tokenSeed = readTokenList();
 const fetchAndProcessPools = async (): Promise<any> => {
   try {
@@ -178,14 +180,22 @@ const fetchAndProcessPools = async (): Promise<any> => {
       .map(createTokenInfo)
       .sort((a, b) => (bigNumber(a.tvl).gte(b.tvl) ? -1 : 1));
 
-    listInfoToken.forEach((t) => {
-      const token = tokenSeed.find((i) => i.pool_id === t.pool_id);
-      if (!token) {
-        tokenSeed.unshift(t);
-        alertTokenHandle(t);
-        writeTokenList(tokenSeed);
-      }
+    // Lọc ra danh sách token mới
+    const newInfoTokens = listInfoToken.filter((t) => {
+      return !tokenSeed.some((i) => i.pool_id === t.pool_id);
     });
+    // Thêm các token mới vào tokenSeed
+    newInfoTokens.forEach((t) => {
+      tokenSeed.unshift(t);
+    });
+    if (newInfoTokens.length) {
+      handlePushTelegramNotificationController({
+        body: newInfoTokens
+          .map((i: any) => generateTelegramHTML(i))
+          .join("\n\n"),
+      });
+      writeTokenList(tokenSeed);
+    }
 
     const filterToken = raw.data.filter(
       (i) =>
