@@ -4,7 +4,7 @@ import fs from "fs";
 import path from "path";
 import { ICreateToken } from "src/interfaces/token.interface";
 import { bigNumber, formatBalance } from "../common/helper/bigNumber";
-import { generateTelegramHTML } from "../common/helper/common.helper";
+import { delay, generateTelegramHTML } from "../common/helper/common.helper";
 import { handlePushTelegramNotificationController } from "../controllers/common/homepageController";
 import { Meme } from "./meme-cook.cron";
 
@@ -111,9 +111,13 @@ const fetchAndProcessTokenPrices = async (): Promise<void> => {
     const listPrice = await fetchTokenPrices();
     const notifications = processTokenPrice(listPrice, contract);
 
-    handlePushTelegramNotificationController({
-      body: notifications.map((i: any) => generateTelegramHTML(i)).join("\n\n"),
-    });
+    if (notifications.length) {
+      handlePushTelegramNotificationController({
+        body: notifications
+          .map((i: any) => generateTelegramHTML(i))
+          .join("\n\n"),
+      });
+    }
 
     const updates = updatePriceTokenList(listPrice, listPriceSeed);
 
@@ -251,7 +255,10 @@ const fetchAndProcessPools = async (): Promise<any> => {
   }
 };
 
-const checkReleasePoolToken = new CronJob("*/10 * * * * *", () => {
+const cronExpression15s = "*/15 * * * * *";
+const cronExpression10s = "*/10 * * * * *";
+const checkReleasePoolToken = new CronJob(cronExpression10s, async () => {
+  await delay(Math.random() * 1500);
   fetchAndProcessTokenPrices();
   fetchAndProcessPools();
 });

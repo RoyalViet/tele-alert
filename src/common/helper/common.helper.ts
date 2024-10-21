@@ -23,4 +23,8 @@ function writeFile(name: string, data: any) {
   });
 }
 
-export { generateTelegramHTML, writeFile };
+async function delay(time = 3000) {
+  await new Promise((resolve) => setTimeout(resolve, time));
+}
+
+export { generateTelegramHTML, writeFile, delay };

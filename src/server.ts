@@ -17,8 +17,8 @@ const main = async () => {
 
   // cron job
   // job.start();
-  // checkReleasePoolToken.start();
   checkMemeCooking.start();
+  // checkReleasePoolToken.start();
 
   // test
   // testF();

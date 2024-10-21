@@ -4,7 +4,7 @@ import fs from "fs";
 import path from "path";
 import { bigNumber, formatBalance } from "../common/helper/bigNumber";
 import { handlePushTelegramNotificationController } from "../controllers/common/homepageController";
-import { generateTelegramHTML } from "../common/helper/common.helper";
+import { delay, generateTelegramHTML } from "../common/helper/common.helper";
 
 // Đường dẫn tới file chứa các meme
 const idsPath = path.join(
@@ -200,7 +200,12 @@ async function fetchActiveMemes(): Promise<Meme[]> {
     return [];
   }
 }
-const checkMemeCooking = new CronJob("*/10 * * * * *", async () => {
+
+const cronExpression20s = "*/20 * * * * *";
+const cronExpression15s = "*/15 * * * * *";
+const cronExpression10s = "*/10 * * * * *";
+const checkMemeCooking = new CronJob(cronExpression10s, async () => {
+  await delay(Math.random() * 1500);
   console.log(`v2 running cron job crawl meme cook ...`);
   fetchActiveMemes();
   return;
