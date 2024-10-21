@@ -257,7 +257,7 @@ const fetchAndProcessPools = async (): Promise<any> => {
 
 const cronExpression15s = "*/15 * * * * *";
 const cronExpression10s = "*/10 * * * * *";
-const checkReleasePoolToken = new CronJob(cronExpression10s, async () => {
+const checkReleasePoolToken = new CronJob(cronExpression15s, async () => {
   await delay(Math.random() * 1500);
   fetchAndProcessTokenPrices();
   fetchAndProcessPools();
