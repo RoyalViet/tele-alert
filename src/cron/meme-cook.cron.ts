@@ -33,12 +33,15 @@ const writeMemeIdsToFile = () => {
 // Đọc meme_id từ file vào Set
 const sentMemeIds = readMemeIdsFromFile();
 
-interface Meme {
+export interface Meme {
   meme_id: number;
   end_timestamp_ms: number;
   total_deposit: string;
   hard_cap: string;
   soft_cap: string;
+  token_id: string;
+  pool_id: number;
+  symbol: string;
   // Các thuộc tính khác nếu cần
 }
 
@@ -159,12 +162,20 @@ async function fetchActiveMemes(): Promise<Meme[]> {
       }
     });
 
-    const newMemes = activeMemes.filter((activeMeme) => {
-      const isNotInExistingMemes = !existingMemes.some(
-        (existingMeme) => existingMeme.meme_id === activeMeme.meme_id
-      );
-      return isNotInExistingMemes;
-    });
+    const newMemes = activeMemes
+      .filter((activeMeme) => {
+        const isNotInExistingMemes = !existingMemes.some(
+          (existingMeme) => existingMeme.meme_id === activeMeme.meme_id
+        );
+        return isNotInExistingMemes;
+      })
+      .map((meme) => {
+        const memeContract = meme.token_id
+          ? meme.token_id
+          : `${meme.symbol}-${meme.meme_id}.meme-cooking.near`.toLowerCase();
+
+        return { ...meme, token_id: memeContract };
+      });
 
     if (newMemes.length) {
       try {

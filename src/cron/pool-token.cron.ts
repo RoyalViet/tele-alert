@@ -6,7 +6,7 @@ import { ICreateToken } from "src/interfaces/token.interface";
 import { bigNumber, formatBalance } from "../common/helper/bigNumber";
 import { generateTelegramHTML } from "../common/helper/common.helper";
 import { handlePushTelegramNotificationController } from "../controllers/common/homepageController";
-import { alertTokenHandle } from "../controllers/token/token.handle";
+import { Meme } from "./meme-cook.cron";
 
 // Đường dẫn tới file chứa các meme
 const tokenFilePath = path.join(
@@ -58,9 +58,10 @@ export const contract = "game.hot.tg";
 const wNearContract = "wrap.near";
 
 interface TokenPrice {
-  price: string; // Giá của token, dưới dạng chuỗi
-  symbol: string; // Ký hiệu của token
-  decimal: number; // Số thập phân của token
+  price: string;
+  symbol: string;
+  decimal: number;
+  contract?: string;
 }
 
 interface PriceResponse {
@@ -75,12 +76,12 @@ const fetchTokenPrices = async (): Promise<PriceResponse> => {
 const processTokenPrice = (
   listPrice: PriceResponse,
   contract: string
-): string[] => {
-  const notifications: string[] = [];
+): TokenPrice[] => {
+  const notifications: TokenPrice[] = [];
   if (listPrice[contract]) {
     if (bigNumber(listPrice[contract]?.price).gt(0) && count < 100) {
       count++;
-      notifications.push(generateTelegramHTML(listPrice[contract]));
+      notifications.push(listPrice[contract]);
     }
   }
   return notifications;
@@ -88,11 +89,11 @@ const processTokenPrice = (
 
 const updatePriceTokenList = (
   listPrice: PriceResponse,
-  listPriceSeed: any
-): any => {
-  const updates: any[] = [];
+  listPriceSeed: Record<string, TokenPrice>
+): TokenPrice[] => {
+  const updates: TokenPrice[] = [];
   Object.keys(listPrice).forEach((key) => {
-    if (!listPriceSeed[key]) {
+    if (!listPriceSeed[key] && !memeSeed.some((i) => i.token_id === key)) {
       updates.push({
         ...listPrice[key],
         contract: key,
@@ -105,13 +106,13 @@ const updatePriceTokenList = (
 
 const listPriceSeed = readPriceTokenList();
 const fetchAndProcessTokenPrices = async (): Promise<void> => {
-  console.log(`v2 running cron job crawl pool token ${contract}...`);
+  console.log(`v2 running cron job crawl price token ${contract}...`);
   try {
     const listPrice = await fetchTokenPrices();
     const notifications = processTokenPrice(listPrice, contract);
 
-    notifications.forEach((body) => {
-      handlePushTelegramNotificationController({ body });
+    handlePushTelegramNotificationController({
+      body: notifications.map((i: any) => generateTelegramHTML(i)).join("\n\n"),
     });
 
     const updates = updatePriceTokenList(listPrice, listPriceSeed);
@@ -170,8 +171,28 @@ interface PoolItem {
   tvl: string;
   token0_ref_price: string;
 }
+
+// Đường dẫn tới file chứa các meme
+const memePath = path.join(
+  process.cwd(),
+  "src",
+  "seeds",
+  "meme-cook.seed.json"
+);
+
+// Hàm để đọc các meme từ file
+function readExistingMemes(): Meme[] {
+  if (!fs.existsSync(memePath)) {
+    return [];
+  }
+  const data = fs.readFileSync(memePath, "utf8");
+  return JSON.parse(data) as Meme[];
+}
+
 const tokenSeed = readTokenList();
+const memeSeed = readExistingMemes();
 const fetchAndProcessPools = async (): Promise<any> => {
+  console.log(`v2 running cron job crawl pool token ${contract}...`);
   try {
     const raw: { data: Array<PoolItem> } = await axios.get(
       `https://api.ref.finance/list-pools`
@@ -182,7 +203,10 @@ const fetchAndProcessPools = async (): Promise<any> => {
 
     // Lọc ra danh sách token mới
     const newInfoTokens = listInfoToken.filter((t) => {
-      return !tokenSeed.some((i) => i.pool_id === t.pool_id);
+      return (
+        !tokenSeed.some((i) => i.pool_id === t.pool_id) &&
+        !memeSeed.some((i) => i.token_id === t.token_contract)
+      );
     });
     // Thêm các token mới vào tokenSeed
     newInfoTokens.forEach((t) => {
