@@ -1,5 +1,85 @@
 [
   {
+    "pool_id": 5524,
+    "token_contract": "babyhijack-253.meme-cooking.near",
+    "token_account_ids": [
+      "babyhijack-253.meme-cooking.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "BabyHiJack",
+      "wNEAR"
+    ],
+    "token_price": 0.0000013195440133799524,
+    "liq": 1280.5566334221746,
+    "network": "Near",
+    "tvl": "1280.5566334221746"
+  },
+  {
+    "pool_id": 5525,
+    "token_contract": "qad-263.meme-cooking.near",
+    "token_account_ids": [
+      "qad-263.meme-cooking.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "QAD",
+      "wNEAR"
+    ],
+    "token_price": 0.0000013085121087187696,
+    "liq": 2501.9171122501593,
+    "network": "Near",
+    "tvl": "2501.9171122501593"
+  },
+  {
+    "pool_id": 5522,
+    "token_contract": "massive-260.meme-cooking.near",
+    "token_account_ids": [
+      "massive-260.meme-cooking.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "MASSIVE",
+      "wNEAR"
+    ],
+    "token_price": 0.000001922918446362414,
+    "liq": 3034.595242595905,
+    "network": "Near",
+    "tvl": "3034.595242595905"
+  },
+  {
+    "pool_id": 5526,
+    "token_contract": "babynear-265.meme-cooking.near",
+    "token_account_ids": [
+      "babynear-265.meme-cooking.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "BABYNEAR",
+      "wNEAR"
+    ],
+    "token_price": 4.984120504013809e-7,
+    "liq": 4458.262542296866,
+    "network": "Near",
+    "tvl": "4458.262542296866"
+  },
+  {
+    "pool_id": 5517,
+    "token_contract": "bulla.tkn.near",
+    "token_account_ids": [
+      "bulla.tkn.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "BULLA",
+      "wNEAR"
+    ],
+    "token_price": 0.0000037842017452673456,
+    "liq": 25436.561583467334,
+    "network": "Near",
+    "tvl": "25436.561583467334"
+  },
+  {
     "pool_id": 5521,
     "token_contract": "a-256.meme-cooking.near",
     "token_account_ids": [
