@@ -1,5 +1,41 @@
 [
   {
+    "pool_id": 5534,
+    "token_contract": "grabbed-276.meme-cooking.near",
+    "token_account_ids": [
+      "grabbed-276.meme-cooking.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "GRABBED",
+      "wNEAR"
+    ],
+    "token_price": 0.000004517510704644546,
+    "liq": 4517.5107046445455,
+    "network": "Near",
+    "tvl": "4517.5107046445455",
+    "refLink": "https://app.ref.finance/#usdt.tether-token.near|grabbed-276.meme-cooking.near",
+    "dexLink": "https://dexscreener.com/near/refv1-5534"
+  },
+  {
+    "pool_id": 5532,
+    "token_contract": "labubu-271.meme-cooking.near",
+    "token_account_ids": [
+      "labubu-271.meme-cooking.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "LABUBU",
+      "wNEAR"
+    ],
+    "token_price": 0.000002228699787676048,
+    "liq": 1679.9508688286192,
+    "network": "Near",
+    "tvl": "1679.9508688286192",
+    "refLink": "https://app.ref.finance/#usdt.tether-token.near|labubu-271.meme-cooking.near",
+    "dexLink": "https://dexscreener.com/near/refv1-5532"
+  },
+  {
     "pool_id": 5526,
     "token_contract": "babynear-265.meme-cooking.near",
     "token_account_ids": [

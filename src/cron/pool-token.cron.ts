@@ -207,20 +207,23 @@ const fetchAndProcessPools = async (): Promise<any> => {
 
     // Lọc ra danh sách token mới
     const newInfoTokens = listInfoToken.filter((t) => {
-      return (
-        !tokenSeed.some((i) => i.pool_id === t.pool_id) &&
-        !memeSeed.some((i) => i.token_id === t.token_contract)
-      );
+      return !tokenSeed.some((i) => i.pool_id === t.pool_id);
     });
+    // .map((t) => {
+    //   const m = memeSeed.find((i) => i.token_id === t.token_contract);
+    //   if (!m) {
+    //     return t;
+    //   } else {
+    //     return { ...m, ...t };
+    //   }
+    // });
     // Thêm các token mới vào tokenSeed
     newInfoTokens.forEach((t) => {
       tokenSeed.unshift(t);
     });
     if (newInfoTokens.length) {
       handlePushTelegramNotificationController({
-        body: newInfoTokens
-          .map((i: any) => generateTelegramHTML(i))
-          .join("\n\n"),
+        body: newInfoTokens.map((i) => generateTelegramHTML(i)).join("\n\n"),
       });
       writeTokenList(tokenSeed);
     }
