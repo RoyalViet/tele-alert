@@ -214,16 +214,12 @@ const fetchAndProcessPools = async (): Promise<any> => {
           return !tokenSeed.some((i) => i.pool_id === t.pool_id);
         })
         .map(async (t) => {
-          console.log("t :", t);
           const meme = memeSeed.find((i) => i?.token_id === t.token_contract);
-          console.log("meme :", meme);
-
           if (!meme) {
             const owner = await getSignerFromContract(t.token_contract);
-            console.log("owner :", owner);
-
             return {
               OwnerLink: `https://nearblocks.io/address/${owner}?tab=tokentxns`,
+              AddressTokenLink: `https://nearblocks.io/address/${t.token_contract}`,
               ...t,
             };
           } else {
@@ -279,16 +275,8 @@ const cronExpression15s = "*/15 * * * * *";
 const cronExpression10s = "*/10 * * * * *";
 const checkReleasePoolToken = new CronJob(cronExpression15s, async () => {
   await delay(Math.random() * 1500);
-  // fetchAndProcessTokenPrices();
-  // fetchAndProcessPools();
-
-  getSignerFromContract("bulla.tkn.near")
-    .then((signerAccountId) => {
-      console.log("Signer Account ID:", signerAccountId);
-    })
-    .catch((err) => {
-      console.error("Error:", err);
-    });
+  fetchAndProcessTokenPrices();
+  fetchAndProcessPools();
 });
 
 export { checkReleasePoolToken };

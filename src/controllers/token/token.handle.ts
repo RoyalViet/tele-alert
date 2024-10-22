@@ -97,10 +97,7 @@ export async function getTransactionHash(
   };
 
   try {
-    console.log("url :", url);
     const response = await axios.get(url, { headers });
-    console.log("response :", response);
-
     const transactionHash =
       response.data.pageProps.contractData.deployments[0].transaction_hash;
     return transactionHash;
@@ -113,11 +110,7 @@ export async function getTransactionHash(
 export async function getSignerFromContract(
   contract: string
 ): Promise<string | null> {
-  console.log("contract :", contract);
-
   const transactionHash = await getTransactionHash(contract);
-  console.log("transactionHash :", transactionHash);
-
   if (transactionHash) {
     return await getSignerAccountId(transactionHash);
   }
