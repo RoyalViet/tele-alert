@@ -3,13 +3,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.formatBalance = exports.initZeroBigNumber = exports.BigNumber = exports.isFalsy = exports.toNumber = exports.toString = exports.bigNumber = void 0;
+exports.initZeroBigNumber = exports.BigNumber = void 0;
+exports.bigNumber = bigNumber;
+exports.toString = toString;
+exports.toNumber = toNumber;
+exports.isFalsy = isFalsy;
+exports.formatBalance = formatBalance;
 const bignumber_js_1 = __importDefault(require("bignumber.js"));
 exports.BigNumber = bignumber_js_1.default;
 function bigNumber(value) {
     return new bignumber_js_1.default(String(value || 0).trim());
 }
-exports.bigNumber = bigNumber;
 function toString(value, options) {
     if (options === null || options === void 0 ? void 0 : options.notANumber) {
         return value === null || value === void 0 ? void 0 : value.toString();
@@ -28,7 +32,6 @@ function toString(value, options) {
         return value || "";
     }
 }
-exports.toString = toString;
 function toNumber(value) {
     if (typeof value === "object") {
         return (value === null || value === void 0 ? void 0 : value.toNumber()) || 0;
@@ -38,7 +41,6 @@ function toNumber(value) {
     }
     return Number(value || 0);
 }
-exports.toNumber = toNumber;
 function isFalsy(value) {
     var _a, _b, _c;
     if (typeof value === "object") {
@@ -47,7 +49,6 @@ function isFalsy(value) {
     }
     return ((_c = new bignumber_js_1.default(value || 0)) === null || _c === void 0 ? void 0 : _c.isEqualTo(0)) || !value;
 }
-exports.isFalsy = isFalsy;
 const initZeroBigNumber = bigNumber(0);
 exports.initZeroBigNumber = initZeroBigNumber;
 // precision = Math.pow(10, -8),
@@ -76,5 +77,4 @@ function formatBalance(value, precision = 8, options) {
         return "";
     }
 }
-exports.formatBalance = formatBalance;
 //# sourceMappingURL=bigNumber.js.map

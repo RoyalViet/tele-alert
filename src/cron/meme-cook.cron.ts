@@ -35,14 +35,40 @@ const sentMemeIds = readMemeIdsFromFile();
 
 export interface Meme {
   meme_id: number;
+  owner: string;
   end_timestamp_ms: number;
-  total_deposit: string;
-  hard_cap: string;
-  soft_cap: string;
-  token_id: string;
-  pool_id: number;
+  name: string;
   symbol: string;
-  // Các thuộc tính khác nếu cần
+  decimals: number;
+  total_supply: string;
+  reference: string;
+  reference_hash: string;
+  deposit_token_id: string;
+  soft_cap: string;
+  hard_cap: string;
+  last_change_ms: number;
+  total_supply_num: number;
+  soft_cap_num: number;
+  hard_cap_num: number;
+  created_blockheight: number;
+  created_timestamp_ms: number;
+  total_deposit: string;
+  total_deposit_num: number;
+  total_deposit_fees: string;
+  total_deposit_fees_num: number;
+  total_withdraw_fees: string;
+  total_withdraw_fees_num: number;
+  is_finalized: boolean;
+  token_id: string | null;
+  pool_id: string | null;
+  description: string;
+  twitterLink: string;
+  telegramLink: string;
+  website: string;
+  image: string;
+  coronated_at_ms: number | null;
+  replies_count: number;
+  staker_count: number;
 }
 
 // Đường dẫn tới file chứa các meme
@@ -100,9 +126,10 @@ function generateTelegramHTMLMemeCook(meme: any): string {
     PoolID: meme.pool_id ? meme.pool_id : "N/A",
     RefLink: `https://app.ref.finance/#usdt.tether-token.near|${memeContract}`,
     MemeLink: `https://meme.cooking/meme/${meme.meme_id}`,
-    LinkDex: meme.pool_id
+    DexLink: meme.pool_id
       ? `https://dexscreener.com/near/refv1-${meme.pool_id}`
       : "N/A",
+    TokenLink: `https://nearblocks.io/token/${memeContract}`,
     Twitter: meme.twitterLink ? meme.twitterLink : "N/A",
     Telegram: meme.telegramLink ? meme.telegramLink : "N/A",
     Description: meme.description ? meme.description : "N/A",

@@ -3,15 +3,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.sendMeAGif = exports.sendNotification = void 0;
+exports.sendPhoto = exports.sendMeAGif = exports.sendNotification = void 0;
 const axios_1 = __importDefault(require("axios"));
 const common_helper_1 = require("../../common/helper/common.helper");
-require("dotenv").config();
+// require("dotenv").config();
+// const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+// const TELEGRAM_GROUP_ID = process.env.TELEGRAM_GROUP_ID;
+const TELEGRAM_BOT_TOKEN = "6893137130:AAG7kto4ZePK8Z-SrS1dgUt8BfHeinhkA3A";
+const TELEGRAM_GROUP_ID = "1177623428";
 const sendNotification = (msg, options) => {
     return new Promise((resolve, reject) => {
         try {
-            let TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-            let TELEGRAM_GROUP_ID = process.env.TELEGRAM_GROUP_ID;
+            console.log("send :", msg);
             let data = {
                 chat_id: TELEGRAM_GROUP_ID,
                 parse_mode: "HTML",
@@ -22,10 +25,11 @@ const sendNotification = (msg, options) => {
                 params: data,
             })
                 .then(() => {
+                console.log("done!");
                 resolve("done!");
             })
                 .catch((err) => {
-                console.log(err);
+                console.log("err :", err === null || err === void 0 ? void 0 : err.message);
                 reject(err);
             });
         }
@@ -38,8 +42,6 @@ exports.sendNotification = sendNotification;
 const sendMeAGif = () => {
     return new Promise((resolve, reject) => {
         try {
-            let TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-            let TELEGRAM_GROUP_ID = process.env.TELEGRAM_GROUP_ID;
             let data = {
                 chat_id: TELEGRAM_GROUP_ID,
                 parse_mode: "HTML",
@@ -48,6 +50,33 @@ const sendMeAGif = () => {
             };
             axios_1.default
                 .post(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendAnimation`, data)
+                .then(() => {
+                console.log("sendMeAGif done");
+                resolve("done!");
+            })
+                .catch((err) => {
+                console.log("err sendMeAGif :", err);
+                reject(err);
+            });
+        }
+        catch (e) {
+            console.log("e sendMeAGif :", e);
+            reject(e);
+        }
+    });
+};
+exports.sendMeAGif = sendMeAGif;
+const sendPhoto = (msg, imageUrl) => {
+    return new Promise((resolve, reject) => {
+        try {
+            let data = {
+                chat_id: TELEGRAM_GROUP_ID,
+                parse_mode: "HTML",
+                photo: imageUrl,
+                caption: msg,
+            };
+            axios_1.default
+                .post(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`, data)
                 .then(() => {
                 resolve("done!");
             })
@@ -61,5 +90,5 @@ const sendMeAGif = () => {
         }
     });
 };
-exports.sendMeAGif = sendMeAGif;
+exports.sendPhoto = sendPhoto;
 //# sourceMappingURL=telegramService.js.map

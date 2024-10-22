@@ -1,7 +1,7 @@
 import axios from "axios";
 import { generateTelegramHTML } from "../../common/helper/common.helper";
 
-require("dotenv").config();
+// require("dotenv").config();
 
 // const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 // const TELEGRAM_GROUP_ID = process.env.TELEGRAM_GROUP_ID;

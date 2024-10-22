@@ -32,26 +32,59 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.sendAnimation = exports.getTelegramPage = exports.handlePushTelegramNotificationController = exports.getHomePage = void 0;
+exports.handlePushPhotoTelegramNotificationController = exports.handlePushTelegramNotificationController = exports.sendAnimation = exports.getTelegramPage = exports.getHomePage = void 0;
 const telegramService = __importStar(require("../../services/telegram/telegramService"));
 const getHomePage = (req, res) => {
     // return res.render("homepage.ejs");
     return res.send("Express TS on Vercel");
 };
 exports.getHomePage = getHomePage;
-// const handlePushTelegramNotificationController = async (req: any, res?: any) => {
-const handlePushTelegramNotificationController = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    yield telegramService.sendNotification(req.body);
-    return res === null || res === void 0 ? void 0 : res.redirect("/telegram");
+const queue = [];
+let isProcessing = false;
+const processQueue = () => __awaiter(void 0, void 0, void 0, function* () {
+    if (isProcessing || queue.length === 0)
+        return;
+    isProcessing = true;
+    const { req, resolve, reject } = queue.shift(); // Sử dụng '!' để đảm bảo không null
+    try {
+        yield telegramService.sendNotification(req.body);
+        resolve();
+    }
+    catch (error) {
+        console.log("error :", error === null || error === void 0 ? void 0 : error.message);
+        reject(error);
+    }
+    finally {
+        isProcessing = false;
+        // Gọi lại processQueue sau 1 giây nếu còn yêu cầu trong hàng đợi
+        setTimeout(processQueue, 1000);
+    }
 });
+const handlePushTelegramNotificationController = (req, _res) => {
+    return new Promise((resolve, reject) => {
+        queue.push({ req, resolve, reject });
+        processQueue();
+    });
+};
 exports.handlePushTelegramNotificationController = handlePushTelegramNotificationController;
+const handlePushPhotoTelegramNotificationController = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        yield telegramService.sendPhoto(req.body, req.img);
+        console.log("send :", req.body);
+        return res === null || res === void 0 ? void 0 : res.redirect("/telegram");
+    }
+    catch (error) {
+        console.log("error :", error === null || error === void 0 ? void 0 : error.message);
+    }
+});
+exports.handlePushPhotoTelegramNotificationController = handlePushPhotoTelegramNotificationController;
 const getTelegramPage = (req, res) => {
     return res.render("telegram.ejs");
 };
 exports.getTelegramPage = getTelegramPage;
-const sendAnimation = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const sendAnimation = () => __awaiter(void 0, void 0, void 0, function* () {
     yield telegramService.sendMeAGif();
-    return res.redirect("/");
+    return;
 });
 exports.sendAnimation = sendAnimation;
 //# sourceMappingURL=homepageController.js.map

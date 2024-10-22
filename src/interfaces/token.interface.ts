@@ -11,8 +11,9 @@ export interface ICreateToken {
   token_price: number;
   liq: number;
   pool_id: number;
-  refLink?: string;
-  dexLink?: string;
+  TokenLink?: string;
+  RefLink?: string;
+  DexLink?: string;
 }
 
 export interface IUpdateToken {

@@ -7,6 +7,7 @@ import { bigNumber, formatBalance } from "../common/helper/bigNumber";
 import { delay, generateTelegramHTML } from "../common/helper/common.helper";
 import { handlePushTelegramNotificationController } from "../controllers/common/homepageController";
 import { Meme } from "./meme-cook.cron";
+import { getSignerFromContract } from "../controllers/token/token.handle";
 
 // Đường dẫn tới file chứa các meme
 const tokenFilePath = path.join(
@@ -154,8 +155,9 @@ const createTokenInfo = (pool: any): ICreateToken => {
     liq: bigNumber(pool?.tvl).toNumber(),
     network: "Near",
     tvl: pool?.tvl,
-    refLink: `https://app.ref.finance/#usdt.tether-token.near|${contract}`,
-    dexLink: pool?.id
+    TokenLink: `https://nearblocks.io/token/${contract}`,
+    RefLink: `https://app.ref.finance/#usdt.tether-token.near|${contract}`,
+    DexLink: pool?.id
       ? `https://dexscreener.com/near/refv1-${pool?.id}`
       : "N/A",
   };
@@ -206,17 +208,32 @@ const fetchAndProcessPools = async (): Promise<any> => {
       .sort((a, b) => (bigNumber(a.tvl).gte(b.tvl) ? -1 : 1));
 
     // Lọc ra danh sách token mới
-    const newInfoTokens = listInfoToken.filter((t) => {
-      return !tokenSeed.some((i) => i.pool_id === t.pool_id);
-    });
-    // .map((t) => {
-    //   const m = memeSeed.find((i) => i.token_id === t.token_contract);
-    //   if (!m) {
-    //     return t;
-    //   } else {
-    //     return { ...m, ...t };
-    //   }
-    // });
+    const newInfoTokens = await Promise.all(
+      listInfoToken
+        .filter((t) => {
+          return !tokenSeed.some((i) => i.pool_id === t.pool_id);
+        })
+        .map(async (t) => {
+          console.log("t :", t);
+          const meme = memeSeed.find((i) => i?.token_id === t.token_contract);
+          console.log("meme :", meme);
+
+          if (!meme) {
+            const owner = await getSignerFromContract(t.token_contract);
+            console.log("owner :", owner);
+
+            return {
+              OwnerLink: `https://nearblocks.io/address/${owner}?tab=tokentxns`,
+              ...t,
+            };
+          } else {
+            return {
+              OwnerLink: `https://nearblocks.io/address/${meme.owner}?tab=tokentxns`,
+              ...t,
+            };
+          }
+        })
+    );
     // Thêm các token mới vào tokenSeed
     newInfoTokens.forEach((t) => {
       tokenSeed.unshift(t);
@@ -262,8 +279,16 @@ const cronExpression15s = "*/15 * * * * *";
 const cronExpression10s = "*/10 * * * * *";
 const checkReleasePoolToken = new CronJob(cronExpression15s, async () => {
   await delay(Math.random() * 1500);
-  fetchAndProcessTokenPrices();
-  fetchAndProcessPools();
+  // fetchAndProcessTokenPrices();
+  // fetchAndProcessPools();
+
+  getSignerFromContract("bulla.tkn.near")
+    .then((signerAccountId) => {
+      console.log("Signer Account ID:", signerAccountId);
+    })
+    .catch((err) => {
+      console.error("Error:", err);
+    });
 });
 
 export { checkReleasePoolToken };
