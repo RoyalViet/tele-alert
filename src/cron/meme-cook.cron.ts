@@ -111,34 +111,34 @@ function generateTelegramHTMLMemeCook(meme: any): string {
     ? meme.token_id
     : `${meme.symbol}-${meme.meme_id}.meme-cooking.near`.toLowerCase();
 
-    const memeDetails = {
-      OwnerLink: `https://nearblocks.io/address/${meme.owner}?tab=tokentxns`,
-      TotalDeposit: `${formatBalance(totalDeposit)} Near`,
-      HardCap: `${formatBalance(hardCap)} Near`,
-      _: "==============================",
-      Contract: memeContract,
-      PoolID: meme.pool_id ? meme.pool_id : "N/A",
-      RefLink: `https://app.ref.finance/#usdt.tether-token.near|${memeContract}`,
-      DexLink: meme.pool_id
-        ? `https://dexscreener.com/near/refv1-${meme.pool_id}`
-        : "N/A",
-      TokenLink: `https://nearblocks.io/token/${memeContract}`,
-      __: "==============================",
-      ID: meme.meme_id,
-      Owner: meme.owner,
-      Name: meme.name,
-      Symbol: meme.symbol,
-      SoftCap: `${formatBalance(softCap)} Near`,
-      Decimals: meme.decimals,
-      TotalSupply: `${formatBalance(totalSupply)}`,
-      MemeLink: `https://meme.cooking/meme/${meme.meme_id}`,
-      ___: "==============================",
-      Twitter: meme.twitterLink ? meme.twitterLink : "N/A",
-      Telegram: meme.telegramLink ? meme.telegramLink : "N/A",
-      Description: meme.description ? meme.description : "N/A",
-      Image: `![View Image](https://plum-necessary-chameleon-942.mypinata.cloud/ipfs/${meme.image})`,
-    };
-  
+  const memeDetails = {
+    OwnerLink: `https://nearblocks.io/address/${meme.owner}?tab=tokentxns`,
+    TotalDeposit: `${formatBalance(totalDeposit)} Near`,
+    HardCap: `${formatBalance(hardCap)} Near`,
+    _: "==============================",
+    Contract: memeContract,
+    PoolID: meme.pool_id ? meme.pool_id : "N/A",
+    TokenLink: `https://nearblocks.io/token/${memeContract}`,
+    RefLink: `https://app.ref.finance/#usdt.tether-token.near|${memeContract}`,
+    DexLink: meme.pool_id
+      ? `https://dexscreener.com/near/refv1-${meme.pool_id}`
+      : "N/A",
+    __: "==============================",
+    ID: meme.meme_id,
+    Owner: meme.owner,
+    Name: meme.name,
+    Symbol: meme.symbol,
+    SoftCap: `${formatBalance(softCap)} Near`,
+    Decimals: meme.decimals,
+    TotalSupply: `${formatBalance(totalSupply)}`,
+    MemeLink: `https://meme.cooking/meme/${meme.meme_id}`,
+    ___: "==============================",
+    Twitter: meme.twitterLink ? meme.twitterLink : "N/A",
+    Telegram: meme.telegramLink ? meme.telegramLink : "N/A",
+    Description: meme.description ? meme.description : "N/A",
+    Image: `![View Image](https://plum-necessary-chameleon-942.mypinata.cloud/ipfs/${meme.image})`,
+  };
+
   return generateTelegramHTML(memeDetails);
 }
 
