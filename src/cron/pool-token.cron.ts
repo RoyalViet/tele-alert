@@ -142,19 +142,21 @@ const filterValidPools = (data: any[]): any[] => {
   );
 };
 
-const createTokenInfo = (pool: any): ICreateToken => {
+const createTokenInfo = (pool: any): ICreateToken & Record<string, any> => {
   const contract = (pool?.token_account_ids as string[])?.find(
     (i) => i !== wNearContract
   );
   return {
-    pool_id: Number(pool?.id),
     token_contract: contract,
+    pool_id: Number(pool?.id),
+    _: "==============================",
     token_account_ids: pool?.token_account_ids as string[],
     token_symbols: pool?.token_symbols as string[],
     token_price: bigNumber(pool?.token0_ref_price).toNumber(),
     liq: bigNumber(pool?.tvl).toNumber(),
     network: "Near",
     tvl: pool?.tvl,
+    __: "==============================",
     TokenLink: `https://nearblocks.io/token/${contract}`,
     RefLink: `https://app.ref.finance/#usdt.tether-token.near|${contract}`,
     DexLink: pool?.id
@@ -220,11 +222,13 @@ const fetchAndProcessPools = async (): Promise<any> => {
             return {
               OwnerLink: `https://nearblocks.io/address/${owner}?tab=tokentxns`,
               AddressTokenLink: `https://nearblocks.io/address/${t.token_contract}`,
+              ___: "==============================",
               ...t,
             };
           } else {
             return {
               OwnerLink: `https://nearblocks.io/address/${meme.owner}?tab=tokentxns`,
+              ___: "==============================",
               ...t,
             };
           }

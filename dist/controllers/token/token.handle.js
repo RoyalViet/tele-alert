@@ -119,9 +119,7 @@ function getTransactionHash(contract) {
             // pragma: "no-cache",
         };
         try {
-            console.log("url :", url);
             const response = yield axios_1.default.get(url, { headers });
-            console.log("response :", response);
             const transactionHash = response.data.pageProps.contractData.deployments[0].transaction_hash;
             return transactionHash;
         }
@@ -133,9 +131,7 @@ function getTransactionHash(contract) {
 }
 function getSignerFromContract(contract) {
     return __awaiter(this, void 0, void 0, function* () {
-        console.log("contract :", contract);
         const transactionHash = yield getTransactionHash(contract);
-        console.log("transactionHash :", transactionHash);
         if (transactionHash) {
             return yield getSignerAccountId(transactionHash);
         }

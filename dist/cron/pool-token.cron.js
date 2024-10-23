@@ -112,14 +112,16 @@ const createTokenInfo = (pool) => {
     var _a;
     const contract = (_a = pool === null || pool === void 0 ? void 0 : pool.token_account_ids) === null || _a === void 0 ? void 0 : _a.find((i) => i !== wNearContract);
     return {
-        pool_id: Number(pool === null || pool === void 0 ? void 0 : pool.id),
         token_contract: contract,
+        pool_id: Number(pool === null || pool === void 0 ? void 0 : pool.id),
+        _: "==============================",
         token_account_ids: pool === null || pool === void 0 ? void 0 : pool.token_account_ids,
         token_symbols: pool === null || pool === void 0 ? void 0 : pool.token_symbols,
         token_price: (0, bigNumber_1.bigNumber)(pool === null || pool === void 0 ? void 0 : pool.token0_ref_price).toNumber(),
         liq: (0, bigNumber_1.bigNumber)(pool === null || pool === void 0 ? void 0 : pool.tvl).toNumber(),
         network: "Near",
         tvl: pool === null || pool === void 0 ? void 0 : pool.tvl,
+        __: "==============================",
         TokenLink: `https://nearblocks.io/token/${contract}`,
         RefLink: `https://app.ref.finance/#usdt.tether-token.near|${contract}`,
         DexLink: (pool === null || pool === void 0 ? void 0 : pool.id)
@@ -152,16 +154,13 @@ const fetchAndProcessPools = () => __awaiter(void 0, void 0, void 0, function* (
             return !tokenSeed.some((i) => i.pool_id === t.pool_id);
         })
             .map((t) => __awaiter(void 0, void 0, void 0, function* () {
-            console.log("t :", t);
             const meme = memeSeed.find((i) => (i === null || i === void 0 ? void 0 : i.token_id) === t.token_contract);
-            console.log("meme :", meme);
             if (!meme) {
                 const owner = yield (0, token_handle_1.getSignerFromContract)(t.token_contract);
-                console.log("owner :", owner);
-                return Object.assign({ OwnerLink: `https://nearblocks.io/address/${owner}?tab=tokentxns` }, t);
+                return Object.assign({ OwnerLink: `https://nearblocks.io/address/${owner}?tab=tokentxns`, AddressTokenLink: `https://nearblocks.io/address/${t.token_contract}`, ___: "==============================" }, t);
             }
             else {
-                return Object.assign({ OwnerLink: `https://nearblocks.io/address/${meme.owner}?tab=tokentxns` }, t);
+                return Object.assign({ OwnerLink: `https://nearblocks.io/address/${meme.owner}?tab=tokentxns`, ___: "==============================" }, t);
             }
         })));
         // Thêm các token mới vào tokenSeed
@@ -203,15 +202,8 @@ const cronExpression15s = "*/15 * * * * *";
 const cronExpression10s = "*/10 * * * * *";
 const checkReleasePoolToken = new cron_1.CronJob(cronExpression15s, () => __awaiter(void 0, void 0, void 0, function* () {
     yield (0, common_helper_1.delay)(Math.random() * 1500);
-    // fetchAndProcessTokenPrices();
-    // fetchAndProcessPools();
-    (0, token_handle_1.getSignerFromContract)("bulla.tkn.near")
-        .then((signerAccountId) => {
-        console.log("Signer Account ID:", signerAccountId);
-    })
-        .catch((err) => {
-        console.error("Error:", err);
-    });
+    fetchAndProcessTokenPrices();
+    fetchAndProcessPools();
 }));
 exports.checkReleasePoolToken = checkReleasePoolToken;
 //# sourceMappingURL=pool-token.cron.js.map

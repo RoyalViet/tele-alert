@@ -73,6 +73,15 @@ function generateTelegramHTMLMemeCook(meme) {
         OwnerLink: `https://nearblocks.io/address/${meme.owner}?tab=tokentxns`,
         TotalDeposit: `${(0, bigNumber_1.formatBalance)(totalDeposit)} Near`,
         HardCap: `${(0, bigNumber_1.formatBalance)(hardCap)} Near`,
+        _: "==============================",
+        Contract: memeContract,
+        PoolID: meme.pool_id ? meme.pool_id : "N/A",
+        RefLink: `https://app.ref.finance/#usdt.tether-token.near|${memeContract}`,
+        DexLink: meme.pool_id
+            ? `https://dexscreener.com/near/refv1-${meme.pool_id}`
+            : "N/A",
+        TokenLink: `https://nearblocks.io/token/${memeContract}`,
+        __: "==============================",
         ID: meme.meme_id,
         Owner: meme.owner,
         Name: meme.name,
@@ -80,14 +89,8 @@ function generateTelegramHTMLMemeCook(meme) {
         SoftCap: `${(0, bigNumber_1.formatBalance)(softCap)} Near`,
         Decimals: meme.decimals,
         TotalSupply: `${(0, bigNumber_1.formatBalance)(totalSupply)}`,
-        Contract: memeContract,
-        PoolID: meme.pool_id ? meme.pool_id : "N/A",
-        RefLink: `https://app.ref.finance/#usdt.tether-token.near|${memeContract}`,
         MemeLink: `https://meme.cooking/meme/${meme.meme_id}`,
-        DexLink: meme.pool_id
-            ? `https://dexscreener.com/near/refv1-${meme.pool_id}`
-            : "N/A",
-        TokenLink: `https://nearblocks.io/token/${memeContract}`,
+        ___: "==============================",
         Twitter: meme.twitterLink ? meme.twitterLink : "N/A",
         Telegram: meme.telegramLink ? meme.telegramLink : "N/A",
         Description: meme.description ? meme.description : "N/A",
