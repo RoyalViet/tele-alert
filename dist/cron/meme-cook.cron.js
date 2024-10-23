@@ -71,16 +71,17 @@ function generateTelegramHTMLMemeCook(meme) {
         : `${meme.symbol}-${meme.meme_id}.meme-cooking.near`.toLowerCase();
     const memeDetails = {
         OwnerLink: `https://nearblocks.io/address/${meme.owner}?tab=tokentxns`,
+        OwnerPikeLink: `https://pikespeak.ai/wallet-explorer/${meme.owner}/transfers`,
         TotalDeposit: `${(0, bigNumber_1.formatBalance)(totalDeposit)} Near`,
         HardCap: `${(0, bigNumber_1.formatBalance)(hardCap)} Near`,
         _: "==============================",
         Contract: memeContract,
         PoolID: meme.pool_id ? meme.pool_id : "N/A",
+        TokenLink: `https://nearblocks.io/token/${memeContract}`,
         RefLink: `https://app.ref.finance/#usdt.tether-token.near|${memeContract}`,
         DexLink: meme.pool_id
             ? `https://dexscreener.com/near/refv1-${meme.pool_id}`
             : "N/A",
-        TokenLink: `https://nearblocks.io/token/${memeContract}`,
         __: "==============================",
         ID: meme.meme_id,
         Owner: meme.owner,

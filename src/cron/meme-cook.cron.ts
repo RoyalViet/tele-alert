@@ -113,6 +113,7 @@ function generateTelegramHTMLMemeCook(meme: any): string {
 
   const memeDetails = {
     OwnerLink: `https://nearblocks.io/address/${meme.owner}?tab=tokentxns`,
+    OwnerPikeLink: `https://pikespeak.ai/wallet-explorer/${meme.owner}/transfers`,
     TotalDeposit: `${formatBalance(totalDeposit)} Near`,
     HardCap: `${formatBalance(hardCap)} Near`,
     _: "==============================",

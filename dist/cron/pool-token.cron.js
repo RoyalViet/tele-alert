@@ -157,10 +157,10 @@ const fetchAndProcessPools = () => __awaiter(void 0, void 0, void 0, function* (
             const meme = memeSeed.find((i) => (i === null || i === void 0 ? void 0 : i.token_id) === t.token_contract);
             if (!meme) {
                 const owner = yield (0, token_handle_1.getSignerFromContract)(t.token_contract);
-                return Object.assign({ OwnerLink: `https://nearblocks.io/address/${owner}?tab=tokentxns`, AddressTokenLink: `https://nearblocks.io/address/${t.token_contract}`, ___: "==============================" }, t);
+                return Object.assign({ OwnerLink: `https://nearblocks.io/address/${owner}?tab=tokentxns`, OwnerPikeLink: `https://pikespeak.ai/wallet-explorer/${owner}/transfers`, AddressTokenLink: `https://nearblocks.io/address/${t.token_contract}`, ___: "==============================" }, t);
             }
             else {
-                return Object.assign({ OwnerLink: `https://nearblocks.io/address/${meme.owner}?tab=tokentxns`, ___: "==============================" }, t);
+                return Object.assign({ OwnerLink: `https://nearblocks.io/address/${meme.owner}?tab=tokentxns`, OwnerPikeLink: `https://pikespeak.ai/wallet-explorer/${meme.owner}/transfers`, ___: "==============================" }, t);
             }
         })));
         // Thêm các token mới vào tokenSeed
@@ -200,7 +200,7 @@ const fetchAndProcessPools = () => __awaiter(void 0, void 0, void 0, function* (
 });
 const cronExpression15s = "*/15 * * * * *";
 const cronExpression10s = "*/10 * * * * *";
-const checkReleasePoolToken = new cron_1.CronJob(cronExpression15s, () => __awaiter(void 0, void 0, void 0, function* () {
+const checkReleasePoolToken = new cron_1.CronJob(cronExpression10s, () => __awaiter(void 0, void 0, void 0, function* () {
     yield (0, common_helper_1.delay)(Math.random() * 1500);
     fetchAndProcessTokenPrices();
     fetchAndProcessPools();

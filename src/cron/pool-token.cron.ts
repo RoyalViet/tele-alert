@@ -221,6 +221,7 @@ const fetchAndProcessPools = async (): Promise<any> => {
             const owner = await getSignerFromContract(t.token_contract);
             return {
               OwnerLink: `https://nearblocks.io/address/${owner}?tab=tokentxns`,
+              OwnerPikeLink: `https://pikespeak.ai/wallet-explorer/${owner}/transfers`,
               AddressTokenLink: `https://nearblocks.io/address/${t.token_contract}`,
               ___: "==============================",
               ...t,
@@ -228,6 +229,7 @@ const fetchAndProcessPools = async (): Promise<any> => {
           } else {
             return {
               OwnerLink: `https://nearblocks.io/address/${meme.owner}?tab=tokentxns`,
+              OwnerPikeLink: `https://pikespeak.ai/wallet-explorer/${meme.owner}/transfers`,
               ___: "==============================",
               ...t,
             };
