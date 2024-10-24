@@ -28,6 +28,7 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
     // job.start();
     meme_cook_cron_1.checkMemeCooking.start();
     pool_token_cron_1.checkReleasePoolToken.start();
+    // fetchMemeTrades(283);
     // test
     // testF();
     express_config_1.default.listen(PORT, () => {
