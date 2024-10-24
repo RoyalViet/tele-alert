@@ -5,6 +5,7 @@ import path from "path";
 import { bigNumber, formatBalance } from "../common/helper/bigNumber";
 import { handlePushTelegramNotificationController } from "../controllers/common/homepageController";
 import { delay, generateTelegramHTML } from "../common/helper/common.helper";
+import { fetchAndProcessPools } from "./pool-token.cron";
 
 // Đường dẫn tới file chứa các meme
 const idsPath = path.join(
@@ -186,6 +187,9 @@ async function fetchActiveMemes(): Promise<Meme[]> {
         handlePushTelegramNotificationController({
           body: generateTelegramHTMLMemeCook(m),
         });
+        if (!m.pool_id) {
+          fetchAndProcessPools();
+        }
         // Thêm meme_id vào Set để tránh gửi lại
         sentMemeIds.add(m.meme_id);
         console.log([...sentMemeIds]);

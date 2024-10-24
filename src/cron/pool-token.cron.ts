@@ -199,7 +199,7 @@ function readExistingMemes(): Meme[] {
 
 const tokenSeed = readTokenList();
 const memeSeed = readExistingMemes();
-const fetchAndProcessPools = async (): Promise<any> => {
+export const fetchAndProcessPools = async (): Promise<any> => {
   console.log(`v2 running cron job crawl pool token ${contract}...`);
   try {
     const raw: { data: Array<PoolItem> } = await axios.get(
