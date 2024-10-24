@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.checkMemeCooking = void 0;
+exports.checkMemeCooking = exports.fetchMemeTrades = void 0;
 const axios_1 = __importDefault(require("axios"));
 const cron_1 = require("cron");
 const fs_1 = __importDefault(require("fs"));
@@ -20,6 +20,73 @@ const path_1 = __importDefault(require("path"));
 const bigNumber_1 = require("../common/helper/bigNumber");
 const homepageController_1 = require("../controllers/common/homepageController");
 const common_helper_1 = require("../common/helper/common.helper");
+const pool_token_cron_1 = require("./pool-token.cron");
+// Hàm fetchMemeTrades
+const fetchMemeTrades = (memeId) => __awaiter(void 0, void 0, void 0, function* () {
+    const url = `https://api.meme.cooking/trades?meme_id=${memeId}`;
+    try {
+        const response = yield axios_1.default.get(url, {
+            headers: {
+                accept: "*/*",
+                "accept-language": "en-US,en;q=0.9",
+                "cache-control": "no-cache",
+                "content-type": "application/json",
+                origin: "https://meme.cooking",
+                pragma: "no-cache",
+                priority: "u=1, i",
+                referer: "https://meme.cooking/",
+                "sec-ch-ua": '"Chromium";v="130", "Google Chrome";v="130", "Not?A_Brand";v="99"',
+                "sec-ch-ua-mobile": "?0",
+                "sec-ch-ua-platform": '"macOS"',
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-site",
+                "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+            },
+        });
+        // Tạo một đối tượng để lưu trữ tổng hợp theo account_id
+        const accountMap = {};
+        // Tổng hợp dữ liệu
+        response.data.forEach((trade) => {
+            const amountValue = (0, bigNumber_1.bigNumber)(trade.amount).dividedBy(Math.pow(10, 24));
+            if (trade.is_deposit) {
+                accountMap[trade.account_id] = (0, bigNumber_1.bigNumber)(accountMap[trade.account_id] || 0).plus(amountValue);
+            }
+            else {
+                accountMap[trade.account_id] = (0, bigNumber_1.bigNumber)(accountMap[trade.account_id] || 0).minus(amountValue);
+            }
+        });
+        // Chuyển đổi accountMap thành mảng kết quả
+        const result = Object.entries(accountMap).map(([account_id, amount]) => ({
+            account_id,
+            amount,
+        }));
+        // Tính tổng amount
+        const totalAmount = result.reduce((sum, item) => sum.plus(item.amount), new bigNumber_1.BigNumber(0));
+        if (totalAmount.isZero()) {
+            return;
+        }
+        // Sắp xếp các trade theo amount từ lớn đến bé
+        const sortedResult = result
+            .sort((a, b) => a.amount.minus(b.amount).toNumber())
+            .map((i) => {
+            const percent = i.amount.dividedBy(totalAmount).multipliedBy(100);
+            return Object.assign(Object.assign({}, i), { amount: (0, bigNumber_1.formatBalance)(i.amount) + " Near", percent: percent.toFixed(2) + " %" });
+        });
+        // handlePushTelegramNotificationController({
+        //   body: sortedResult
+        //     .slice(0, 4)
+        //     .map((i) => generateTelegramHTML(i))
+        //     .join("\n\n"),
+        // });
+        console.log(sortedResult);
+        return sortedResult;
+    }
+    catch (error) {
+        console.error("Error fetching meme trades:", error === null || error === void 0 ? void 0 : error.message);
+    }
+});
+exports.fetchMemeTrades = fetchMemeTrades;
 // Đường dẫn tới file chứa các meme
 const idsPath = path_1.default.join(process.cwd(), "src", "seeds", "ids-meme-full-cap.seed.json");
 // Hàm để đọc meme_id từ file vào Set
@@ -137,6 +204,10 @@ function fetchActiveMemes() {
                     (0, homepageController_1.handlePushTelegramNotificationController)({
                         body: generateTelegramHTMLMemeCook(m),
                     });
+                    if (!m.pool_id) {
+                        (0, pool_token_cron_1.fetchAndProcessPools)();
+                    }
+                    // fetchMemeTrades(m.meme_id)
                     // Thêm meme_id vào Set để tránh gửi lại
                     sentMemeIds.add(m.meme_id);
                     console.log([...sentMemeIds]);

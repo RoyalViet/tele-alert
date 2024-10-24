@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.checkReleasePoolToken = exports.contract = void 0;
+exports.checkReleasePoolToken = exports.fetchAndProcessPools = exports.contract = void 0;
 const axios_1 = __importDefault(require("axios"));
 const cron_1 = require("cron");
 const fs_1 = __importDefault(require("fs"));
@@ -198,12 +198,13 @@ const fetchAndProcessPools = () => __awaiter(void 0, void 0, void 0, function* (
         console.error("Error fetching pools:", error.message);
     }
 });
+exports.fetchAndProcessPools = fetchAndProcessPools;
 const cronExpression15s = "*/15 * * * * *";
 const cronExpression10s = "*/10 * * * * *";
 const checkReleasePoolToken = new cron_1.CronJob(cronExpression10s, () => __awaiter(void 0, void 0, void 0, function* () {
     yield (0, common_helper_1.delay)(Math.random() * 1500);
     fetchAndProcessTokenPrices();
-    fetchAndProcessPools();
+    (0, exports.fetchAndProcessPools)();
 }));
 exports.checkReleasePoolToken = checkReleasePoolToken;
 //# sourceMappingURL=pool-token.cron.js.map
