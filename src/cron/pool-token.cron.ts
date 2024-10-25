@@ -92,6 +92,7 @@ const updatePriceTokenList = (
   listPrice: PriceResponse,
   listPriceSeed: Record<string, TokenPrice>
 ): TokenPrice[] => {
+  const memeSeed = readExistingMemes();
   const updates: TokenPrice[] = [];
   Object.keys(listPrice).forEach((key) => {
     if (!listPriceSeed[key] && !memeSeed.some((i) => i.token_id === key)) {
@@ -198,7 +199,6 @@ function readExistingMemes(): Meme[] {
 }
 
 const tokenSeed = readTokenList();
-const memeSeed = readExistingMemes();
 export const fetchAndProcessPools = async (): Promise<any> => {
   console.log(`v2 running cron job crawl pool token ${contract}...`);
   try {
@@ -210,6 +210,7 @@ export const fetchAndProcessPools = async (): Promise<any> => {
       .sort((a, b) => (bigNumber(a.tvl).gte(b.tvl) ? -1 : 1));
 
     // Lọc ra danh sách token mới
+    const memeSeed = readExistingMemes();
     const newInfoTokens = await Promise.all(
       listInfoToken
         .filter((t) => {

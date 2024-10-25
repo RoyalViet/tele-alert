@@ -91,9 +91,9 @@ export async function getTransactionHash(
 
   const headers = {
     accept: "*/*",
-    // "accept-language": "en-US,en;q=0.9",
-    // "cache-control": "no-cache",
-    // pragma: "no-cache",
+    "accept-language": "en-US,en;q=0.9",
+    "cache-control": "no-cache",
+    pragma: "no-cache",
   };
 
   try {

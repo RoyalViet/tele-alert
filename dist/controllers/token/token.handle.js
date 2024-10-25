@@ -114,9 +114,9 @@ function getTransactionHash(contract) {
         const url = `https://nearblocks.io/_next/data/nearblocks/en/address/${contract}.json/`;
         const headers = {
             accept: "*/*",
-            // "accept-language": "en-US,en;q=0.9",
-            // "cache-control": "no-cache",
-            // pragma: "no-cache",
+            "accept-language": "en-US,en;q=0.9",
+            "cache-control": "no-cache",
+            pragma: "no-cache",
         };
         try {
             const response = yield axios_1.default.get(url, { headers });

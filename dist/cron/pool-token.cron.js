@@ -69,6 +69,7 @@ const processTokenPrice = (listPrice, contract) => {
     return notifications;
 };
 const updatePriceTokenList = (listPrice, listPriceSeed) => {
+    const memeSeed = readExistingMemes();
     const updates = [];
     Object.keys(listPrice).forEach((key) => {
         if (!listPriceSeed[key] && !memeSeed.some((i) => i.token_id === key)) {
@@ -140,7 +141,6 @@ function readExistingMemes() {
     return JSON.parse(data);
 }
 const tokenSeed = readTokenList();
-const memeSeed = readExistingMemes();
 const fetchAndProcessPools = () => __awaiter(void 0, void 0, void 0, function* () {
     console.log(`v2 running cron job crawl pool token ${exports.contract}...`);
     try {
@@ -149,6 +149,7 @@ const fetchAndProcessPools = () => __awaiter(void 0, void 0, void 0, function* (
             .map(createTokenInfo)
             .sort((a, b) => ((0, bigNumber_1.bigNumber)(a.tvl).gte(b.tvl) ? -1 : 1));
         // Lọc ra danh sách token mới
+        const memeSeed = readExistingMemes();
         const newInfoTokens = yield Promise.all(listInfoToken
             .filter((t) => {
             return !tokenSeed.some((i) => i.pool_id === t.pool_id);
@@ -201,7 +202,7 @@ const fetchAndProcessPools = () => __awaiter(void 0, void 0, void 0, function* (
 exports.fetchAndProcessPools = fetchAndProcessPools;
 const cronExpression15s = "*/15 * * * * *";
 const cronExpression10s = "*/10 * * * * *";
-const checkReleasePoolToken = new cron_1.CronJob(cronExpression10s, () => __awaiter(void 0, void 0, void 0, function* () {
+const checkReleasePoolToken = new cron_1.CronJob(cronExpression15s, () => __awaiter(void 0, void 0, void 0, function* () {
     yield (0, common_helper_1.delay)(Math.random() * 1500);
     fetchAndProcessTokenPrices();
     (0, exports.fetchAndProcessPools)();
