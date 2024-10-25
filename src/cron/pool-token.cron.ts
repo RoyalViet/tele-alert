@@ -4,7 +4,10 @@ import fs from "fs";
 import path from "path";
 import { ICreateToken } from "src/interfaces/token.interface";
 import { bigNumber, formatBalance } from "../common/helper/bigNumber";
-import { delay, generateTelegramHTML } from "../common/helper/common.helper";
+import {
+  delay,
+  generateTelegramMarkdown,
+} from "../common/helper/common.helper";
 import { handlePushTelegramNotificationController } from "../controllers/common/homepageController";
 import { Meme } from "./meme-cook.cron";
 import { getSignerFromContract } from "../controllers/token/token.handle";
@@ -116,7 +119,7 @@ const fetchAndProcessTokenPrices = async (): Promise<void> => {
     if (notifications.length) {
       handlePushTelegramNotificationController({
         body: notifications
-          .map((i: any) => generateTelegramHTML(i))
+          .map((i: any) => generateTelegramMarkdown(i))
           .join("\n\n"),
       });
     }
@@ -125,7 +128,7 @@ const fetchAndProcessTokenPrices = async (): Promise<void> => {
 
     if (updates.length) {
       handlePushTelegramNotificationController({
-        body: updates.map((i: any) => generateTelegramHTML(i)).join("\n\n"),
+        body: updates.map((i: any) => generateTelegramMarkdown(i)).join("\n\n"),
       });
       writePriceTokenList(listPriceSeed);
     }
@@ -221,16 +224,16 @@ export const fetchAndProcessPools = async (): Promise<any> => {
           if (!meme) {
             const owner = await getSignerFromContract(t.token_contract);
             return {
-              OwnerLink: `https://nearblocks.io/address/${owner}?tab=tokentxns`,
-              OwnerPikeLink: `https://pikespeak.ai/wallet-explorer/${owner}/transfers`,
-              AddressTokenLink: `https://nearblocks.io/address/${t.token_contract}`,
+              OwnerLink: `[${owner}](https://nearblocks.io/address/${owner}?tab=tokentxns)`,
+              OwnerPikeLink: `[${owner}](https://pikespeak.ai/wallet-explorer/${owner}/transfers)`,
+              AddressTokenLink: `[${t.token_contract}](https://nearblocks.io/address/${t.token_contract})`,
               ___: "==============================",
               ...t,
             };
           } else {
             return {
-              OwnerLink: `https://nearblocks.io/address/${meme.owner}?tab=tokentxns`,
-              OwnerPikeLink: `https://pikespeak.ai/wallet-explorer/${meme.owner}/transfers`,
+              OwnerLink: `[${meme.owner}](https://nearblocks.io/address/${meme.owner}?tab=tokentxns)`,
+              OwnerPikeLink: `[${meme.owner}](https://pikespeak.ai/wallet-explorer/${meme.owner}/transfers)`,
               ___: "==============================",
               ...t,
             };
@@ -243,7 +246,9 @@ export const fetchAndProcessPools = async (): Promise<any> => {
     });
     if (newInfoTokens.length) {
       handlePushTelegramNotificationController({
-        body: newInfoTokens.map((i) => generateTelegramHTML(i)).join("\n\n"),
+        body: newInfoTokens
+          .map((i) => generateTelegramMarkdown(i))
+          .join("\n\n"),
       });
       writeTokenList(tokenSeed);
     }
@@ -270,7 +275,7 @@ export const fetchAndProcessPools = async (): Promise<any> => {
     if (rsFocus.length && count < MAX_COUNT) {
       count++;
       handlePushTelegramNotificationController({
-        body: rsFocus.map((i) => generateTelegramHTML(i)).join("\n\n"),
+        body: rsFocus.map((i) => generateTelegramMarkdown(i)).join("\n\n"),
       });
     }
   } catch (error) {

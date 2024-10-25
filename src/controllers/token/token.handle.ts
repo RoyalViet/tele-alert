@@ -7,6 +7,7 @@ import * as tokenService from "../../services/token/token.service";
 import * as telegramService from "../../services/telegram/telegramService";
 import { formatBalance } from "../../common/helper/bigNumber";
 import { contract } from "../../cron/pool-token.cron";
+import { generateTelegramMarkdown } from "../../common/helper/common.helper";
 
 // Utilities
 
@@ -21,17 +22,14 @@ export const createTokenHandle = async (params: ICreateToken) => {
 const telegramAlertToken = async (params: ICreateToken) => {
   try {
     await telegramService.sendNotification(
-      {
+      generateTelegramMarkdown({
         ...params,
         pool_id: params.pool_id,
         token_account_ids: params.token_account_ids,
         token_symbols: params.token_symbols,
         token_price: formatBalance(params.token_price),
         liq: formatBalance(params.liq),
-      },
-      {
-        isGenerateTelegramHTML: true,
-      }
+      })
     );
   } catch (error) {}
 };
@@ -55,21 +53,6 @@ export async function getSignerAccountId(
     accept: "*/*",
     "accept-language": "en-US,en;q=0.9",
     "cache-control": "no-cache",
-    // cookie:
-    //   "_ga=GA1.1.734901468.1704366077; rpcUrl=https://beta.rpc.mainnet.near.org; _ga_BWQNL2NX10=GS1.1.1729555440.546.1.1729556059.0.0.0",
-    // pragma: "no-cache",
-    // priority: "u=1, i",
-    // referer: `https://nearblocks.io/txns/${transactionHash}`,
-    // "sec-ch-ua":
-    //   '"Chromium";v="130", "Google Chrome";v="130", "Not?A_Brand";v="99"',
-    // "sec-ch-ua-mobile": "?0",
-    // "sec-ch-ua-platform": '"macOS"',
-    // "sec-fetch-dest": "empty",
-    // "sec-fetch-mode": "cors",
-    // "sec-fetch-site": "same-origin",
-    // "user-agent":
-    //   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
-    // "x-nextjs-data": "1",
   };
 
   try {

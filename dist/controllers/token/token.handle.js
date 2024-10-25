@@ -45,6 +45,7 @@ const tokenService = __importStar(require("../../services/token/token.service"))
 const telegramService = __importStar(require("../../services/telegram/telegramService"));
 const bigNumber_1 = require("../../common/helper/bigNumber");
 const pool_token_cron_1 = require("../../cron/pool-token.cron");
+const common_helper_1 = require("../../common/helper/common.helper");
 // Utilities
 const createTokenHandle = (params) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -57,9 +58,7 @@ const createTokenHandle = (params) => __awaiter(void 0, void 0, void 0, function
 exports.createTokenHandle = createTokenHandle;
 const telegramAlertToken = (params) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        yield telegramService.sendNotification(Object.assign(Object.assign({}, params), { pool_id: params.pool_id, token_account_ids: params.token_account_ids, token_symbols: params.token_symbols, token_price: (0, bigNumber_1.formatBalance)(params.token_price), liq: (0, bigNumber_1.formatBalance)(params.liq) }), {
-            isGenerateTelegramHTML: true,
-        });
+        yield telegramService.sendNotification((0, common_helper_1.generateTelegramMarkdown)(Object.assign(Object.assign({}, params), { pool_id: params.pool_id, token_account_ids: params.token_account_ids, token_symbols: params.token_symbols, token_price: (0, bigNumber_1.formatBalance)(params.token_price), liq: (0, bigNumber_1.formatBalance)(params.liq) })));
     }
     catch (error) { }
 });
@@ -81,21 +80,6 @@ function getSignerAccountId(transactionHash) {
             accept: "*/*",
             "accept-language": "en-US,en;q=0.9",
             "cache-control": "no-cache",
-            // cookie:
-            //   "_ga=GA1.1.734901468.1704366077; rpcUrl=https://beta.rpc.mainnet.near.org; _ga_BWQNL2NX10=GS1.1.1729555440.546.1.1729556059.0.0.0",
-            // pragma: "no-cache",
-            // priority: "u=1, i",
-            // referer: `https://nearblocks.io/txns/${transactionHash}`,
-            // "sec-ch-ua":
-            //   '"Chromium";v="130", "Google Chrome";v="130", "Not?A_Brand";v="99"',
-            // "sec-ch-ua-mobile": "?0",
-            // "sec-ch-ua-platform": '"macOS"',
-            // "sec-fetch-dest": "empty",
-            // "sec-fetch-mode": "cors",
-            // "sec-fetch-site": "same-origin",
-            // "user-agent":
-            //   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
-            // "x-nextjs-data": "1",
         };
         try {
             const response = yield axios_1.default.get(url, { headers });

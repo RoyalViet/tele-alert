@@ -88,14 +88,14 @@ const fetchAndProcessTokenPrices = () => __awaiter(void 0, void 0, void 0, funct
         if (notifications.length) {
             (0, homepageController_1.handlePushTelegramNotificationController)({
                 body: notifications
-                    .map((i) => (0, common_helper_1.generateTelegramHTML)(i))
+                    .map((i) => (0, common_helper_1.generateTelegramMarkdown)(i))
                     .join("\n\n"),
             });
         }
         const updates = updatePriceTokenList(listPrice, listPriceSeed);
         if (updates.length) {
             (0, homepageController_1.handlePushTelegramNotificationController)({
-                body: updates.map((i) => (0, common_helper_1.generateTelegramHTML)(i)).join("\n\n"),
+                body: updates.map((i) => (0, common_helper_1.generateTelegramMarkdown)(i)).join("\n\n"),
             });
             writePriceTokenList(listPriceSeed);
         }
@@ -158,10 +158,10 @@ const fetchAndProcessPools = () => __awaiter(void 0, void 0, void 0, function* (
             const meme = memeSeed.find((i) => (i === null || i === void 0 ? void 0 : i.token_id) === t.token_contract);
             if (!meme) {
                 const owner = yield (0, token_handle_1.getSignerFromContract)(t.token_contract);
-                return Object.assign({ OwnerLink: `https://nearblocks.io/address/${owner}?tab=tokentxns`, OwnerPikeLink: `https://pikespeak.ai/wallet-explorer/${owner}/transfers`, AddressTokenLink: `https://nearblocks.io/address/${t.token_contract}`, ___: "==============================" }, t);
+                return Object.assign({ OwnerLink: `[${owner}](https://nearblocks.io/address/${owner}?tab=tokentxns)`, OwnerPikeLink: `[${owner}](https://pikespeak.ai/wallet-explorer/${owner}/transfers)`, AddressTokenLink: `[${t.token_contract}](https://nearblocks.io/address/${t.token_contract})`, ___: "==============================" }, t);
             }
             else {
-                return Object.assign({ OwnerLink: `https://nearblocks.io/address/${meme.owner}?tab=tokentxns`, OwnerPikeLink: `https://pikespeak.ai/wallet-explorer/${meme.owner}/transfers`, ___: "==============================" }, t);
+                return Object.assign({ OwnerLink: `[${meme.owner}](https://nearblocks.io/address/${meme.owner}?tab=tokentxns)`, OwnerPikeLink: `[${meme.owner}](https://pikespeak.ai/wallet-explorer/${meme.owner}/transfers)`, ___: "==============================" }, t);
             }
         })));
         // Thêm các token mới vào tokenSeed
@@ -170,7 +170,9 @@ const fetchAndProcessPools = () => __awaiter(void 0, void 0, void 0, function* (
         });
         if (newInfoTokens.length) {
             (0, homepageController_1.handlePushTelegramNotificationController)({
-                body: newInfoTokens.map((i) => (0, common_helper_1.generateTelegramHTML)(i)).join("\n\n"),
+                body: newInfoTokens
+                    .map((i) => (0, common_helper_1.generateTelegramMarkdown)(i))
+                    .join("\n\n"),
             });
             writeTokenList(tokenSeed);
         }
@@ -191,7 +193,7 @@ const fetchAndProcessPools = () => __awaiter(void 0, void 0, void 0, function* (
         if (rsFocus.length && count < MAX_COUNT) {
             count++;
             (0, homepageController_1.handlePushTelegramNotificationController)({
-                body: rsFocus.map((i) => (0, common_helper_1.generateTelegramHTML)(i)).join("\n\n"),
+                body: rsFocus.map((i) => (0, common_helper_1.generateTelegramMarkdown)(i)).join("\n\n"),
             });
         }
     }

@@ -5,8 +5,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.sendPhoto = exports.sendMeAGif = exports.sendNotification = void 0;
 const axios_1 = __importDefault(require("axios"));
-const common_helper_1 = require("../../common/helper/common.helper");
-// require("dotenv").config();
 // const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 // const TELEGRAM_GROUP_ID = process.env.TELEGRAM_GROUP_ID;
 const TELEGRAM_BOT_TOKEN = "6893137130:AAG7kto4ZePK8Z-SrS1dgUt8BfHeinhkA3A";
@@ -17,8 +15,8 @@ const sendNotification = (msg, options) => {
             console.log("send :", msg);
             let data = {
                 chat_id: TELEGRAM_GROUP_ID,
-                parse_mode: "HTML",
-                text: (options === null || options === void 0 ? void 0 : options.isGenerateTelegramHTML) ? (0, common_helper_1.generateTelegramHTML)(msg) : msg,
+                parse_mode: (options === null || options === void 0 ? void 0 : options.isGenerateTelegramHTML) ? "HTML" : "Markdown",
+                text: msg,
             };
             axios_1.default
                 .get(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {

@@ -12,17 +12,26 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.generateTelegramMarkdown = generateTelegramMarkdown;
 exports.generateTelegramHTML = generateTelegramHTML;
 exports.writeFile = writeFile;
 exports.delay = delay;
 const fs_1 = __importDefault(require("fs"));
 function generateTelegramHTML(data) {
-    let html = "==========\n"; // Thêm đường gạch ngang ở trên
+    let html = "====================\n";
     for (const key in data) {
         html += `<b>${key}:</b> ${data[key]}\n`;
     }
-    html += "=========="; // Thêm đường gạch ngang ở dưới
+    html += "====================";
     return html.trim();
+}
+function generateTelegramMarkdown(data) {
+    let markdown = "====================\n"; // Thêm đường gạch ngang ở trên
+    for (const key in data) {
+        markdown += `*${key}:* ${data[key]}\n`; // Sử dụng * để in đậm
+    }
+    markdown += "===================="; // Thêm đường gạch ngang ở dưới
+    return markdown.trim();
 }
 function writeFile(name, data) {
     const jsonData = JSON.stringify(data, null, 2); // Convert the JSON object to a string with indentation

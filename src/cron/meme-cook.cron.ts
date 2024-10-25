@@ -8,7 +8,10 @@ import {
   formatBalance,
 } from "../common/helper/bigNumber";
 import { handlePushTelegramNotificationController } from "../controllers/common/homepageController";
-import { delay, generateTelegramHTML } from "../common/helper/common.helper";
+import {
+  delay,
+  generateTelegramMarkdown,
+} from "../common/helper/common.helper";
 import { fetchAndProcessPools } from "./pool-token.cron";
 
 interface Trade {
@@ -101,7 +104,7 @@ export const fetchMemeTrades = async (memeId: number | string) => {
     // handlePushTelegramNotificationController({
     //   body: sortedResult
     //     .slice(0, 4)
-    //     .map((i) => generateTelegramHTML(i))
+    //     .map((i) => generateTelegramMarkdown(i))
     //     .join("\n\n"),
     // });
     console.log(sortedResult);
@@ -199,7 +202,7 @@ function writeExistingMemes(memes: Meme[]): void {
   fs.writeFileSync(filePath, JSON.stringify(memes, null, 2), "utf8");
 }
 
-function generateTelegramHTMLMemeCook(meme: any): string {
+function generateTelegramHTMLMemeCook(meme: Meme): string {
   const decimals = meme.decimals || 18; // Mặc định là 18 nếu không có
   const totalSupply = bigNumber(meme.total_supply)
     .dividedBy(Math.pow(10, decimals))
@@ -218,17 +221,17 @@ function generateTelegramHTMLMemeCook(meme: any): string {
     : `${meme.symbol}-${meme.meme_id}.meme-cooking.near`.toLowerCase();
 
   const memeDetails = {
-    OwnerLink: `https://nearblocks.io/address/${meme.owner}?tab=tokentxns`,
-    OwnerPikeLink: `https://pikespeak.ai/wallet-explorer/${meme.owner}/transfers`,
+    OwnerLink: `[${meme.owner}](https://nearblocks.io/address/${meme.owner}?tab=tokentxns)`,
+    OwnerPikeLink: `[Owner Pike Link](https://pikespeak.ai/wallet-explorer/${meme.owner}/transfers)`,
     TotalDeposit: `${formatBalance(totalDeposit)} Near`,
     HardCap: `${formatBalance(hardCap)} Near`,
     _: "==============================",
     Contract: memeContract,
     PoolID: meme.pool_id ? meme.pool_id : "N/A",
-    TokenLink: `https://nearblocks.io/token/${memeContract}`,
-    RefLink: `https://app.ref.finance/#usdt.tether-token.near|${memeContract}`,
+    TokenLink: `[${memeContract}](https://nearblocks.io/token/${memeContract})`,
+    RefLink: `[Ref Link ${memeContract}](https://app.ref.finance/#usdt.tether-token.near|${memeContract})`,
     DexLink: meme.pool_id
-      ? `https://dexscreener.com/near/refv1-${meme.pool_id}`
+      ? `[Dex Link ${meme.pool_id}](https://dexscreener.com/near/refv1-${meme.pool_id})`
       : "N/A",
     __: "==============================",
     ID: meme.meme_id,
@@ -238,15 +241,19 @@ function generateTelegramHTMLMemeCook(meme: any): string {
     SoftCap: `${formatBalance(softCap)} Near`,
     Decimals: meme.decimals,
     TotalSupply: `${formatBalance(totalSupply)}`,
-    MemeLink: `https://meme.cooking/meme/${meme.meme_id}`,
+    MemeLink: `[Meme Link ${meme.meme_id}](https://meme.cooking/meme/${meme.meme_id})`,
     ___: "==============================",
-    Twitter: meme.twitterLink ? meme.twitterLink : "N/A",
-    Telegram: meme.telegramLink ? meme.telegramLink : "N/A",
+    Twitter: meme.twitterLink
+      ? `[${meme.twitterLink.split("https://")?.[1]}](${meme.twitterLink})`
+      : "N/A",
+    Telegram: meme.telegramLink
+      ? `[${meme.twitterLink.split("https://")?.[1]}](${meme.telegramLink})`
+      : "N/A",
     Description: meme.description ? meme.description : "N/A",
-    Image: `![View Image](https://plum-necessary-chameleon-942.mypinata.cloud/ipfs/${meme.image})`,
+    Image: `(https://plum-necessary-chameleon-942.mypinata.cloud/ipfs/${meme.image})`,
   };
 
-  return generateTelegramHTML(memeDetails);
+  return generateTelegramMarkdown(memeDetails);
 }
 
 const existingMemes = readExistingMemes();
