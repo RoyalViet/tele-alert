@@ -69,8 +69,9 @@ const handlePushTelegramNotificationController = (req, _res) => {
 exports.handlePushTelegramNotificationController = handlePushTelegramNotificationController;
 const handlePushPhotoTelegramNotificationController = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        yield telegramService.sendPhoto(req.body, req.img);
         console.log("send :", req.body);
+        yield telegramService.sendPhoto(req.body, req.img);
+        console.log("done!");
         return res === null || res === void 0 ? void 0 : res.redirect("/telegram");
     }
     catch (error) {

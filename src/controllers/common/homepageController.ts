@@ -52,8 +52,9 @@ const handlePushPhotoTelegramNotificationController = async (
   res?: any
 ) => {
   try {
-    await telegramService.sendPhoto(req.body, req.img);
     console.log("send :", req.body);
+    await telegramService.sendPhoto(req.body, req.img);
+    console.log("done!");
     return res?.redirect("/telegram");
   } catch (error) {
     console.log("error :", error?.message);

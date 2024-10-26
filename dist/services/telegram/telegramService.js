@@ -64,12 +64,12 @@ const sendMeAGif = () => {
     });
 };
 exports.sendMeAGif = sendMeAGif;
-const sendPhoto = (msg, imageUrl) => {
+const sendPhoto = (msg, imageUrl, options) => {
     return new Promise((resolve, reject) => {
         try {
             let data = {
                 chat_id: TELEGRAM_GROUP_ID,
-                parse_mode: "HTML",
+                parse_mode: (options === null || options === void 0 ? void 0 : options.isGenerateTelegramHTML) ? "HTML" : "Markdown",
                 photo: imageUrl,
                 caption: msg,
             };

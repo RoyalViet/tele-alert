@@ -68,12 +68,16 @@ const sendMeAGif = () => {
   });
 };
 
-const sendPhoto = (msg: any, imageUrl: string) => {
+const sendPhoto = (
+  msg: any,
+  imageUrl: string,
+  options?: Partial<{ isGenerateTelegramHTML: boolean }>
+) => {
   return new Promise((resolve, reject) => {
     try {
       let data = {
         chat_id: TELEGRAM_GROUP_ID,
-        parse_mode: "HTML",
+        parse_mode: options?.isGenerateTelegramHTML ? "HTML" : "Markdown",
         photo: imageUrl,
         caption: msg,
       };
