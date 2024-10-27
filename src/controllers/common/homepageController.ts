@@ -7,6 +7,7 @@ const getHomePage = (req: any, res: any) => {
 
 interface Request {
   body: any; // Thay đổi kiểu dữ liệu nếu cần
+  img?: string;
 }
 
 interface QueueItem {
@@ -37,25 +38,31 @@ const processQueue = async () => {
   }
 };
 
-const handlePushTelegramNotificationController = (
-  req: Request,
-  _res?: any
+// const handlePushTelegramNotificationController = (
+//   req: Request,
+//   _res?: any
+// ): Promise<void> => {
+//   return new Promise((resolve, reject) => {
+//     queue.push({ req, resolve, reject });
+//     processQueue();
+//   });
+// };
+
+const handlePushTelegramNotificationController = async (
+  req: Request
 ): Promise<void> => {
-  return new Promise((resolve, reject) => {
-    queue.push({ req, resolve, reject });
-    processQueue();
-  });
+  try {
+    await telegramService.sendNotification(req.body);
+  } catch (error) {
+    console.log("error :", error?.message);
+  }
 };
 
-const handlePushPhotoTelegramNotificationController = async (
-  req: any,
-  res?: any
-) => {
+const handlePushPhotoTelegramNotificationController = async (req: Request) => {
   try {
     console.log("send :", req.body);
     await telegramService.sendPhoto(req.body, req.img);
     console.log("done!");
-    return res?.redirect("/telegram");
   } catch (error) {
     console.log("error :", error?.message);
   }

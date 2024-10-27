@@ -166,7 +166,7 @@ function generateTelegramHTMLMemeCook(meme) {
         Telegram: meme.telegramLink
             ? `[${(_b = meme.twitterLink.split("https://")) === null || _b === void 0 ? void 0 : _b[1]}](${meme.telegramLink})`
             : "N/A",
-        Description: meme.description ? meme.description : "N/A",
+        Description: meme.description ? (0, common_helper_1.escapeMarkdown)(meme.description) : "N/A",
         Image: `(https://plum-necessary-chameleon-942.mypinata.cloud/ipfs/${meme.image})`,
     };
     return (0, common_helper_1.generateTelegramMarkdown)(memeDetails);

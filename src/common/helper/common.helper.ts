@@ -1,5 +1,16 @@
 import fs from "fs";
 
+export function escapeMarkdown(text: string): string {
+  return text
+    .replace(/_/g, "\\_")
+    .replace(/\*/g, "\\*")
+    .replace(/~/g, "\\~")
+    .replace(/`/g, "\\`")
+    .replace(/>/g, "\\>")
+    .replace(/</g, "\\<")
+    .replace(/&/g, "\\&");
+}
+
 function generateTelegramHTML(data: { [key: string]: any }): string {
   let html = "====================\n";
 
@@ -23,6 +34,19 @@ function generateTelegramMarkdown(data: { [key: string]: any }): string {
 
   return markdown.trim();
 }
+// function generateTelegramMarkdown(data: { [key: string]: any }): string {
+//   let markdown = "====================\n"; // Thêm đường gạch ngang ở trên
+
+//   for (const key in data) {
+//     const escapedKey = escapeMarkdown(key);
+//     const escapedValue = escapeMarkdown(String(data[key])); // Chuyển đổi giá trị thành chuỗi và escape
+//     markdown += `*${escapedKey}:* ${escapedValue}\n`; // Sử dụng * để in đậm
+//   }
+
+//   markdown += "===================="; // Thêm đường gạch ngang ở dưới
+
+//   return markdown.trim();
+// }
 
 function writeFile(name: string, data: any) {
   const jsonData = JSON.stringify(data, null, 2); // Convert the JSON object to a string with indentation

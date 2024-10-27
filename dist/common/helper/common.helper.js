@@ -12,11 +12,22 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.escapeMarkdown = escapeMarkdown;
 exports.generateTelegramMarkdown = generateTelegramMarkdown;
 exports.generateTelegramHTML = generateTelegramHTML;
 exports.writeFile = writeFile;
 exports.delay = delay;
 const fs_1 = __importDefault(require("fs"));
+function escapeMarkdown(text) {
+    return text
+        .replace(/_/g, "\\_")
+        .replace(/\*/g, "\\*")
+        .replace(/~/g, "\\~")
+        .replace(/`/g, "\\`")
+        .replace(/>/g, "\\>")
+        .replace(/</g, "\\<")
+        .replace(/&/g, "\\&");
+}
 function generateTelegramHTML(data) {
     let html = "====================\n";
     for (const key in data) {
@@ -33,6 +44,16 @@ function generateTelegramMarkdown(data) {
     markdown += "===================="; // Thêm đường gạch ngang ở dưới
     return markdown.trim();
 }
+// function generateTelegramMarkdown(data: { [key: string]: any }): string {
+//   let markdown = "====================\n"; // Thêm đường gạch ngang ở trên
+//   for (const key in data) {
+//     const escapedKey = escapeMarkdown(key);
+//     const escapedValue = escapeMarkdown(String(data[key])); // Chuyển đổi giá trị thành chuỗi và escape
+//     markdown += `*${escapedKey}:* ${escapedValue}\n`; // Sử dụng * để in đậm
+//   }
+//   markdown += "===================="; // Thêm đường gạch ngang ở dưới
+//   return markdown.trim();
+// }
 function writeFile(name, data) {
     const jsonData = JSON.stringify(data, null, 2); // Convert the JSON object to a string with indentation
     fs_1.default.writeFile(name, jsonData, "utf8", (err) => {

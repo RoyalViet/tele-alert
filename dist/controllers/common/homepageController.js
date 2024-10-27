@@ -60,19 +60,29 @@ const processQueue = () => __awaiter(void 0, void 0, void 0, function* () {
         setTimeout(processQueue, 1000);
     }
 });
-const handlePushTelegramNotificationController = (req, _res) => {
-    return new Promise((resolve, reject) => {
-        queue.push({ req, resolve, reject });
-        processQueue();
-    });
-};
+// const handlePushTelegramNotificationController = (
+//   req: Request,
+//   _res?: any
+// ): Promise<void> => {
+//   return new Promise((resolve, reject) => {
+//     queue.push({ req, resolve, reject });
+//     processQueue();
+//   });
+// };
+const handlePushTelegramNotificationController = (req) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        yield telegramService.sendNotification(req.body);
+    }
+    catch (error) {
+        console.log("error :", error === null || error === void 0 ? void 0 : error.message);
+    }
+});
 exports.handlePushTelegramNotificationController = handlePushTelegramNotificationController;
-const handlePushPhotoTelegramNotificationController = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const handlePushPhotoTelegramNotificationController = (req) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         console.log("send :", req.body);
         yield telegramService.sendPhoto(req.body, req.img);
         console.log("done!");
-        return res === null || res === void 0 ? void 0 : res.redirect("/telegram");
     }
     catch (error) {
         console.log("error :", error === null || error === void 0 ? void 0 : error.message);

@@ -10,6 +10,7 @@ import {
 import { handlePushTelegramNotificationController } from "../controllers/common/homepageController";
 import {
   delay,
+  escapeMarkdown,
   generateTelegramMarkdown,
 } from "../common/helper/common.helper";
 import { fetchAndProcessPools } from "./pool-token.cron";
@@ -249,7 +250,7 @@ function generateTelegramHTMLMemeCook(meme: Meme): string {
     Telegram: meme.telegramLink
       ? `[${meme.twitterLink.split("https://")?.[1]}](${meme.telegramLink})`
       : "N/A",
-    Description: meme.description ? meme.description : "N/A",
+    Description: meme.description ? escapeMarkdown(meme.description) : "N/A",
     Image: `(https://plum-necessary-chameleon-942.mypinata.cloud/ipfs/${meme.image})`,
   };
 

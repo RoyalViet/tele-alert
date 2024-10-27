@@ -25,7 +25,6 @@ const sendNotification = (
         })
         .then(() => {
           console.log("done!");
-
           resolve("done!");
         })
         .catch((err) => {
