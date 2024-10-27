@@ -7,7 +7,7 @@ import * as tokenService from "../../services/token/token.service";
 import * as telegramService from "../../services/telegram/telegramService";
 import { formatBalance } from "../../common/helper/bigNumber";
 import { contract } from "../../cron/pool-token.cron";
-import { generateTelegramMarkdown } from "../../common/helper/common.helper";
+import { generateTelegramHTML } from "../../common/helper/common.helper";
 
 // Utilities
 
@@ -22,7 +22,7 @@ export const createTokenHandle = async (params: ICreateToken) => {
 const telegramAlertToken = async (params: ICreateToken) => {
   try {
     await telegramService.sendNotification(
-      generateTelegramMarkdown({
+      generateTelegramHTML({
         ...params,
         pool_id: params.pool_id,
         token_account_ids: params.token_account_ids,

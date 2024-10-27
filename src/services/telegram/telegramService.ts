@@ -7,7 +7,7 @@ const TELEGRAM_GROUP_ID = "1177623428";
 
 const sendNotification = (
   msg: any,
-  options?: Partial<{ isGenerateTelegramHTML: boolean }>
+  options?: Partial<{ isGenerateTelegramMarkdown: boolean }>
 ) => {
   return new Promise((resolve, reject) => {
     try {
@@ -15,7 +15,7 @@ const sendNotification = (
 
       let data = {
         chat_id: TELEGRAM_GROUP_ID,
-        parse_mode: options?.isGenerateTelegramHTML ? "HTML" : "Markdown",
+        parse_mode: !options?.isGenerateTelegramMarkdown ? "HTML" : "Markdown",
         text: msg,
       };
 
@@ -70,13 +70,13 @@ const sendMeAGif = () => {
 const sendPhoto = (
   msg: any,
   imageUrl: string,
-  options?: Partial<{ isGenerateTelegramHTML: boolean }>
+  options?: Partial<{ isGenerateTelegramMarkdown: boolean }>
 ) => {
   return new Promise((resolve, reject) => {
     try {
       let data = {
         chat_id: TELEGRAM_GROUP_ID,
-        parse_mode: options?.isGenerateTelegramHTML ? "HTML" : "Markdown",
+        parse_mode: !options?.isGenerateTelegramMarkdown ? "HTML" : "Markdown",
         photo: imageUrl,
         caption: msg,
       };

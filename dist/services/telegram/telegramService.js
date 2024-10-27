@@ -15,7 +15,7 @@ const sendNotification = (msg, options) => {
             console.log("send :", msg);
             let data = {
                 chat_id: TELEGRAM_GROUP_ID,
-                parse_mode: (options === null || options === void 0 ? void 0 : options.isGenerateTelegramHTML) ? "HTML" : "Markdown",
+                parse_mode: !(options === null || options === void 0 ? void 0 : options.isGenerateTelegramMarkdown) ? "HTML" : "Markdown",
                 text: msg,
             };
             axios_1.default
@@ -69,7 +69,7 @@ const sendPhoto = (msg, imageUrl, options) => {
         try {
             let data = {
                 chat_id: TELEGRAM_GROUP_ID,
-                parse_mode: (options === null || options === void 0 ? void 0 : options.isGenerateTelegramHTML) ? "HTML" : "Markdown",
+                parse_mode: !(options === null || options === void 0 ? void 0 : options.isGenerateTelegramMarkdown) ? "HTML" : "Markdown",
                 photo: imageUrl,
                 caption: msg,
             };

@@ -37,23 +37,13 @@ function generateTelegramHTML(data) {
     return html.trim();
 }
 function generateTelegramMarkdown(data) {
-    let markdown = "====================\n"; // Thêm đường gạch ngang ở trên
+    let markdown = "====================\n";
     for (const key in data) {
-        markdown += `*${key}:* ${data[key]}\n`; // Sử dụng * để in đậm
+        markdown += `*${key}:* ${data[key]}\n`;
     }
-    markdown += "===================="; // Thêm đường gạch ngang ở dưới
+    markdown += "====================";
     return markdown.trim();
 }
-// function generateTelegramMarkdown(data: { [key: string]: any }): string {
-//   let markdown = "====================\n"; // Thêm đường gạch ngang ở trên
-//   for (const key in data) {
-//     const escapedKey = escapeMarkdown(key);
-//     const escapedValue = escapeMarkdown(String(data[key])); // Chuyển đổi giá trị thành chuỗi và escape
-//     markdown += `*${escapedKey}:* ${escapedValue}\n`; // Sử dụng * để in đậm
-//   }
-//   markdown += "===================="; // Thêm đường gạch ngang ở dưới
-//   return markdown.trim();
-// }
 function writeFile(name, data) {
     const jsonData = JSON.stringify(data, null, 2); // Convert the JSON object to a string with indentation
     fs_1.default.writeFile(name, jsonData, "utf8", (err) => {

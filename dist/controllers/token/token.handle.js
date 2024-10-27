@@ -58,7 +58,7 @@ const createTokenHandle = (params) => __awaiter(void 0, void 0, void 0, function
 exports.createTokenHandle = createTokenHandle;
 const telegramAlertToken = (params) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        yield telegramService.sendNotification((0, common_helper_1.generateTelegramMarkdown)(Object.assign(Object.assign({}, params), { pool_id: params.pool_id, token_account_ids: params.token_account_ids, token_symbols: params.token_symbols, token_price: (0, bigNumber_1.formatBalance)(params.token_price), liq: (0, bigNumber_1.formatBalance)(params.liq) })));
+        yield telegramService.sendNotification((0, common_helper_1.generateTelegramHTML)(Object.assign(Object.assign({}, params), { pool_id: params.pool_id, token_account_ids: params.token_account_ids, token_symbols: params.token_symbols, token_price: (0, bigNumber_1.formatBalance)(params.token_price), liq: (0, bigNumber_1.formatBalance)(params.liq) })));
     }
     catch (error) { }
 });

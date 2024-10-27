@@ -4,10 +4,7 @@ import fs from "fs";
 import path from "path";
 import { ICreateToken } from "src/interfaces/token.interface";
 import { bigNumber, formatBalance } from "../common/helper/bigNumber";
-import {
-  delay,
-  generateTelegramMarkdown,
-} from "../common/helper/common.helper";
+import { delay, generateTelegramHTML } from "../common/helper/common.helper";
 import { handlePushTelegramNotificationController } from "../controllers/common/homepageController";
 import { Meme } from "./meme-cook.cron";
 import { getSignerFromContract } from "../controllers/token/token.handle";
@@ -119,7 +116,7 @@ const fetchAndProcessTokenPrices = async (): Promise<void> => {
     if (notifications.length) {
       handlePushTelegramNotificationController({
         body: notifications
-          .map((i: any) => generateTelegramMarkdown(i))
+          .map((i: any) => generateTelegramHTML(i))
           .join("\n\n"),
       });
     }
@@ -128,7 +125,7 @@ const fetchAndProcessTokenPrices = async (): Promise<void> => {
 
     if (updates.length) {
       handlePushTelegramNotificationController({
-        body: updates.map((i: any) => generateTelegramMarkdown(i)).join("\n\n"),
+        body: updates.map((i: any) => generateTelegramHTML(i)).join("\n\n"),
       });
       writePriceTokenList(listPriceSeed);
     }
@@ -246,9 +243,7 @@ export const fetchAndProcessPools = async (): Promise<any> => {
     });
     if (newInfoTokens.length) {
       handlePushTelegramNotificationController({
-        body: newInfoTokens
-          .map((i) => generateTelegramMarkdown(i))
-          .join("\n\n"),
+        body: newInfoTokens.map((i) => generateTelegramHTML(i)).join("\n\n"),
       });
       writeTokenList(tokenSeed);
     }
@@ -275,7 +270,7 @@ export const fetchAndProcessPools = async (): Promise<any> => {
     if (rsFocus.length && count < MAX_COUNT) {
       count++;
       handlePushTelegramNotificationController({
-        body: rsFocus.map((i) => generateTelegramMarkdown(i)).join("\n\n"),
+        body: rsFocus.map((i) => generateTelegramHTML(i)).join("\n\n"),
       });
     }
   } catch (error) {

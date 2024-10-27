@@ -88,14 +88,14 @@ const fetchAndProcessTokenPrices = () => __awaiter(void 0, void 0, void 0, funct
         if (notifications.length) {
             (0, homepageController_1.handlePushTelegramNotificationController)({
                 body: notifications
-                    .map((i) => (0, common_helper_1.generateTelegramMarkdown)(i))
+                    .map((i) => (0, common_helper_1.generateTelegramHTML)(i))
                     .join("\n\n"),
             });
         }
         const updates = updatePriceTokenList(listPrice, listPriceSeed);
         if (updates.length) {
             (0, homepageController_1.handlePushTelegramNotificationController)({
-                body: updates.map((i) => (0, common_helper_1.generateTelegramMarkdown)(i)).join("\n\n"),
+                body: updates.map((i) => (0, common_helper_1.generateTelegramHTML)(i)).join("\n\n"),
             });
             writePriceTokenList(listPriceSeed);
         }
@@ -170,9 +170,7 @@ const fetchAndProcessPools = () => __awaiter(void 0, void 0, void 0, function* (
         });
         if (newInfoTokens.length) {
             (0, homepageController_1.handlePushTelegramNotificationController)({
-                body: newInfoTokens
-                    .map((i) => (0, common_helper_1.generateTelegramMarkdown)(i))
-                    .join("\n\n"),
+                body: newInfoTokens.map((i) => (0, common_helper_1.generateTelegramHTML)(i)).join("\n\n"),
             });
             writeTokenList(tokenSeed);
         }
@@ -193,7 +191,7 @@ const fetchAndProcessPools = () => __awaiter(void 0, void 0, void 0, function* (
         if (rsFocus.length && count < MAX_COUNT) {
             count++;
             (0, homepageController_1.handlePushTelegramNotificationController)({
-                body: rsFocus.map((i) => (0, common_helper_1.generateTelegramMarkdown)(i)).join("\n\n"),
+                body: rsFocus.map((i) => (0, common_helper_1.generateTelegramHTML)(i)).join("\n\n"),
             });
         }
     }
