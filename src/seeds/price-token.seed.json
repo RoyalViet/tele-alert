@@ -598,5 +598,11 @@
     "symbol": "zNEARnM-USDC",
     "decimal": 18,
     "contract": "v1.guild-covenant.near"
+  },
+  "mpdao-token.near": {
+    "price": "0.027842454199",
+    "symbol": "mpDAO",
+    "decimal": 6,
+    "contract": "mpdao-token.near"
   }
 }
