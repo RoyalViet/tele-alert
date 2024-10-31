@@ -219,24 +219,33 @@ export const fetchAndProcessPools = async (): Promise<any> => {
         .map(async (t) => {
           const meme = memeMap.get(t.token_contract);
           if (!meme) {
-            const [info, owner] = await Promise.all([
-              getTokenDetail(t.token_contract),
-              getSignerFromContract(t.token_contract),
-            ]);
-            return {
-              OwnerLink:
-                owner && owner !== "null"
-                  ? `[${owner}](https://nearblocks.io/address/${owner}?tab=tokentxns)`
-                  : "N/A",
-              OwnerPikeLink:
-                owner && owner !== "null"
-                  ? `[${owner}](https://pikespeak.ai/wallet-explorer/${owner}/transfers)`
-                  : "N/A",
-              AddressTokenLink: `https://nearblocks.io/address/${t.token_contract}`,
-              ___: "==============================",
-              ...t,
-              decimals: info.decimals,
-            };
+            try {
+              const [info, owner] = await Promise.all([
+                getTokenDetail(t.token_contract),
+                getSignerFromContract(t.token_contract),
+              ]);
+              return {
+                OwnerLink:
+                  owner && owner !== "null"
+                    ? `[${owner}](https://nearblocks.io/address/${owner}?tab=tokentxns)`
+                    : "N/A",
+                OwnerPikeLink:
+                  owner && owner !== "null"
+                    ? `[${owner}](https://pikespeak.ai/wallet-explorer/${owner}/transfers)`
+                    : "N/A",
+                AddressTokenLink: `https://nearblocks.io/address/${t.token_contract}`,
+                ___: "==============================",
+                ...t,
+                decimals: info.decimals,
+              };
+            } catch (error) {
+              return {
+                OwnerLink: "N/A",
+                AddressTokenLink: "N/A",
+                ...t,
+                decimals: "N/A",
+              };
+            }
           } else {
             const totalDeposit = bigNumber(meme.total_deposit)
               .dividedBy(Math.pow(10, 24))
