@@ -15,11 +15,11 @@ function bigNumber(value) {
     return new bignumber_js_1.default(String(value || 0).trim());
 }
 function toString(value, options) {
-    if (options === null || options === void 0 ? void 0 : options.notANumber) {
-        return value === null || value === void 0 ? void 0 : value.toString();
+    if (options?.notANumber) {
+        return value?.toString();
     }
     if (typeof value === "object" || typeof value === "number") {
-        const temp = value === null || value === void 0 ? void 0 : value.toString();
+        const temp = value?.toString();
         if (temp.includes("e-")) {
             return new bignumber_js_1.default(temp).plus(1).toString().replace("1", "0");
         }
@@ -34,7 +34,7 @@ function toString(value, options) {
 }
 function toNumber(value) {
     if (typeof value === "object") {
-        return (value === null || value === void 0 ? void 0 : value.toNumber()) || 0;
+        return value?.toNumber() || 0;
     }
     if (typeof value === "string") {
         return new bignumber_js_1.default(value || 0).toNumber();
@@ -42,12 +42,11 @@ function toNumber(value) {
     return Number(value || 0);
 }
 function isFalsy(value) {
-    var _a, _b, _c;
     if (typeof value === "object") {
-        return (((_a = new bignumber_js_1.default(value)) === null || _a === void 0 ? void 0 : _a.isEqualTo(0)) ||
-            ((_b = new bignumber_js_1.default(value)) === null || _b === void 0 ? void 0 : _b.isNaN()));
+        return (new bignumber_js_1.default(value)?.isEqualTo(0) ||
+            new bignumber_js_1.default(value)?.isNaN());
     }
-    return ((_c = new bignumber_js_1.default(value || 0)) === null || _c === void 0 ? void 0 : _c.isEqualTo(0)) || !value;
+    return new bignumber_js_1.default(value || 0)?.isEqualTo(0) || !value;
 }
 const initZeroBigNumber = bigNumber(0);
 exports.initZeroBigNumber = initZeroBigNumber;
@@ -56,17 +55,17 @@ function formatBalance(value, precision = 8, options) {
     try {
         const fmt = {
             decimalSeparator: ".",
-            groupSeparator: (options === null || options === void 0 ? void 0 : options.noGroupSeparator) ? undefined : ",",
+            groupSeparator: options?.noGroupSeparator ? undefined : ",",
             groupSize: 3,
         };
         let originalValueFormatted = "";
         // if (options?.roundDown) {
         originalValueFormatted = bigNumber(toNumber(value)).toFormat(toNumber(precision), bignumber_js_1.default.ROUND_DOWN, fmt);
         originalValueFormatted = originalValueFormatted.replace(/\.?0+$/, "");
-        if (options === null || options === void 0 ? void 0 : options.prefix) {
+        if (options?.prefix) {
             originalValueFormatted = `${options.prefix}${originalValueFormatted}`;
         }
-        if (options === null || options === void 0 ? void 0 : options.suffix) {
+        if (options?.suffix) {
             originalValueFormatted = `${originalValueFormatted}${options.suffix}`;
         }
         return originalValueFormatted;

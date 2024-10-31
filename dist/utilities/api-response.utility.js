@@ -21,7 +21,7 @@ ApiResponse.result = (res, data, status = 200, cookie = null, pagination = null)
     }
     let responseData = { data, success: true };
     if (pagination) {
-        responseData = Object.assign(Object.assign({}, responseData), { pagination });
+        responseData = { ...responseData, pagination };
     }
     res.json(responseData);
 };

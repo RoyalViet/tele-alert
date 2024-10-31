@@ -22,15 +22,6 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -41,7 +32,7 @@ const http_status_codes_1 = __importDefault(require("http-status-codes"));
 const tokenService = __importStar(require("../../services/token/token.service"));
 // Utilities
 const api_response_utility_1 = __importDefault(require("../../utilities/api-response.utility"));
-const createTokenController = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const createTokenController = async (req, res) => {
     try {
         const params = {
             liq: req.body.liq,
@@ -51,12 +42,12 @@ const createTokenController = (req, res) => __awaiter(void 0, void 0, void 0, fu
             pool_id: req.body.pool_id,
             token_contract: req.body.token_contract,
         };
-        const token = yield tokenService.createToken(params);
+        const token = await tokenService.createToken(params);
         return api_response_utility_1.default.result(res, token, http_status_codes_1.default.CREATED);
     }
     catch (e) {
         return api_response_utility_1.default.error(res, http_status_codes_1.default.BAD_REQUEST);
     }
-});
+};
 exports.createTokenController = createTokenController;
 //# sourceMappingURL=token.controller.js.map

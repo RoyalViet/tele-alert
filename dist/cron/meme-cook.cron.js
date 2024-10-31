@@ -1,13 +1,4 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -22,10 +13,10 @@ const homepageController_1 = require("../controllers/common/homepageController")
 const common_helper_1 = require("../common/helper/common.helper");
 const pool_token_cron_1 = require("./pool-token.cron");
 // Hàm fetchMemeTrades
-const fetchMemeTrades = (memeId) => __awaiter(void 0, void 0, void 0, function* () {
+const fetchMemeTrades = async (memeId) => {
     const url = `https://api.meme.cooking/trades?meme_id=${memeId}`;
     try {
-        const response = yield axios_1.default.get(url, {
+        const response = await axios_1.default.get(url, {
             headers: {
                 accept: "*/*",
                 "accept-language": "en-US,en;q=0.9",
@@ -71,7 +62,11 @@ const fetchMemeTrades = (memeId) => __awaiter(void 0, void 0, void 0, function* 
             .sort((a, b) => a.amount.minus(b.amount).toNumber())
             .map((i) => {
             const percent = i.amount.dividedBy(totalAmount).multipliedBy(100);
-            return Object.assign(Object.assign({}, i), { amount: (0, bigNumber_1.formatBalance)(i.amount) + " Near", percent: percent.toFixed(2) + " %" });
+            return {
+                ...i,
+                amount: (0, bigNumber_1.formatBalance)(i.amount) + " Near",
+                percent: percent.toFixed(2) + " %",
+            };
         });
         // handlePushTelegramNotificationController({
         //   body: sortedResult
@@ -83,9 +78,9 @@ const fetchMemeTrades = (memeId) => __awaiter(void 0, void 0, void 0, function* 
         return sortedResult;
     }
     catch (error) {
-        console.error("Error fetching meme trades:", error === null || error === void 0 ? void 0 : error.message);
+        console.error("Error fetching meme trades:", error?.message);
     }
-});
+};
 exports.fetchMemeTrades = fetchMemeTrades;
 // Đường dẫn tới file chứa các meme
 const idsPath = path_1.default.join(process.cwd(), "src", "seeds", "ids-meme-full-cap.seed.json");
@@ -168,95 +163,93 @@ function generateTelegramHTMLMemeCook(meme) {
 }
 const existingMemes = readExistingMemes();
 // Hàm để lấy các meme chưa hết thời gian countdown
-function fetchActiveMemes() {
-    return __awaiter(this, void 0, void 0, function* () {
-        try {
-            const response = yield axios_1.default.get("https://api.meme.cooking/meme", {
-                headers: {
-                    accept: "*/*",
-                    "accept-language": "en-US,en;q=0.9",
-                    "cache-control": "no-cache",
-                    "content-type": "application/json",
-                    origin: "https://meme.cooking",
-                    pragma: "no-cache",
-                    priority: "u=1, i",
-                    referer: "https://meme.cooking/",
-                    "sec-ch-ua": '"Google Chrome";v="129", "Not=A?Brand";v="8", "Chromium";v="129"',
-                    "sec-ch-ua-mobile": "?0",
-                    "sec-ch-ua-platform": '"macOS"',
-                    "sec-fetch-dest": "empty",
-                    "sec-fetch-mode": "cors",
-                    "sec-fetch-site": "same-site",
-                    // "user-agent":
-                    //   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36",
-                },
-            });
-            // Lọc các meme còn thời gian
-            const activeMemes = response.data;
-            // const currentTime = Date.now();
-            // const activeMemes = response.data.filter(
-            //   (meme) => meme.end_timestamp_ms + 30 * 60 * 1000 > currentTime
-            // );
-            response.data.forEach((m) => {
-                const hasHardCap = (0, bigNumber_1.bigNumber)(m.total_deposit).gte(m.hard_cap) &&
-                    (0, bigNumber_1.bigNumber)(m.hard_cap).gte(m.soft_cap);
-                if (hasHardCap && !sentMemeIds.has(m.meme_id)) {
-                    (0, homepageController_1.handlePushTelegramNotificationController)({
-                        body: generateTelegramHTMLMemeCook(m),
-                    });
-                    if (!m.pool_id) {
-                        (0, pool_token_cron_1.fetchAndProcessPools)();
-                    }
-                    // fetchMemeTrades(m.meme_id)
-                    // Thêm meme_id vào Set để tránh gửi lại
-                    sentMemeIds.add(m.meme_id);
-                    console.log([...sentMemeIds]);
-                    writeMemeIdsToFile();
+async function fetchActiveMemes() {
+    try {
+        const response = await axios_1.default.get("https://api.meme.cooking/meme", {
+            headers: {
+                accept: "*/*",
+                "accept-language": "en-US,en;q=0.9",
+                "cache-control": "no-cache",
+                "content-type": "application/json",
+                origin: "https://meme.cooking",
+                pragma: "no-cache",
+                priority: "u=1, i",
+                referer: "https://meme.cooking/",
+                "sec-ch-ua": '"Google Chrome";v="129", "Not=A?Brand";v="8", "Chromium";v="129"',
+                "sec-ch-ua-mobile": "?0",
+                "sec-ch-ua-platform": '"macOS"',
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-site",
+                // "user-agent":
+                //   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36",
+            },
+        });
+        // Lọc các meme còn thời gian
+        const activeMemes = response.data;
+        // const currentTime = Date.now();
+        // const activeMemes = response.data.filter(
+        //   (meme) => meme.end_timestamp_ms + 30 * 60 * 1000 > currentTime
+        // );
+        response.data.forEach((m) => {
+            const hasHardCap = (0, bigNumber_1.bigNumber)(m.total_deposit).gte(m.hard_cap) &&
+                (0, bigNumber_1.bigNumber)(m.hard_cap).gte(m.soft_cap);
+            if (hasHardCap && !sentMemeIds.has(m.meme_id)) {
+                (0, homepageController_1.handlePushTelegramNotificationController)({
+                    body: generateTelegramHTMLMemeCook(m),
+                });
+                if (!m.pool_id) {
+                    (0, pool_token_cron_1.fetchAndProcessPools)();
                 }
-            });
-            const newMemes = activeMemes
-                .filter((activeMeme) => {
-                const isNotInExistingMemes = !existingMemes.some((existingMeme) => existingMeme.meme_id === activeMeme.meme_id);
-                return isNotInExistingMemes;
-            })
-                .map((meme) => {
-                const memeContract = meme.token_id
-                    ? meme.token_id
-                    : `${meme.symbol}-${meme.meme_id}.meme-cooking.near`.toLowerCase();
-                return Object.assign(Object.assign({}, meme), { token_id: memeContract });
-            });
-            if (newMemes.length) {
-                try {
-                    (0, homepageController_1.handlePushTelegramNotificationController)({
-                        body: newMemes
-                            .map((i) => generateTelegramHTMLMemeCook(i))
-                            .join("\n\n"),
-                    });
-                }
-                catch (error) {
-                    console.log("error :", error);
-                }
-                // Thêm các meme mới vào mảng hiện có và ghi lại vào file
-                existingMemes.unshift(...newMemes);
-                // const updatedMemes = [...newMemes, ...existingMemes];
-                writeExistingMemes(existingMemes);
+                // fetchMemeTrades(m.meme_id)
+                // Thêm meme_id vào Set để tránh gửi lại
+                sentMemeIds.add(m.meme_id);
+                console.log([...sentMemeIds]);
+                writeMemeIdsToFile();
             }
-            return newMemes;
+        });
+        const newMemes = activeMemes
+            .filter((activeMeme) => {
+            const isNotInExistingMemes = !existingMemes.some((existingMeme) => existingMeme.meme_id === activeMeme.meme_id);
+            return isNotInExistingMemes;
+        })
+            .map((meme) => {
+            const memeContract = meme.token_id
+                ? meme.token_id
+                : `${meme.symbol}-${meme.meme_id}.meme-cooking.near`.toLowerCase();
+            return { ...meme, token_id: memeContract };
+        });
+        if (newMemes.length) {
+            try {
+                (0, homepageController_1.handlePushTelegramNotificationController)({
+                    body: newMemes
+                        .map((i) => generateTelegramHTMLMemeCook(i))
+                        .join("\n\n"),
+                });
+            }
+            catch (error) {
+                console.log("error :", error);
+            }
+            // Thêm các meme mới vào mảng hiện có và ghi lại vào file
+            existingMemes.unshift(...newMemes);
+            // const updatedMemes = [...newMemes, ...existingMemes];
+            writeExistingMemes(existingMemes);
         }
-        catch (error) {
-            console.error("Error fetching memes:", error === null || error === void 0 ? void 0 : error.message);
-            return [];
-        }
-    });
+        return newMemes;
+    }
+    catch (error) {
+        console.error("Error fetching memes:", error?.message);
+        return [];
+    }
 }
 const cronExpression20s = "*/20 * * * * *";
 const cronExpression15s = "*/15 * * * * *";
 const cronExpression10s = "*/10 * * * * *";
-const checkMemeCooking = new cron_1.CronJob(cronExpression10s, () => __awaiter(void 0, void 0, void 0, function* () {
-    yield (0, common_helper_1.delay)(Math.random() * 1500);
+const checkMemeCooking = new cron_1.CronJob(cronExpression10s, async () => {
+    await (0, common_helper_1.delay)(Math.random() * 1500);
     console.log(`v2 running cron job crawl meme cook ...`);
     fetchActiveMemes();
     return;
-}));
+});
 exports.checkMemeCooking = checkMemeCooking;
 //# sourceMappingURL=meme-cook.cron.js.map

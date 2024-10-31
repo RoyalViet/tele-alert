@@ -22,15 +22,6 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -47,80 +38,81 @@ const bigNumber_1 = require("../../common/helper/bigNumber");
 const pool_token_cron_1 = require("../../cron/pool-token.cron");
 const common_helper_1 = require("../../common/helper/common.helper");
 // Utilities
-const createTokenHandle = (params) => __awaiter(void 0, void 0, void 0, function* () {
+const createTokenHandle = async (params) => {
     try {
-        const token = yield tokenService.createToken(params);
+        const token = await tokenService.createToken(params);
     }
     catch (e) {
         //
     }
-});
+};
 exports.createTokenHandle = createTokenHandle;
-const telegramAlertToken = (params) => __awaiter(void 0, void 0, void 0, function* () {
+const telegramAlertToken = async (params) => {
     try {
-        yield telegramService.sendNotification((0, common_helper_1.generateTelegramHTML)(Object.assign(Object.assign({}, params), { pool_id: params.pool_id, token_account_ids: params.token_account_ids, token_symbols: params.token_symbols, token_price: (0, bigNumber_1.formatBalance)(params.token_price), liq: (0, bigNumber_1.formatBalance)(params.liq) })));
+        await telegramService.sendNotification((0, common_helper_1.generateTelegramHTML)({
+            ...params,
+            pool_id: params.pool_id,
+            token_account_ids: params.token_account_ids,
+            token_symbols: params.token_symbols,
+            token_price: (0, bigNumber_1.formatBalance)(params.token_price),
+            liq: (0, bigNumber_1.formatBalance)(params.liq),
+        }));
     }
     catch (error) { }
-});
-const alertTokenHandle = (params) => __awaiter(void 0, void 0, void 0, function* () {
+};
+const alertTokenHandle = async (params) => {
     try {
         telegramAlertToken(params);
     }
     catch (error) {
         if (params.token_contract === pool_token_cron_1.contract) {
-            yield telegramAlertToken(params);
+            await telegramAlertToken(params);
         }
     }
-});
+};
 exports.alertTokenHandle = alertTokenHandle;
-function getSignerAccountId(transactionHash) {
-    return __awaiter(this, void 0, void 0, function* () {
-        const url = `https://nearblocks.io/_next/data/nearblocks/en/txns/${transactionHash}.json?hash=${transactionHash}`;
-        const headers = {
-            accept: "*/*",
-            "accept-language": "en-US,en;q=0.9",
-            "cache-control": "no-cache",
-        };
-        try {
-            const response = yield axios_1.default.get(url, { headers });
-            if (response.status === 200) {
-                return response.data.pageProps.data.txns[0].signer_account_id;
-            }
+async function getSignerAccountId(transactionHash) {
+    const url = `https://nearblocks.io/_next/data/nearblocks/en/txns/${transactionHash}.json?hash=${transactionHash}`;
+    const headers = {
+        accept: "*/*",
+        "accept-language": "en-US,en;q=0.9",
+        "cache-control": "no-cache",
+    };
+    try {
+        const response = await axios_1.default.get(url, { headers });
+        if (response.status === 200) {
+            return response.data.pageProps.data.txns[0].signer_account_id;
         }
-        catch (error) {
-            console.error("Error fetching signer account ID:", error === null || error === void 0 ? void 0 : error.message);
-        }
-        return null;
-    });
+    }
+    catch (error) {
+        console.error("Error fetching signer account ID:", error?.message);
+    }
+    return null;
 }
-function getTransactionHash(contract) {
-    return __awaiter(this, void 0, void 0, function* () {
-        const url = `https://nearblocks.io/_next/data/nearblocks/en/address/${contract}.json/`;
-        const headers = {
-            accept: "*/*",
-            "accept-language": "en-US,en;q=0.9",
-            "cache-control": "no-cache",
-            pragma: "no-cache",
-        };
-        try {
-            const response = yield axios_1.default.get(url, { headers });
-            const transactionHash = response.data.pageProps.contractData.deployments[0].transaction_hash;
-            return transactionHash;
-        }
-        catch (error) {
-            console.error("Error fetching transaction hash:", error === null || error === void 0 ? void 0 : error.message);
-            return null;
-        }
-    });
-}
-function getSignerFromContract(contract) {
-    return __awaiter(this, void 0, void 0, function* () {
-        const transactionHash = yield getTransactionHash(contract);
-        if (transactionHash) {
-            return yield getSignerAccountId(transactionHash);
-        }
+async function getTransactionHash(contract) {
+    const url = `https://nearblocks.io/_next/data/nearblocks/en/address/${contract}.json/`;
+    const headers = {
+        accept: "*/*",
+        "accept-language": "en-US,en;q=0.9",
+        "cache-control": "no-cache",
+        pragma: "no-cache",
+    };
+    try {
+        const response = await axios_1.default.get(url, { headers });
+        const transactionHash = response.data.pageProps.contractData.deployments[0].transaction_hash;
+        return transactionHash;
+    }
+    catch (error) {
+        console.error("Error fetching transaction hash:", error?.message);
         return null;
-    });
+    }
+}
+async function getSignerFromContract(contract) {
+    const transactionHash = await getTransactionHash(contract);
+    if (transactionHash) {
+        return await getSignerAccountId(transactionHash);
+    }
+    return null;
 }
 // example
 //# sourceMappingURL=token.handle.js.map
