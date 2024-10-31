@@ -7,6 +7,7 @@ import logger from "./configs/logger.config";
 // import connectDB from "./database/db.mysql";
 import { checkReleasePoolToken } from "./cron/pool-token.cron";
 import { checkMemeCooking, fetchMemeTrades } from "./cron/meme-cook.cron";
+import { checkRefPoolToken } from "./cron/ref-finance.cron";
 import { testF } from "./test";
 
 const PORT = process.env.PORT || 8000;
@@ -18,7 +19,9 @@ const main = async () => {
   // cron job
   // job.start();
   checkMemeCooking.start();
+  checkRefPoolToken.start();
   checkReleasePoolToken.start();
+
   // fetchMemeTrades(283);
 
   // test

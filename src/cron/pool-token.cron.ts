@@ -8,14 +8,7 @@ import { delay, generateTelegramHTML } from "../common/helper/common.helper";
 import { handlePushTelegramNotificationController } from "../controllers/common/homepageController";
 import { Meme } from "./meme-cook.cron";
 import { getSignerFromContract } from "../controllers/token/token.handle";
-
-// Đường dẫn tới file chứa các meme
-const tokenFilePath = path.join(
-  process.cwd(),
-  "src",
-  "seeds",
-  "token.seed.json"
-);
+import { getTokenDetail } from "../controllers/ref-finance/ref-finance.controller";
 
 // Đường dẫn tới file chứa các meme
 const priceTokenPath = path.join(
@@ -23,6 +16,14 @@ const priceTokenPath = path.join(
   "src",
   "seeds",
   "price-token.seed.json"
+);
+
+// Đường dẫn tới file chứa các meme
+const tokenFilePath = path.join(
+  process.cwd(),
+  "src",
+  "seeds",
+  "token.seed.json"
 );
 
 // Hàm để đọc danh sách token từ file
@@ -199,6 +200,7 @@ function readExistingMemes(): Meme[] {
 }
 
 const tokenSeed = readTokenList();
+
 export const fetchAndProcessPools = async (): Promise<any> => {
   console.log(`v2 running cron job crawl pool token ${contract}...`);
   try {
@@ -209,38 +211,54 @@ export const fetchAndProcessPools = async (): Promise<any> => {
       .map(createTokenInfo)
       .sort((a, b) => (bigNumber(a.tvl).gte(b.tvl) ? -1 : 1));
 
-    // Lọc ra danh sách token mới
     const memeSeed = readExistingMemes();
+    const memeMap = new Map(memeSeed.map((meme) => [meme.token_id, meme]));
     const newInfoTokens = await Promise.all(
       listInfoToken
-        .filter((t) => {
-          return !tokenSeed.some((i) => i.pool_id === t.pool_id);
-        })
+        .filter((t) => !tokenSeed.some((i) => i.pool_id === t.pool_id))
         .map(async (t) => {
-          const meme = memeSeed.find((i) => i?.token_id === t.token_contract);
+          const meme = memeMap.get(t.token_contract);
           if (!meme) {
-            const owner = await getSignerFromContract(t.token_contract);
+            const [info, owner] = await Promise.all([
+              getTokenDetail(t.token_contract),
+              getSignerFromContract(t.token_contract),
+            ]);
             return {
-              OwnerLink: `[${owner}](https://nearblocks.io/address/${owner}?tab=tokentxns)`,
-              OwnerPikeLink: `[${owner}](https://pikespeak.ai/wallet-explorer/${owner}/transfers)`,
-              AddressTokenLink: `[${t.token_contract}](https://nearblocks.io/address/${t.token_contract})`,
+              OwnerLink:
+                owner && owner !== "null"
+                  ? `[${owner}](https://nearblocks.io/address/${owner}?tab=tokentxns)`
+                  : "N/A",
+              OwnerPikeLink:
+                owner && owner !== "null"
+                  ? `[${owner}](https://pikespeak.ai/wallet-explorer/${owner}/transfers)`
+                  : "N/A",
+              AddressTokenLink: `https://nearblocks.io/address/${t.token_contract}`,
               ___: "==============================",
               ...t,
+              decimals: info.decimals,
             };
           } else {
+            const totalDeposit = bigNumber(meme.total_deposit)
+              .dividedBy(Math.pow(10, 24))
+              .toFixed(2);
+            const hardCap = bigNumber(meme.hard_cap || 0)
+              .dividedBy(Math.pow(10, 24))
+              .toFixed(2);
             return {
               OwnerLink: `[${meme.owner}](https://nearblocks.io/address/${meme.owner}?tab=tokentxns)`,
               OwnerPikeLink: `[${meme.owner}](https://pikespeak.ai/wallet-explorer/${meme.owner}/transfers)`,
+              TotalDeposit: `${formatBalance(totalDeposit)} Near`,
+              HardCap: `${formatBalance(hardCap)} Near`,
               ___: "==============================",
               ...t,
+              decimals: meme.decimals,
             };
           }
         })
     );
-    // Thêm các token mới vào tokenSeed
-    newInfoTokens.forEach((t) => {
-      tokenSeed.unshift(t);
-    });
+
+    tokenSeed.unshift(...newInfoTokens.filter(Boolean));
+
     if (newInfoTokens.length) {
       handlePushTelegramNotificationController({
         body: newInfoTokens.map((i) => generateTelegramHTML(i)).join("\n\n"),
@@ -282,7 +300,7 @@ const cronExpression15s = "*/15 * * * * *";
 const cronExpression10s = "*/10 * * * * *";
 const checkReleasePoolToken = new CronJob(cronExpression15s, async () => {
   await delay(Math.random() * 1500);
-  fetchAndProcessTokenPrices();
+  // fetchAndProcessTokenPrices();
   fetchAndProcessPools();
 });
 
