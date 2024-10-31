@@ -2,7 +2,7 @@ import axios from "axios";
 import { CronJob } from "cron";
 import fs from "fs";
 import path from "path";
-import { ICreateToken } from "src/interfaces/token.interface";
+import { ICreateToken } from "../interfaces/token.interface";
 import { bigNumber, formatBalance } from "../common/helper/bigNumber";
 import { delay, generateTelegramHTML } from "../common/helper/common.helper";
 import { handlePushTelegramNotificationController } from "../controllers/common/homepageController";
