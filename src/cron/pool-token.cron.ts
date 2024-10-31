@@ -231,36 +231,28 @@ export const fetchAndProcessPools = async (): Promise<any> => {
                     : "N/A",
                 OwnerPikeLink:
                   owner && owner !== "null"
-                    ? `[${owner}](https://pikespeak.ai/wallet-explorer/${owner}/transfers)`
+                    ? `https://pikespeak.ai/wallet-explorer/${owner}/transfers`
                     : "N/A",
                 AddressTokenLink: `https://nearblocks.io/address/${t.token_contract}`,
+                decimals: info.decimals,
                 ___: "==============================",
                 ...t,
-                decimals: info.decimals,
               };
             } catch (error) {
               return {
                 OwnerLink: "N/A",
                 AddressTokenLink: "N/A",
-                ...t,
                 decimals: "N/A",
+                ...t,
               };
             }
           } else {
-            const totalDeposit = bigNumber(meme.total_deposit)
-              .dividedBy(Math.pow(10, 24))
-              .toFixed(2);
-            const hardCap = bigNumber(meme.hard_cap || 0)
-              .dividedBy(Math.pow(10, 24))
-              .toFixed(2);
             return {
               OwnerLink: `[${meme.owner}](https://nearblocks.io/address/${meme.owner}?tab=tokentxns)`,
               OwnerPikeLink: `[${meme.owner}](https://pikespeak.ai/wallet-explorer/${meme.owner}/transfers)`,
-              TotalDeposit: `${formatBalance(totalDeposit)} Near`,
-              HardCap: `${formatBalance(hardCap)} Near`,
+              decimals: meme.decimals,
               ___: "==============================",
               ...t,
-              decimals: meme.decimals,
             };
           }
         })
@@ -270,7 +262,9 @@ export const fetchAndProcessPools = async (): Promise<any> => {
 
     if (newInfoTokens.length) {
       handlePushTelegramNotificationController({
-        body: newInfoTokens.map((i) => generateTelegramHTML(i)).join("\n\n"),
+        body: newInfoTokens
+          .map((i) => generateTelegramHTML({ ...i, Tag: "From Pool Listed" }))
+          .join("\n\n"),
       });
       writeTokenList(tokenSeed);
     }

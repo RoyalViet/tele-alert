@@ -83,6 +83,7 @@ function generateMsgHTML(pool) {
         _: "==============================",
         Contract: pool.token_contract,
         PoolID: pool.pool_id || "N/A",
+        Decimals: pool.decimals,
         TokenLink: `https://nearblocks.io/token/${pool.token_contract}`,
         RefLink: `https://app.ref.finance/#usdt.tether-token.near|${pool.token_contract}`,
         DexLink: pool.pool_id
@@ -92,7 +93,7 @@ function generateMsgHTML(pool) {
         Owner: pool.owner,
         Name: pool.name,
         Symbol: pool.symbol,
-        Decimals: pool.decimals,
+        Tag: "From ALL Pools",
     };
     return (0, common_helper_1.generateTelegramHTML)(poolDetails);
 }

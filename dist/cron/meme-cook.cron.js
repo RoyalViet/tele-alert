@@ -158,6 +158,7 @@ function generateTelegramHTMLMemeCook(meme) {
         Telegram: meme.telegramLink || "N/A",
         Description: meme.description || "N/A",
         Image: `https://plum-necessary-chameleon-942.mypinata.cloud/ipfs/${meme.image}`,
+        Tag: "From Meme Cooking",
     };
     return (0, common_helper_1.generateTelegramHTML)(memeDetails);
 }

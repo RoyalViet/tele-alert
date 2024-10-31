@@ -7,6 +7,7 @@ require("dotenv").config();
 require("module-alias/register");
 const express_config_1 = __importDefault(require("./configs/express.config"));
 const logger_config_1 = __importDefault(require("./configs/logger.config"));
+const meme_cook_cron_1 = require("./cron/meme-cook.cron");
 const ref_finance_cron_1 = require("./cron/ref-finance.cron");
 const PORT = process.env.PORT || 8000;
 const main = async () => {
@@ -14,7 +15,7 @@ const main = async () => {
     // await connectDB();
     // cron job
     // job.start();
-    // checkMemeCooking.start();
+    meme_cook_cron_1.checkMemeCooking.start();
     ref_finance_cron_1.checkRefPoolToken.start();
     // checkReleasePoolToken.start();
     // fetchMemeTrades(283);
