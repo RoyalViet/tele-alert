@@ -242,6 +242,7 @@ function generateTelegramHTMLMemeCook(meme: Meme): string {
     ___: "==============================",
     Twitter: meme.twitterLink || "N/A",
     Telegram: meme.telegramLink || "N/A",
+    Website: meme.website || "N/A",
     Description: meme.description || "N/A",
     Image: `https://plum-necessary-chameleon-942.mypinata.cloud/ipfs/${meme.image}`,
     Tag: "From Meme Cooking",
