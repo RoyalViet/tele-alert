@@ -13,6 +13,19 @@
     "token_contract": "mpdao-token.near"
   },
   {
+    "owner": "mpdao-token.near",
+    "pool_id": 5155,
+    "token_account_ids": [
+      "wrap.near",
+      "mpdao-token.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 6,
+    "symbol": "mpDAO",
+    "name": "metapool.app DAO Governance Token",
+    "token_contract": "mpdao-token.near"
+  },
+  {
     "owner": null,
     "pool_id": 5574,
     "token_account_ids": [

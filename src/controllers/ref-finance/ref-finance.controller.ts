@@ -2,7 +2,7 @@ import {
   fetchAllPools,
   ftGetTokenMetadata,
   ftGetTokensMetadata,
-} from "@ref-finance/ref-sdk";
+} from "./ref-sdk/src";
 import { Expose } from "class-transformer";
 import { plainToClass } from "../../common/helper/classTransformer.helper";
 import fs from "fs";
@@ -52,8 +52,8 @@ class Pool {
   @Expose({ name: "pool_kind" })
   poolKind: string;
 
-  @Expose({ name: " decimals" })
-  decimals?: number;
+  @Expose({ name: "decimals" })
+  decimals?: number | string;
 
   @Expose({ name: "icon" })
   image?: string;
@@ -109,8 +109,14 @@ const writePoolList = (poolList: Array<any>) => {
 
 function generateMsgHTML(pool: Pool): string {
   const poolDetails = {
-    OwnerLink: `[${pool?.owner}](https://nearblocks.io/address/${pool?.owner}?tab=tokentxns)`,
-    OwnerPikeLink: `https://pikespeak.ai/wallet-explorer/${pool.owner}/transfers`,
+    OwnerLink:
+      pool?.owner && pool?.owner !== "null"
+        ? `[${pool?.owner}](https://nearblocks.io/address/${pool?.owner}?tab=tokentxns)`
+        : "N/A",
+    OwnerPikeLink:
+      pool?.owner && pool?.owner !== "null"
+        ? `https://pikespeak.ai/wallet-explorer/${pool.owner}/transfers`
+        : "N/A",
     AddressTokenLink: `https://nearblocks.io/address/${pool.token_contract}`,
     _: "==============================",
     Contract: pool.token_contract,
@@ -151,18 +157,29 @@ export async function getAllPools() {
     const newPoolsPromises = allPools.map(async (i) => {
       const isNew = !poolsSeed.find((j) => j.pool_id === i.pool_id);
       if (isNew) {
-        const [info, owner] = await Promise.all([
-          getTokenDetail(i.token_contract),
-          getSignerFromContract(i.token_contract),
-        ]);
-        return {
-          owner,
-          ...i,
-          token_contract: i.token_contract,
-          name: info.name,
-          symbol: info.symbol,
-          decimals: info.decimals,
-        };
+        try {
+          const [info, owner] = await Promise.all([
+            getTokenDetail(i.token_contract),
+            getSignerFromContract(i.token_contract),
+          ]);
+          return {
+            owner,
+            ...i,
+            token_contract: i.token_contract,
+            name: info.name,
+            symbol: info.symbol,
+            decimals: info.decimals,
+          };
+        } catch (error) {
+          return {
+            owner: "N/A",
+            ...i,
+            token_contract: i.token_contract,
+            name: "N/A",
+            symbol: "N/A",
+            decimals: "N/A",
+          };
+        }
       }
       return null;
     });
@@ -173,7 +190,8 @@ export async function getAllPools() {
       handlePushTelegramNotificationController({
         body: newPools.map((i) => generateMsgHTML(i)).join("\n\n"),
       });
-      writePoolList([...newPools, ...poolsSeed]);
+      poolsSeed.unshift(...newPools);
+      writePoolList(poolsSeed);
     }
 
     // return allPools;
