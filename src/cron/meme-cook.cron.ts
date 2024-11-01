@@ -147,6 +147,7 @@ export interface Meme {
   symbol: string;
   decimals: number;
   total_supply: string;
+  team_allocation: string;
   reference: string;
   reference_hash: string;
   deposit_token_id: string;
@@ -204,6 +205,9 @@ function generateTelegramHTMLMemeCook(meme: Meme): string {
   const totalSupply = bigNumber(meme.total_supply)
     .dividedBy(Math.pow(10, decimals))
     .toFixed(2);
+  const teamAllocation = bigNumber(meme.team_allocation || 0)
+    .dividedBy(Math.pow(10, decimals))
+    .toFixed(2);
   const totalDeposit = bigNumber(meme.total_deposit)
     .dividedBy(Math.pow(10, 24))
     .toFixed(2);
@@ -218,15 +222,15 @@ function generateTelegramHTMLMemeCook(meme: Meme): string {
     : `${meme.symbol}-${meme.meme_id}.meme-cooking.near`.toLowerCase();
 
   const memeDetails = {
-    OwnerLink: `https://nearblocks.io/address/${meme.owner}?tab=tokentxns`,
+    "⭐ OwnerLink": `https://nearblocks.io/address/${meme.owner}?tab=tokentxns`,
     OwnerPikeLink: `https://pikespeak.ai/wallet-explorer/${meme.owner}/transfers`,
     TotalDeposit: `${formatBalance(totalDeposit)} Near`,
     HardCap: `${formatBalance(hardCap)} Near`,
     _: "==============================",
-    Contract: memeContract,
-    PoolID: meme.pool_id || "N/A",
+    "⭐ Contract": memeContract,
+    "⭐ PoolID": meme.pool_id || "N/A",
     TokenLink: `https://nearblocks.io/token/${memeContract}`,
-    RefLink: `https://app.ref.finance/#usdt.tether-token.near|${memeContract}`,
+    "⭐ RefLink": `https://app.ref.finance/#usdt.tether-token.near|${memeContract}`,
     DexLink: meme.pool_id
       ? `https://dexscreener.com/near/refv1-${meme.pool_id}`
       : "N/A",
@@ -238,6 +242,12 @@ function generateTelegramHTMLMemeCook(meme: Meme): string {
     SoftCap: `${formatBalance(softCap)} Near`,
     Decimals: meme.decimals,
     TotalSupply: `${formatBalance(totalSupply)}`,
+    "⭐ TeamAllocation": meme.team_allocation
+      ? `${bigNumber(teamAllocation)
+          .dividedBy(totalSupply)
+          .multipliedBy(100)
+          .toFixed(2)}% - ${formatBalance(teamAllocation)}`
+      : "N/A",
     MemeLink: `https://meme.cooking/meme/${meme.meme_id}`,
     ___: "==============================",
     Twitter: meme.twitterLink || "N/A",
