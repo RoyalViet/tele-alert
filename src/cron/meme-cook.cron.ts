@@ -104,7 +104,7 @@ export const fetchMemeTrades = async (memeId: number | string) => {
     //     .map((i) => generateTelegramHTML(i))
     //     .join("\n\n"),
     // });
-    console.log(sortedResult);
+    console.log(sortedResult, formatBalance(totalAmount));
 
     return sortedResult;
   } catch (error) {

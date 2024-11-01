@@ -16,7 +16,7 @@ const main = async () => {
   // connectDB
   // await connectDB();
 
-  // fetchMemeTrades(332);
+  // fetchMemeTrades(337);
 
   // cron job
   // job.start();
