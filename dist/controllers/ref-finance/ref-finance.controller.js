@@ -151,7 +151,7 @@ async function getAllPools() {
     }
     catch (error) {
         (0, pool_token_cron_1.fetchAndProcessPools)();
-        console.error("Error fetching pools:", error?.message || error);
+        console.error("Error fetching pools:", error?.message);
         // return [];
     }
 }
