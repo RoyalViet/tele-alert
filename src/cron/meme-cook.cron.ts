@@ -243,10 +243,12 @@ function generateTelegramHTMLMemeCook(meme: Meme): string {
     Decimals: meme.decimals,
     TotalSupply: `${formatBalance(totalSupply)}`,
     "⭐ TeamAllocation": meme.team_allocation
-      ? `${bigNumber(teamAllocation)
-          .dividedBy(totalSupply)
-          .multipliedBy(100)
-          .toFixed(2)}% - ${formatBalance(teamAllocation)}`
+      ? `${formatBalance(
+          bigNumber(teamAllocation)
+            .dividedBy(totalSupply)
+            .multipliedBy(100)
+            .toFixed(2)
+        )}% - ${formatBalance(teamAllocation)}`
       : "N/A",
     MemeLink: `https://meme.cooking/meme/${meme.meme_id}`,
     ___: "==============================",

@@ -73,19 +73,19 @@ const writePoolList = (poolList) => {
 };
 function generateMsgHTML(pool) {
     const poolDetails = {
-        OwnerLink: pool?.owner && pool?.owner !== "null"
+        "⭐ OwnerLink": pool?.owner && pool?.owner !== "null"
             ? `[${pool?.owner}](https://nearblocks.io/address/${pool?.owner}?tab=tokentxns)`
             : "N/A",
         OwnerPikeLink: pool?.owner && pool?.owner !== "null"
             ? `https://pikespeak.ai/wallet-explorer/${pool.owner}/transfers`
             : "N/A",
-        AddressTokenLink: `https://nearblocks.io/address/${pool.token_contract}`,
+        "⭐ AddressTokenLink": `https://nearblocks.io/address/${pool.token_contract}?tab=tokentxns`,
         _: "==============================",
-        Contract: pool.token_contract,
-        PoolID: pool.pool_id || "N/A",
-        Decimals: pool.decimals,
+        "⭐ Contract": pool.token_contract,
+        "⭐ PoolID": pool.pool_id || "N/A",
+        "⭐ Decimals": pool.decimals,
         TokenLink: `https://nearblocks.io/token/${pool.token_contract}`,
-        RefLink: `https://app.ref.finance/#usdt.tether-token.near|${pool.token_contract}`,
+        "⭐ RefLink": `https://app.ref.finance/#usdt.tether-token.near|${pool.token_contract}`,
         DexLink: pool.pool_id
             ? `https://dexscreener.com/near/refv1-${pool.pool_id}`
             : "N/A",
@@ -151,7 +151,9 @@ async function getAllPools() {
     }
     catch (error) {
         (0, pool_token_cron_1.fetchAndProcessPools)();
-        console.error("Error fetching pools:", error?.message);
+        console.error("Error fetching pools:", String(error?.message).length > 1000
+            ? String(error?.message).substring(0, 1000) + "..."
+            : String(error?.message));
         // return [];
     }
 }

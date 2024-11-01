@@ -119,6 +119,9 @@ function generateTelegramHTMLMemeCook(meme) {
     const totalSupply = (0, bigNumber_1.bigNumber)(meme.total_supply)
         .dividedBy(Math.pow(10, decimals))
         .toFixed(2);
+    const teamAllocation = (0, bigNumber_1.bigNumber)(meme.team_allocation || 0)
+        .dividedBy(Math.pow(10, decimals))
+        .toFixed(2);
     const totalDeposit = (0, bigNumber_1.bigNumber)(meme.total_deposit)
         .dividedBy(Math.pow(10, 24))
         .toFixed(2);
@@ -132,15 +135,15 @@ function generateTelegramHTMLMemeCook(meme) {
         ? meme.token_id
         : `${meme.symbol}-${meme.meme_id}.meme-cooking.near`.toLowerCase();
     const memeDetails = {
-        OwnerLink: `https://nearblocks.io/address/${meme.owner}?tab=tokentxns`,
+        "⭐ OwnerLink": `https://nearblocks.io/address/${meme.owner}?tab=tokentxns`,
         OwnerPikeLink: `https://pikespeak.ai/wallet-explorer/${meme.owner}/transfers`,
         TotalDeposit: `${(0, bigNumber_1.formatBalance)(totalDeposit)} Near`,
         HardCap: `${(0, bigNumber_1.formatBalance)(hardCap)} Near`,
         _: "==============================",
-        Contract: memeContract,
-        PoolID: meme.pool_id || "N/A",
+        "⭐ Contract": memeContract,
+        "⭐ PoolID": meme.pool_id || "N/A",
         TokenLink: `https://nearblocks.io/token/${memeContract}`,
-        RefLink: `https://app.ref.finance/#usdt.tether-token.near|${memeContract}`,
+        "⭐ RefLink": `https://app.ref.finance/#usdt.tether-token.near|${memeContract}`,
         DexLink: meme.pool_id
             ? `https://dexscreener.com/near/refv1-${meme.pool_id}`
             : "N/A",
@@ -152,6 +155,12 @@ function generateTelegramHTMLMemeCook(meme) {
         SoftCap: `${(0, bigNumber_1.formatBalance)(softCap)} Near`,
         Decimals: meme.decimals,
         TotalSupply: `${(0, bigNumber_1.formatBalance)(totalSupply)}`,
+        "⭐ TeamAllocation": meme.team_allocation
+            ? `${(0, bigNumber_1.formatBalance)((0, bigNumber_1.bigNumber)(teamAllocation)
+                .dividedBy(totalSupply)
+                .multipliedBy(100)
+                .toFixed(2))}% - ${(0, bigNumber_1.formatBalance)(teamAllocation)}`
+            : "N/A",
         MemeLink: `https://meme.cooking/meme/${meme.meme_id}`,
         ___: "==============================",
         Twitter: meme.twitterLink || "N/A",
