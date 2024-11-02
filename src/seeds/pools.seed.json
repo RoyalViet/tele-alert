@@ -1,6 +1,45 @@
 [
   {
     "owner": null,
+    "pool_id": 5580,
+    "token_account_ids": [
+      "fomo-336.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "FOMO",
+    "name": "FOMO",
+    "token_contract": "fomo-336.meme-cooking.near"
+  },
+  {
+    "owner": null,
+    "pool_id": 5579,
+    "token_account_ids": [
+      "rust-334.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "RUST",
+    "name": "In Rust We Trust",
+    "token_contract": "rust-334.meme-cooking.near"
+  },
+  {
+    "owner": null,
+    "pool_id": 5578,
+    "token_account_ids": [
+      "kong-333.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "KONG",
+    "name": "The Near Kong",
+    "token_contract": "kong-333.meme-cooking.near"
+  },
+  {
+    "owner": null,
     "pool_id": 5577,
     "token_account_ids": [
       "nearvember-337.meme-cooking.near",
