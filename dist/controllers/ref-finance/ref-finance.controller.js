@@ -57,9 +57,7 @@ __decorate([
     (0, class_transformer_1.Expose)({ name: "name" }),
     __metadata("design:type", String)
 ], Pool.prototype, "name", void 0);
-// Đường dẫn tới file chứa các meme
 const poolsFilePath = path_1.default.join(process.cwd(), "src", "seeds", "pools.seed.json");
-// Hàm để đọc danh sách token từ file
 const readPoolList = () => {
     if (fs_1.default.existsSync(poolsFilePath)) {
         const data = fs_1.default.readFileSync(poolsFilePath, "utf-8");
@@ -67,12 +65,10 @@ const readPoolList = () => {
     }
     return [];
 };
-// Hàm để ghi danh sách token vào file
 const writePoolList = (poolList) => {
     fs_1.default.writeFileSync(poolsFilePath, JSON.stringify(poolList, null, 2), "utf-8");
 };
 const poolsReleaseFilePath = path_1.default.join(process.cwd(), "src", "seeds", "token.seed.json");
-// Hàm để đọc danh sách token từ file
 const readPoolReleaseList = () => {
     if (fs_1.default.existsSync(poolsReleaseFilePath)) {
         const data = fs_1.default.readFileSync(poolsReleaseFilePath, "utf-8");
@@ -80,7 +76,6 @@ const readPoolReleaseList = () => {
     }
     return [];
 };
-// Hàm để ghi danh sách token vào file
 const writeReleaseList = (tokenList) => {
     fs_1.default.writeFileSync(poolsReleaseFilePath, JSON.stringify(tokenList, null, 2), "utf-8");
 };
@@ -110,7 +105,6 @@ function generateMsgHTML(pool) {
     };
     return (0, common_helper_1.generateTelegramHTML)(poolDetails);
 }
-// Sử dụng hàm để lấy pool
 const poolsSeed = readPoolList();
 const poolsReleaseSeed = readPoolReleaseList();
 async function getAllPools() {
@@ -173,7 +167,6 @@ async function getAllPools() {
         // return [];
     }
 }
-// Hàm lấy chi tiết metadata của một token
 async function getTokenDetail(tokenId) {
     try {
         const tokenMetadata = await (0, src_1.ftGetTokenMetadata)(tokenId);
@@ -183,7 +176,6 @@ async function getTokenDetail(tokenId) {
         console.error(`Error fetching token metadata for ${tokenId}:`, error);
     }
 }
-// Hàm lấy chi tiết metadata của nhiều token
 async function getTokensDetail(tokenIds) {
     try {
         const tokensMetadata = await (0, src_1.ftGetTokensMetadata)(tokenIds, {});

@@ -223,10 +223,9 @@ function generateMsgHTML(pool: ICreateToken): string {
   return generateTelegramHTML(poolDetails);
 }
 
-const tokenSeed = readTokenList();
-
 export const fetchAndProcessPools = async (): Promise<any> => {
   console.log(`v2 running cron job crawl pool token ${contract}...`);
+  const tokenSeed = readTokenList();
   try {
     const raw: { data: Array<PoolItem> } = await axios.get(
       `https://api.ref.finance/list-pools`

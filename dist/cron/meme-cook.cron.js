@@ -12,8 +12,13 @@ const bigNumber_1 = require("../common/helper/bigNumber");
 const homepageController_1 = require("../controllers/common/homepageController");
 const common_helper_1 = require("../common/helper/common.helper");
 const pool_token_cron_1 = require("./pool-token.cron");
-// Hàm fetchMemeTrades
-const fetchMemeTrades = async (memeId) => {
+const infoDepositPath = path_1.default.join(process.cwd(), "src", "seeds", "info-deposit.seed.json");
+const writeInfoToFile = (info) => {
+    fs_1.default.writeFileSync(infoDepositPath, JSON.stringify(info, null, 2), "utf-8");
+};
+const fetchMemeTrades = async (memeId, options
+// decreasing
+) => {
     const url = `https://api.meme.cooking/trades?meme_id=${memeId}`;
     try {
         const response = await axios_1.default.get(url, {
@@ -59,7 +64,9 @@ const fetchMemeTrades = async (memeId) => {
         }
         // Sắp xếp các trade theo amount từ lớn đến bé
         const sortedResult = result
-            .sort((a, b) => a.amount.minus(b.amount).toNumber())
+            .sort((a, b) => options?.isSortDown
+            ? b.amount.minus(a.amount).toNumber()
+            : a.amount.minus(b.amount).toNumber())
             .map((i) => {
             const percent = i.amount.dividedBy(totalAmount).multipliedBy(100);
             return {
@@ -68,13 +75,13 @@ const fetchMemeTrades = async (memeId) => {
                 percent: percent.toFixed(2) + " %",
             };
         });
-        // handlePushTelegramNotificationController({
-        //   body: sortedResult
-        //     .slice(0, 4)
-        //     .map((i) => generateTelegramHTML(i))
-        //     .join("\n\n"),
-        // });
         console.log(sortedResult, (0, bigNumber_1.formatBalance)(totalAmount));
+        writeInfoToFile([
+            totalAmount,
+            ...sortedResult.sort((a, b) => (0, bigNumber_1.bigNumber)(b.percent.split(" ")[0])
+                .minus(a.percent.split(" ")[0])
+                .toNumber()),
+        ]);
         return sortedResult;
     }
     catch (error) {
@@ -82,9 +89,7 @@ const fetchMemeTrades = async (memeId) => {
     }
 };
 exports.fetchMemeTrades = fetchMemeTrades;
-// Đường dẫn tới file chứa các meme
 const idsPath = path_1.default.join(process.cwd(), "src", "seeds", "ids-meme-full-cap.seed.json");
-// Hàm để đọc meme_id từ file vào Set
 const readMemeIdsFromFile = () => {
     if (fs_1.default.existsSync(idsPath)) {
         const data = fs_1.default.readFileSync(idsPath, "utf-8"); // Đọc file
@@ -93,16 +98,12 @@ const readMemeIdsFromFile = () => {
     }
     return new Set(); // Trả về Set rỗng nếu file không tồn tại
 };
-// Hàm để ghi Set vào file
 const writeMemeIdsToFile = () => {
-    const memeIdArray = Array.from(sentMemeIds); // Chuyển đổi Set thành mảng
-    fs_1.default.writeFileSync(idsPath, JSON.stringify(memeIdArray, null, 2), "utf-8"); // Ghi vào file
+    const memeIdArray = Array.from(sentMemeIds);
+    fs_1.default.writeFileSync(idsPath, JSON.stringify(memeIdArray, null, 2), "utf-8");
 };
-// Đọc meme_id từ file vào Set
 const sentMemeIds = readMemeIdsFromFile();
-// Đường dẫn tới file chứa các meme
 const filePath = path_1.default.join(process.cwd(), "src", "seeds", "meme-cook.seed.json");
-// Hàm để đọc các meme từ file
 function readExistingMemes() {
     if (!fs_1.default.existsSync(filePath)) {
         return [];
@@ -110,7 +111,6 @@ function readExistingMemes() {
     const data = fs_1.default.readFileSync(filePath, "utf8");
     return JSON.parse(data);
 }
-// Hàm để ghi các meme vào file
 function writeExistingMemes(memes) {
     fs_1.default.writeFileSync(filePath, JSON.stringify(memes, null, 2), "utf8");
 }
@@ -173,7 +173,6 @@ function generateTelegramHTMLMemeCook(meme) {
     return (0, common_helper_1.generateTelegramHTML)(memeDetails);
 }
 const existingMemes = readExistingMemes();
-// Hàm để lấy các meme chưa hết thời gian countdown
 async function fetchActiveMemes() {
     try {
         const response = await axios_1.default.get("https://api.meme.cooking/meme", {

@@ -13,11 +13,8 @@ const common_helper_1 = require("../common/helper/common.helper");
 const homepageController_1 = require("../controllers/common/homepageController");
 const token_handle_1 = require("../controllers/token/token.handle");
 const ref_finance_controller_1 = require("../controllers/ref-finance/ref-finance.controller");
-// Đường dẫn tới file chứa các meme
 const priceTokenPath = path_1.default.join(process.cwd(), "src", "seeds", "price-token.seed.json");
-// Đường dẫn tới file chứa các meme
 const tokenFilePath = path_1.default.join(process.cwd(), "src", "seeds", "token.seed.json");
-// Hàm để đọc danh sách token từ file
 const readTokenList = () => {
     if (fs_1.default.existsSync(tokenFilePath)) {
         const data = fs_1.default.readFileSync(tokenFilePath, "utf-8");
@@ -25,7 +22,6 @@ const readTokenList = () => {
     }
     return [];
 };
-// Hàm để ghi danh sách token vào file
 const writeTokenList = (tokenList) => {
     fs_1.default.writeFileSync(tokenFilePath, JSON.stringify(tokenList, null, 2), "utf-8");
 };
@@ -37,7 +33,6 @@ const readPriceTokenList = () => {
     }
     return {};
 };
-// Hàm để ghi danh sách token vào file
 const writePriceTokenList = (tokenList) => {
     fs_1.default.writeFileSync(priceTokenPath, JSON.stringify(tokenList, null, 2), "utf-8");
 };
@@ -123,9 +118,7 @@ const createTokenInfo = (pool) => {
             : "N/A",
     };
 };
-// Đường dẫn tới file chứa các meme
 const memePath = path_1.default.join(process.cwd(), "src", "seeds", "meme-cook.seed.json");
-// Hàm để đọc các meme từ file
 function readExistingMemes() {
     if (!fs_1.default.existsSync(memePath)) {
         return [];
@@ -159,9 +152,9 @@ function generateMsgHTML(pool) {
     };
     return (0, common_helper_1.generateTelegramHTML)(poolDetails);
 }
-const tokenSeed = readTokenList();
 const fetchAndProcessPools = async () => {
     console.log(`v2 running cron job crawl pool token ${exports.contract}...`);
+    const tokenSeed = readTokenList();
     try {
         const raw = await axios_1.default.get(`https://api.ref.finance/list-pools`);
         const listInfoToken = filterValidPools(raw.data)

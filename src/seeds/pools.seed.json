@@ -1,6 +1,19 @@
 [
   {
     "owner": null,
+    "pool_id": 5583,
+    "token_account_ids": [
+      "sin-339.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "SIN",
+    "name": "Survival Is Near",
+    "token_contract": "sin-339.meme-cooking.near"
+  },
+  {
+    "owner": null,
     "pool_id": 5580,
     "token_account_ids": [
       "fomo-336.meme-cooking.near",

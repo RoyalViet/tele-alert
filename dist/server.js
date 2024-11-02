@@ -14,6 +14,7 @@ const main = async () => {
     // connectDB
     // await connectDB();
     // fetchMemeTrades(337);
+    // fetchMemeTrades(339, { isSortDown: true });
     // cron job
     // job.start();
     meme_cook_cron_1.checkMemeCooking.start();
