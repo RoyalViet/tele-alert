@@ -17,6 +17,7 @@ const main = async () => {
   // await connectDB();
 
   // fetchMemeTrades(337);
+  // fetchMemeTrades(339, { isSortDown: true });
 
   // cron job
   // job.start();

@@ -23,8 +23,22 @@ interface Trade {
   receipt_id: string;
 }
 
-// Hàm fetchMemeTrades
-export const fetchMemeTrades = async (memeId: number | string) => {
+const infoDepositPath = path.join(
+  process.cwd(),
+  "src",
+  "seeds",
+  "info-deposit.seed.json"
+);
+
+const writeInfoToFile = (info: any) => {
+  fs.writeFileSync(infoDepositPath, JSON.stringify(info, null, 2), "utf-8");
+};
+
+export const fetchMemeTrades = async (
+  memeId: number | string,
+  options?: Partial<{ isSortDown: boolean }>
+  // decreasing
+) => {
   const url = `https://api.meme.cooking/trades?meme_id=${memeId}`;
 
   try {
@@ -88,7 +102,11 @@ export const fetchMemeTrades = async (memeId: number | string) => {
 
     // Sắp xếp các trade theo amount từ lớn đến bé
     const sortedResult = result
-      .sort((a, b) => a.amount.minus(b.amount).toNumber())
+      .sort((a, b) =>
+        options?.isSortDown
+          ? b.amount.minus(a.amount).toNumber()
+          : a.amount.minus(b.amount).toNumber()
+      )
       .map((i) => {
         const percent = i.amount.dividedBy(totalAmount).multipliedBy(100);
         return {
@@ -98,13 +116,16 @@ export const fetchMemeTrades = async (memeId: number | string) => {
         };
       });
 
-    // handlePushTelegramNotificationController({
-    //   body: sortedResult
-    //     .slice(0, 4)
-    //     .map((i) => generateTelegramHTML(i))
-    //     .join("\n\n"),
-    // });
     console.log(sortedResult, formatBalance(totalAmount));
+
+    writeInfoToFile([
+      totalAmount,
+      ...sortedResult.sort((a, b) =>
+        bigNumber(b.percent.split(" ")[0])
+          .minus(a.percent.split(" ")[0])
+          .toNumber()
+      ),
+    ]);
 
     return sortedResult;
   } catch (error) {
@@ -112,7 +133,6 @@ export const fetchMemeTrades = async (memeId: number | string) => {
   }
 };
 
-// Đường dẫn tới file chứa các meme
 const idsPath = path.join(
   process.cwd(),
   "src",
@@ -120,7 +140,6 @@ const idsPath = path.join(
   "ids-meme-full-cap.seed.json"
 );
 
-// Hàm để đọc meme_id từ file vào Set
 const readMemeIdsFromFile = () => {
   if (fs.existsSync(idsPath)) {
     const data = fs.readFileSync(idsPath, "utf-8"); // Đọc file
@@ -130,13 +149,11 @@ const readMemeIdsFromFile = () => {
   return new Set(); // Trả về Set rỗng nếu file không tồn tại
 };
 
-// Hàm để ghi Set vào file
 const writeMemeIdsToFile = () => {
-  const memeIdArray = Array.from(sentMemeIds); // Chuyển đổi Set thành mảng
-  fs.writeFileSync(idsPath, JSON.stringify(memeIdArray, null, 2), "utf-8"); // Ghi vào file
+  const memeIdArray = Array.from(sentMemeIds);
+  fs.writeFileSync(idsPath, JSON.stringify(memeIdArray, null, 2), "utf-8");
 };
 
-// Đọc meme_id từ file vào Set
 const sentMemeIds = readMemeIdsFromFile();
 
 export interface Meme {
@@ -178,7 +195,6 @@ export interface Meme {
   staker_count: number;
 }
 
-// Đường dẫn tới file chứa các meme
 const filePath = path.join(
   process.cwd(),
   "src",
@@ -186,7 +202,6 @@ const filePath = path.join(
   "meme-cook.seed.json"
 );
 
-// Hàm để đọc các meme từ file
 function readExistingMemes(): Meme[] {
   if (!fs.existsSync(filePath)) {
     return [];
@@ -195,7 +210,6 @@ function readExistingMemes(): Meme[] {
   return JSON.parse(data) as Meme[];
 }
 
-// Hàm để ghi các meme vào file
 function writeExistingMemes(memes: Meme[]): void {
   fs.writeFileSync(filePath, JSON.stringify(memes, null, 2), "utf8");
 }
@@ -265,7 +279,6 @@ function generateTelegramHTMLMemeCook(meme: Meme): string {
 
 const existingMemes = readExistingMemes();
 
-// Hàm để lấy các meme chưa hết thời gian countdown
 async function fetchActiveMemes(): Promise<Meme[]> {
   try {
     const response = await axios.get<Meme[]>("https://api.meme.cooking/meme", {

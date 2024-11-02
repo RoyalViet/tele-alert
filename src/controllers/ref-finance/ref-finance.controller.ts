@@ -12,7 +12,6 @@ import { generateTelegramHTML } from "../../common/helper/common.helper";
 import { getSignerFromContract } from "../token/token.handle";
 import { fetchAndProcessPools } from "../../cron/pool-token.cron";
 
-// Định nghĩa kiểu Pool cho Rated Pools
 interface RatedPool {
   id: number;
   fee: number;
@@ -22,7 +21,6 @@ interface RatedPool {
   tokenIds: string[];
 }
 
-// Định nghĩa kiểu Pool cho Unrated Pools
 interface UnratedPool {
   id: number;
   fee: number;
@@ -32,7 +30,6 @@ interface UnratedPool {
   tokenIds: string[];
 }
 
-// Định nghĩa kiểu Pool cho Simple Pools
 interface SimplePool {
   id: number;
   fee: number;
@@ -78,14 +75,12 @@ class Pool {
   }
 }
 
-// Định nghĩa kiểu tổng hợp cho tất cả các loại pool
 interface AllPools {
   ratedPools: RatedPool[];
   unRatedPools: UnratedPool[];
   simplePools: SimplePool[];
 }
 
-// Đường dẫn tới file chứa các meme
 const poolsFilePath = path.join(
   process.cwd(),
   "src",
@@ -93,7 +88,6 @@ const poolsFilePath = path.join(
   "pools.seed.json"
 );
 
-// Hàm để đọc danh sách token từ file
 const readPoolList = (): Array<Pool> => {
   if (fs.existsSync(poolsFilePath)) {
     const data = fs.readFileSync(poolsFilePath, "utf-8");
@@ -102,7 +96,6 @@ const readPoolList = (): Array<Pool> => {
   return [];
 };
 
-// Hàm để ghi danh sách token vào file
 const writePoolList = (poolList: Array<any>) => {
   fs.writeFileSync(poolsFilePath, JSON.stringify(poolList, null, 2), "utf-8");
 };
@@ -114,7 +107,6 @@ const poolsReleaseFilePath = path.join(
   "token.seed.json"
 );
 
-// Hàm để đọc danh sách token từ file
 const readPoolReleaseList = (): Array<any> => {
   if (fs.existsSync(poolsReleaseFilePath)) {
     const data = fs.readFileSync(poolsReleaseFilePath, "utf-8");
@@ -123,7 +115,6 @@ const readPoolReleaseList = (): Array<any> => {
   return [];
 };
 
-// Hàm để ghi danh sách token vào file
 const writeReleaseList = (tokenList: Array<any>) => {
   fs.writeFileSync(
     poolsReleaseFilePath,
@@ -162,7 +153,6 @@ function generateMsgHTML(pool: Pool): string {
   return generateTelegramHTML(poolDetails);
 }
 
-// Sử dụng hàm để lấy pool
 const poolsSeed = readPoolList();
 const poolsReleaseSeed = readPoolReleaseList();
 
@@ -237,7 +227,6 @@ export async function getAllPools() {
   }
 }
 
-// Hàm lấy chi tiết metadata của một token
 export async function getTokenDetail(tokenId: string) {
   try {
     const tokenMetadata = await ftGetTokenMetadata(tokenId);
@@ -247,7 +236,6 @@ export async function getTokenDetail(tokenId: string) {
   }
 }
 
-// Hàm lấy chi tiết metadata của nhiều token
 export async function getTokensDetail(tokenIds: string[]): Promise<void> {
   try {
     const tokensMetadata = await ftGetTokensMetadata(tokenIds, {});

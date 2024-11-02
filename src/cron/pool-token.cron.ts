@@ -10,7 +10,6 @@ import { Meme } from "./meme-cook.cron";
 import { getSignerFromContract } from "../controllers/token/token.handle";
 import { getTokenDetail } from "../controllers/ref-finance/ref-finance.controller";
 
-// Đường dẫn tới file chứa các meme
 const priceTokenPath = path.join(
   process.cwd(),
   "src",
@@ -18,7 +17,6 @@ const priceTokenPath = path.join(
   "price-token.seed.json"
 );
 
-// Đường dẫn tới file chứa các meme
 const tokenFilePath = path.join(
   process.cwd(),
   "src",
@@ -26,7 +24,6 @@ const tokenFilePath = path.join(
   "token.seed.json"
 );
 
-// Hàm để đọc danh sách token từ file
 const readTokenList = (): Array<any> => {
   if (fs.existsSync(tokenFilePath)) {
     const data = fs.readFileSync(tokenFilePath, "utf-8");
@@ -35,7 +32,6 @@ const readTokenList = (): Array<any> => {
   return [];
 };
 
-// Hàm để ghi danh sách token vào file
 const writeTokenList = (tokenList: Array<any>) => {
   fs.writeFileSync(tokenFilePath, JSON.stringify(tokenList, null, 2), "utf-8");
 };
@@ -49,7 +45,6 @@ const readPriceTokenList = (): Record<string, any> => {
   return {};
 };
 
-// Hàm để ghi danh sách token vào file
 const writePriceTokenList = (tokenList: Record<string, any>) => {
   fs.writeFileSync(priceTokenPath, JSON.stringify(tokenList, null, 2), "utf-8");
 };
@@ -183,7 +178,6 @@ interface PoolItem {
   owner?: string;
 }
 
-// Đường dẫn tới file chứa các meme
 const memePath = path.join(
   process.cwd(),
   "src",
@@ -191,7 +185,6 @@ const memePath = path.join(
   "meme-cook.seed.json"
 );
 
-// Hàm để đọc các meme từ file
 function readExistingMemes(): Meme[] {
   if (!fs.existsSync(memePath)) {
     return [];
