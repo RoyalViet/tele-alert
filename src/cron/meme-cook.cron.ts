@@ -30,6 +30,11 @@ const infoDepositPath = path.join(
   "info-deposit.seed.json"
 );
 
+const readInfoFromFile = (): Array<Array<string | number>> => {
+  const data = fs.readFileSync(infoDepositPath, "utf-8");
+  return JSON.parse(data);
+};
+
 const writeInfoToFile = (info: any) => {
   fs.writeFileSync(infoDepositPath, JSON.stringify(info, null, 2), "utf-8");
 };
@@ -64,10 +69,8 @@ export const fetchMemeTrades = async (
       },
     });
 
-    // Tạo một đối tượng để lưu trữ tổng hợp theo account_id
     const accountMap: Record<string, BigNumber> = {};
 
-    // Tổng hợp dữ liệu
     response.data.forEach((trade) => {
       const amountValue = bigNumber(trade.amount).dividedBy(Math.pow(10, 24));
       if (trade.is_deposit) {
@@ -81,7 +84,6 @@ export const fetchMemeTrades = async (
       }
     });
 
-    // Chuyển đổi accountMap thành mảng kết quả
     const result: Array<{
       account_id: string;
       amount: BigNumber;
@@ -90,7 +92,6 @@ export const fetchMemeTrades = async (
       amount,
     }));
 
-    // Tính tổng amount
     const totalAmount = result.reduce(
       (sum, item) => sum.plus(item.amount),
       new BigNumber(0)
@@ -100,7 +101,6 @@ export const fetchMemeTrades = async (
       return;
     }
 
-    // Sắp xếp các trade theo amount từ lớn đến bé
     const sortedResult = result
       .sort((a, b) =>
         options?.isSortDown
@@ -116,18 +116,26 @@ export const fetchMemeTrades = async (
         };
       });
 
-    console.log(sortedResult, formatBalance(totalAmount));
+    console.log(sortedResult, formatBalance(totalAmount, 2) + " Near");
 
-    writeInfoToFile([
-      totalAmount,
-      ...sortedResult.sort((a, b) =>
-        bigNumber(b.percent.split(" ")[0])
-          .minus(a.percent.split(" ")[0])
-          .toNumber()
-      ),
-    ]);
+    const existingData = readInfoFromFile();
 
-    return sortedResult;
+    const updatedData = [
+      [
+        memeId,
+        formatBalance(totalAmount, 2) + " Near",
+        ...sortedResult.sort((a, b) =>
+          bigNumber(b.percent.split(" ")[0])
+            .minus(a.percent.split(" ")[0])
+            .toNumber()
+        ),
+      ],
+      ...existingData.filter((i) => !i.includes(memeId)),
+    ];
+
+    writeInfoToFile(updatedData);
+
+    return totalAmount;
   } catch (error) {
     console.error("Error fetching meme trades:", error?.message);
   }
