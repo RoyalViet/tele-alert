@@ -133,6 +133,32 @@ function readExistingMemes() {
     const data = fs_1.default.readFileSync(memePath, "utf8");
     return JSON.parse(data);
 }
+function generateMsgHTML(pool) {
+    const poolDetails = {
+        "⭐ OwnerLink": pool?.owner && pool?.owner !== "null"
+            ? `[${pool?.owner}](https://nearblocks.io/address/${pool?.owner}?tab=tokentxns)`
+            : "N/A",
+        OwnerPikeLink: pool?.owner && pool?.owner !== "null"
+            ? `https://pikespeak.ai/wallet-explorer/${pool.owner}/transfers`
+            : "N/A",
+        "⭐ AddressTokenLink": `https://nearblocks.io/address/${pool.token_contract}?tab=tokentxns`,
+        _: "==============================",
+        "⭐ Contract": pool.token_contract,
+        "⭐ PoolID": pool.pool_id || "N/A",
+        "⭐ Decimals": pool.decimals,
+        TokenLink: `https://nearblocks.io/token/${pool.token_contract}`,
+        "⭐ RefLink": `https://app.ref.finance/#usdt.tether-token.near|${pool.token_contract}`,
+        DexLink: pool.pool_id
+            ? `https://dexscreener.com/near/refv1-${pool.pool_id}`
+            : "N/A",
+        __: "==============================",
+        Owner: pool.owner,
+        Name: pool.name,
+        Symbol: pool.token_symbols,
+        Tag: "From Pools Release",
+    };
+    return (0, common_helper_1.generateTelegramHTML)(poolDetails);
+}
 const tokenSeed = readTokenList();
 const fetchAndProcessPools = async () => {
     console.log(`v2 running cron job crawl pool token ${exports.contract}...`);
@@ -154,16 +180,11 @@ const fetchAndProcessPools = async () => {
                         (0, token_handle_1.getSignerFromContract)(t.token_contract),
                     ]);
                     return {
-                        OwnerLink: owner && owner !== "null"
-                            ? `[${owner}](https://nearblocks.io/address/${owner}?tab=tokentxns)`
-                            : "N/A",
-                        OwnerPikeLink: owner && owner !== "null"
-                            ? `https://pikespeak.ai/wallet-explorer/${owner}/transfers`
-                            : "N/A",
-                        AddressTokenLink: `https://nearblocks.io/address/${t.token_contract}`,
+                        owner,
                         decimals: info.decimals,
                         ___: "==============================",
                         ...t,
+                        name: info.name,
                     };
                 }
                 catch (error) {
@@ -172,25 +193,24 @@ const fetchAndProcessPools = async () => {
                         AddressTokenLink: "N/A",
                         decimals: "N/A",
                         ...t,
+                        name: "N/A",
                     };
                 }
             }
             else {
                 return {
-                    OwnerLink: `[${meme.owner}](https://nearblocks.io/address/${meme.owner}?tab=tokentxns)`,
-                    OwnerPikeLink: `[${meme.owner}](https://pikespeak.ai/wallet-explorer/${meme.owner}/transfers)`,
+                    owner: meme.owner,
                     decimals: meme.decimals,
                     ___: "==============================",
                     ...t,
+                    name: meme.name,
                 };
             }
         }));
         tokenSeed.unshift(...newInfoTokens.filter(Boolean));
         if (newInfoTokens.length) {
             (0, homepageController_1.handlePushTelegramNotificationController)({
-                body: newInfoTokens
-                    .map((i) => (0, common_helper_1.generateTelegramHTML)({ ...i, Tag: "From Pool Listed" }))
-                    .join("\n\n"),
+                body: newInfoTokens.map((i) => generateMsgHTML(i)).join("\n\n"),
             });
             writeTokenList(tokenSeed);
         }

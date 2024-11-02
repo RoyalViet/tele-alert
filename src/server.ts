@@ -20,9 +20,9 @@ const main = async () => {
 
   // cron job
   // job.start();
-  // checkMemeCooking.start();
-  // checkRefPoolToken.start();
-  checkReleasePoolToken.start();
+  checkMemeCooking.start();
+  checkRefPoolToken.start();
+  // checkReleasePoolToken.start();
 
   // test
   // testF();
