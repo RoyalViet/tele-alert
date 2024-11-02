@@ -180,6 +180,7 @@ interface PoolItem {
   id: string;
   tvl: string;
   token0_ref_price: string;
+  owner?: string;
 }
 
 // Đường dẫn tới file chứa các meme
@@ -197,6 +198,36 @@ function readExistingMemes(): Meme[] {
   }
   const data = fs.readFileSync(memePath, "utf8");
   return JSON.parse(data) as Meme[];
+}
+
+function generateMsgHTML(pool: ICreateToken): string {
+  const poolDetails = {
+    "⭐ OwnerLink":
+      pool?.owner && pool?.owner !== "null"
+        ? `[${pool?.owner}](https://nearblocks.io/address/${pool?.owner}?tab=tokentxns)`
+        : "N/A",
+    OwnerPikeLink:
+      pool?.owner && pool?.owner !== "null"
+        ? `https://pikespeak.ai/wallet-explorer/${pool.owner}/transfers`
+        : "N/A",
+    "⭐ AddressTokenLink": `https://nearblocks.io/address/${pool.token_contract}?tab=tokentxns`,
+    _: "==============================",
+    "⭐ Contract": pool.token_contract,
+    "⭐ PoolID": pool.pool_id || "N/A",
+    "⭐ Decimals": pool.decimals,
+    TokenLink: `https://nearblocks.io/token/${pool.token_contract}`,
+    "⭐ RefLink": `https://app.ref.finance/#usdt.tether-token.near|${pool.token_contract}`,
+    DexLink: pool.pool_id
+      ? `https://dexscreener.com/near/refv1-${pool.pool_id}`
+      : "N/A",
+    __: "==============================",
+    Owner: pool.owner,
+    Name: pool.name,
+    Symbol: pool.token_symbols,
+    Tag: "From Pools Release",
+  };
+
+  return generateTelegramHTML(poolDetails);
 }
 
 const tokenSeed = readTokenList();
@@ -225,18 +256,11 @@ export const fetchAndProcessPools = async (): Promise<any> => {
                 getSignerFromContract(t.token_contract),
               ]);
               return {
-                OwnerLink:
-                  owner && owner !== "null"
-                    ? `[${owner}](https://nearblocks.io/address/${owner}?tab=tokentxns)`
-                    : "N/A",
-                OwnerPikeLink:
-                  owner && owner !== "null"
-                    ? `https://pikespeak.ai/wallet-explorer/${owner}/transfers`
-                    : "N/A",
-                AddressTokenLink: `https://nearblocks.io/address/${t.token_contract}`,
+                owner,
                 decimals: info.decimals,
                 ___: "==============================",
                 ...t,
+                name: info.name,
               };
             } catch (error) {
               return {
@@ -244,15 +268,16 @@ export const fetchAndProcessPools = async (): Promise<any> => {
                 AddressTokenLink: "N/A",
                 decimals: "N/A",
                 ...t,
+                name: "N/A",
               };
             }
           } else {
             return {
-              OwnerLink: `[${meme.owner}](https://nearblocks.io/address/${meme.owner}?tab=tokentxns)`,
-              OwnerPikeLink: `[${meme.owner}](https://pikespeak.ai/wallet-explorer/${meme.owner}/transfers)`,
+              owner: meme.owner,
               decimals: meme.decimals,
               ___: "==============================",
               ...t,
+              name: meme.name,
             };
           }
         })
@@ -262,9 +287,7 @@ export const fetchAndProcessPools = async (): Promise<any> => {
 
     if (newInfoTokens.length) {
       handlePushTelegramNotificationController({
-        body: newInfoTokens
-          .map((i) => generateTelegramHTML({ ...i, Tag: "From Pool Listed" }))
-          .join("\n\n"),
+        body: newInfoTokens.map((i) => generateMsgHTML(i)).join("\n\n"),
       });
       writeTokenList(tokenSeed);
     }

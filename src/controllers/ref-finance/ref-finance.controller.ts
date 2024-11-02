@@ -107,6 +107,31 @@ const writePoolList = (poolList: Array<any>) => {
   fs.writeFileSync(poolsFilePath, JSON.stringify(poolList, null, 2), "utf-8");
 };
 
+const poolsReleaseFilePath = path.join(
+  process.cwd(),
+  "src",
+  "seeds",
+  "token.seed.json"
+);
+
+// Hàm để đọc danh sách token từ file
+const readPoolReleaseList = (): Array<any> => {
+  if (fs.existsSync(poolsReleaseFilePath)) {
+    const data = fs.readFileSync(poolsReleaseFilePath, "utf-8");
+    return JSON.parse(data);
+  }
+  return [];
+};
+
+// Hàm để ghi danh sách token vào file
+const writeReleaseList = (tokenList: Array<any>) => {
+  fs.writeFileSync(
+    poolsReleaseFilePath,
+    JSON.stringify(tokenList, null, 2),
+    "utf-8"
+  );
+};
+
 function generateMsgHTML(pool: Pool): string {
   const poolDetails = {
     "⭐ OwnerLink":
@@ -131,7 +156,7 @@ function generateMsgHTML(pool: Pool): string {
     Owner: pool.owner,
     Name: pool.name,
     Symbol: pool.symbol,
-    Tag: "From ALL Pools",
+    Tag: "From All Pools",
   };
 
   return generateTelegramHTML(poolDetails);
@@ -139,6 +164,7 @@ function generateMsgHTML(pool: Pool): string {
 
 // Sử dụng hàm để lấy pool
 const poolsSeed = readPoolList();
+const poolsReleaseSeed = readPoolReleaseList();
 
 export async function getAllPools() {
   console.log(`v2 running cron job crawl getAllPools...`);
@@ -193,6 +219,9 @@ export async function getAllPools() {
       });
       poolsSeed.unshift(...newPools);
       writePoolList(poolsSeed);
+
+      poolsReleaseSeed.unshift(...newPools);
+      writeReleaseList(poolsReleaseSeed);
     }
 
     // return allPools;

@@ -14,6 +14,9 @@ export interface ICreateToken {
   TokenLink?: string;
   RefLink?: string;
   DexLink?: string;
+  owner?: string;
+  decimals?: string | number;
+  name?: string;
 }
 
 export interface IUpdateToken {
