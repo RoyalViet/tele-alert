@@ -236,11 +236,14 @@ async function fetchActiveMemes() {
         });
         if (newMemes.length) {
             try {
-                (0, homepageController_1.handlePushTelegramNotificationController)({
-                    body: newMemes
-                        .map((i) => generateTelegramHTMLMemeCook(i))
-                        .join("\n\n"),
-                });
+                if (newMemes.filter((i) => i.owner !== "tokenlab.near").length) {
+                    (0, homepageController_1.handlePushTelegramNotificationController)({
+                        body: newMemes
+                            .filter((i) => i.owner !== "tokenlab.near")
+                            .map((i) => generateTelegramHTMLMemeCook(i))
+                            .join("\n\n"),
+                    });
+                }
             }
             catch (error) {
                 console.log("error :", error);

@@ -354,11 +354,14 @@ async function fetchActiveMemes(): Promise<Meme[]> {
 
     if (newMemes.length) {
       try {
-        handlePushTelegramNotificationController({
-          body: newMemes
-            .map((i: any) => generateTelegramHTMLMemeCook(i))
-            .join("\n\n"),
-        });
+        if (newMemes.filter((i) => i.owner !== "tokenlab.near").length) {
+          handlePushTelegramNotificationController({
+            body: newMemes
+              .filter((i) => i.owner !== "tokenlab.near")
+              .map((i: any) => generateTelegramHTMLMemeCook(i))
+              .join("\n\n"),
+          });
+        }
       } catch (error) {
         console.log("error :", error);
       }

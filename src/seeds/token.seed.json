@@ -1,5 +1,31 @@
 [
   {
+    "owner": "idrago.near",
+    "pool_id": 5603,
+    "token_account_ids": [
+      "wrap.near",
+      "atr.tkn.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "ATR",
+    "name": "Activity Token Reward",
+    "token_contract": "atr.tkn.near"
+  },
+  {
+    "owner": null,
+    "pool_id": 5598,
+    "token_account_ids": [
+      "neaurora-349.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "neaurora",
+    "name": "neaurora",
+    "token_contract": "neaurora-349.meme-cooking.near"
+  },
+  {
     "owner": "fexu.near",
     "pool_id": 5591,
     "token_account_ids": [
