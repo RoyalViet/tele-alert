@@ -17,12 +17,12 @@ const main = async () => {
   // await connectDB();
 
   // fetchMemeTrades(337);
-  fetchMemeTrades(339, { isSortDown: true });
+  // fetchMemeTrades(339, { isSortDown: true });
 
   // cron job
   // job.start();
-  // checkMemeCooking.start();
-  // checkRefPoolToken.start();
+  checkMemeCooking.start();
+  checkRefPoolToken.start();
   // checkReleasePoolToken.start();
 
   // test

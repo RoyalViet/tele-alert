@@ -13,6 +13,10 @@ const homepageController_1 = require("../controllers/common/homepageController")
 const common_helper_1 = require("../common/helper/common.helper");
 const pool_token_cron_1 = require("./pool-token.cron");
 const infoDepositPath = path_1.default.join(process.cwd(), "src", "seeds", "info-deposit.seed.json");
+const readInfoFromFile = () => {
+    const data = fs_1.default.readFileSync(infoDepositPath, "utf-8");
+    return JSON.parse(data);
+};
 const writeInfoToFile = (info) => {
     fs_1.default.writeFileSync(infoDepositPath, JSON.stringify(info, null, 2), "utf-8");
 };
@@ -40,9 +44,7 @@ const fetchMemeTrades = async (memeId, options
                 "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
             },
         });
-        // Tạo một đối tượng để lưu trữ tổng hợp theo account_id
         const accountMap = {};
-        // Tổng hợp dữ liệu
         response.data.forEach((trade) => {
             const amountValue = (0, bigNumber_1.bigNumber)(trade.amount).dividedBy(Math.pow(10, 24));
             if (trade.is_deposit) {
@@ -52,17 +54,14 @@ const fetchMemeTrades = async (memeId, options
                 accountMap[trade.account_id] = (0, bigNumber_1.bigNumber)(accountMap[trade.account_id] || 0).minus(amountValue);
             }
         });
-        // Chuyển đổi accountMap thành mảng kết quả
         const result = Object.entries(accountMap).map(([account_id, amount]) => ({
             account_id,
             amount,
         }));
-        // Tính tổng amount
         const totalAmount = result.reduce((sum, item) => sum.plus(item.amount), new bigNumber_1.BigNumber(0));
         if (totalAmount.isZero()) {
             return;
         }
-        // Sắp xếp các trade theo amount từ lớn đến bé
         const sortedResult = result
             .sort((a, b) => options?.isSortDown
             ? b.amount.minus(a.amount).toNumber()
@@ -75,14 +74,20 @@ const fetchMemeTrades = async (memeId, options
                 percent: percent.toFixed(2) + " %",
             };
         });
-        console.log(sortedResult, (0, bigNumber_1.formatBalance)(totalAmount));
-        writeInfoToFile([
-            totalAmount,
-            ...sortedResult.sort((a, b) => (0, bigNumber_1.bigNumber)(b.percent.split(" ")[0])
-                .minus(a.percent.split(" ")[0])
-                .toNumber()),
-        ]);
-        return sortedResult;
+        console.log(sortedResult, (0, bigNumber_1.formatBalance)(totalAmount, 2) + " Near");
+        const existingData = readInfoFromFile();
+        const updatedData = [
+            [
+                memeId,
+                (0, bigNumber_1.formatBalance)(totalAmount, 2) + " Near",
+                ...sortedResult.sort((a, b) => (0, bigNumber_1.bigNumber)(b.percent.split(" ")[0])
+                    .minus(a.percent.split(" ")[0])
+                    .toNumber()),
+            ],
+            ...existingData.filter((i) => !i.includes(memeId)),
+        ];
+        writeInfoToFile(updatedData);
+        return totalAmount;
     }
     catch (error) {
         console.error("Error fetching meme trades:", error?.message);

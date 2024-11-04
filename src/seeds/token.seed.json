@@ -1,5 +1,57 @@
 [
   {
+    "owner": "fexu.near",
+    "pool_id": 5591,
+    "token_account_ids": [
+      "angl.tkn.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "ANGL",
+    "name": "Angel's Luck",
+    "token_contract": "angl.tkn.near"
+  },
+  {
+    "owner": "fexu.near",
+    "pool_id": 5589,
+    "token_account_ids": [
+      "fexu.tkn.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "Fexu",
+    "name": "Style_fexu",
+    "token_contract": "fexu.tkn.near"
+  },
+  {
+    "owner": null,
+    "pool_id": 5588,
+    "token_account_ids": [
+      "ico.tkn.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 4,
+    "symbol": "ICO",
+    "name": "Iyaad Coin (Official)",
+    "token_contract": "ico.tkn.near"
+  },
+  {
+    "owner": null,
+    "pool_id": 5587,
+    "token_account_ids": [
+      "icon.tkn.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 4,
+    "symbol": "ICON",
+    "name": "The Iyaad Coin",
+    "token_contract": "icon.tkn.near"
+  },
+  {
     "owner": "survivalisnear.near",
     "decimals": 18,
     "___": "==============================",

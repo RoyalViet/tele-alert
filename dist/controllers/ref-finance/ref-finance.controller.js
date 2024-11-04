@@ -92,6 +92,9 @@ function generateMsgHTML(pool) {
         "⭐ Contract": pool.token_contract,
         "⭐ PoolID": pool.pool_id || "N/A",
         "⭐ Decimals": pool.decimals,
+        "⭐ PoolLink": pool.pool_id
+            ? `https://app.ref.finance/pool/${pool.pool_id}`
+            : "N/A",
         TokenLink: `https://nearblocks.io/token/${pool.token_contract}`,
         "⭐ RefLink": `https://app.ref.finance/#usdt.tether-token.near|${pool.token_contract}`,
         DexLink: pool.pool_id
