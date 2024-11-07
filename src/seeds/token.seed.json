@@ -1,5 +1,70 @@
 [
   {
+    "owner": null,
+    "pool_id": 5611,
+    "token_account_ids": [
+      "shit-361.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "SHIT",
+    "name": "10000xAIcatshit",
+    "token_contract": "shit-361.meme-cooking.near"
+  },
+  {
+    "owner": null,
+    "pool_id": 5609,
+    "token_account_ids": [
+      "wrap.near",
+      "sheep.thundertkn.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "SHEEP",
+    "name": "sheep",
+    "token_contract": "sheep.thundertkn.near"
+  },
+  {
+    "owner": null,
+    "pool_id": 5608,
+    "token_account_ids": [
+      "bad-357.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "BAD",
+    "name": "BadDuck",
+    "token_contract": "bad-357.meme-cooking.near"
+  },
+  {
+    "owner": null,
+    "pool_id": 5607,
+    "token_account_ids": [
+      "trump-355.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "TRUMP",
+    "name": "TRUMP",
+    "token_contract": "trump-355.meme-cooking.near"
+  },
+  {
+    "owner": "se_la_via.tg",
+    "pool_id": 5605,
+    "token_account_ids": [
+      "wrap.near",
+      "grecha.tkn.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 3,
+    "symbol": "GRECHA",
+    "name": "GRECHA",
+    "token_contract": "grecha.tkn.near"
+  },
+  {
     "owner": "idrago.near",
     "pool_id": 5603,
     "token_account_ids": [
