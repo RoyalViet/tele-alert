@@ -11,6 +11,7 @@ import { handlePushTelegramNotificationController } from "../common/homepageCont
 import { generateTelegramHTML } from "../../common/helper/common.helper";
 import { getSignerFromContract } from "../token/token.handle";
 import { fetchAndProcessPools } from "../../cron/pool-token.cron";
+import { Meme } from "../../cron/meme-cook.cron";
 
 interface RatedPool {
   id: number;
@@ -159,6 +160,21 @@ function generateMsgHTML(pool: Pool): string {
 const poolsSeed = readPoolList();
 const poolsReleaseSeed = readPoolReleaseList();
 
+const memePath = path.join(
+  process.cwd(),
+  "src",
+  "seeds",
+  "meme-cook.seed.json"
+);
+
+function readExistingMemes(): Meme[] {
+  if (!fs.existsSync(memePath)) {
+    return [];
+  }
+  const data = fs.readFileSync(memePath, "utf8");
+  return JSON.parse(data) as Meme[];
+}
+
 export async function getAllPools() {
   console.log(`v2 running cron job crawl getAllPools...`);
   try {
@@ -174,22 +190,37 @@ export async function getAllPools() {
       ].filter((i) => i.tokenIds.includes("wrap.near"))
     );
 
+    const memeSeed = readExistingMemes();
+    const memeMap = new Map(memeSeed.map((meme) => [meme.token_id, meme]));
     const newPoolsPromises = allPools.map(async (i) => {
       const isNew = !poolsSeed.find((j) => j.pool_id === i.pool_id);
       if (isNew) {
         try {
-          const [info, owner] = await Promise.all([
-            getTokenDetail(i.token_contract),
-            getSignerFromContract(i.token_contract),
-          ]);
-          return {
-            owner,
-            ...i,
-            token_contract: i.token_contract,
-            name: info.name,
-            symbol: info.symbol,
-            decimals: info.decimals,
-          };
+          const meme = memeMap.get(i.token_contract);
+          if (!meme) {
+            const [info, owner] = await Promise.all([
+              getTokenDetail(i.token_contract),
+              getSignerFromContract(i.token_contract),
+            ]);
+            return {
+              owner,
+              ...i,
+              token_contract: i.token_contract,
+              name: info.name,
+              symbol: info.symbol,
+              decimals: info.decimals,
+            };
+          } else {
+            return {
+              owner: meme.owner,
+              token_contract: i.token_contract,
+              ___: "==============================",
+              ...i,
+              name: meme.name,
+              symbol: meme.symbol,
+              decimals: meme.decimals,
+            };
+          }
         } catch (error) {
           return {
             owner: "N/A",
@@ -222,8 +253,8 @@ export async function getAllPools() {
     fetchAndProcessPools();
     console.error(
       "Error fetching pools:",
-      String(error?.message).length > 1000
-        ? String(error?.message).substring(0, 1000) + "..."
+      String(error?.message).length > 100
+        ? String(error?.message).substring(0, 100) + "..."
         : String(error?.message)
     );
     // return [];

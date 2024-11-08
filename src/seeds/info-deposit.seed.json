@@ -1,5 +1,84 @@
 [
   [
+    365,
+    "132.57 Near",
+    {
+      "account_id": "tokenlab.near",
+      "amount": "102.485 Near",
+      "percent": "77.30 %"
+    },
+    {
+      "account_id": "masheshroshansalman.near",
+      "amount": "7.96 Near",
+      "percent": "6.00 %"
+    },
+    {
+      "account_id": "casahab.near",
+      "amount": "5.97 Near",
+      "percent": "4.50 %"
+    },
+    {
+      "account_id": "tiririt.near",
+      "amount": "4.975 Near",
+      "percent": "3.75 %"
+    },
+    {
+      "account_id": "1ce2567f7f49cb34cea72179223ec7fc4ba91077da3e01364d0c729dfbe26467",
+      "amount": "3.33325 Near",
+      "percent": "2.51 %"
+    },
+    {
+      "account_id": "maamamiya.near",
+      "amount": "1.99 Near",
+      "percent": "1.50 %"
+    },
+    {
+      "account_id": "a0244742a4cbe6eb5227022032180ccd97f9860a7d0b3caa23f2da40401cda4f",
+      "amount": "1.99 Near",
+      "percent": "1.50 %"
+    },
+    {
+      "account_id": "vytauten.near",
+      "amount": "1.4925 Near",
+      "percent": "1.13 %"
+    },
+    {
+      "account_id": "locals14.near",
+      "amount": "0.995 Near",
+      "percent": "0.75 %"
+    },
+    {
+      "account_id": "x000000x.near",
+      "amount": "0.6965 Near",
+      "percent": "0.53 %"
+    },
+    {
+      "account_id": "dropsbr.near",
+      "amount": "0.4975 Near",
+      "percent": "0.38 %"
+    },
+    {
+      "account_id": "burn_of_poland.tg",
+      "amount": "0.0744324 Near",
+      "percent": "0.06 %"
+    },
+    {
+      "account_id": "racso_alreves.tg",
+      "amount": "0.06595656 Near",
+      "percent": "0.05 %"
+    },
+    {
+      "account_id": "timshakirov.tg",
+      "amount": "0.04975 Near",
+      "percent": "0.04 %"
+    },
+    {
+      "account_id": "5e5657a757bb41d7cf7e3513124b02eea8d256649cff6f02311f4dfe5bab19ea",
+      "amount": "0.00273873 Near",
+      "percent": "0.00 %"
+    }
+  ],
+  [
     339,
     "2,615.76 Near",
     {
