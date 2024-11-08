@@ -1,5 +1,47 @@
 [
   {
+    "owner": "cooked_dev.near",
+    "token_contract": "cooked-372.meme-cooking.near",
+    "___": "==============================",
+    "pool_id": 5629,
+    "token_account_ids": [
+      "cooked-372.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "COOKED",
+    "name": "COOKED on NEAR"
+  },
+  {
+    "owner": "aiagent69.near",
+    "token_contract": "donnabella-370.meme-cooking.near",
+    "___": "==============================",
+    "pool_id": 5628,
+    "token_account_ids": [
+      "donnabella-370.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "DonnaBella",
+    "name": "Donna Bella"
+  },
+  {
+    "owner": "39394dbf809d6d0f9009b91897927b636058d47127f5a0d123105145136cf8ad",
+    "token_contract": "zip-366.meme-cooking.near",
+    "___": "==============================",
+    "pool_id": 5627,
+    "token_account_ids": [
+      "zip-366.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "ZIP",
+    "name": "ZIPPO"
+  },
+  {
     "owner": "snowdenear.near",
     "token_contract": "edward-367.meme-cooking.near",
     "___": "==============================",

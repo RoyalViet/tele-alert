@@ -251,12 +251,7 @@ export async function getAllPools() {
     // return allPools;
   } catch (error) {
     fetchAndProcessPools();
-    console.error(
-      "Error fetching pools:",
-      String(error?.message).length > 100
-        ? String(error?.message).substring(0, 100) + "..."
-        : String(error?.message)
-    );
+    console.error("Error fetching pools");
     // return [];
   }
 }
