@@ -1,5 +1,19 @@
 [
   {
+    "owner": "mnga.near",
+    "token_contract": "mnga-376.meme-cooking.near",
+    "___": "==============================",
+    "pool_id": 5630,
+    "token_account_ids": [
+      "mnga-376.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "MNGA",
+    "name": "Make Near Great Again"
+  },
+  {
     "owner": "cooked_dev.near",
     "token_contract": "cooked-372.meme-cooking.near",
     "___": "==============================",
