@@ -51,7 +51,7 @@ const fetchMemeTrades = async (memeId, options
                 accountMap[trade.account_id] = (0, bigNumber_1.bigNumber)(accountMap[trade.account_id] || 0).plus(amountValue);
             }
             else {
-                accountMap[trade.account_id] = (0, bigNumber_1.bigNumber)(accountMap[trade.account_id] || 0).minus(amountValue);
+                accountMap[trade.account_id] = (0, bigNumber_1.bigNumber)(accountMap[trade.account_id]).minus(amountValue);
             }
         });
         const result = Object.entries(accountMap).map(([account_id, amount]) => ({
@@ -178,6 +178,7 @@ function generateTelegramHTMLMemeCook(meme) {
     return (0, common_helper_1.generateTelegramHTML)(memeDetails);
 }
 const existingMemes = readExistingMemes();
+const ownerIgnore = ["tokenlab.near", "memecoinscash.near"];
 async function fetchActiveMemes() {
     try {
         const response = await axios_1.default.get("https://api.meme.cooking/meme", {
@@ -236,10 +237,10 @@ async function fetchActiveMemes() {
         });
         if (newMemes.length) {
             try {
-                if (newMemes.filter((i) => i.owner !== "tokenlab.near").length) {
+                if (newMemes.filter((i) => !ownerIgnore.includes(i.owner)).length) {
                     (0, homepageController_1.handlePushTelegramNotificationController)({
                         body: newMemes
-                            .filter((i) => i.owner !== "tokenlab.near")
+                            .filter((i) => !ownerIgnore.includes(i.owner))
                             .map((i) => generateTelegramHTMLMemeCook(i))
                             .join("\n\n"),
                     });

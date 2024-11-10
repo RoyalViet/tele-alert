@@ -13,8 +13,8 @@ const PORT = process.env.PORT || 8000;
 const main = async () => {
     // connectDB
     // await connectDB();
-    // fetchMemeTrades(366);
-    // fetchMemeTrades(339, { isSortDown: true });
+    // fetchMemeTrades(473);
+    // fetchMemeTrades(390, { isSortDown: true });
     // cron job
     // job.start();
     meme_cook_cron_1.checkMemeCooking.start();

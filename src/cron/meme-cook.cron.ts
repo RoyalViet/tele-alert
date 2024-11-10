@@ -287,6 +287,8 @@ function generateTelegramHTMLMemeCook(meme: Meme): string {
 
 const existingMemes = readExistingMemes();
 
+const ownerIgnore = ["tokenlab.near", "memecoinscash.near"];
+
 async function fetchActiveMemes(): Promise<Meme[]> {
   try {
     const response = await axios.get<Meme[]>("https://api.meme.cooking/meme", {
@@ -354,10 +356,10 @@ async function fetchActiveMemes(): Promise<Meme[]> {
 
     if (newMemes.length) {
       try {
-        if (newMemes.filter((i) => i.owner !== "tokenlab.near").length) {
+        if (newMemes.filter((i) => !ownerIgnore.includes(i.owner)).length) {
           handlePushTelegramNotificationController({
             body: newMemes
-              .filter((i) => i.owner !== "tokenlab.near")
+              .filter((i) => !ownerIgnore.includes(i.owner))
               .map((i: any) => generateTelegramHTMLMemeCook(i))
               .join("\n\n"),
           });
