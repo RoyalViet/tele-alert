@@ -1,5 +1,870 @@
 [
   [
+    473,
+    "439.89 Near",
+    {
+      "account_id": "6god.near",
+      "amount": "74.625 Near",
+      "percent": "16.96 %"
+    },
+    {
+      "account_id": "vogelsteller.near",
+      "amount": "49.75 Near",
+      "percent": "11.31 %"
+    },
+    {
+      "account_id": "whoseurdad.near",
+      "amount": "49.75 Near",
+      "percent": "11.31 %"
+    },
+    {
+      "account_id": "baxoff.near",
+      "amount": "29.85 Near",
+      "percent": "6.79 %"
+    },
+    {
+      "account_id": "tibia74.near",
+      "amount": "29.85 Near",
+      "percent": "6.79 %"
+    },
+    {
+      "account_id": "forbtc.near",
+      "amount": "29.85 Near",
+      "percent": "6.79 %"
+    },
+    {
+      "account_id": "omajari199.near",
+      "amount": "24.875 Near",
+      "percent": "5.65 %"
+    },
+    {
+      "account_id": "whytho.near",
+      "amount": "19.9 Near",
+      "percent": "4.52 %"
+    },
+    {
+      "account_id": "thepcwallet.near",
+      "amount": "19.9 Near",
+      "percent": "4.52 %"
+    },
+    {
+      "account_id": "pouo.near",
+      "amount": "14.925 Near",
+      "percent": "3.39 %"
+    },
+    {
+      "account_id": "lamadretuyaa.tg",
+      "amount": "11.94 Near",
+      "percent": "2.71 %"
+    },
+    {
+      "account_id": "quietmouse232.near",
+      "amount": "10.2485 Near",
+      "percent": "2.33 %"
+    },
+    {
+      "account_id": "itsthedegen.near",
+      "amount": "9.95 Near",
+      "percent": "2.26 %"
+    },
+    {
+      "account_id": "hotlynx5249.near",
+      "amount": "9.95 Near",
+      "percent": "2.26 %"
+    },
+    {
+      "account_id": "sonofgrace001.near",
+      "amount": "9.95 Near",
+      "percent": "2.26 %"
+    },
+    {
+      "account_id": "shashankvaranasi.near",
+      "amount": "9.95 Near",
+      "percent": "2.26 %"
+    },
+    {
+      "account_id": "iwealth.near",
+      "amount": "7.96 Near",
+      "percent": "1.81 %"
+    },
+    {
+      "account_id": "zavodil.near",
+      "amount": "4.975 Near",
+      "percent": "1.13 %"
+    },
+    {
+      "account_id": "alejandro.near",
+      "amount": "4.975 Near",
+      "percent": "1.13 %"
+    },
+    {
+      "account_id": "redtoad.near",
+      "amount": "4.975 Near",
+      "percent": "1.13 %"
+    },
+    {
+      "account_id": "meekblaze.near",
+      "amount": "4.975 Near",
+      "percent": "1.13 %"
+    },
+    {
+      "account_id": "maxbuyanov.near",
+      "amount": "3.78401749 Near",
+      "percent": "0.86 %"
+    },
+    {
+      "account_id": "aiml.near",
+      "amount": "1.8905 Near",
+      "percent": "0.43 %"
+    },
+    {
+      "account_id": "charvian.near",
+      "amount": "0.597 Near",
+      "percent": "0.14 %"
+    },
+    {
+      "account_id": "faveije.near",
+      "amount": "0.4975 Near",
+      "percent": "0.11 %"
+    },
+    {
+      "account_id": "vinceot.tg",
+      "amount": "0.000995 Near",
+      "percent": "0.00 %"
+    }
+  ],
+  [
+    426,
+    "565.39 Near",
+    {
+      "account_id": "screamingautist.near",
+      "amount": "84.575 Near",
+      "percent": "14.96 %"
+    },
+    {
+      "account_id": "chuzu.near",
+      "amount": "50.745 Near",
+      "percent": "8.98 %"
+    },
+    {
+      "account_id": "clearflour9706.near",
+      "amount": "49.75 Near",
+      "percent": "8.80 %"
+    },
+    {
+      "account_id": "louisan.near",
+      "amount": "39.8 Near",
+      "percent": "7.04 %"
+    },
+    {
+      "account_id": "simgnbei.near",
+      "amount": "39.8 Near",
+      "percent": "7.04 %"
+    },
+    {
+      "account_id": "uibj.near",
+      "amount": "39.8 Near",
+      "percent": "7.04 %"
+    },
+    {
+      "account_id": "zenoblack.near",
+      "amount": "29.85 Near",
+      "percent": "5.28 %"
+    },
+    {
+      "account_id": "lilu9x.near",
+      "amount": "29.85 Near",
+      "percent": "5.28 %"
+    },
+    {
+      "account_id": "meathere.near",
+      "amount": "23.88 Near",
+      "percent": "4.22 %"
+    },
+    {
+      "account_id": "realtuantv.near",
+      "amount": "21.89 Near",
+      "percent": "3.87 %"
+    },
+    {
+      "account_id": "19981230.near",
+      "amount": "19.9 Near",
+      "percent": "3.52 %"
+    },
+    {
+      "account_id": "dyolo.near",
+      "amount": "19.9 Near",
+      "percent": "3.52 %"
+    },
+    {
+      "account_id": "honcauqueta.near",
+      "amount": "11.94 Near",
+      "percent": "2.11 %"
+    },
+    {
+      "account_id": "alejandro.near",
+      "amount": "9.95 Near",
+      "percent": "1.76 %"
+    },
+    {
+      "account_id": "qiv5da_dragon.dragon_bot.near",
+      "amount": "9.95 Near",
+      "percent": "1.76 %"
+    },
+    {
+      "account_id": "linguists.near",
+      "amount": "9.95 Near",
+      "percent": "1.76 %"
+    },
+    {
+      "account_id": "jarednotjerry.near",
+      "amount": "9.95 Near",
+      "percent": "1.76 %"
+    },
+    {
+      "account_id": "cwpuzzles.near",
+      "amount": "9.95 Near",
+      "percent": "1.76 %"
+    },
+    {
+      "account_id": "luckyuser5291.near",
+      "amount": "9.95 Near",
+      "percent": "1.76 %"
+    },
+    {
+      "account_id": "earnestetim.near",
+      "amount": "9.95 Near",
+      "percent": "1.76 %"
+    },
+    {
+      "account_id": "blackdragon_lonk.near",
+      "amount": "9.2535 Near",
+      "percent": "1.64 %"
+    },
+    {
+      "account_id": "4a6f65.near",
+      "amount": "4.975 Near",
+      "percent": "0.88 %"
+    },
+    {
+      "account_id": "495d3af763bd9b38d0f899dc74837f0093ae50cb058f59b1a395838e1f6f8cd2",
+      "amount": "4.975 Near",
+      "percent": "0.88 %"
+    },
+    {
+      "account_id": "faresissa.near",
+      "amount": "4.975 Near",
+      "percent": "0.88 %"
+    },
+    {
+      "account_id": "myngfr956.near",
+      "amount": "3.52276817 Near",
+      "percent": "0.62 %"
+    },
+    {
+      "account_id": "larryfun.near",
+      "amount": "1.99 Near",
+      "percent": "0.35 %"
+    },
+    {
+      "account_id": "senay.near",
+      "amount": "1.99 Near",
+      "percent": "0.35 %"
+    },
+    {
+      "account_id": "brainai.near",
+      "amount": "1.4925 Near",
+      "percent": "0.26 %"
+    },
+    {
+      "account_id": "crans.near",
+      "amount": "0.4975 Near",
+      "percent": "0.09 %"
+    },
+    {
+      "account_id": "riud6lhw7i7172ouwcx_dragon.dragon_bot.near",
+      "amount": "0.2985 Near",
+      "percent": "0.05 %"
+    },
+    {
+      "account_id": "japanfukuoka.near",
+      "amount": "0.0995 Near",
+      "percent": "0.02 %"
+    }
+  ],
+  [
+    392,
+    "1,097.99 Near",
+    {
+      "account_id": "skyto.near",
+      "amount": "149.25 Near",
+      "percent": "13.59 %"
+    },
+    {
+      "account_id": "casahab.near",
+      "amount": "109.45 Near",
+      "percent": "9.97 %"
+    },
+    {
+      "account_id": "89b1a9b37e0bcc08c9f8cfa933a9092cfc8bce7fb5e7bfd4cfc9ec69069e3a9b",
+      "amount": "104.475 Near",
+      "percent": "9.52 %"
+    },
+    {
+      "account_id": "d591d5b235f5c907fb94baf7e8804e2405001e03f8327206f2e90e2e800879ab",
+      "amount": "80.197 Near",
+      "percent": "7.30 %"
+    },
+    {
+      "account_id": "194207ff5da669b0e19dd36ebfe92e0f5a0097602a3382ffd8ac167575d60ed3",
+      "amount": "79.6 Near",
+      "percent": "7.25 %"
+    },
+    {
+      "account_id": "qiv5da_dragon.dragon_bot.near",
+      "amount": "75.62 Near",
+      "percent": "6.89 %"
+    },
+    {
+      "account_id": "1a26af30e77f7aa50e80f7c788ef270595f76aacd91f5b47e2ecd49544c56a4e",
+      "amount": "69.65 Near",
+      "percent": "6.34 %"
+    },
+    {
+      "account_id": "marior.near",
+      "amount": "69.65 Near",
+      "percent": "6.34 %"
+    },
+    {
+      "account_id": "charvian.near",
+      "amount": "66.665 Near",
+      "percent": "6.07 %"
+    },
+    {
+      "account_id": "forbtc.near",
+      "amount": "59.28293511 Near",
+      "percent": "5.40 %"
+    },
+    {
+      "account_id": "63yua3s8pq_dragon.dragon_bot.near",
+      "amount": "49.75 Near",
+      "percent": "4.53 %"
+    },
+    {
+      "account_id": "7f43cbc647b14e6a68698d044d33f5ef381fe24262122f463ae3b52233c56aa2",
+      "amount": "49.75 Near",
+      "percent": "4.53 %"
+    },
+    {
+      "account_id": "thepcwallet.near",
+      "amount": "39.8 Near",
+      "percent": "3.62 %"
+    },
+    {
+      "account_id": "quietmouse232.near",
+      "amount": "24.875 Near",
+      "percent": "2.27 %"
+    },
+    {
+      "account_id": "whytho.near",
+      "amount": "24.875 Near",
+      "percent": "2.27 %"
+    },
+    {
+      "account_id": "account_01.near",
+      "amount": "10.0495 Near",
+      "percent": "0.92 %"
+    },
+    {
+      "account_id": "kudd.near",
+      "amount": "9.4525 Near",
+      "percent": "0.86 %"
+    },
+    {
+      "account_id": "brainai.near",
+      "amount": "9.4525 Near",
+      "percent": "0.86 %"
+    },
+    {
+      "account_id": "aiml.near",
+      "amount": "6.965 Near",
+      "percent": "0.63 %"
+    },
+    {
+      "account_id": "olaitanvibez.near",
+      "amount": "2.985 Near",
+      "percent": "0.27 %"
+    },
+    {
+      "account_id": "larryfun.near",
+      "amount": "2.035 Near",
+      "percent": "0.19 %"
+    },
+    {
+      "account_id": "vytauten.near",
+      "amount": "1.4925 Near",
+      "percent": "0.14 %"
+    },
+    {
+      "account_id": "sparecloud3076.near",
+      "amount": "1.17826374 Near",
+      "percent": "0.11 %"
+    },
+    {
+      "account_id": "mimiayinde.near",
+      "amount": "1.0945 Near",
+      "percent": "0.10 %"
+    },
+    {
+      "account_id": "akashofficialbd.tg",
+      "amount": "0.398 Near",
+      "percent": "0.04 %"
+    }
+  ],
+  [
+    391,
+    "500 Near",
+    {
+      "account_id": "89b1a9b37e0bcc08c9f8cfa933a9092cfc8bce7fb5e7bfd4cfc9ec69069e3a9b",
+      "amount": "149.25 Near",
+      "percent": "29.85 %"
+    },
+    {
+      "account_id": "lordadebayo.near",
+      "amount": "49.75 Near",
+      "percent": "9.95 %"
+    },
+    {
+      "account_id": "maxbuyanov.near",
+      "amount": "49.75 Near",
+      "percent": "9.95 %"
+    },
+    {
+      "account_id": "d591d5b235f5c907fb94baf7e8804e2405001e03f8327206f2e90e2e800879ab",
+      "amount": "49.75 Near",
+      "percent": "9.95 %"
+    },
+    {
+      "account_id": "63yua3s8pq_dragon.dragon_bot.near",
+      "amount": "43.295 Near",
+      "percent": "8.66 %"
+    },
+    {
+      "account_id": "quickuni403.near",
+      "amount": "39.8 Near",
+      "percent": "7.96 %"
+    },
+    {
+      "account_id": "q9oh70lticg9t74zfvfi14hhq6_dragon.dragon_bot.near",
+      "amount": "29.85 Near",
+      "percent": "5.97 %"
+    },
+    {
+      "account_id": "paperjeetko.near",
+      "amount": "29.85 Near",
+      "percent": "5.97 %"
+    },
+    {
+      "account_id": "idooz.near",
+      "amount": "19.9 Near",
+      "percent": "3.98 %"
+    },
+    {
+      "account_id": "noele07.near",
+      "amount": "18.905 Near",
+      "percent": "3.78 %"
+    },
+    {
+      "account_id": "forbescover.near",
+      "amount": "14.925 Near",
+      "percent": "2.99 %"
+    },
+    {
+      "account_id": "464f9ab9b208007a7762e1ad5ceaad8c8c65703d82f2634a9611bad45b131ee4",
+      "amount": "4.975 Near",
+      "percent": "1.00 %"
+    }
+  ],
+  [
+    390,
+    "1,255.45 Near",
+    {
+      "account_id": "meme4porsche.near",
+      "amount": "199 Near",
+      "percent": "15.85 %"
+    },
+    {
+      "account_id": "infestedcut.near",
+      "amount": "99.5 Near",
+      "percent": "7.93 %"
+    },
+    {
+      "account_id": "nearhodlr.near",
+      "amount": "99.5 Near",
+      "percent": "7.93 %"
+    },
+    {
+      "account_id": "qiv5da_dragon.dragon_bot.near",
+      "amount": "64.675 Near",
+      "percent": "5.15 %"
+    },
+    {
+      "account_id": "cyberpunker.near",
+      "amount": "64.675 Near",
+      "percent": "5.15 %"
+    },
+    {
+      "account_id": "tpwuden.near",
+      "amount": "59.7 Near",
+      "percent": "4.76 %"
+    },
+    {
+      "account_id": "asekk.near",
+      "amount": "49.75 Near",
+      "percent": "3.96 %"
+    },
+    {
+      "account_id": "tibia74.near",
+      "amount": "49.75 Near",
+      "percent": "3.96 %"
+    },
+    {
+      "account_id": "ozfemurat.tg",
+      "amount": "44.775 Near",
+      "percent": "3.57 %"
+    },
+    {
+      "account_id": "11223366.near",
+      "amount": "37.81 Near",
+      "percent": "3.01 %"
+    },
+    {
+      "account_id": "nftgokhanerbatu.near",
+      "amount": "36.815 Near",
+      "percent": "2.93 %"
+    },
+    {
+      "account_id": "zylavein.near",
+      "amount": "29.85 Near",
+      "percent": "2.38 %"
+    },
+    {
+      "account_id": "thepcwallet.near",
+      "amount": "29.85 Near",
+      "percent": "2.38 %"
+    },
+    {
+      "account_id": "casahab.near",
+      "amount": "29.85 Near",
+      "percent": "2.38 %"
+    },
+    {
+      "account_id": "charvian.near",
+      "amount": "29.85 Near",
+      "percent": "2.38 %"
+    },
+    {
+      "account_id": "whoseurdad.near",
+      "amount": "25.3725 Near",
+      "percent": "2.02 %"
+    },
+    {
+      "account_id": "skyto.near",
+      "amount": "21.89 Near",
+      "percent": "1.74 %"
+    },
+    {
+      "account_id": "forbtc.near",
+      "amount": "19.9 Near",
+      "percent": "1.59 %"
+    },
+    {
+      "account_id": "roseline77.near",
+      "amount": "19.9 Near",
+      "percent": "1.59 %"
+    },
+    {
+      "account_id": "63yua3s8pq_dragon.dragon_bot.near",
+      "amount": "19.9 Near",
+      "percent": "1.59 %"
+    },
+    {
+      "account_id": "maxbuyanov.near",
+      "amount": "16.915 Near",
+      "percent": "1.35 %"
+    },
+    {
+      "account_id": "earnestetim.near",
+      "amount": "14.925 Near",
+      "percent": "1.19 %"
+    },
+    {
+      "account_id": "account_01.near",
+      "amount": "10.2485 Near",
+      "percent": "0.82 %"
+    },
+    {
+      "account_id": "quietmouse232.near",
+      "amount": "9.95 Near",
+      "percent": "0.79 %"
+    },
+    {
+      "account_id": "sonofgrace001.near",
+      "amount": "9.95 Near",
+      "percent": "0.79 %"
+    },
+    {
+      "account_id": "pouo.near",
+      "amount": "9.95 Near",
+      "percent": "0.79 %"
+    },
+    {
+      "account_id": "lamadretuyaa.tg",
+      "amount": "9.95 Near",
+      "percent": "0.79 %"
+    },
+    {
+      "account_id": "dadtrr3rcjvez6qjoga03v1qozrma_dragon.dragon_bot.near",
+      "amount": "9.95 Near",
+      "percent": "0.79 %"
+    },
+    {
+      "account_id": "gnuffle.near",
+      "amount": "9.95 Near",
+      "percent": "0.79 %"
+    },
+    {
+      "account_id": "rekt32.near",
+      "amount": "9.95 Near",
+      "percent": "0.79 %"
+    },
+    {
+      "account_id": "racso_alreves.tg",
+      "amount": "8.955 Near",
+      "percent": "0.71 %"
+    },
+    {
+      "account_id": "shewantsme.near",
+      "amount": "7.96 Near",
+      "percent": "0.63 %"
+    },
+    {
+      "account_id": "realroom8153.near",
+      "amount": "7.96 Near",
+      "percent": "0.63 %"
+    },
+    {
+      "account_id": "6bd7813e9d9a4d7a89198b3b2f4204727c8b96e6a61052f0fc0ed2bc8f018b51",
+      "amount": "5.97 Near",
+      "percent": "0.48 %"
+    },
+    {
+      "account_id": "maamamiya.near",
+      "amount": "5.97 Near",
+      "percent": "0.48 %"
+    },
+    {
+      "account_id": "d591d5b235f5c907fb94baf7e8804e2405001e03f8327206f2e90e2e800879ab",
+      "amount": "5.553 Near",
+      "percent": "0.44 %"
+    },
+    {
+      "account_id": "whytho.near",
+      "amount": "4.975 Near",
+      "percent": "0.40 %"
+    },
+    {
+      "account_id": "redtoad.near",
+      "amount": "4.975 Near",
+      "percent": "0.40 %"
+    },
+    {
+      "account_id": "larryfun.near",
+      "amount": "4.975 Near",
+      "percent": "0.40 %"
+    },
+    {
+      "account_id": "delifisek.near",
+      "amount": "4.975 Near",
+      "percent": "0.40 %"
+    },
+    {
+      "account_id": "aiml.near",
+      "amount": "4.776 Near",
+      "percent": "0.38 %"
+    },
+    {
+      "account_id": "4b0a0dfd50b4fe257d584b872d95e9d46cfef08b4fac493c84570c8b9bc0c43e",
+      "amount": "4.47944132 Near",
+      "percent": "0.36 %"
+    },
+    {
+      "account_id": "vikash.near",
+      "amount": "3.98 Near",
+      "percent": "0.32 %"
+    },
+    {
+      "account_id": "2e1b555a2d8e3e0d6c680d1fe2be6fec31de5653cb8b48b0cb873b4a4bb09eed",
+      "amount": "3.98 Near",
+      "percent": "0.32 %"
+    },
+    {
+      "account_id": "kudd.near",
+      "amount": "3.98 Near",
+      "percent": "0.32 %"
+    },
+    {
+      "account_id": "lowjuice2342.near",
+      "amount": "2.985 Near",
+      "percent": "0.24 %"
+    },
+    {
+      "account_id": "vvr.near",
+      "amount": "2.985 Near",
+      "percent": "0.24 %"
+    },
+    {
+      "account_id": "luvluvluv50kk.tg",
+      "amount": "1.96113056 Near",
+      "percent": "0.16 %"
+    },
+    {
+      "account_id": "mimiayinde.near",
+      "amount": "1.99 Near",
+      "percent": "0.16 %"
+    },
+    {
+      "account_id": "skimich02.near",
+      "amount": "1.99 Near",
+      "percent": "0.16 %"
+    },
+    {
+      "account_id": "dchris.near",
+      "amount": "1.194 Near",
+      "percent": "0.10 %"
+    },
+    {
+      "account_id": "55d22f1a3db66f9adf3c569d228ec1cda5e29c19230fe8184991aa68be6c09c5",
+      "amount": "1.26798601 Near",
+      "percent": "0.10 %"
+    },
+    {
+      "account_id": "xflash.near",
+      "amount": "0.995 Near",
+      "percent": "0.08 %"
+    },
+    {
+      "account_id": "brainai.near",
+      "amount": "0.995 Near",
+      "percent": "0.08 %"
+    },
+    {
+      "account_id": "olaitanvibez.near",
+      "amount": "0.995 Near",
+      "percent": "0.08 %"
+    },
+    {
+      "account_id": "faveije.near",
+      "amount": "0.995 Near",
+      "percent": "0.08 %"
+    },
+    {
+      "account_id": "tycayomide.near",
+      "amount": "0.995 Near",
+      "percent": "0.08 %"
+    },
+    {
+      "account_id": "joel84.near",
+      "amount": "0.995 Near",
+      "percent": "0.08 %"
+    },
+    {
+      "account_id": "ituku.near",
+      "amount": "0.995 Near",
+      "percent": "0.08 %"
+    },
+    {
+      "account_id": "klassiqj.tg",
+      "amount": "0.796 Near",
+      "percent": "0.06 %"
+    },
+    {
+      "account_id": "0030lonerxoul.near",
+      "amount": "0.4975 Near",
+      "percent": "0.04 %"
+    },
+    {
+      "account_id": "dropsbr.near",
+      "amount": "0.4975 Near",
+      "percent": "0.04 %"
+    },
+    {
+      "account_id": "dotman.near",
+      "amount": "0.4975 Near",
+      "percent": "0.04 %"
+    },
+    {
+      "account_id": "bevada.near",
+      "amount": "0.4975 Near",
+      "percent": "0.04 %"
+    },
+    {
+      "account_id": "kenny22.near",
+      "amount": "0.4975 Near",
+      "percent": "0.04 %"
+    },
+    {
+      "account_id": "asilto.near",
+      "amount": "0.4975 Near",
+      "percent": "0.04 %"
+    },
+    {
+      "account_id": "ahdedotun.near",
+      "amount": "0.4975 Near",
+      "percent": "0.04 %"
+    },
+    {
+      "account_id": "kulesh_off.tg",
+      "amount": "0.398 Near",
+      "percent": "0.03 %"
+    },
+    {
+      "account_id": "nicksamo1.near",
+      "amount": "0.398 Near",
+      "percent": "0.03 %"
+    },
+    {
+      "account_id": "korede65.near",
+      "amount": "0.43169373 Near",
+      "percent": "0.03 %"
+    },
+    {
+      "account_id": "shashankvaranasi.near",
+      "amount": "0.199 Near",
+      "percent": "0.02 %"
+    },
+    {
+      "account_id": "loosequiche.near",
+      "amount": "0.199 Near",
+      "percent": "0.02 %"
+    },
+    {
+      "account_id": "akashofficialbd.tg",
+      "amount": "0.2985 Near",
+      "percent": "0.02 %"
+    },
+    {
+      "account_id": "9b5f17a62c2f8f620ca060996ba50505ac9245b594514bfd7cdbf23b0ecce1f6",
+      "amount": "0.2985 Near",
+      "percent": "0.02 %"
+    },
+    {
+      "account_id": "abdussomad.near",
+      "amount": "0.0995 Near",
+      "percent": "0.01 %"
+    }
+  ],
+  [
     366,
     "161.41 Near",
     {
