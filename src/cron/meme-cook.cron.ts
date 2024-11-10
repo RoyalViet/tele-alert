@@ -80,9 +80,7 @@ export const fetchMemeTrades = async (
       } else {
         accountMap[trade.account_id] = bigNumber(
           accountMap[trade.account_id]
-        ).gt(0)
-          ? bigNumber(accountMap[trade.account_id]).minus(amountValue)
-          : bigNumber(0);
+        ).minus(amountValue);
       }
     });
 

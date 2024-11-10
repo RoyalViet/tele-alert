@@ -1,5 +1,129 @@
 [
   {
+    "owner": "fexu.near",
+    "pool_id": 5640,
+    "token_account_ids": [
+      "fehu.tkn.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "FEHU",
+    "name": "Fehu token",
+    "token_contract": "fehu.tkn.near"
+  },
+  {
+    "owner": "zavodil.near",
+    "token_contract": "slownear-473.meme-cooking.near",
+    "___": "==============================",
+    "pool_id": 5639,
+    "token_account_ids": [
+      "slownear-473.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "SLOWNEAR",
+    "name": "SlowNEAR"
+  },
+  {
+    "owner": "mob.near",
+    "token_contract": "sasha-433.meme-cooking.near",
+    "___": "==============================",
+    "pool_id": 5638,
+    "token_account_ids": [
+      "sasha-433.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "SASHA",
+    "name": "SASHA"
+  },
+  {
+    "owner": "mob.near",
+    "token_contract": "intents-448.meme-cooking.near",
+    "___": "==============================",
+    "pool_id": 5637,
+    "token_account_ids": [
+      "intents-448.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "INTENTS",
+    "name": "INTENTS"
+  },
+  {
+    "owner": "cudam321.near",
+    "pool_id": 5635,
+    "token_account_ids": [
+      "wrap.near",
+      "xtoken.ref-finance.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "xREF",
+    "name": "xRef Finance Token",
+    "token_contract": "xtoken.ref-finance.near"
+  },
+  {
+    "owner": "memecoinscash.near",
+    "token_contract": "dogc-392.meme-cooking.near",
+    "___": "==============================",
+    "pool_id": 5634,
+    "token_account_ids": [
+      "dogc-392.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "DOGC",
+    "name": "DogCash"
+  },
+  {
+    "owner": "trump47.near",
+    "token_contract": "trump47-391.meme-cooking.near",
+    "___": "==============================",
+    "pool_id": 5633,
+    "token_account_ids": [
+      "trump47-391.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "Trump47",
+    "name": "Trump47 "
+  },
+  {
+    "owner": "meme4porsche.near",
+    "token_contract": "simp-390.meme-cooking.near",
+    "___": "==============================",
+    "pool_id": 5631,
+    "token_account_ids": [
+      "simp-390.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "SIMP",
+    "name": "meme4porsche"
+  },
+  {
+    "owner": "mnga.near",
+    "token_contract": "mnga-376.meme-cooking.near",
+    "___": "==============================",
+    "pool_id": 5630,
+    "token_account_ids": [
+      "mnga-376.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "MNGA",
+    "name": "Make Near Great Again"
+  },
+  {
     "owner": "cooked_dev.near",
     "token_contract": "cooked-372.meme-cooking.near",
     "___": "==============================",

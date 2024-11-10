@@ -16,13 +16,13 @@ const main = async () => {
   // connectDB
   // await connectDB();
 
-  fetchMemeTrades(473);
+  // fetchMemeTrades(473);
   // fetchMemeTrades(390, { isSortDown: true });
 
   // cron job
   // job.start();
-  // checkMemeCooking.start();
-  // checkRefPoolToken.start();
+  checkMemeCooking.start();
+  checkRefPoolToken.start();
   // checkReleasePoolToken.start();
 
   // test

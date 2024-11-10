@@ -110,6 +110,14 @@ function generateMsgHTML(pool) {
 }
 const poolsSeed = readPoolList();
 const poolsReleaseSeed = readPoolReleaseList();
+const memePath = path_1.default.join(process.cwd(), "src", "seeds", "meme-cook.seed.json");
+function readExistingMemes() {
+    if (!fs_1.default.existsSync(memePath)) {
+        return [];
+    }
+    const data = fs_1.default.readFileSync(memePath, "utf8");
+    return JSON.parse(data);
+}
 async function getAllPools() {
     console.log(`v2 running cron job crawl getAllPools...`);
     try {
@@ -120,22 +128,38 @@ async function getAllPools() {
             ...(pools.ratedPools || []),
             // ...(pools.simplePools.slice(-55) || []),
         ].filter((i) => i.tokenIds.includes("wrap.near")));
+        const memeSeed = readExistingMemes();
+        const memeMap = new Map(memeSeed.map((meme) => [meme.token_id, meme]));
         const newPoolsPromises = allPools.map(async (i) => {
             const isNew = !poolsSeed.find((j) => j.pool_id === i.pool_id);
             if (isNew) {
                 try {
-                    const [info, owner] = await Promise.all([
-                        getTokenDetail(i.token_contract),
-                        (0, token_handle_1.getSignerFromContract)(i.token_contract),
-                    ]);
-                    return {
-                        owner,
-                        ...i,
-                        token_contract: i.token_contract,
-                        name: info.name,
-                        symbol: info.symbol,
-                        decimals: info.decimals,
-                    };
+                    const meme = memeMap.get(i.token_contract);
+                    if (!meme) {
+                        const [info, owner] = await Promise.all([
+                            getTokenDetail(i.token_contract),
+                            (0, token_handle_1.getSignerFromContract)(i.token_contract),
+                        ]);
+                        return {
+                            owner,
+                            ...i,
+                            token_contract: i.token_contract,
+                            name: info.name,
+                            symbol: info.symbol,
+                            decimals: info.decimals,
+                        };
+                    }
+                    else {
+                        return {
+                            owner: meme.owner,
+                            token_contract: i.token_contract,
+                            ___: "==============================",
+                            ...i,
+                            name: meme.name,
+                            symbol: meme.symbol,
+                            decimals: meme.decimals,
+                        };
+                    }
                 }
                 catch (error) {
                     return {
@@ -164,9 +188,7 @@ async function getAllPools() {
     }
     catch (error) {
         (0, pool_token_cron_1.fetchAndProcessPools)();
-        console.error("Error fetching pools:", String(error?.message).length > 1000
-            ? String(error?.message).substring(0, 1000) + "..."
-            : String(error?.message));
+        console.error("Error fetching pools");
         // return [];
     }
 }
