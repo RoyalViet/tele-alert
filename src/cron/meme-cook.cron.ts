@@ -71,16 +71,29 @@ export const fetchMemeTrades = async (
 
     const accountMap: Record<string, BigNumber> = {};
 
-    response.data.forEach((trade) => {
+    const uniqueIds = new Set();
+    const filteredData = response.data.filter((item) => {
+      if (uniqueIds.has(item.receipt_id)) {
+        return false;
+      } else {
+        uniqueIds.add(item.receipt_id);
+        return true;
+      }
+    });
+
+    filteredData.forEach((trade) => {
       const amountValue = bigNumber(trade.amount).dividedBy(Math.pow(10, 24));
+      const feeValue = bigNumber(trade.fee).dividedBy(Math.pow(10, 24));
       if (trade.is_deposit) {
         accountMap[trade.account_id] = bigNumber(
           accountMap[trade.account_id] || 0
-        ).plus(amountValue);
+        )
+          .plus(amountValue)
+          .plus(feeValue);
       } else {
-        accountMap[trade.account_id] = bigNumber(
-          accountMap[trade.account_id]
-        ).minus(amountValue);
+        accountMap[trade.account_id] = bigNumber(accountMap[trade.account_id])
+          .minus(amountValue)
+          .minus(feeValue);
       }
     });
 
