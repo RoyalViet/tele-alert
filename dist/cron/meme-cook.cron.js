@@ -195,7 +195,11 @@ function generateTelegramHTMLMemeCook(meme) {
     return (0, common_helper_1.generateTelegramHTML)(memeDetails);
 }
 const existingMemes = readExistingMemes();
-const ownerIgnore = ["tokenlab.near", "memecoinscash.near"];
+const ownerIgnore = [
+    "tokenlab.near",
+    "memecoinscash.near",
+    "mina_yoshizawa.near",
+];
 async function fetchActiveMemes() {
     try {
         const response = await axios_1.default.get("https://api.meme.cooking/meme", {

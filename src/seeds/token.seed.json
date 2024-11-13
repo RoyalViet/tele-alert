@@ -1,5 +1,19 @@
 [
   {
+    "owner": "operatar6.near",
+    "token_contract": "booth-639.meme-cooking.near",
+    "___": "==============================",
+    "pool_id": 5672,
+    "token_account_ids": [
+      "booth-639.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "BOOTH",
+    "name": "The Booth"
+  },
+  {
     "owner": "nftgokhanerbatu.near",
     "token_contract": "uncooked-618.meme-cooking.near",
     "___": "==============================",
