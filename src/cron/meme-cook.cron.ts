@@ -287,14 +287,14 @@ function generateTelegramHTMLMemeCook(meme: Meme): string {
             .toFixed(2)
         )}% - ${formatBalance(teamAllocation)}`
       : "N/A",
+    CliffEnd: `${Number(meme.cliff_duration_ms) / (1000 * 60 * 60 * 24)} days`,
+    Vesting: `${Number(meme.vesting_duration_ms) / (1000 * 60 * 60 * 24)} days`,
     MemeLink: `https://meme.cooking/meme/${meme.meme_id}`,
     ___: "==============================",
     Twitter: meme.twitterLink || "N/A",
     Telegram: meme.telegramLink || "N/A",
     Website: meme.website || "N/A",
     Description: meme.description || "N/A",
-    CliffEnd: `${Number(meme.cliff_duration_ms) / (1000 * 60 * 60 * 24)} days`,
-    Vesting: `${Number(meme.vesting_duration_ms) / (1000 * 60 * 60 * 24)} days`,
     Image: `https://plum-necessary-chameleon-942.mypinata.cloud/ipfs/${meme.image}`,
     Tag: "From Meme Cooking",
   };

@@ -45,13 +45,28 @@ const fetchMemeTrades = async (memeId, options
             },
         });
         const accountMap = {};
-        response.data.forEach((trade) => {
-            const amountValue = (0, bigNumber_1.bigNumber)(trade.amount).dividedBy(Math.pow(10, 24));
-            if (trade.is_deposit) {
-                accountMap[trade.account_id] = (0, bigNumber_1.bigNumber)(accountMap[trade.account_id] || 0).plus(amountValue);
+        const uniqueIds = new Set();
+        const filteredData = response.data.filter((item) => {
+            if (uniqueIds.has(item.receipt_id)) {
+                return false;
             }
             else {
-                accountMap[trade.account_id] = (0, bigNumber_1.bigNumber)(accountMap[trade.account_id]).minus(amountValue);
+                uniqueIds.add(item.receipt_id);
+                return true;
+            }
+        });
+        filteredData.forEach((trade) => {
+            const amountValue = (0, bigNumber_1.bigNumber)(trade.amount).dividedBy(Math.pow(10, 24));
+            const feeValue = (0, bigNumber_1.bigNumber)(trade.fee).dividedBy(Math.pow(10, 24));
+            if (trade.is_deposit) {
+                accountMap[trade.account_id] = (0, bigNumber_1.bigNumber)(accountMap[trade.account_id] || 0)
+                    .plus(amountValue)
+                    .plus(feeValue);
+            }
+            else {
+                accountMap[trade.account_id] = (0, bigNumber_1.bigNumber)(accountMap[trade.account_id])
+                    .minus(amountValue)
+                    .minus(feeValue);
             }
         });
         const result = Object.entries(accountMap).map(([account_id, amount]) => ({
@@ -166,14 +181,14 @@ function generateTelegramHTMLMemeCook(meme) {
                 .multipliedBy(100)
                 .toFixed(2))}% - ${(0, bigNumber_1.formatBalance)(teamAllocation)}`
             : "N/A",
+        CliffEnd: `${Number(meme.cliff_duration_ms) / (1000 * 60 * 60 * 24)} days`,
+        Vesting: `${Number(meme.vesting_duration_ms) / (1000 * 60 * 60 * 24)} days`,
         MemeLink: `https://meme.cooking/meme/${meme.meme_id}`,
         ___: "==============================",
         Twitter: meme.twitterLink || "N/A",
         Telegram: meme.telegramLink || "N/A",
         Website: meme.website || "N/A",
         Description: meme.description || "N/A",
-        CliffEnd: `${Number(meme.cliff_duration_ms) / (1000 * 60 * 60 * 24)} days`,
-        Vesting: `${Number(meme.vesting_duration_ms) / (1000 * 60 * 60 * 24)} days`,
         Image: `https://plum-necessary-chameleon-942.mypinata.cloud/ipfs/${meme.image}`,
         Tag: "From Meme Cooking",
     };
