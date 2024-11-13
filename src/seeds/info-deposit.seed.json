@@ -1,5 +1,99 @@
 [
   [
+    657,
+    "468.82 Near",
+    {
+      "account_id": "132426a54bb6eb6df4c81d9464c8e0022a18ae4a57808be278fbf4a6eb7fe8c7",
+      "amount": "100 Near",
+      "percent": "21.33 %"
+    },
+    {
+      "account_id": "rahuldeepakrakesh.near",
+      "amount": "100 Near",
+      "percent": "21.33 %"
+    },
+    {
+      "account_id": "ffb0c5f8ffc36e5827d19bd090cb50d5c6b0cb733238b904496cc9ddc9a8d82d",
+      "amount": "69 Near",
+      "percent": "14.72 %"
+    },
+    {
+      "account_id": "lordadebayo.near",
+      "amount": "50 Near",
+      "percent": "10.66 %"
+    },
+    {
+      "account_id": "quickuni403.near",
+      "amount": "50 Near",
+      "percent": "10.66 %"
+    },
+    {
+      "account_id": "near_raen.near",
+      "amount": "20 Near",
+      "percent": "4.27 %"
+    },
+    {
+      "account_id": "burn_of_poland.tg",
+      "amount": "18.38642324 Near",
+      "percent": "3.92 %"
+    },
+    {
+      "account_id": "petersmd.near",
+      "amount": "13.33177796 Near",
+      "percent": "2.84 %"
+    },
+    {
+      "account_id": "c238fbe63861ad879a07f2dafc04a67945c34014b15049f32b169435ebf21aca",
+      "amount": "10.05508342 Near",
+      "percent": "2.14 %"
+    },
+    {
+      "account_id": "27a4046b6de7881507afb932b3b2e41908f389c941073f12cae2913ff24aa371",
+      "amount": "9.56521558 Near",
+      "percent": "2.04 %"
+    },
+    {
+      "account_id": "robiatayomipo.near",
+      "amount": "7 Near",
+      "percent": "1.49 %"
+    },
+    {
+      "account_id": "omajari199.near",
+      "amount": "5 Near",
+      "percent": "1.07 %"
+    },
+    {
+      "account_id": "628a1f98ce15fa284e2334cab7d18a252c36d0b016700c24d1c327c97d3bde96",
+      "amount": "5 Near",
+      "percent": "1.07 %"
+    },
+    {
+      "account_id": "daviza.near",
+      "amount": "4 Near",
+      "percent": "0.85 %"
+    },
+    {
+      "account_id": "account_01.near",
+      "amount": "3.5 Near",
+      "percent": "0.75 %"
+    },
+    {
+      "account_id": "locals14.near",
+      "amount": "2 Near",
+      "percent": "0.43 %"
+    },
+    {
+      "account_id": "proofman2.near",
+      "amount": "1.81658061 Near",
+      "percent": "0.39 %"
+    },
+    {
+      "account_id": "drnear.near",
+      "amount": "0.16823928 Near",
+      "percent": "0.04 %"
+    }
+  ],
+  [
     612,
     "3,392 Near",
     {
