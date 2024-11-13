@@ -199,6 +199,7 @@ const ownerIgnore = [
     "tokenlab.near",
     "memecoinscash.near",
     "mina_yoshizawa.near",
+    "jav_idol.near",
 ];
 async function fetchActiveMemes() {
     try {
