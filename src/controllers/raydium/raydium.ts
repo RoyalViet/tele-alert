@@ -2,7 +2,7 @@ import axios from "axios";
 import fs from "fs";
 import path from "path";
 import { formatBalance } from "../../common/helper/bigNumber";
-import { generateTelegramHTML } from "../../common/helper/common.helper";
+import { delay, generateTelegramHTML } from "../../common/helper/common.helper";
 import { handlePushTelegramNotificationController } from "../common/homepageController";
 import { isToday } from "date-fns";
 
@@ -220,7 +220,7 @@ interface Data {
   ti?: TokenInfo;
 }
 
-async function fetchTokenInfo(pairId: string) {
+async function getTokenInfo(pairId: string) {
   const url = `https://io.dexscreener.com/dex/pair-details/v3/solana/${pairId}`;
 
   try {
@@ -329,16 +329,25 @@ export async function getPools({
         };
       }) || [];
 
-    const newPoolsPromises = poolData.map(async (pool) => {
+    const newPools = [];
+    const listCheckPools = [];
+    const maxApiCalls = 10;
+    for (const pool of poolData) {
       const isNew =
         [pool.mintA?.address, pool.mintB?.address].includes(
           "So11111111111111111111111111111111111111112"
         ) &&
         !poolsSeed.find((j) => j.id.toLowerCase() === pool.id.toLowerCase());
 
+      if (listCheckPools.length > maxApiCalls) {
+        return;
+      }
       if (isNew) {
         try {
-          const [info] = await Promise.all([fetchTokenInfo(pool.id)]);
+          listCheckPools.push(pool);
+          await delay(3000);
+          const info = await getTokenInfo(pool.id);
+
           if (
             info?.image &&
             info?.headerImage &&
@@ -348,19 +357,14 @@ export async function getPools({
               ?.url &&
             isToday(info?.createdAt)
           ) {
-            return {
-              ...pool,
-            };
+            newPools.push({ ...pool }); // Thêm pool mới vào mảng
           }
-          return null;
         } catch (error) {
-          return null;
+          // Xử lý lỗi nếu cần thiết
+          console.error("Error fetching pool info:", error);
         }
       }
-      return null;
-    });
-
-    const newPools = (await Promise.all(newPoolsPromises)).filter(Boolean);
+    }
 
     if (newPools.length) {
       handlePushTelegramNotificationController({
