@@ -1,8 +1,10 @@
 import axios from "axios";
-import { delay, generateTelegramHTML } from "../../common/helper/common.helper";
 import fs from "fs";
 import path from "path";
+import { formatBalance } from "../../common/helper/bigNumber";
+import { generateTelegramHTML } from "../../common/helper/common.helper";
 import { handlePushTelegramNotificationController } from "../common/homepageController";
+import icons from "../ref-finance/ref-sdk/src/metaIcons";
 
 const poolsFilePath = path.join(
   process.cwd(),
@@ -189,6 +191,7 @@ function generateMsgHTML(pool: Pool): string {
     "⭐ RaydiumLink": `https://raydium.io/swap/?inputMint=Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB&outputMint=${infoToken.address}`,
     DexLink: pool.id ? `https://dexscreener.com/solana/${pool.id}` : "N/A",
     __: "==============================",
+    TVL: `${formatBalance(pool.tvl)} $`,
     Name: infoToken.name,
     Symbol: infoToken.symbol,
     Tag: "From Raydium All Pools",
