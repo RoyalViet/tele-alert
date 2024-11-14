@@ -4,7 +4,7 @@ import path from "path";
 import { formatBalance } from "../../common/helper/bigNumber";
 import { generateTelegramHTML } from "../../common/helper/common.helper";
 import { handlePushTelegramNotificationController } from "../common/homepageController";
-import icons from "../ref-finance/ref-sdk/src/metaIcons";
+import { isToday } from "date-fns";
 
 const poolsFilePath = path.join(
   process.cwd(),
@@ -43,34 +43,6 @@ interface DailyStats {
   priceMin: number;
   priceMax: number;
   rewardApr: number[];
-}
-
-interface Pool {
-  type: string;
-  programId: string;
-  id: string;
-  marketId?: string;
-  mintA: MintInfo;
-  mintB: MintInfo;
-  config: Config;
-  price: number;
-  mintAmountA: number;
-  mintAmountB: number;
-  feeRate: number;
-  openTime: string; // có thể thay đổi thành number nếu cần
-  tvl: number;
-  day: DailyStats;
-  week: DailyStats;
-  month: DailyStats;
-  pooltype: any[]; // hoặc có thể xác định kiểu cụ thể hơn nếu biết
-  rewardDefaultInfos: any[]; // hoặc có thể xác định kiểu cụ thể hơn nếu biết
-  farmUpcomingCount: number;
-  farmOngoingCount: number;
-  farmFinishedCount: number;
-  lpMint: MintInfo;
-  lpPrice: number;
-  lpAmount: number;
-  burnPercent: number;
 }
 
 const readPoolList = (): Array<Pool> => {
@@ -195,6 +167,118 @@ function generateMsgHTML(pool: Pool): string {
   return generateTelegramHTML(poolDetails);
 }
 
+interface CoinMarketCapInfo {
+  id: number;
+  name: string;
+  symbol: string;
+  description: string;
+  logo: string;
+  tags: { slug: string; name: string; group: string }[];
+  urls: {
+    website: string[];
+    twitter: string[];
+    chat: string[];
+    explorer: string[];
+  };
+}
+
+interface TokenInfo {
+  id: string;
+  chain: {
+    id: string;
+  };
+  address: string;
+  name: string;
+  symbol: string;
+  description: string;
+  websites: {
+    label: string;
+    url: string;
+  }[];
+  socials: {
+    type: string;
+    url: string;
+  }[];
+  lockedAddresses: any[];
+  createdAt: string;
+  updatedAt: string;
+  sortByDate: string;
+  image: string;
+  headerImage: string;
+  profile: {
+    header: boolean;
+    website: boolean;
+    twitter: boolean;
+    discord: boolean;
+    linkCount: number;
+    imgKey: string;
+  };
+}
+
+interface Data {
+  cmc?: CoinMarketCapInfo;
+  ti?: TokenInfo;
+}
+
+async function fetchTokenInfo(pairId: string) {
+  const url = `https://io.dexscreener.com/dex/pair-details/v3/solana/${pairId}`;
+
+  try {
+    const response: { data?: Data } = await axios.get(url, {
+      headers: {
+        accept: "*/*",
+        "accept-language": "en-US,en;q=0.7",
+        origin: "https://dexscreener.com",
+        priority: "u=1, i",
+        referer: "https://dexscreener.com/",
+        "sec-ch-ua":
+          '"Chromium";v="130", "Brave";v="130", "Not?A_Brand";v="99"',
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": '"macOS"',
+        "sec-fetch-dest": "empty",
+        "sec-fetch-mode": "cors",
+        "sec-fetch-site": "same-site",
+        "sec-gpc": "1",
+        "user-agent":
+          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+      },
+    });
+
+    return response?.data?.ti;
+  } catch (error) {
+    console.error("Error fetching token info:", error);
+  }
+}
+
+interface Pool {
+  type: string;
+  programId: string;
+  id: string;
+  marketId?: string;
+  mintA: MintInfo;
+  mintB: MintInfo;
+  config: Config;
+  price: number;
+  mintAmountA: number;
+  mintAmountB: number;
+  feeRate: number;
+  openTime: string; // có thể thay đổi thành number nếu cần
+  tvl: number;
+  day: DailyStats;
+  week: DailyStats;
+  month: DailyStats;
+  pooltype: any[]; // hoặc có thể xác định kiểu cụ thể hơn nếu biết
+  rewardDefaultInfos: any[]; // hoặc có thể xác định kiểu cụ thể hơn nếu biết
+  farmUpcomingCount: number;
+  farmOngoingCount: number;
+  farmFinishedCount: number;
+  lpMint: MintInfo;
+  lpPrice: number;
+  lpAmount: number;
+  burnPercent: number;
+  tokenInfo?: TokenInfo;
+}
+
 const poolsSeed = readPoolList();
 
 export async function getPools({
@@ -244,23 +328,38 @@ export async function getPools({
         };
       }) || [];
 
-    const newPools = poolData
-      .map((i) => {
-        const isNew = !poolsSeed.find(
-          (j) => j.id.toLowerCase() === i.id.toLowerCase()
-        );
-        if (isNew) {
-          return i;
+    const newPoolsPromises = poolData.map(async (pool) => {
+      const isNew =
+        [pool.mintA?.address, pool.mintB?.address].includes(
+          "So11111111111111111111111111111111111111112"
+        ) &&
+        !poolsSeed.find((j) => j.id.toLowerCase() === pool.id.toLowerCase());
+
+      if (isNew) {
+        try {
+          const [info] = await Promise.all([fetchTokenInfo(pool.id)]);
+          if (
+            info?.image &&
+            info?.headerImage &&
+            info?.description &&
+            info?.websites?.values &&
+            info?.socials?.find((i) => i?.type?.toLowerCase() === "twitter")
+              ?.url &&
+            isToday(info?.createdAt)
+          ) {
+            return {
+              ...pool,
+            };
+          }
+          return null;
+        } catch (error) {
+          return null;
         }
-        return null;
-      })
-      .filter(
-        (i) =>
-          i &&
-          [i.mintA?.address, i.mintB?.address].includes(
-            "So11111111111111111111111111111111111111112"
-          )
-      );
+      }
+      return null;
+    });
+
+    const newPools = (await Promise.all(newPoolsPromises)).filter(Boolean);
 
     if (newPools.length) {
       handlePushTelegramNotificationController({
