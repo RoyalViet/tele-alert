@@ -24,7 +24,7 @@ const main = async () => {
   // job.start();
   checkMemeCooking.start();
   checkRefPoolToken.start();
-  checkRadiumPoolToken.start();
+  // checkRadiumPoolToken.start();
   // checkReleasePoolToken.start();
 
   // test
