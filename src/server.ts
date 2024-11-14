@@ -10,6 +10,7 @@ import { checkMemeCooking, fetchMemeTrades } from "./cron/meme-cook.cron";
 import { checkRefPoolToken } from "./cron/ref-finance.cron";
 import { testF } from "./test";
 import { checkRadiumPoolToken } from "./cron/raydium.cron";
+import { getAllPools } from "./controllers/raydium/raydium";
 
 const PORT = process.env.PORT || 8000;
 
@@ -24,7 +25,7 @@ const main = async () => {
   // job.start();
   checkMemeCooking.start();
   checkRefPoolToken.start();
-  // checkRadiumPoolToken.start();
+  checkRadiumPoolToken.start();
   // checkReleasePoolToken.start();
 
   // test

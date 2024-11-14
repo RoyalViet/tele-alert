@@ -82,8 +82,17 @@ async function getAllPools({ total_page = 10, per_page = 1000, timeDelay = 10000
             }
         }
         console.log("allPools :", allPools);
-        writePoolList(allPools.filter((p) => p &&
-            [p?.mintA?.address, p?.mintB?.address].includes("So11111111111111111111111111111111111111112")));
+        writePoolList(allPools
+            .filter((p) => p &&
+            [p?.mintA?.address, p?.mintB?.address].includes("So11111111111111111111111111111111111111112"))
+            .map((p) => p?.tokenInfo
+            ? p
+            : {
+                id: p.id,
+                dexLink: p.id
+                    ? `https://dexscreener.com/solana/${p.id}`
+                    : "N/A",
+            }));
     }
     catch (error) {
         console.log("error :", error);
@@ -94,21 +103,27 @@ function generateMsgHTML(pool) {
         ? pool.mintA
         : pool.mintB;
     const tokenAddress = infoToken.address;
-    const poolDetails = {
-        "⭐ TokenAddressLink": `https://solscan.io/token/${tokenAddress}`,
-        "⭐ PoolLink": pool.id
-            ? `https://raydium.io/liquidity/increase/?mode=add&pool_id=${pool.id}`
-            : "N/A",
-        "⭐ RaydiumLink": `https://raydium.io/swap/?inputMint=Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB&outputMint=${infoToken.address}`,
-        DexLink: pool.id ? `https://dexscreener.com/solana/${pool.id}` : "N/A",
-        __: "==============================",
-        TVL: `${(0, bigNumber_1.formatBalance)(pool.tvl)} $`,
-        Name: infoToken.name,
-        Symbol: infoToken.symbol,
-    };
+    const poolDetails = pool?.tokenInfo
+        ? {
+            "⭐ TokenAddressLink": `https://solscan.io/token/${tokenAddress}`,
+            "⭐ PoolLink": pool.id
+                ? `https://raydium.io/liquidity/increase/?mode=add&pool_id=${pool.id}`
+                : "N/A",
+            "⭐ RaydiumLink": `https://raydium.io/swap/?inputMint=Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB&outputMint=${infoToken.address}`,
+            DexLink: pool.id ? `https://dexscreener.com/solana/${pool.id}` : "N/A",
+            __: "==============================",
+            TVL: `${(0, bigNumber_1.formatBalance)(pool.tvl)} $`,
+            Name: infoToken.name,
+            Symbol: infoToken.symbol,
+            Ref: "From Raydium",
+        }
+        : {
+            DexLink: pool.id ? `https://dexscreener.com/solana/${pool.id}` : "N/A",
+            Ref: "From Raydium",
+        };
     return (0, common_helper_1.generateTelegramHTML)(poolDetails);
 }
-async function fetchTokenInfo(pairId) {
+async function getTokenInfo(pairId) {
     const url = `https://io.dexscreener.com/dex/pair-details/v3/solana/${pairId}`;
     try {
         const response = await axios_1.default.get(url, {
@@ -137,7 +152,7 @@ async function fetchTokenInfo(pairId) {
 }
 const poolsSeed = readPoolList();
 async function getPools({ page = 1, per_page = 1000, timeDelay = 10000, }) {
-    console.log(`v2 running cron job crawl getAllPools...`);
+    console.log(`v2 running cron job crawl radium getAllPools...`);
     try {
         const listNewPools = await axios_1.default.get(baseUrl, {
             params: {
@@ -174,12 +189,20 @@ async function getPools({ page = 1, per_page = 1000, timeDelay = 10000, }) {
                 marketId: p.marketId,
             };
         }) || [];
-        const newPoolsPromises = poolData.map(async (pool) => {
+        const newPools = [];
+        const listCheckPools = [];
+        const maxApiCalls = 10;
+        for (const pool of poolData) {
             const isNew = [pool.mintA?.address, pool.mintB?.address].includes("So11111111111111111111111111111111111111112") &&
                 !poolsSeed.find((j) => j.id.toLowerCase() === pool.id.toLowerCase());
+            if (listCheckPools.length > maxApiCalls) {
+                return;
+            }
             if (isNew) {
                 try {
-                    const [info] = await Promise.all([fetchTokenInfo(pool.id)]);
+                    listCheckPools.push(pool);
+                    await (0, common_helper_1.delay)(500);
+                    const info = await getTokenInfo(pool.id);
                     if (info?.image &&
                         info?.headerImage &&
                         info?.description &&
@@ -187,24 +210,27 @@ async function getPools({ page = 1, per_page = 1000, timeDelay = 10000, }) {
                         info?.socials?.find((i) => i?.type?.toLowerCase() === "twitter")
                             ?.url &&
                         (0, date_fns_1.isToday)(info?.createdAt)) {
-                        return {
-                            ...pool,
-                        };
+                        newPools.push({ ...pool, tokenInfo: info }); // Thêm pool mới vào mảng
                     }
-                    return null;
                 }
                 catch (error) {
-                    return null;
+                    console.error("Error fetching pool info:", error?.message);
+                    newPools.push({ ...pool });
                 }
             }
-            return null;
-        });
-        const newPools = (await Promise.all(newPoolsPromises)).filter(Boolean);
+        }
         if (newPools.length) {
             (0, homepageController_1.handlePushTelegramNotificationController)({
                 body: newPools.map((i) => generateMsgHTML(i)).join("\n\n"),
             });
-            poolsSeed.unshift(...newPools);
+            poolsSeed.unshift(...listCheckPools.map((p) => p?.tokenInfo
+                ? p
+                : {
+                    id: p.id,
+                    dexLink: p.id
+                        ? `https://dexscreener.com/solana/${p.id}`
+                        : "N/A",
+                }));
             writePoolList(poolsSeed);
         }
     }
