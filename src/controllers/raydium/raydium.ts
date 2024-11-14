@@ -246,7 +246,8 @@ async function fetchTokenInfo(pairId: string) {
 
     return response?.data?.ti;
   } catch (error) {
-    console.error("Error fetching token info:", error);
+    console.error("Error fetching token info");
+    return null;
   }
 }
 
@@ -369,6 +370,6 @@ export async function getPools({
       writePoolList(poolsSeed);
     }
   } catch (error) {
-    console.error(`Error fetching raydium :`, error);
+    console.error(`Error fetching raydium`);
   }
 }

@@ -11,6 +11,7 @@ const path_1 = __importDefault(require("path"));
 const bigNumber_1 = require("../../common/helper/bigNumber");
 const common_helper_1 = require("../../common/helper/common.helper");
 const homepageController_1 = require("../common/homepageController");
+const date_fns_1 = require("date-fns");
 const poolsFilePath = path_1.default.join(process.cwd(), "src", "seeds", "raydium-pools.seed.json");
 const readPoolList = () => {
     if (fs_1.default.existsSync(poolsFilePath)) {
@@ -107,6 +108,33 @@ function generateMsgHTML(pool) {
     };
     return (0, common_helper_1.generateTelegramHTML)(poolDetails);
 }
+async function fetchTokenInfo(pairId) {
+    const url = `https://io.dexscreener.com/dex/pair-details/v3/solana/${pairId}`;
+    try {
+        const response = await axios_1.default.get(url, {
+            headers: {
+                accept: "*/*",
+                "accept-language": "en-US,en;q=0.7",
+                origin: "https://dexscreener.com",
+                priority: "u=1, i",
+                referer: "https://dexscreener.com/",
+                "sec-ch-ua": '"Chromium";v="130", "Brave";v="130", "Not?A_Brand";v="99"',
+                "sec-ch-ua-mobile": "?0",
+                "sec-ch-ua-platform": '"macOS"',
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-site",
+                "sec-gpc": "1",
+                "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+            },
+        });
+        return response?.data?.ti;
+    }
+    catch (error) {
+        console.error("Error fetching token info");
+        return null;
+    }
+}
 const poolsSeed = readPoolList();
 async function getPools({ page = 1, per_page = 1000, timeDelay = 10000, }) {
     console.log(`v2 running cron job crawl getAllPools...`);
@@ -146,16 +174,32 @@ async function getPools({ page = 1, per_page = 1000, timeDelay = 10000, }) {
                 marketId: p.marketId,
             };
         }) || [];
-        const newPools = poolData
-            .map((i) => {
-            const isNew = !poolsSeed.find((j) => j.id.toLowerCase() === i.id.toLowerCase());
+        const newPoolsPromises = poolData.map(async (pool) => {
+            const isNew = [pool.mintA?.address, pool.mintB?.address].includes("So11111111111111111111111111111111111111112") &&
+                !poolsSeed.find((j) => j.id.toLowerCase() === pool.id.toLowerCase());
             if (isNew) {
-                return i;
+                try {
+                    const [info] = await Promise.all([fetchTokenInfo(pool.id)]);
+                    if (info?.image &&
+                        info?.headerImage &&
+                        info?.description &&
+                        info?.websites?.values &&
+                        info?.socials?.find((i) => i?.type?.toLowerCase() === "twitter")
+                            ?.url &&
+                        (0, date_fns_1.isToday)(info?.createdAt)) {
+                        return {
+                            ...pool,
+                        };
+                    }
+                    return null;
+                }
+                catch (error) {
+                    return null;
+                }
             }
             return null;
-        })
-            .filter((i) => i &&
-            [i.mintA?.address, i.mintB?.address].includes("So11111111111111111111111111111111111111112"));
+        });
+        const newPools = (await Promise.all(newPoolsPromises)).filter(Boolean);
         if (newPools.length) {
             (0, homepageController_1.handlePushTelegramNotificationController)({
                 body: newPools.map((i) => generateMsgHTML(i)).join("\n\n"),
@@ -165,7 +209,7 @@ async function getPools({ page = 1, per_page = 1000, timeDelay = 10000, }) {
         }
     }
     catch (error) {
-        console.error(`Error fetching raydium :`, error);
+        console.error(`Error fetching raydium`);
     }
 }
 //# sourceMappingURL=raydium.js.map
