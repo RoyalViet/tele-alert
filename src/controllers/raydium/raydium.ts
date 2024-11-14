@@ -174,11 +174,10 @@ function generateMsgHTML(pool: Pool): string {
         TVL: `${formatBalance(pool.tvl)} $`,
         Name: infoToken.name,
         Symbol: infoToken.symbol,
-        Ref: "From Raydium",
+        Tag: "From Raydium",
       }
     : {
         DexLink: pool.id ? `https://dexscreener.com/solana/${pool.id}` : "N/A",
-        Ref: "From Raydium",
       };
 
   return generateTelegramHTML(poolDetails);
@@ -365,6 +364,7 @@ export async function getPools({
           const info = await getTokenInfo(pool.id);
 
           if (
+            !!info &&
             info?.image &&
             info?.headerImage &&
             info?.description &&
@@ -374,10 +374,12 @@ export async function getPools({
             isToday(info?.createdAt)
           ) {
             newPools.push({ ...pool, tokenInfo: info }); // Thêm pool mới vào mảng
+          } else {
+            newPools.push(pool);
           }
         } catch (error) {
           // console.error("Error fetching pool info:", error?.message);
-          newPools.push({ ...pool });
+          newPools.push(pool);
         }
       }
     }
