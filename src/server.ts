@@ -9,6 +9,7 @@ import { checkReleasePoolToken } from "./cron/pool-token.cron";
 import { checkMemeCooking, fetchMemeTrades } from "./cron/meme-cook.cron";
 import { checkRefPoolToken } from "./cron/ref-finance.cron";
 import { testF } from "./test";
+import { getAllPools, getPools } from "./controllers/raydium/raydium";
 
 const PORT = process.env.PORT || 8000;
 
@@ -21,12 +22,15 @@ const main = async () => {
 
   // cron job
   // job.start();
-  checkMemeCooking.start();
-  checkRefPoolToken.start();
+  // checkMemeCooking.start();
+  // checkRefPoolToken.start();
   // checkReleasePoolToken.start();
 
   // test
   // testF();
+
+  getPools({});
+  // getAllPools({});
 
   app.listen(PORT, () => {
     logger.info(`Server running at ${PORT}`);
