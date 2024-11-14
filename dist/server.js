@@ -19,6 +19,7 @@ const main = async () => {
     // job.start();
     meme_cook_cron_1.checkMemeCooking.start();
     ref_finance_cron_1.checkRefPoolToken.start();
+    // checkRadiumPoolToken.start();
     // checkReleasePoolToken.start();
     // test
     // testF();

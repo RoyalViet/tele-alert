@@ -180,11 +180,7 @@ function generateMsgHTML(pool: Pool): string {
       : pool.mintB;
   const tokenAddress = infoToken.address;
   const poolDetails = {
-    "⭐ TokenAddress": tokenAddress,
     "⭐ TokenAddressLink": `https://solscan.io/token/${tokenAddress}`,
-    _: "==============================",
-    "⭐ PoolID": pool.id || "N/A",
-    "⭐ Decimals": infoToken.decimals,
     "⭐ PoolLink": pool.id
       ? `https://raydium.io/liquidity/increase/?mode=add&pool_id=${pool.id}`
       : "N/A",
@@ -194,7 +190,6 @@ function generateMsgHTML(pool: Pool): string {
     TVL: `${formatBalance(pool.tvl)} $`,
     Name: infoToken.name,
     Symbol: infoToken.symbol,
-    Tag: "From Raydium All Pools",
   };
 
   return generateTelegramHTML(poolDetails);
