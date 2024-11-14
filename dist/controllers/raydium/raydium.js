@@ -146,7 +146,7 @@ async function getTokenInfo(pairId) {
         return response?.data?.ti;
     }
     catch (error) {
-        console.error("Error fetching token info");
+        // console.error("Error fetching token info");
         return null;
     }
 }
@@ -190,17 +190,15 @@ async function getPools({ page = 1, per_page = 1000, timeDelay = 10000, }) {
             };
         }) || [];
         const newPools = [];
-        const listCheckPools = [];
         const maxApiCalls = 10;
         for (const pool of poolData) {
             const isNew = [pool.mintA?.address, pool.mintB?.address].includes("So11111111111111111111111111111111111111112") &&
                 !poolsSeed.find((j) => j.id.toLowerCase() === pool.id.toLowerCase());
-            if (listCheckPools.length > maxApiCalls) {
+            if (newPools.length > maxApiCalls) {
                 return;
             }
             if (isNew) {
                 try {
-                    listCheckPools.push(pool);
                     await (0, common_helper_1.delay)(500);
                     const info = await getTokenInfo(pool.id);
                     if (info?.image &&
@@ -214,7 +212,7 @@ async function getPools({ page = 1, per_page = 1000, timeDelay = 10000, }) {
                     }
                 }
                 catch (error) {
-                    console.error("Error fetching pool info:", error?.message);
+                    // console.error("Error fetching pool info:", error?.message);
                     newPools.push({ ...pool });
                 }
             }
@@ -223,7 +221,7 @@ async function getPools({ page = 1, per_page = 1000, timeDelay = 10000, }) {
             (0, homepageController_1.handlePushTelegramNotificationController)({
                 body: newPools.map((i) => generateMsgHTML(i)).join("\n\n"),
             });
-            poolsSeed.unshift(...listCheckPools.map((p) => p?.tokenInfo
+            poolsSeed.unshift(...newPools.map((p) => p?.tokenInfo
                 ? p
                 : {
                     id: p.id,

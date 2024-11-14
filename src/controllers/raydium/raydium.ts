@@ -263,7 +263,7 @@ async function getTokenInfo(pairId: string) {
 
     return response?.data?.ti;
   } catch (error) {
-    console.error("Error fetching token info");
+    // console.error("Error fetching token info");
     return null;
   }
 }
@@ -348,7 +348,6 @@ export async function getPools({
       }) || [];
 
     const newPools: Array<Pool> = [];
-    const listCheckPools: Array<Pool> = [];
     const maxApiCalls = 10;
     for (const pool of poolData) {
       const isNew =
@@ -357,12 +356,11 @@ export async function getPools({
         ) &&
         !poolsSeed.find((j) => j.id.toLowerCase() === pool.id.toLowerCase());
 
-      if (listCheckPools.length > maxApiCalls) {
+      if (newPools.length > maxApiCalls) {
         return;
       }
       if (isNew) {
         try {
-          listCheckPools.push(pool);
           await delay(500);
           const info = await getTokenInfo(pool.id);
 
@@ -378,7 +376,7 @@ export async function getPools({
             newPools.push({ ...pool, tokenInfo: info }); // Thêm pool mới vào mảng
           }
         } catch (error) {
-          console.error("Error fetching pool info:", error?.message);
+          // console.error("Error fetching pool info:", error?.message);
           newPools.push({ ...pool });
         }
       }
@@ -389,7 +387,7 @@ export async function getPools({
         body: newPools.map((i) => generateMsgHTML(i)).join("\n\n"),
       });
       poolsSeed.unshift(
-        ...listCheckPools.map((p) =>
+        ...newPools.map((p) =>
           p?.tokenInfo
             ? p
             : {
