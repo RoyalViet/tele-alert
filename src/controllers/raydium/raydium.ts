@@ -348,6 +348,7 @@ export async function getPools({
 
     const newPools: Array<Pool> = [];
     const maxApiCalls = 10;
+
     for (const pool of poolData) {
       const isNew =
         [pool.mintA?.address, pool.mintB?.address].includes(
