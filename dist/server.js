@@ -18,10 +18,13 @@ const main = async () => {
     // fetchMemeTrades(390, { isSortDown: true });
     // cron job
     // job.start();
+    // TODO: run
     meme_cook_cron_1.checkMemeCooking.start();
     ref_finance_cron_1.checkRefPoolToken.start();
     raydium_cron_1.checkRadiumPoolToken.start();
     // checkReleasePoolToken.start();
+    // getPools({});
+    // getAllPools({});
     // test
     // testF();
     express_config_1.default.listen(PORT, () => {

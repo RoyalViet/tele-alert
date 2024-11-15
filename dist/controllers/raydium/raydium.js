@@ -11,7 +11,6 @@ const path_1 = __importDefault(require("path"));
 const bigNumber_1 = require("../../common/helper/bigNumber");
 const common_helper_1 = require("../../common/helper/common.helper");
 const homepageController_1 = require("../common/homepageController");
-const date_fns_1 = require("date-fns");
 const poolsFilePath = path_1.default.join(process.cwd(), "src", "seeds", "raydium-pools.seed.json");
 const readPoolList = () => {
     if (fs_1.default.existsSync(poolsFilePath)) {
@@ -119,6 +118,7 @@ function generateMsgHTML(pool) {
         }
         : {
             DexLink: pool.id ? `https://dexscreener.com/solana/${pool.id}` : "N/A",
+            "⭐ RaydiumLink": `https://raydium.io/swap/?inputMint=Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB&outputMint=${infoToken.address}`,
         };
     return (0, common_helper_1.generateTelegramHTML)(poolDetails);
 }
@@ -191,27 +191,30 @@ async function getPools({ page = 1, per_page = 1000, timeDelay = 10000, }) {
         const newPools = [];
         const maxApiCalls = 10;
         for (const pool of poolData) {
-            const isNew = [pool.mintA?.address, pool.mintB?.address].includes("So11111111111111111111111111111111111111112") && !poolsSeed.find((j) => j.id === pool.id.toLowerCase());
+            const isNew = [pool.mintA?.address, pool.mintB?.address].includes("So11111111111111111111111111111111111111112") &&
+                !poolsSeed.find((j) => j.id.toLowerCase() === pool.id.toLowerCase());
             if (newPools.length > maxApiCalls) {
                 break;
             }
             if (isNew) {
                 try {
-                    await (0, common_helper_1.delay)(500);
-                    const info = await getTokenInfo(pool.id);
-                    if (!!info &&
-                        info?.image &&
-                        info?.headerImage &&
-                        info?.description &&
-                        info?.websites?.values &&
-                        info?.socials?.find((i) => i?.type?.toLowerCase() === "twitter")
-                            ?.url &&
-                        (0, date_fns_1.isToday)(info?.createdAt)) {
-                        newPools.push({ ...pool, tokenInfo: info }); // Thêm pool mới vào mảng
-                    }
-                    else {
-                        newPools.push(pool);
-                    }
+                    // await delay(500);
+                    // const info = await getTokenInfo(pool.id);
+                    // if (
+                    //   !!info &&
+                    //   info?.image &&
+                    //   info?.headerImage &&
+                    //   info?.description &&
+                    //   info?.websites?.values &&
+                    //   info?.socials?.find((i) => i?.type?.toLowerCase() === "twitter")
+                    //     ?.url &&
+                    //   isToday(info?.createdAt)
+                    // ) {
+                    //   newPools.push({ ...pool, tokenInfo: info }); // Thêm pool mới vào mảng
+                    // } else {
+                    //   newPools.push(pool);
+                    // }
+                    newPools.push(pool);
                 }
                 catch (error) {
                     // console.error("Error fetching pool info:", error?.message);

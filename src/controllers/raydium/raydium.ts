@@ -178,6 +178,7 @@ function generateMsgHTML(pool: Pool): string {
       }
     : {
         DexLink: pool.id ? `https://dexscreener.com/solana/${pool.id}` : "N/A",
+        "⭐ RaydiumLink": `https://raydium.io/swap/?inputMint=Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB&outputMint=${infoToken.address}`,
       };
 
   return generateTelegramHTML(poolDetails);
