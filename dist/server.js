@@ -9,18 +9,19 @@ const express_config_1 = __importDefault(require("./configs/express.config"));
 const logger_config_1 = __importDefault(require("./configs/logger.config"));
 const meme_cook_cron_1 = require("./cron/meme-cook.cron");
 const ref_finance_cron_1 = require("./cron/ref-finance.cron");
+const raydium_cron_1 = require("./cron/raydium.cron");
 const PORT = process.env.PORT || 8000;
 const main = async () => {
     // connectDB
     // await connectDB();
-    // fetchMemeTrades(473);
+    // fetchMemeTrades(711);
     // fetchMemeTrades(390, { isSortDown: true });
     // cron job
     // job.start();
     // TODO: run
     meme_cook_cron_1.checkMemeCooking.start();
     ref_finance_cron_1.checkRefPoolToken.start();
-    // checkRadiumPoolToken.start();
+    raydium_cron_1.checkRadiumPoolToken.start();
     // checkReleasePoolToken.start();
     // getPools({});
     // getAllPools({});

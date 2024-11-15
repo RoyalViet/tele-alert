@@ -118,6 +118,9 @@ function generateMsgHTML(pool) {
         }
         : {
             DexLink: pool.id ? `https://dexscreener.com/solana/${pool.id}` : "N/A",
+            SolScan: infoToken.address
+                ? `https://solscan.io/token/${infoToken.address}`
+                : "N/A",
             "⭐ RaydiumLink": `https://raydium.io/swap/?inputMint=Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB&outputMint=${infoToken.address}`,
         };
     return (0, common_helper_1.generateTelegramHTML)(poolDetails);
@@ -225,6 +228,7 @@ async function getPools({ page = 1, per_page = 1000, timeDelay = 10000, }) {
         if (newPools.length) {
             (0, homepageController_1.handlePushTelegramNotificationController)({
                 body: newPools.map((i) => generateMsgHTML(i)).join("\n\n"),
+                options: { isSol: true },
             });
             poolsSeed.unshift(...newPools.map((p) => p?.tokenInfo
                 ? p
