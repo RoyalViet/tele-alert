@@ -117,10 +117,9 @@ function generateMsgHTML(pool) {
             Tag: "From Raydium",
         }
         : {
-            DexLink: pool.id ? `https://dexscreener.com/solana/${pool.id}` : "N/A",
-            SolScan: infoToken.address
-                ? `https://solscan.io/token/${infoToken.address}`
-                : "N/A",
+            DexLink: `https://dexscreener.com/solana/${pool.id}`,
+            "⭐ PumpFunLink": `https://pump.fun/coin/${infoToken.address}`,
+            "⭐ SolScan": `https://solscan.io/token/${infoToken.address}`,
             "⭐ RaydiumLink": `https://raydium.io/swap/?inputMint=Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB&outputMint=${infoToken.address}`,
         };
     return (0, common_helper_1.generateTelegramHTML)(poolDetails);
@@ -192,10 +191,12 @@ async function getPools({ page = 1, per_page = 1000, timeDelay = 10000, }) {
             };
         }) || [];
         const newPools = [];
-        const maxApiCalls = 10;
+        const maxApiCalls = 3;
         for (const pool of poolData) {
             const isNew = [pool.mintA?.address, pool.mintB?.address].includes("So11111111111111111111111111111111111111112") &&
-                !poolsSeed.find((j) => j.id.toLowerCase() === pool.id.toLowerCase());
+                (pool.mintA?.address.endsWith("pump") ||
+                    pool.mintB?.address.endsWith("pump"));
+            !poolsSeed.find((j) => j.id.toLowerCase() === pool.id.toLowerCase());
             if (newPools.length > maxApiCalls) {
                 break;
             }

@@ -11,6 +11,8 @@ import { checkRefPoolToken } from "./cron/ref-finance.cron";
 import { testF } from "./test";
 import { checkRadiumPoolToken } from "./cron/raydium.cron";
 import { getAllPools, getPools } from "./controllers/raydium/raydium";
+import { sendAnimation } from "./controllers/common/homepageController";
+import { sendNotification } from "./services/telegram/telegramService";
 
 const PORT = process.env.PORT || 8000;
 

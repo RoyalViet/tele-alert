@@ -28,7 +28,7 @@ const sendNotification = (msg, options) => {
                 resolve("done!");
             })
                 .catch((err) => {
-                console.log("err :", err?.message);
+                console.log("err send msg:", err?.message);
                 reject(err);
             });
         }

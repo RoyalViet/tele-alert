@@ -35,7 +35,7 @@ const sendNotification = (
           resolve("done!");
         })
         .catch((err) => {
-          console.log("err :", err?.message);
+          console.log("err send msg:", err?.message);
           reject(err);
         });
     } catch (e) {

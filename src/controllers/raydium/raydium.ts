@@ -350,7 +350,7 @@ export async function getPools({
       }) || [];
 
     const newPools: Array<Pool> = [];
-    const maxApiCalls = 10;
+    const maxApiCalls = 3;
 
     for (const pool of poolData) {
       const isNew =
