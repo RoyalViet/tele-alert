@@ -23,11 +23,16 @@ const main = async () => {
 
   // cron job
   // job.start();
+
+  // TODO: run
   checkMemeCooking.start();
   checkRefPoolToken.start();
   checkRadiumPoolToken.start();
 
   // checkReleasePoolToken.start();
+
+  // getPools({});
+  // getAllPools({});
 
   // test
   // testF();

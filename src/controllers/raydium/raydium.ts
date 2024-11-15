@@ -353,30 +353,32 @@ export async function getPools({
       const isNew =
         [pool.mintA?.address, pool.mintB?.address].includes(
           "So11111111111111111111111111111111111111112"
-        ) && !poolsSeed.find((j) => j.id === pool.id.toLowerCase());
+        ) &&
+        !poolsSeed.find((j) => j.id.toLowerCase() === pool.id.toLowerCase());
 
       if (newPools.length > maxApiCalls) {
         break;
       }
       if (isNew) {
         try {
-          await delay(500);
-          const info = await getTokenInfo(pool.id);
+          // await delay(500);
+          // const info = await getTokenInfo(pool.id);
 
-          if (
-            !!info &&
-            info?.image &&
-            info?.headerImage &&
-            info?.description &&
-            info?.websites?.values &&
-            info?.socials?.find((i) => i?.type?.toLowerCase() === "twitter")
-              ?.url &&
-            isToday(info?.createdAt)
-          ) {
-            newPools.push({ ...pool, tokenInfo: info }); // Thêm pool mới vào mảng
-          } else {
-            newPools.push(pool);
-          }
+          // if (
+          //   !!info &&
+          //   info?.image &&
+          //   info?.headerImage &&
+          //   info?.description &&
+          //   info?.websites?.values &&
+          //   info?.socials?.find((i) => i?.type?.toLowerCase() === "twitter")
+          //     ?.url &&
+          //   isToday(info?.createdAt)
+          // ) {
+          //   newPools.push({ ...pool, tokenInfo: info }); // Thêm pool mới vào mảng
+          // } else {
+          //   newPools.push(pool);
+          // }
+          newPools.push(pool);
         } catch (error) {
           // console.error("Error fetching pool info:", error?.message);
           newPools.push(pool);
