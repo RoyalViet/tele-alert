@@ -353,11 +353,10 @@ export async function getPools({
       const isNew =
         [pool.mintA?.address, pool.mintB?.address].includes(
           "So11111111111111111111111111111111111111112"
-        ) &&
-        !poolsSeed.find((j) => j.id.toLowerCase() === pool.id.toLowerCase());
+        ) && !poolsSeed.find((j) => j.id === pool.id.toLowerCase());
 
       if (newPools.length > maxApiCalls) {
-        return;
+        break;
       }
       if (isNew) {
         try {

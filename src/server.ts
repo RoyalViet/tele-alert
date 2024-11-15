@@ -29,8 +29,6 @@ const main = async () => {
 
   // checkReleasePoolToken.start();
 
-  // getPools({});
-
   // test
   // testF();
 
