@@ -27,7 +27,7 @@ const main = async () => {
   // TODO: run
   checkMemeCooking.start();
   checkRefPoolToken.start();
-  checkRadiumPoolToken.start();
+  // checkRadiumPoolToken.start();
 
   // checkReleasePoolToken.start();
 
