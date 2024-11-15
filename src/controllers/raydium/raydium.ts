@@ -177,7 +177,7 @@ function generateMsgHTML(pool: Pool): string {
         Tag: "From Raydium",
       }
     : {
-        DexLink: pool.id ? `https://dexscreener.com/solana/${pool.id}` : "N/A",
+        DexLink: `https://dexscreener.com/solana/${pool.id}`,
         "⭐ PumpFunLink": `https://pump.fun/coin/${infoToken.address}`,
         "⭐ SolScan": `https://solscan.io/token/${infoToken.address}`,
         "⭐ RaydiumLink": `https://raydium.io/swap/?inputMint=Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB&outputMint=${infoToken.address}`,
