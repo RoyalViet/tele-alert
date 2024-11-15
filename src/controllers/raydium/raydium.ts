@@ -178,6 +178,9 @@ function generateMsgHTML(pool: Pool): string {
       }
     : {
         DexLink: pool.id ? `https://dexscreener.com/solana/${pool.id}` : "N/A",
+        SolScan: infoToken.address
+          ? `https://solscan.io/token/${infoToken.address}`
+          : "N/A",
         "⭐ RaydiumLink": `https://raydium.io/swap/?inputMint=Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB&outputMint=${infoToken.address}`,
       };
 
@@ -390,6 +393,7 @@ export async function getPools({
     if (newPools.length) {
       handlePushTelegramNotificationController({
         body: newPools.map((i) => generateMsgHTML(i)).join("\n\n"),
+        options: { isSol: true },
       });
       poolsSeed.unshift(
         ...newPools.map((p) =>

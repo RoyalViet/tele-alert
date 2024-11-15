@@ -18,7 +18,7 @@ const main = async () => {
   // connectDB
   // await connectDB();
 
-  // fetchMemeTrades(473);
+  // fetchMemeTrades(711);
   // fetchMemeTrades(390, { isSortDown: true });
 
   // cron job
@@ -27,7 +27,7 @@ const main = async () => {
   // TODO: run
   checkMemeCooking.start();
   checkRefPoolToken.start();
-  // checkRadiumPoolToken.start();
+  checkRadiumPoolToken.start();
 
   // checkReleasePoolToken.start();
 

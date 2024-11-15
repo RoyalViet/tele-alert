@@ -1,5 +1,109 @@
 [
   [
+    711,
+    "372.2 Near",
+    {
+      "account_id": "132426a54bb6eb6df4c81d9464c8e0022a18ae4a57808be278fbf4a6eb7fe8c7",
+      "amount": "95 Near",
+      "percent": "25.52 %"
+    },
+    {
+      "account_id": "11223366.near",
+      "amount": "50 Near",
+      "percent": "13.43 %"
+    },
+    {
+      "account_id": "1234x.near",
+      "amount": "40 Near",
+      "percent": "10.75 %"
+    },
+    {
+      "account_id": "7f43cbc647b14e6a68698d044d33f5ef381fe24262122f463ae3b52233c56aa2",
+      "amount": "35.21034114 Near",
+      "percent": "9.46 %"
+    },
+    {
+      "account_id": "194207ff5da669b0e19dd36ebfe92e0f5a0097602a3382ffd8ac167575d60ed3",
+      "amount": "25.125 Near",
+      "percent": "6.75 %"
+    },
+    {
+      "account_id": "63yua3s8pq_dragon.dragon_bot.near",
+      "amount": "20 Near",
+      "percent": "5.37 %"
+    },
+    {
+      "account_id": "kulesh_off.tg",
+      "amount": "20 Near",
+      "percent": "5.37 %"
+    },
+    {
+      "account_id": "moving_forward.near",
+      "amount": "20 Near",
+      "percent": "5.37 %"
+    },
+    {
+      "account_id": "near_raen.near",
+      "amount": "10 Near",
+      "percent": "2.69 %"
+    },
+    {
+      "account_id": "casahab.near",
+      "amount": "10 Near",
+      "percent": "2.69 %"
+    },
+    {
+      "account_id": "thepcwallet.near",
+      "amount": "10 Near",
+      "percent": "2.69 %"
+    },
+    {
+      "account_id": "omajari199.near",
+      "amount": "10 Near",
+      "percent": "2.69 %"
+    },
+    {
+      "account_id": "qiv5da_dragon.dragon_bot.near",
+      "amount": "10 Near",
+      "percent": "2.69 %"
+    },
+    {
+      "account_id": "laurajane.near",
+      "amount": "6 Near",
+      "percent": "1.61 %"
+    },
+    {
+      "account_id": "truepie6484.near",
+      "amount": "5 Near",
+      "percent": "1.34 %"
+    },
+    {
+      "account_id": "624ad700fc8242d0f4a4725fb31456abb2729b3bd1b1496af08e738d8519aa18",
+      "amount": "2.1 Near",
+      "percent": "0.56 %"
+    },
+    {
+      "account_id": "brainai.near",
+      "amount": "2 Near",
+      "percent": "0.54 %"
+    },
+    {
+      "account_id": "805bbacb95dd216d100afda94a2bcf5476fe93f1645873327d6ac96783b3a872",
+      "amount": "1 Near",
+      "percent": "0.27 %"
+    },
+    {
+      "account_id": "sparecloud3076.near",
+      "amount": "0.724029 Near",
+      "percent": "0.19 %"
+    },
+    {
+      "account_id": "sorryjaguar8739.near",
+      "amount": "0.05 Near",
+      "percent": "0.01 %"
+    }
+  ],
+  [
     676,
     "1,372 Near",
     {

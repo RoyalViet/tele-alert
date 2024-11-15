@@ -4,10 +4,12 @@ import axios from "axios";
 // const TELEGRAM_GROUP_ID = process.env.TELEGRAM_GROUP_ID;
 const TELEGRAM_BOT_TOKEN = "6893137130:AAG7kto4ZePK8Z-SrS1dgUt8BfHeinhkA3A";
 const TELEGRAM_GROUP_ID = "1177623428";
+const TELEGRAM_BOT_TOKEN_ON_SOL =
+  "7312207574:AAHeqwYRKSSdSSlgLceFN9CiwkSFm7urR0c";
 
 const sendNotification = (
   msg: any,
-  options?: Partial<{ isGenerateTelegramMarkdown: boolean }>
+  options?: Partial<{ isGenerateTelegramMarkdown: boolean; isSol: boolean }>
 ) => {
   return new Promise((resolve, reject) => {
     try {
@@ -20,9 +22,14 @@ const sendNotification = (
       };
 
       axios
-        .get(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-          params: data,
-        })
+        .get(
+          `https://api.telegram.org/bot${
+            options?.isSol ? TELEGRAM_BOT_TOKEN_ON_SOL : TELEGRAM_BOT_TOKEN
+          }/sendMessage`,
+          {
+            params: data,
+          }
+        )
         .then(() => {
           console.log("done!");
           resolve("done!");

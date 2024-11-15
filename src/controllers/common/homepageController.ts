@@ -1,17 +1,18 @@
 import * as telegramService from "../../services/telegram/telegramService";
 
-const getHomePage = (req: any, res: any) => {
+const getHomePage = (params: any, res: any) => {
   // return res.render("homepage.ejs");
   return res.send("Express TS on Vercel");
 };
 
-interface Request {
-  body: any; // Thay đổi kiểu dữ liệu nếu cần
+interface IParamNotification {
+  body: any;
   img?: string;
+  options?: Partial<{ isSol: boolean }>;
 }
 
 interface QueueItem {
-  req: Request;
+  params: IParamNotification;
   resolve: () => void;
   reject: (error: any) => void;
 }
@@ -23,10 +24,10 @@ const processQueue = async () => {
   if (isProcessing || queue.length === 0) return;
 
   isProcessing = true;
-  const { req, resolve, reject } = queue.shift()!; // Sử dụng '!' để đảm bảo không null
+  const { params, resolve, reject } = queue.shift()!; // Sử dụng '!' để đảm bảo không null
 
   try {
-    await telegramService.sendNotification(req.body);
+    await telegramService.sendNotification(params.body);
     resolve();
   } catch (error) {
     console.log("error :", error?.message);
@@ -39,36 +40,40 @@ const processQueue = async () => {
 };
 
 // const handlePushTelegramNotificationController = (
-//   req: Request,
+//   params: IParamNotification,
 //   _res?: any
 // ): Promise<void> => {
 //   return new Promise((resolve, reject) => {
-//     queue.push({ req, resolve, reject });
+//     queue.push({ params, resolve, reject });
 //     processQueue();
 //   });
 // };
 
 const handlePushTelegramNotificationController = async (
-  req: Request
+  params: IParamNotification
 ): Promise<void> => {
   try {
-    await telegramService.sendNotification(req.body);
+    await telegramService.sendNotification(params.body, {
+      isSol: params?.options?.isSol,
+    });
   } catch (error) {
     console.log("error :", error?.message);
   }
 };
 
-const handlePushPhotoTelegramNotificationController = async (req: Request) => {
+const handlePushPhotoTelegramNotificationController = async (
+  params: IParamNotification
+) => {
   try {
-    console.log("send :", req.body);
-    await telegramService.sendPhoto(req.body, req.img);
+    console.log("send :", params.body);
+    await telegramService.sendPhoto(params.body, params.img);
     console.log("done!");
   } catch (error) {
     console.log("error :", error?.message);
   }
 };
 
-const getTelegramPage = (req: any, res: any) => {
+const getTelegramPage = (params: any, res: any) => {
   return res.render("telegram.ejs");
 };
 
