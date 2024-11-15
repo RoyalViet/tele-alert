@@ -195,8 +195,8 @@ async function getPools({ page = 1, per_page = 1000, timeDelay = 10000, }) {
         for (const pool of poolData) {
             const isNew = [pool.mintA?.address, pool.mintB?.address].includes("So11111111111111111111111111111111111111112") &&
                 (pool.mintA?.address.endsWith("pump") ||
-                    pool.mintB?.address.endsWith("pump"));
-            !poolsSeed.find((j) => j.id.toLowerCase() === pool.id.toLowerCase());
+                    pool.mintB?.address.endsWith("pump")) &&
+                !poolsSeed.find((j) => j.id.toLowerCase() === pool.id.toLowerCase());
             if (newPools.length > maxApiCalls) {
                 break;
             }

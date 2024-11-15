@@ -358,8 +358,8 @@ export async function getPools({
           "So11111111111111111111111111111111111111112"
         ) &&
         (pool.mintA?.address.endsWith("pump") ||
-          pool.mintB?.address.endsWith("pump"));
-      !poolsSeed.find((j) => j.id.toLowerCase() === pool.id.toLowerCase());
+          pool.mintB?.address.endsWith("pump")) &&
+        !poolsSeed.find((j) => j.id.toLowerCase() === pool.id.toLowerCase());
 
       if (newPools.length > maxApiCalls) {
         break;
