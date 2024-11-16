@@ -103,7 +103,7 @@ export async function getAllPools({
 
           const poolData =
             (response?.data?.data?.data as Array<Pool>)?.filter((i) =>
-              bigNumber(i.tvl).gt(7000000)
+              bigNumber(i.tvl).gt(5000000)
             ) || [];
           allPools.push(
             ...poolData.map((p) => {

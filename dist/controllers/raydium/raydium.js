@@ -56,7 +56,7 @@ async function getAllPools({ total_page = 100, per_page = 1000, timeDelay = 1000
                             "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
                         },
                     });
-                    const poolData = response?.data?.data?.data?.filter((i) => (0, bigNumber_1.bigNumber)(i.tvl).gt(7000000)) || [];
+                    const poolData = response?.data?.data?.data?.filter((i) => (0, bigNumber_1.bigNumber)(i.tvl).gt(5000000)) || [];
                     allPools.push(...poolData.map((p) => {
                         return {
                             type: p.type,
