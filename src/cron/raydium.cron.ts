@@ -10,7 +10,7 @@ const cronExpression5m = "*/5 * * * *";
 const cronExpression3m = "*/3 * * * *";
 const cronExpression1m = "* * * * *";
 
-export const checkRadiumPoolToken = new CronJob(cronExpression15s, async () => {
+export const checkRadiumPoolToken = new CronJob(cronExpression3m, async () => {
   await delay(Math.random() * 1500);
   getPools({});
 });

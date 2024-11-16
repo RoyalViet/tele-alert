@@ -62,7 +62,7 @@ const baseUrl = "https://api-v3.raydium.io/pools/info/list";
 
 // max_page 490
 export async function getAllPools({
-  total_page = 100,
+  total_page = 10,
   per_page = 1000,
   timeDelay = 10000,
 }) {
@@ -103,7 +103,7 @@ export async function getAllPools({
 
           const poolData =
             (response?.data?.data?.data as Array<Pool>)?.filter((i) =>
-              bigNumber(i.tvl).gt(5000000)
+              bigNumber(i.tvl).gt(10000)
             ) || [];
           allPools.push(
             ...poolData.map((p) => {
@@ -120,10 +120,10 @@ export async function getAllPools({
           );
 
           console.log(`Fetched page ${page}`);
-          break; // Thoát khỏi vòng lặp nếu thành công
+          break;
         } catch (error) {
           retries++;
-          console.error(`Error fetching `);
+          console.error(`Error fetching`);
           if (retries >= maxRetries) {
             console.error(
               `Failed to fetch page ${page} after ${maxRetries} attempts.`
@@ -344,7 +344,7 @@ export async function getPools({
       });
 
       const poolData = ((response?.data?.data?.data as Array<Pool>) || [])
-        .filter((i) => bigNumber(i.tvl).gt(5000000))
+        .filter((i) => bigNumber(i.tvl).gt(10000))
         .map(
           (p) =>
             ({

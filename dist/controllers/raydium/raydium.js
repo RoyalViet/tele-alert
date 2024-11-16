@@ -25,7 +25,7 @@ const writePoolList = (poolList) => {
 const maxRetries = 3;
 const baseUrl = "https://api-v3.raydium.io/pools/info/list";
 // max_page 490
-async function getAllPools({ total_page = 100, per_page = 1000, timeDelay = 10000, }) {
+async function getAllPools({ total_page = 10, per_page = 1000, timeDelay = 10000, }) {
     try {
         let allPools = [];
         for (let page = 1; page <= total_page; page++) {
@@ -56,7 +56,7 @@ async function getAllPools({ total_page = 100, per_page = 1000, timeDelay = 1000
                             "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
                         },
                     });
-                    const poolData = response?.data?.data?.data?.filter((i) => (0, bigNumber_1.bigNumber)(i.tvl).gt(5000000)) || [];
+                    const poolData = response?.data?.data?.data?.filter((i) => (0, bigNumber_1.bigNumber)(i.tvl).gt(10000)) || [];
                     allPools.push(...poolData.map((p) => {
                         return {
                             type: p.type,
@@ -69,11 +69,11 @@ async function getAllPools({ total_page = 100, per_page = 1000, timeDelay = 1000
                         };
                     }));
                     console.log(`Fetched page ${page}`);
-                    break; // Thoát khỏi vòng lặp nếu thành công
+                    break;
                 }
                 catch (error) {
                     retries++;
-                    console.error(`Error fetching `);
+                    console.error(`Error fetching`);
                     if (retries >= maxRetries) {
                         console.error(`Failed to fetch page ${page} after ${maxRetries} attempts.`);
                     }
@@ -156,34 +156,35 @@ const poolsSeed = readPoolList();
 async function getPools({ page = 1, per_page = 1000, timeDelay = 10000, }) {
     console.log(`v2 running cron job crawl radium getAllPools...`);
     try {
-        const listNewPools = await axios_1.default.get(baseUrl, {
-            params: {
-                poolType: "all",
-                poolSortField: "default",
-                sortType: "desc",
-                pageSize: per_page,
-                page,
-            },
-            headers: {
-                accept: "application/json, text/plain, */*",
-                "accept-language": "en-US,en;q=0.5",
-                origin: "https://raydium.io",
-                priority: "u=1, i",
-                referer: "https://raydium.io/",
-                "sec-ch-ua": '"Chromium";v="130", "Brave";v="130", "Not?A_Brand";v="99"',
-                "sec-ch-ua-mobile": "?0",
-                "sec-ch-ua-platform": '"macOS"',
-                "sec-fetch-dest": "empty",
-                "sec-fetch-mode": "cors",
-                "sec-fetch-site": "same-site",
-                "sec-gpc": "1",
-                "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
-            },
-        });
-        const poolData = listNewPools?.data?.data?.data
-            ?.filter((i) => (0, bigNumber_1.bigNumber)(i.tvl).gt(5000000))
-            .map((p) => {
-            return {
+        const allPools = [];
+        for (let currentPage = page; currentPage <= 5; currentPage++) {
+            const response = await axios_1.default.get(baseUrl, {
+                params: {
+                    poolType: "all",
+                    poolSortField: "default",
+                    sortType: "desc",
+                    pageSize: per_page,
+                    page: currentPage,
+                },
+                headers: {
+                    accept: "application/json, text/plain, */*",
+                    "accept-language": "en-US,en;q=0.5",
+                    origin: "https://raydium.io",
+                    priority: "u=1, i",
+                    referer: "https://raydium.io/",
+                    "sec-ch-ua": '"Chromium";v="130", "Brave";v="130", "Not?A_Brand";v="99"',
+                    "sec-ch-ua-mobile": "?0",
+                    "sec-ch-ua-platform": '"macOS"',
+                    "sec-fetch-dest": "empty",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-site": "same-site",
+                    "sec-gpc": "1",
+                    "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+                },
+            });
+            const poolData = (response?.data?.data?.data || [])
+                .filter((i) => (0, bigNumber_1.bigNumber)(i.tvl).gt(10000))
+                .map((p) => ({
                 type: p.type,
                 id: p.id,
                 programId: p.programId,
@@ -191,11 +192,12 @@ async function getPools({ page = 1, per_page = 1000, timeDelay = 10000, }) {
                 mintB: p.mintB,
                 tvl: p.tvl,
                 marketId: p.marketId,
-            };
-        }) || [];
+            }));
+            allPools.push(...poolData);
+        }
         const newPools = [];
         const maxApiCalls = 3;
-        for (const pool of poolData) {
+        for (const pool of allPools) {
             const isNew = [pool.mintA?.address, pool.mintB?.address].includes("So11111111111111111111111111111111111111112") &&
                 (pool.mintA?.address.endsWith("pump") ||
                     pool.mintB?.address.endsWith("pump")) &&
