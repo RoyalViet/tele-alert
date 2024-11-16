@@ -25,7 +25,7 @@ const writePoolList = (poolList) => {
 const maxRetries = 3;
 const baseUrl = "https://api-v3.raydium.io/pools/info/list";
 // max_page 490
-async function getAllPools({ total_page = 10, per_page = 1000, timeDelay = 10000, }) {
+async function getAllPools({ total_page = 100, per_page = 1000, timeDelay = 10000, }) {
     try {
         let allPools = [];
         for (let page = 1; page <= total_page; page++) {
@@ -56,7 +56,7 @@ async function getAllPools({ total_page = 10, per_page = 1000, timeDelay = 10000
                             "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
                         },
                     });
-                    const poolData = response?.data?.data?.data || [];
+                    const poolData = response?.data?.data?.data?.filter((i) => (0, bigNumber_1.bigNumber)(i.tvl).gt(7000000)) || [];
                     allPools.push(...poolData.map((p) => {
                         return {
                             type: p.type,
@@ -80,7 +80,7 @@ async function getAllPools({ total_page = 10, per_page = 1000, timeDelay = 10000
                 }
             }
         }
-        console.log("allPools :", allPools);
+        console.log("allPools :", allPools.length);
         writePoolList(allPools
             .filter((p) => p &&
             [p?.mintA?.address, p?.mintB?.address].includes("So11111111111111111111111111111111111111112"))
@@ -117,10 +117,11 @@ function generateMsgHTML(pool) {
             Tag: "From Raydium",
         }
         : {
+            Name: `${infoToken.symbol} - ${infoToken.name}`,
             DexLink: `https://dexscreener.com/solana/${pool.id}`,
             "⭐ PumpFunLink": `https://pump.fun/coin/${infoToken.address}`,
             "⭐ SolScan": `https://solscan.io/token/${infoToken.address}`,
-            "⭐ RaydiumLink": `https://raydium.io/swap/?inputMint=Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB&outputMint=${infoToken.address}`,
+            "⭐ RaydiumLink": `https://raydium.io/swap/?inputMint=sol&outputMint=${infoToken.address}`,
         };
     return (0, common_helper_1.generateTelegramHTML)(poolDetails);
 }
@@ -196,6 +197,7 @@ async function getPools({ page = 1, per_page = 1000, timeDelay = 10000, }) {
             const isNew = [pool.mintA?.address, pool.mintB?.address].includes("So11111111111111111111111111111111111111112") &&
                 (pool.mintA?.address.endsWith("pump") ||
                     pool.mintB?.address.endsWith("pump")) &&
+                (0, bigNumber_1.bigNumber)(pool.tvl).gt(500000) &&
                 !poolsSeed.find((j) => j.id.toLowerCase() === pool.id.toLowerCase());
             if (newPools.length > maxApiCalls) {
                 break;

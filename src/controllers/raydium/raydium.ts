@@ -1,7 +1,7 @@
 import axios from "axios";
 import fs from "fs";
 import path from "path";
-import { formatBalance } from "../../common/helper/bigNumber";
+import { bigNumber, formatBalance } from "../../common/helper/bigNumber";
 import { delay, generateTelegramHTML } from "../../common/helper/common.helper";
 import { handlePushTelegramNotificationController } from "../common/homepageController";
 import { isToday } from "date-fns";
@@ -62,7 +62,7 @@ const baseUrl = "https://api-v3.raydium.io/pools/info/list";
 
 // max_page 490
 export async function getAllPools({
-  total_page = 10,
+  total_page = 100,
   per_page = 1000,
   timeDelay = 10000,
 }) {
@@ -101,7 +101,10 @@ export async function getAllPools({
             },
           });
 
-          const poolData: Array<Pool> = response?.data?.data?.data || [];
+          const poolData =
+            (response?.data?.data?.data as Array<Pool>)?.filter((i) =>
+              bigNumber(i.tvl).gt(7000000)
+            ) || [];
           allPools.push(
             ...poolData.map((p) => {
               return {
@@ -129,7 +132,7 @@ export async function getAllPools({
         }
       }
     }
-    console.log("allPools :", allPools);
+    console.log("allPools :", allPools.length);
 
     writePoolList(
       allPools
@@ -177,10 +180,11 @@ function generateMsgHTML(pool: Pool): string {
         Tag: "From Raydium",
       }
     : {
+        Name: `${infoToken.symbol} - ${infoToken.name}`,
         DexLink: `https://dexscreener.com/solana/${pool.id}`,
         "⭐ PumpFunLink": `https://pump.fun/coin/${infoToken.address}`,
         "⭐ SolScan": `https://solscan.io/token/${infoToken.address}`,
-        "⭐ RaydiumLink": `https://raydium.io/swap/?inputMint=Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB&outputMint=${infoToken.address}`,
+        "⭐ RaydiumLink": `https://raydium.io/swap/?inputMint=sol&outputMint=${infoToken.address}`,
       };
 
   return generateTelegramHTML(poolDetails);
@@ -359,6 +363,7 @@ export async function getPools({
         ) &&
         (pool.mintA?.address.endsWith("pump") ||
           pool.mintB?.address.endsWith("pump")) &&
+        bigNumber(pool.tvl).gt(500000) &&
         !poolsSeed.find((j) => j.id.toLowerCase() === pool.id.toLowerCase());
 
       if (newPools.length > maxApiCalls) {
