@@ -313,52 +313,58 @@ export async function getPools({
 }) {
   console.log(`v2 running cron job crawl radium getAllPools...`);
   try {
-    const listNewPools = await axios.get(baseUrl, {
-      params: {
-        poolType: "all",
-        poolSortField: "default",
-        sortType: "desc",
-        pageSize: per_page,
-        page,
-      },
-      headers: {
-        accept: "application/json, text/plain, */*",
-        "accept-language": "en-US,en;q=0.5",
-        origin: "https://raydium.io",
-        priority: "u=1, i",
-        referer: "https://raydium.io/",
-        "sec-ch-ua":
-          '"Chromium";v="130", "Brave";v="130", "Not?A_Brand";v="99"',
-        "sec-ch-ua-mobile": "?0",
-        "sec-ch-ua-platform": '"macOS"',
-        "sec-fetch-dest": "empty",
-        "sec-fetch-mode": "cors",
-        "sec-fetch-site": "same-site",
-        "sec-gpc": "1",
-        "user-agent":
-          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
-      },
-    });
+    const allPools = [];
 
-    const poolData =
-      (listNewPools?.data?.data?.data as Array<Pool>)
-        ?.filter((i) => bigNumber(i.tvl).gt(5000000))
-        .map((p: Pool) => {
-          return {
-            type: p.type,
-            id: p.id,
-            programId: p.programId,
-            mintA: p.mintA,
-            mintB: p.mintB,
-            tvl: p.tvl,
-            marketId: p.marketId,
-          } as Pool;
-        }) || [];
+    for (let currentPage = page; currentPage <= 5; currentPage++) {
+      const response = await axios.get(baseUrl, {
+        params: {
+          poolType: "all",
+          poolSortField: "default",
+          sortType: "desc",
+          pageSize: per_page,
+          page: currentPage,
+        },
+        headers: {
+          accept: "application/json, text/plain, */*",
+          "accept-language": "en-US,en;q=0.5",
+          origin: "https://raydium.io",
+          priority: "u=1, i",
+          referer: "https://raydium.io/",
+          "sec-ch-ua":
+            '"Chromium";v="130", "Brave";v="130", "Not?A_Brand";v="99"',
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": '"macOS"',
+          "sec-fetch-dest": "empty",
+          "sec-fetch-mode": "cors",
+          "sec-fetch-site": "same-site",
+          "sec-gpc": "1",
+          "user-agent":
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        },
+      });
+
+      const poolData = ((response?.data?.data?.data as Array<Pool>) || [])
+        .filter((i) => bigNumber(i.tvl).gt(5000000))
+        .map(
+          (p) =>
+            ({
+              type: p.type,
+              id: p.id,
+              programId: p.programId,
+              mintA: p.mintA,
+              mintB: p.mintB,
+              tvl: p.tvl,
+              marketId: p.marketId,
+            } as Pool)
+        );
+
+      allPools.push(...poolData);
+    }
 
     const newPools: Array<Pool> = [];
     const maxApiCalls = 3;
 
-    for (const pool of poolData) {
+    for (const pool of allPools) {
       const isNew =
         [pool.mintA?.address, pool.mintB?.address].includes(
           "So11111111111111111111111111111111111111112"
