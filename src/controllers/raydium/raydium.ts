@@ -340,18 +340,20 @@ export async function getPools({
       },
     });
 
-    const poolData: Array<Pool> =
-      listNewPools?.data?.data?.data?.map((p: Pool) => {
-        return {
-          type: p.type,
-          id: p.id,
-          programId: p.programId,
-          mintA: p.mintA,
-          mintB: p.mintB,
-          tvl: p.tvl,
-          marketId: p.marketId,
-        };
-      }) || [];
+    const poolData =
+      (listNewPools?.data?.data?.data as Array<Pool>)
+        ?.filter((i) => bigNumber(i.tvl).gt(5000000))
+        .map((p: Pool) => {
+          return {
+            type: p.type,
+            id: p.id,
+            programId: p.programId,
+            mintA: p.mintA,
+            mintB: p.mintB,
+            tvl: p.tvl,
+            marketId: p.marketId,
+          } as Pool;
+        }) || [];
 
     const newPools: Array<Pool> = [];
     const maxApiCalls = 3;
@@ -363,7 +365,6 @@ export async function getPools({
         ) &&
         (pool.mintA?.address.endsWith("pump") ||
           pool.mintB?.address.endsWith("pump")) &&
-        bigNumber(pool.tvl).gt(500000) &&
         !poolsSeed.find((j) => j.id.toLowerCase() === pool.id.toLowerCase());
 
       if (newPools.length > maxApiCalls) {

@@ -180,7 +180,9 @@ async function getPools({ page = 1, per_page = 1000, timeDelay = 10000, }) {
                 "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
             },
         });
-        const poolData = listNewPools?.data?.data?.data?.map((p) => {
+        const poolData = listNewPools?.data?.data?.data
+            ?.filter((i) => (0, bigNumber_1.bigNumber)(i.tvl).gt(5000000))
+            .map((p) => {
             return {
                 type: p.type,
                 id: p.id,
@@ -197,7 +199,6 @@ async function getPools({ page = 1, per_page = 1000, timeDelay = 10000, }) {
             const isNew = [pool.mintA?.address, pool.mintB?.address].includes("So11111111111111111111111111111111111111112") &&
                 (pool.mintA?.address.endsWith("pump") ||
                     pool.mintB?.address.endsWith("pump")) &&
-                (0, bigNumber_1.bigNumber)(pool.tvl).gt(500000) &&
                 !poolsSeed.find((j) => j.id.toLowerCase() === pool.id.toLowerCase());
             if (newPools.length > maxApiCalls) {
                 break;

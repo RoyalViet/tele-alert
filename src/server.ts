@@ -27,14 +27,14 @@ const main = async () => {
   // job.start();
 
   // TODO: run
-  // checkMemeCooking.start();
-  // checkRefPoolToken.start();
-  // checkRadiumPoolToken.start();
+  checkMemeCooking.start();
+  checkRefPoolToken.start();
+  checkRadiumPoolToken.start();
 
   // checkReleasePoolToken.start();
 
   // getPools({});
-  getAllPools({});
+  // getAllPools({});
 
   // test
   // testF();
