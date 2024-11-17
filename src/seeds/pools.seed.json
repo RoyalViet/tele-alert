@@ -1,5 +1,59 @@
 [
   {
+    "owner": "06cde7af7bdbe0c16f3b45c1dbb0f1f4a9342d22ca8aa858ffd02e74e27abbdd",
+    "token_contract": "bbn-787.meme-cooking.near",
+    "___": "==============================",
+    "pool_id": 5688,
+    "token_account_ids": [
+      "bbn-787.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "BBN",
+    "name": "BeatBoxNEAR"
+  },
+  {
+    "owner": "surax.near",
+    "token_contract": "happy-786.meme-cooking.near",
+    "___": "==============================",
+    "pool_id": 5687,
+    "token_account_ids": [
+      "happy-786.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "HAPPY",
+    "name": "happy cat"
+  },
+  {
+    "owner": null,
+    "pool_id": 5686,
+    "token_account_ids": [
+      "wrap.near",
+      "sllime.tkn.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "sLLiMe",
+    "name": "Slime's 0.5B AI model that may or may not be created",
+    "token_contract": "sllime.tkn.near"
+  },
+  {
+    "owner": null,
+    "pool_id": 5686,
+    "token_account_ids": [
+      "wrap.near",
+      "sllime.tkn.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "sLLiMe",
+    "name": "Slime's 0.5B AI model that may or may not be created",
+    "token_contract": "sllime.tkn.near"
+  },
+  {
     "owner": "hotfromherewallet.near",
     "pool_id": 5684,
     "token_account_ids": [
