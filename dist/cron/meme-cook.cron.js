@@ -158,7 +158,6 @@ function generateTelegramHTMLMemeCook(meme) {
         "⭐ Contract": memeContract,
         "⭐ PoolID": meme.pool_id || "N/A",
         TotalDeposit: `${(0, bigNumber_1.formatBalance)(totalDeposit)} Near`,
-        SoftCap: `${(0, bigNumber_1.formatBalance)(softCap)} Near`,
         HardCap: `${(0, bigNumber_1.formatBalance)(hardCap)} Near`,
         Decimals: meme.decimals,
         _: "==============================",
@@ -184,11 +183,12 @@ function generateTelegramHTMLMemeCook(meme) {
             : "N/A",
         CliffEnd: `${Number(meme.cliff_duration_ms) / (1000 * 60 * 60 * 24)} days`,
         Vesting: `${Number(meme.vesting_duration_ms) / (1000 * 60 * 60 * 24)} days`,
+        SoftCap: `${(0, bigNumber_1.formatBalance)(softCap)} Near`,
         ID: meme.meme_id,
         Name: meme.name,
         Symbol: meme.symbol,
-        Description: meme.description || "N/A",
-        Image: `https://plum-necessary-chameleon-942.mypinata.cloud/ipfs/${meme.image}`,
+        // Description: meme.description || "N/A",
+        // Image: `https://plum-necessary-chameleon-942.mypinata.cloud/ipfs/${meme.image}`,
         Tag: "From Meme Cooking",
     };
     return (0, common_helper_1.generateTelegramHTML)(memeDetails);
@@ -199,6 +199,7 @@ const ownerIgnore = [
     "memecoinscash.near",
     "mina_yoshizawa.near",
     "jav_idol.near",
+    "w3_lab.tg",
 ];
 async function fetchActiveMemes() {
     try {
