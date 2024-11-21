@@ -200,6 +200,7 @@ const ownerIgnore = [
     "mina_yoshizawa.near",
     "jav_idol.near",
     "w3_lab.tg",
+    "wink_gambler.tg",
 ];
 async function fetchActiveMemes() {
     try {
