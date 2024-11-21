@@ -81,26 +81,26 @@ const writeReleaseList = (tokenList) => {
 };
 function generateMsgHTML(pool) {
     const poolDetails = {
-        "⭐ OwnerLink": pool?.owner && pool?.owner !== "null"
-            ? `[${pool?.owner}](https://nearblocks.io/address/${pool?.owner}?tab=tokentxns)`
-            : "N/A",
-        OwnerPikeLink: pool?.owner && pool?.owner !== "null"
-            ? `https://pikespeak.ai/wallet-explorer/${pool.owner}/transfers`
-            : "N/A",
-        "⭐ AddressTokenLink": `https://nearblocks.io/address/${pool.token_contract}?tab=tokentxns`,
-        _: "==============================",
         "⭐ Contract": pool.token_contract,
         "⭐ PoolID": pool.pool_id || "N/A",
         "⭐ Decimals": pool.decimals,
         "⭐ PoolLink": pool.pool_id
             ? `https://app.ref.finance/pool/${pool.pool_id}`
             : "N/A",
+        __: "==============================",
+        "⭐ OwnerLink": pool?.owner && pool?.owner !== "null"
+            ? `[${pool?.owner}](https://nearblocks.io/address/${pool?.owner}?tab=tokentxns)`
+            : "N/A",
+        "⭐ AddressTokenLink": `https://nearblocks.io/address/${pool.token_contract}?tab=tokentxns`,
         TokenLink: `https://nearblocks.io/token/${pool.token_contract}`,
         "⭐ RefLink": `https://app.ref.finance/#usdt.tether-token.near|${pool.token_contract}`,
         DexLink: pool.pool_id
             ? `https://dexscreener.com/near/refv1-${pool.pool_id}`
             : "N/A",
-        __: "==============================",
+        _: "==============================",
+        OwnerPikeLink: pool?.owner && pool?.owner !== "null"
+            ? `https://pikespeak.ai/wallet-explorer/${pool.owner}/transfers`
+            : "N/A",
         Owner: pool.owner,
         Name: pool.name,
         Symbol: pool.symbol,

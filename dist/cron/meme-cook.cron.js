@@ -155,25 +155,25 @@ function generateTelegramHTMLMemeCook(meme) {
         ? meme.token_id
         : `${meme.symbol}-${meme.meme_id}.meme-cooking.near`.toLowerCase();
     const memeDetails = {
-        "⭐ OwnerLink": `https://nearblocks.io/address/${meme.owner}?tab=tokentxns`,
-        OwnerPikeLink: `https://pikespeak.ai/wallet-explorer/${meme.owner}/transfers`,
-        TotalDeposit: `${(0, bigNumber_1.formatBalance)(totalDeposit)} Near`,
-        HardCap: `${(0, bigNumber_1.formatBalance)(hardCap)} Near`,
-        _: "==============================",
         "⭐ Contract": memeContract,
         "⭐ PoolID": meme.pool_id || "N/A",
+        TotalDeposit: `${(0, bigNumber_1.formatBalance)(totalDeposit)} Near`,
+        HardCap: `${(0, bigNumber_1.formatBalance)(hardCap)} Near`,
+        Decimals: meme.decimals,
+        _: "==============================",
+        "⭐ OwnerLink": `https://nearblocks.io/address/${meme.owner}?tab=tokentxns`,
+        OwnerPikeLink: `https://pikespeak.ai/wallet-explorer/${meme.owner}/transfers`,
         TokenLink: `https://nearblocks.io/token/${memeContract}`,
         "⭐ RefLink": `https://app.ref.finance/#usdt.tether-token.near|${memeContract}`,
-        DexLink: meme.pool_id
+        "⭐ DexLink": meme.pool_id
             ? `https://dexscreener.com/near/refv1-${meme.pool_id}`
             : "N/A",
         __: "==============================",
-        ID: meme.meme_id,
-        Owner: meme.owner,
-        Name: meme.name,
-        Symbol: meme.symbol,
-        SoftCap: `${(0, bigNumber_1.formatBalance)(softCap)} Near`,
-        Decimals: meme.decimals,
+        MemeLink: `https://meme.cooking/meme/${meme.meme_id}`,
+        Twitter: meme.twitterLink || "N/A",
+        Telegram: meme.telegramLink || "N/A",
+        Website: meme.website || "N/A",
+        ___: "==============================",
         TotalSupply: `${(0, bigNumber_1.formatBalance)(totalSupply)}`,
         "⭐ TeamAllocation": meme.team_allocation
             ? `${(0, bigNumber_1.formatBalance)((0, bigNumber_1.bigNumber)(teamAllocation)
@@ -183,13 +183,12 @@ function generateTelegramHTMLMemeCook(meme) {
             : "N/A",
         CliffEnd: `${Number(meme.cliff_duration_ms) / (1000 * 60 * 60 * 24)} days`,
         Vesting: `${Number(meme.vesting_duration_ms) / (1000 * 60 * 60 * 24)} days`,
-        MemeLink: `https://meme.cooking/meme/${meme.meme_id}`,
-        ___: "==============================",
-        Twitter: meme.twitterLink || "N/A",
-        Telegram: meme.telegramLink || "N/A",
-        Website: meme.website || "N/A",
-        Description: meme.description || "N/A",
-        Image: `https://plum-necessary-chameleon-942.mypinata.cloud/ipfs/${meme.image}`,
+        SoftCap: `${(0, bigNumber_1.formatBalance)(softCap)} Near`,
+        ID: meme.meme_id,
+        Name: meme.name,
+        Symbol: meme.symbol,
+        // Description: meme.description || "N/A",
+        // Image: `https://plum-necessary-chameleon-942.mypinata.cloud/ipfs/${meme.image}`,
         Tag: "From Meme Cooking",
     };
     return (0, common_helper_1.generateTelegramHTML)(memeDetails);
@@ -200,6 +199,8 @@ const ownerIgnore = [
     "memecoinscash.near",
     "mina_yoshizawa.near",
     "jav_idol.near",
+    "w3_lab.tg",
+    "wink_gambler.tg",
 ];
 async function fetchActiveMemes() {
     try {
