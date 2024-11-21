@@ -406,6 +406,7 @@ async function fetchActiveMemes(): Promise<Meme[]> {
 const cronExpression20s = "*/20 * * * * *";
 const cronExpression15s = "*/15 * * * * *";
 const cronExpression10s = "*/10 * * * * *";
+const cronExpression5s = "*/5 * * * * *";
 const checkMemeCooking = new CronJob(cronExpression10s, async () => {
   await delay(Math.random() * 1500);
   console.log(`v2 running cron job crawl meme cook ...`);
@@ -413,4 +414,13 @@ const checkMemeCooking = new CronJob(cronExpression10s, async () => {
   return;
 });
 
-export { checkMemeCooking };
+const getMemeTradesCron = (
+  memeId: number | string,
+  options?: Partial<{ isSortDown: boolean }>
+) => {
+  return new CronJob(cronExpression5s, () => {
+    fetchMemeTrades(memeId, options);
+  });
+};
+
+export { checkMemeCooking, getMemeTradesCron };
