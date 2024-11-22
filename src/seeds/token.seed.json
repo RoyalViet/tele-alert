@@ -1,5 +1,32 @@
 [
   {
+    "owner": null,
+    "pool_id": 5707,
+    "token_account_ids": [
+      "pacman.tkn.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "PACMAN",
+    "name": "PACMAN",
+    "token_contract": "pacman.tkn.near"
+  },
+  {
+    "owner": "deltaxonnear.near",
+    "token_contract": "deltax-939.meme-cooking.near",
+    "___": "==============================",
+    "pool_id": 5704,
+    "token_account_ids": [
+      "deltax-939.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "DELTAx",
+    "name": "DELTAx on NEAR"
+  },
+  {
     "owner": "aroon_deployer.near",
     "token_contract": "aroon-918.meme-cooking.near",
     "___": "==============================",
