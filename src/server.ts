@@ -6,7 +6,11 @@ import logger from "./configs/logger.config";
 // import { checkMemeCooking, checkReleasePoolToken } from "./cron/cronTask";
 // import connectDB from "./database/db.mysql";
 import { checkReleasePoolToken } from "./cron/pool-token.cron";
-import { checkMemeCooking, fetchMemeTrades } from "./cron/meme-cook.cron";
+import {
+  checkMemeCooking,
+  fetchMemeTrades,
+  getMemeTradesCron,
+} from "./cron/meme-cook.cron";
 import { checkRefPoolToken } from "./cron/ref-finance.cron";
 import { testF } from "./test";
 import { checkRadiumPoolToken } from "./cron/raydium.cron";
@@ -20,8 +24,9 @@ const main = async () => {
   // connectDB
   // await connectDB();
 
-  // fetchMemeTrades(711);
-  // fetchMemeTrades(390, { isSortDown: true });
+  // getMemeTradesCron(390, { isSortDown: true });
+  // const gethMemeTrades = getMemeTradesCron(961);
+  // gethMemeTrades.start();
 
   // cron job
   // job.start();

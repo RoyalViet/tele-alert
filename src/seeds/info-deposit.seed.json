@@ -1,5 +1,28 @@
 [
   [
+    961,
+    "12 Near",
+    {
+      "account_id": "arthurkings.near",
+      "amount": "12 Near",
+      "percent": "100.00 %"
+    }
+  ],
+  [
+    930,
+    "8 Near",
+    {
+      "account_id": "06cde7af7bdbe0c16f3b45c1dbb0f1f4a9342d22ca8aa858ffd02e74e27abbdd",
+      "amount": "5 Near",
+      "percent": "62.50 %"
+    },
+    {
+      "account_id": "near_raen.near",
+      "amount": "3 Near",
+      "percent": "37.50 %"
+    }
+  ],
+  [
     914,
     "220.05 Near",
     {
