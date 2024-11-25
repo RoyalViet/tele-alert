@@ -1,6 +1,19 @@
 [
   {
     "owner": null,
+    "pool_id": 5709,
+    "token_account_ids": [
+      "lucky-273.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "LUCKY",
+    "name": "DapperDalmation",
+    "token_contract": "lucky-273.meme-cooking.near"
+  },
+  {
+    "owner": null,
     "pool_id": 5707,
     "token_account_ids": [
       "pacman.tkn.near",
