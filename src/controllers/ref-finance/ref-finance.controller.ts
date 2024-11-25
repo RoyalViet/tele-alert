@@ -67,6 +67,7 @@ class Pool {
   TokenLink?: string;
   RefLink?: string;
   owner?: string;
+  memeId?: string | number;
   _?: string;
   __?: string;
   ___?: string;
@@ -133,22 +134,25 @@ function generateMsgHTML(pool: Pool): string {
       ? `https://app.ref.finance/pool/${pool.pool_id}`
       : "N/A",
     __: "==============================",
-    "⭐ OwnerLink":
-      pool?.owner && pool?.owner !== "null"
-        ? `[${pool?.owner}](https://nearblocks.io/address/${pool?.owner}?tab=tokentxns)`
-        : "N/A",
-    "⭐ AddressTokenLink": `https://nearblocks.io/address/${pool.token_contract}?tab=tokentxns`,
-    TokenLink: `https://nearblocks.io/token/${pool.token_contract}`,
+    ...(!pool.memeId
+      ? {
+          "⭐ OwnerLink":
+            pool?.owner && pool?.owner !== "null"
+              ? `[${pool?.owner}](https://nearblocks.io/address/${pool?.owner}?tab=tokentxns)`
+              : "N/A",
+          "⭐ AddressTokenLink": `https://nearblocks.io/address/${pool.token_contract}?tab=tokentxns`,
+          TokenLink: `https://nearblocks.io/token/${pool.token_contract}`,
+        }
+      : {
+          MemeLink: pool.memeId
+            ? `https://meme.cooking/meme/${pool.memeId}`
+            : "N/A",
+        }),
     "⭐ RefLink": `https://app.ref.finance/#usdt.tether-token.near|${pool.token_contract}`,
     DexLink: pool.pool_id
       ? `https://dexscreener.com/near/refv1-${pool.pool_id}`
       : "N/A",
     _: "==============================",
-    OwnerPikeLink:
-      pool?.owner && pool?.owner !== "null"
-        ? `https://pikespeak.ai/wallet-explorer/${pool.owner}/transfers`
-        : "N/A",
-    Owner: pool.owner,
     Name: pool.name,
     Symbol: pool.symbol,
     Tag: "From All Pools",
@@ -214,6 +218,7 @@ export async function getAllPools() {
             return {
               owner: meme.owner,
               token_contract: i.token_contract,
+              memeId: meme.meme_id,
               ___: "==============================",
               ...i,
               name: meme.name,
