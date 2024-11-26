@@ -13,8 +13,9 @@ const PORT = process.env.PORT || 8000;
 const main = async () => {
     // connectDB
     // await connectDB();
-    // fetchMemeTrades(711);
-    // fetchMemeTrades(390, { isSortDown: true });
+    // getMemeTradesCron(390, { isSortDown: true });
+    // const gethMemeTrades = getMemeTradesCron(961);
+    // gethMemeTrades.start();
     // cron job
     // job.start();
     // TODO: run

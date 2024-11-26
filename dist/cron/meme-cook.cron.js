@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.checkMemeCooking = exports.fetchMemeTrades = void 0;
+exports.getMemeTradesCron = exports.checkMemeCooking = exports.fetchMemeTrades = void 0;
 const axios_1 = __importDefault(require("axios"));
 const cron_1 = require("cron");
 const fs_1 = __importDefault(require("fs"));
@@ -162,7 +162,7 @@ function generateTelegramHTMLMemeCook(meme) {
         Decimals: meme.decimals,
         _: "==============================",
         "⭐ OwnerLink": `https://nearblocks.io/address/${meme.owner}?tab=tokentxns`,
-        OwnerPikeLink: `https://pikespeak.ai/wallet-explorer/${meme.owner}/transfers`,
+        XLink: `https://x.com/search?q=${meme.owner}&src=typed_query`,
         TokenLink: `https://nearblocks.io/token/${memeContract}`,
         "⭐ RefLink": `https://app.ref.finance/#usdt.tether-token.near|${memeContract}`,
         "⭐ DexLink": meme.pool_id
@@ -287,6 +287,7 @@ async function fetchActiveMemes() {
 const cronExpression20s = "*/20 * * * * *";
 const cronExpression15s = "*/15 * * * * *";
 const cronExpression10s = "*/10 * * * * *";
+const cronExpression5s = "*/5 * * * * *";
 const checkMemeCooking = new cron_1.CronJob(cronExpression10s, async () => {
     await (0, common_helper_1.delay)(Math.random() * 1500);
     console.log(`v2 running cron job crawl meme cook ...`);
@@ -294,4 +295,10 @@ const checkMemeCooking = new cron_1.CronJob(cronExpression10s, async () => {
     return;
 });
 exports.checkMemeCooking = checkMemeCooking;
+const getMemeTradesCron = (memeId, options) => {
+    return new cron_1.CronJob(cronExpression5s, () => {
+        (0, exports.fetchMemeTrades)(memeId, options);
+    });
+};
+exports.getMemeTradesCron = getMemeTradesCron;
 //# sourceMappingURL=meme-cook.cron.js.map

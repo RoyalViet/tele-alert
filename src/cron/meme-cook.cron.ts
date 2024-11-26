@@ -266,7 +266,7 @@ function generateTelegramHTMLMemeCook(meme: Meme): string {
     Decimals: meme.decimals,
     _: "==============================",
     "⭐ OwnerLink": `https://nearblocks.io/address/${meme.owner}?tab=tokentxns`,
-    OwnerPikeLink: `https://pikespeak.ai/wallet-explorer/${meme.owner}/transfers`,
+    XLink: `https://x.com/search?q=${meme.owner}&src=typed_query`,
     TokenLink: `https://nearblocks.io/token/${memeContract}`,
     "⭐ RefLink": `https://app.ref.finance/#usdt.tether-token.near|${memeContract}`,
     "⭐ DexLink": meme.pool_id
