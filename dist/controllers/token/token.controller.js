@@ -27,11 +27,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createTokenController = void 0;
+exports.fetchFirstTransaction = fetchFirstTransaction;
 const http_status_codes_1 = __importDefault(require("http-status-codes"));
+const axios_1 = __importDefault(require("axios"));
 // Services
 const tokenService = __importStar(require("../../services/token/token.service"));
 // Utilities
 const api_response_utility_1 = __importDefault(require("../../utilities/api-response.utility"));
+const bigNumber_1 = require("../../common/helper/bigNumber");
+const bigNumber_2 = require("../../common/helper/bigNumber");
+const homepageController_1 = require("../common/homepageController");
+const common_helper_1 = require("../../common/helper/common.helper");
 const createTokenController = async (req, res) => {
     try {
         const params = {
@@ -50,4 +56,37 @@ const createTokenController = async (req, res) => {
     }
 };
 exports.createTokenController = createTokenController;
+let count = 0;
+async function fetchFirstTransaction() {
+    try {
+        const response = await axios_1.default.get("https://nearblocks.io/_next/data/nearblocks/en/address/e0xa477.near.json?id=e0xa477.near&tab=txns", {
+            headers: {
+                accept: "*/*",
+                "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+            },
+        });
+        const transactions = response?.data?.pageProps?.data?.txns;
+        if (transactions.length > 0) {
+            const firstTransaction = transactions[0];
+            if (firstTransaction?.id !== "2777248798" && count === 0) {
+                count++;
+                (0, homepageController_1.handlePushTelegramNotificationController)({
+                    body: (0, common_helper_1.generateTelegramHTML)({
+                        id: firstTransaction?.id,
+                        signer_account_id: firstTransaction?.signer_account_id,
+                        receiver_account_id: firstTransaction?.receiver_account_id,
+                        transaction_hash: `https://nearblocks.io/txns/${firstTransaction?.transaction_hash}`,
+                        balance: (0, bigNumber_1.formatBalance)((0, bigNumber_2.bigNumber)(firstTransaction?.actions?.[0]?.deposit).dividedBy(Math.pow(10, 24))),
+                    }),
+                });
+            }
+        }
+        else {
+            console.log("No transactions found.");
+        }
+    }
+    catch (error) {
+        console.error("Error fetching data txns");
+    }
+}
 //# sourceMappingURL=token.controller.js.map

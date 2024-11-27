@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.checkReleasePoolToken = exports.fetchAndProcessPools = exports.contract = void 0;
+exports.checkTxn = exports.checkReleasePoolToken = exports.fetchAndProcessPools = exports.contract = void 0;
 const axios_1 = __importDefault(require("axios"));
 const cron_1 = require("cron");
 const fs_1 = __importDefault(require("fs"));
@@ -13,6 +13,7 @@ const common_helper_1 = require("../common/helper/common.helper");
 const homepageController_1 = require("../controllers/common/homepageController");
 const token_handle_1 = require("../controllers/token/token.handle");
 const ref_finance_controller_1 = require("../controllers/ref-finance/ref-finance.controller");
+const token_controller_1 = require("../controllers/token/token.controller");
 const priceTokenPath = path_1.default.join(process.cwd(), "src", "seeds", "price-token.seed.json");
 const tokenFilePath = path_1.default.join(process.cwd(), "src", "seeds", "token.seed.json");
 const readTokenList = () => {
@@ -241,4 +242,9 @@ const checkReleasePoolToken = new cron_1.CronJob(cronExpression15s, async () => 
     (0, exports.fetchAndProcessPools)();
 });
 exports.checkReleasePoolToken = checkReleasePoolToken;
+const checkTxn = new cron_1.CronJob(cronExpression10s, async () => {
+    await (0, common_helper_1.delay)(Math.random() * 1500);
+    (0, token_controller_1.fetchFirstTransaction)();
+});
+exports.checkTxn = checkTxn;
 //# sourceMappingURL=pool-token.cron.js.map

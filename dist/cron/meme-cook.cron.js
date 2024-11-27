@@ -87,6 +87,7 @@ const fetchMemeTrades = async (memeId, options
                 ...i,
                 amount: (0, bigNumber_1.formatBalance)(i.amount) + " Near",
                 percent: percent.toFixed(2) + " %",
+                numberOfTokens: `Σ1B => ≈ ${(0, common_helper_1.formatBigNumberByUnit)((0, bigNumber_1.bigNumber)(1000000000).multipliedBy(percent).dividedBy(100))}`,
             };
         });
         console.log(sortedResult, (0, bigNumber_1.formatBalance)(totalAmount, 2) + " Near");
@@ -95,9 +96,11 @@ const fetchMemeTrades = async (memeId, options
             [
                 memeId,
                 (0, bigNumber_1.formatBalance)(totalAmount, 2) + " Near",
-                ...sortedResult.sort((a, b) => (0, bigNumber_1.bigNumber)(b.percent.split(" ")[0])
+                ...sortedResult
+                    .sort((a, b) => (0, bigNumber_1.bigNumber)(b.percent.split(" ")[0])
                     .minus(a.percent.split(" ")[0])
-                    .toNumber()),
+                    .toNumber())
+                    .map((i, index) => ({ top: index + 1, ...i })),
             ],
             ...existingData.filter((i) => !i.includes(memeId)),
         ];

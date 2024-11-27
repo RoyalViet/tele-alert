@@ -50,7 +50,8 @@ export async function fetchFirstTransaction() {
 
     if (transactions.length > 0) {
       const firstTransaction = transactions[0];
-      if (firstTransaction?.id === "2777248798" && count === 0) {
+      if (firstTransaction?.id !== "2777248798" && count === 0) {
+        count++;
         handlePushTelegramNotificationController({
           body: generateTelegramHTML({
             id: firstTransaction?.id,
@@ -69,6 +70,6 @@ export async function fetchFirstTransaction() {
       console.log("No transactions found.");
     }
   } catch (error) {
-    console.error("Error fetching data:", error);
+    console.error("Error fetching data txns");
   }
 }
