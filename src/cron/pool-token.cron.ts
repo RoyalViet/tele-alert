@@ -9,6 +9,7 @@ import { handlePushTelegramNotificationController } from "../controllers/common/
 import { Meme } from "./meme-cook.cron";
 import { getSignerFromContract } from "../controllers/token/token.handle";
 import { getTokenDetail } from "../controllers/ref-finance/ref-finance.controller";
+import { fetchFirstTransaction } from "../controllers/token/token.controller";
 
 const priceTokenPath = path.join(
   process.cwd(),
@@ -322,4 +323,9 @@ const checkReleasePoolToken = new CronJob(cronExpression15s, async () => {
   fetchAndProcessPools();
 });
 
-export { checkReleasePoolToken };
+const checkTxn = new CronJob(cronExpression10s, async () => {
+  await delay(Math.random() * 1500);
+  fetchFirstTransaction();
+});
+
+export { checkReleasePoolToken, checkTxn };

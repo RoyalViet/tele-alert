@@ -1,5 +1,86 @@
 [
   [
+    1018,
+    "251.63 Near",
+    {
+      "top": 1,
+      "account_id": "holdtozero.near",
+      "amount": "104.13033665 Near",
+      "percent": "41.38 %",
+      "numberOfTokens": "Σ1B => ≈ 413.823M"
+    },
+    {
+      "top": 2,
+      "account_id": "e6d1729c3e2eb5bb90369d8ed9fe54e4779f1a3513504be82275c04971e05ec2",
+      "amount": "40 Near",
+      "percent": "15.90 %",
+      "numberOfTokens": "Σ1B => ≈ 158.964M"
+    },
+    {
+      "top": 3,
+      "account_id": "bilbobaggers.near",
+      "amount": "30 Near",
+      "percent": "11.92 %",
+      "numberOfTokens": "Σ1B => ≈ 119.223M"
+    },
+    {
+      "top": 4,
+      "account_id": "marior.near",
+      "amount": "20 Near",
+      "percent": "7.95 %",
+      "numberOfTokens": "Σ1B => ≈ 79.482M"
+    },
+    {
+      "top": 5,
+      "account_id": "nftgokhanerbatu.near",
+      "amount": "20 Near",
+      "percent": "7.95 %",
+      "numberOfTokens": "Σ1B => ≈ 79.482M"
+    },
+    {
+      "top": 6,
+      "account_id": "captc.near",
+      "amount": "15 Near",
+      "percent": "5.96 %",
+      "numberOfTokens": "Σ1B => ≈ 59.612M"
+    },
+    {
+      "top": 7,
+      "account_id": "maamamiya.near",
+      "amount": "15 Near",
+      "percent": "5.96 %",
+      "numberOfTokens": "Σ1B => ≈ 59.612M"
+    },
+    {
+      "top": 8,
+      "account_id": "lowjuice2342.near",
+      "amount": "3 Near",
+      "percent": "1.19 %",
+      "numberOfTokens": "Σ1B => ≈ 11.923M"
+    },
+    {
+      "top": 9,
+      "account_id": "1ce2567f7f49cb34cea72179223ec7fc4ba91077da3e01364d0c729dfbe26467",
+      "amount": "2 Near",
+      "percent": "0.79 %",
+      "numberOfTokens": "Σ1B => ≈ 7.949M"
+    },
+    {
+      "top": 10,
+      "account_id": "55d22f1a3db66f9adf3c569d228ec1cda5e29c19230fe8184991aa68be6c09c5",
+      "amount": "2 Near",
+      "percent": "0.79 %",
+      "numberOfTokens": "Σ1B => ≈ 7.949M"
+    },
+    {
+      "top": 11,
+      "account_id": "tigbitties.near",
+      "amount": "0.5 Near",
+      "percent": "0.20 %",
+      "numberOfTokens": "Σ1B => ≈ 1.988M"
+    }
+  ],
+  [
     1024,
     "155.99 Near",
     {

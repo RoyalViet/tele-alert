@@ -1,5 +1,18 @@
 [
   {
+    "owner": null,
+    "pool_id": 5730,
+    "token_account_ids": [
+      "nte-1031.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "NTE",
+    "name": "Nate",
+    "token_contract": "nte-1031.meme-cooking.near"
+  },
+  {
     "owner": "jehoti.near",
     "token_contract": "brokedev-1024.meme-cooking.near",
     "memeId": 1024,
