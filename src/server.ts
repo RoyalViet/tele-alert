@@ -25,15 +25,15 @@ const main = async () => {
   // await connectDB();
 
   // getMemeTradesCron(390, { isSortDown: true });
-  // const gethMemeTrades = getMemeTradesCron(961);
-  // gethMemeTrades.start();
+  const gethMemeTrades = getMemeTradesCron(1024);
+  gethMemeTrades.start();
 
   // cron job
   // job.start();
 
   // TODO: run
-  checkMemeCooking.start();
-  checkRefPoolToken.start();
+  // checkMemeCooking.start();
+  // checkRefPoolToken.start();
   // checkRadiumPoolToken.start();
 
   // checkReleasePoolToken.start();

@@ -8,7 +8,11 @@ import {
   formatBalance,
 } from "../common/helper/bigNumber";
 import { handlePushTelegramNotificationController } from "../controllers/common/homepageController";
-import { delay, generateTelegramHTML } from "../common/helper/common.helper";
+import {
+  delay,
+  formatBigNumberByUnit,
+  generateTelegramHTML,
+} from "../common/helper/common.helper";
 import { fetchAndProcessPools } from "./pool-token.cron";
 
 interface Trade {
@@ -126,6 +130,9 @@ export const fetchMemeTrades = async (
           ...i,
           amount: formatBalance(i.amount) + " Near",
           percent: percent.toFixed(2) + " %",
+          numberOfTokens: `Σ1B => ≈ ${formatBigNumberByUnit(
+            bigNumber(1000000000).multipliedBy(percent).dividedBy(100)
+          )}`,
         };
       });
 
@@ -137,11 +144,13 @@ export const fetchMemeTrades = async (
       [
         memeId,
         formatBalance(totalAmount, 2) + " Near",
-        ...sortedResult.sort((a, b) =>
-          bigNumber(b.percent.split(" ")[0])
-            .minus(a.percent.split(" ")[0])
-            .toNumber()
-        ),
+        ...sortedResult
+          .sort((a, b) =>
+            bigNumber(b.percent.split(" ")[0])
+              .minus(a.percent.split(" ")[0])
+              .toNumber()
+          )
+          .map((i, index) => ({ top: index + 1, ...i })),
       ],
       ...existingData.filter((i) => !i.includes(memeId)),
     ];

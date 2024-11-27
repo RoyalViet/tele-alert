@@ -1,4 +1,6 @@
+import BigNumber from "bignumber.js";
 import fs from "fs";
+import { bigNumber } from "./bigNumber";
 
 export function escapeMarkdown(text: string): string {
   return text
@@ -9,6 +11,45 @@ export function escapeMarkdown(text: string): string {
     .replace(/>/g, "\\>")
     .replace(/</g, "\\<")
     .replace(/&/g, "\\&");
+}
+
+export function formatBigNumberByUnit(
+  num: number | BigNumber,
+  options?: Partial<{ decimal: number }>
+) {
+  const lookup = [
+    { value: 1, symbol: "" },
+    { value: 1e3, symbol: "K" },
+    { value: 1e6, symbol: "M" },
+    { value: 1e9, symbol: "B" },
+    { value: 1e12, symbol: "T" },
+    { value: 1e15, symbol: "P" },
+    { value: 1e18, symbol: "E" },
+  ];
+  const bigNum = bigNumber(num);
+
+  const item = lookup
+    .slice()
+    .reverse()
+    .find(function (item) {
+      return bigNum.isGreaterThanOrEqualTo(item.value);
+    });
+
+  if (item) {
+    const fmt = {
+      decimalSeparator: ".",
+      groupSeparator: ",",
+      groupSize: 3,
+    };
+
+    return (
+      bigNum
+        .dividedBy(item.value)
+        .toFormat(options?.decimal ?? 3, BigNumber.ROUND_UP, fmt) + item.symbol
+    );
+  }
+
+  return bigNum.toString();
 }
 
 function generateTelegramHTML(data: { [key: string]: any }): string {
