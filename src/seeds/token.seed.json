@@ -1,5 +1,65 @@
 [
   {
+    "owner": "jehoti.near",
+    "token_contract": "brokedev-1024.meme-cooking.near",
+    "memeId": 1024,
+    "___": "==============================",
+    "pool_id": 5729,
+    "token_account_ids": [
+      "brokedev-1024.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "Brokedev",
+    "name": "Alex needs Smoney"
+  },
+  {
+    "owner": "marior.near",
+    "token_contract": "jlu-1018.meme-cooking.near",
+    "memeId": 1018,
+    "___": "==============================",
+    "pool_id": 5728,
+    "token_account_ids": [
+      "jlu-1018.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "JLU",
+    "name": "Juicy Lucy"
+  },
+  {
+    "owner": "c559d8b1304063dbe77e030eecd89538cccb9d47818a487370b3ca8f176cc817",
+    "token_contract": "crd-1008.meme-cooking.near",
+    "memeId": 1008,
+    "___": "==============================",
+    "pool_id": 5727,
+    "token_account_ids": [
+      "crd-1008.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "CRD",
+    "name": "Chinese Rap Dog"
+  },
+  {
+    "owner": "microchipgnu.mintbase.near",
+    "token_contract": "bana-998.meme-cooking.near",
+    "memeId": 998,
+    "___": "==============================",
+    "pool_id": 5726,
+    "token_account_ids": [
+      "bana-998.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "BANA",
+    "name": "BananaCoin"
+  },
+  {
     "owner": "nearnvidia.near",
     "decimals": 8,
     "___": "==============================",
