@@ -1,5 +1,35 @@
 [
   {
+    "owner": "nate.near",
+    "token_contract": "dnb-1034.meme-cooking.near",
+    "memeId": 1034,
+    "___": "==============================",
+    "pool_id": 5735,
+    "token_account_ids": [
+      "dnb-1034.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "DNB",
+    "name": "DONOTbuyPlease"
+  },
+  {
+    "owner": "e63amg.near",
+    "token_contract": "smile-1064.meme-cooking.near",
+    "memeId": 1064,
+    "___": "==============================",
+    "pool_id": 5734,
+    "token_account_ids": [
+      "smile-1064.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "SMILE",
+    "name": "The Web Is Watching"
+  },
+  {
     "owner": "xajveca.near",
     "token_contract": "nescot-1059.meme-cooking.near",
     "memeId": 1059,
