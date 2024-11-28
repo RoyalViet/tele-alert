@@ -1,5 +1,35 @@
 [
   {
+    "owner": "xajveca.near",
+    "token_contract": "nescot-1059.meme-cooking.near",
+    "memeId": 1059,
+    "___": "==============================",
+    "pool_id": 5733,
+    "token_account_ids": [
+      "nescot-1059.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "NESCOT",
+    "name": "NEARSCOT"
+  },
+  {
+    "owner": "purgem.near",
+    "token_contract": "purgem-1055.meme-cooking.near",
+    "memeId": 1055,
+    "___": "==============================",
+    "pool_id": 5731,
+    "token_account_ids": [
+      "purgem-1055.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "PURGEM",
+    "name": "Purge me More"
+  },
+  {
     "owner": null,
     "pool_id": 5730,
     "token_account_ids": [

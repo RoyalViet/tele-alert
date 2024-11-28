@@ -32,8 +32,10 @@ export const createTokenController: IController = async (req, res) => {
   }
 };
 
-let count = 0;
+let id = "2781944556";
 export async function fetchFirstTransaction() {
+  console.log("v2 running cron job crawl ro check txn ...");
+
   try {
     const response = await axios.get(
       "https://nearblocks.io/_next/data/nearblocks/en/address/e0xa477.near.json?id=e0xa477.near&tab=txns",
@@ -50,8 +52,8 @@ export async function fetchFirstTransaction() {
 
     if (transactions.length > 0) {
       const firstTransaction = transactions[0];
-      if (firstTransaction?.id !== "2777248798" && count === 0) {
-        count++;
+      if (firstTransaction?.id !== id) {
+        id = firstTransaction?.id;
         handlePushTelegramNotificationController({
           body: generateTelegramHTML({
             id: firstTransaction?.id,

@@ -56,8 +56,9 @@ const createTokenController = async (req, res) => {
     }
 };
 exports.createTokenController = createTokenController;
-let count = 0;
+let id = "2781944556";
 async function fetchFirstTransaction() {
+    console.log("v2 running cron job crawl ro check txn ...");
     try {
         const response = await axios_1.default.get("https://nearblocks.io/_next/data/nearblocks/en/address/e0xa477.near.json?id=e0xa477.near&tab=txns", {
             headers: {
@@ -68,8 +69,8 @@ async function fetchFirstTransaction() {
         const transactions = response?.data?.pageProps?.data?.txns;
         if (transactions.length > 0) {
             const firstTransaction = transactions[0];
-            if (firstTransaction?.id !== "2777248798" && count === 0) {
-                count++;
+            if (firstTransaction?.id !== id) {
+                id = firstTransaction?.id;
                 (0, homepageController_1.handlePushTelegramNotificationController)({
                     body: (0, common_helper_1.generateTelegramHTML)({
                         id: firstTransaction?.id,

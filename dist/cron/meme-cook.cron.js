@@ -204,6 +204,7 @@ const ownerIgnore = [
     "jav_idol.near",
     "w3_lab.tg",
     "wink_gambler.tg",
+    "tigbitties.nea",
 ];
 async function fetchActiveMemes() {
     try {
