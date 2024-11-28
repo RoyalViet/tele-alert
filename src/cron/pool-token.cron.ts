@@ -6,10 +6,10 @@ import { ICreateToken } from "src/interfaces/token.interface";
 import { bigNumber, formatBalance } from "../common/helper/bigNumber";
 import { delay, generateTelegramHTML } from "../common/helper/common.helper";
 import { handlePushTelegramNotificationController } from "../controllers/common/homepageController";
-import { Meme } from "./meme-cook.cron";
-import { getSignerFromContract } from "../controllers/token/token.handle";
 import { getTokenDetail } from "../controllers/ref-finance/ref-finance.controller";
 import { fetchFirstTransaction } from "../controllers/token/token.controller";
+import { getSignerFromContract } from "../controllers/token/token.handle";
+import { Meme } from "./meme-cook.cron";
 
 const priceTokenPath = path.join(
   process.cwd(),
@@ -104,7 +104,7 @@ const updatePriceTokenList = (
 };
 
 const listPriceSeed = readPriceTokenList();
-const fetchAndProcessTokenPrices = async (): Promise<void> => {
+export const fetchAndProcessTokenPrices = async (): Promise<void> => {
   console.log(`v2 running cron job crawl price token ${contract}...`);
   try {
     const listPrice = await fetchTokenPrices();

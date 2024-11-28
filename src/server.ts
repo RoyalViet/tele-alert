@@ -3,21 +3,9 @@ import "module-alias/register";
 
 import app from "./configs/express.config";
 import logger from "./configs/logger.config";
-// import { checkMemeCooking, checkReleasePoolToken } from "./cron/cronTask";
-// import connectDB from "./database/db.mysql";
-import { checkReleasePoolToken, checkTxn } from "./cron/pool-token.cron";
-import {
-  checkMemeCooking,
-  fetchMemeTrades,
-  getMemeTradesCron,
-} from "./cron/meme-cook.cron";
+import { checkMemeCooking } from "./cron/meme-cook.cron";
+import { checkTxn } from "./cron/pool-token.cron";
 import { checkRefPoolToken } from "./cron/ref-finance.cron";
-import { testF } from "./test";
-import { checkRadiumPoolToken } from "./cron/raydium.cron";
-import { getAllPools, getPools } from "./controllers/raydium/raydium";
-import { sendAnimation } from "./controllers/common/homepageController";
-import { sendNotification } from "./services/telegram/telegramService";
-import { fetchFirstTransaction } from "./controllers/token/token.controller";
 
 const PORT = process.env.PORT || 8000;
 
@@ -29,19 +17,11 @@ const main = async () => {
   // const gethMemeTrades = getMemeTradesCron(1018);
   // gethMemeTrades.start();
 
-  // cron job
-  // job.start();
-
   // TODO: run
   checkMemeCooking.start();
   checkRefPoolToken.start();
   checkTxn.start();
   // checkRadiumPoolToken.start();
-
-  // checkReleasePoolToken.start();
-
-  // getPools({});
-  // getAllPools({});
 
   // test
   // testF();
