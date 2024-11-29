@@ -32,17 +32,13 @@ export const createTokenController: IController = async (req, res) => {
   }
 };
 
-const wallets = [
-  "e0xa477.near",
-  "root.near",
-  "142_37is.near",
-  "seriousfarmer.near",
-];
 const idTxnMap: Record<string, string> = {
   "e0xa477.near": "2794540134",
   "root.near": "2789161353",
   "142_37is.near": "2789161353",
   "seriousfarmer.near": "2788908889",
+  "4a15a7be78f0cc85772d96000cd9a7c8bbcefdf3e5a1629850c9596f2d88cd83":
+    "2794547423",
 };
 
 export async function getFirstTransactionAction(wallet: string) {
@@ -91,8 +87,10 @@ export async function getFirstTransactionAction(wallet: string) {
 }
 
 export async function getFirstTransaction() {
-  for (let index = 0; index < wallets.length; index++) {
-    await delay(Math.random() * 500);
-    await getFirstTransactionAction(wallets[index]);
+  for (const key in idTxnMap) {
+    if (idTxnMap.hasOwnProperty(key)) {
+      await delay(Math.random() * 500);
+      await getFirstTransactionAction(key);
+    }
   }
 }
