@@ -39,7 +39,7 @@ const wallets = [
   "seriousfarmer.near",
 ];
 const idTxnMap: Record<string, string> = {
-  "e0xa477.near": "2781944556",
+  "e0xa477.near": "2794540134",
   "root.near": "2789161353",
   "142_37is.near": "2789161353",
   "seriousfarmer.near": "2788908889",
@@ -49,7 +49,6 @@ export async function getFirstTransactionAction(wallet: string) {
   console.log(`Running cron job for wallet: ${wallet} ...`);
 
   try {
-    await delay(Math.random() * 500);
     const response = await axios.get(
       `https://nearblocks.io/_next/data/nearblocks/en/address/${wallet}.json?id=${wallet}&tab=txns`,
       {
@@ -91,8 +90,9 @@ export async function getFirstTransactionAction(wallet: string) {
   }
 }
 
-export function getFirstTransaction() {
+export async function getFirstTransaction() {
   for (let index = 0; index < wallets.length; index++) {
-    getFirstTransactionAction(wallets[index]);
+    await delay(Math.random() * 500);
+    await getFirstTransactionAction(wallets[index]);
   }
 }
