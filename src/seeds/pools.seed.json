@@ -1,5 +1,50 @@
 [
   {
+    "owner": "nathanx.near",
+    "token_contract": "nokia-1091.meme-cooking.near",
+    "memeId": 1091,
+    "___": "==============================",
+    "pool_id": 5750,
+    "token_account_ids": [
+      "nokia-1091.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "NOKIA",
+    "name": "A Slightly Used Nokia 3310"
+  },
+  {
+    "owner": "blackmouth.near",
+    "token_contract": "20usn-1089.meme-cooking.near",
+    "memeId": 1089,
+    "___": "==============================",
+    "pool_id": 5749,
+    "token_account_ids": [
+      "20usn-1089.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "20USN",
+    "name": "20$is20USN"
+  },
+  {
+    "owner": "surskthebest.near",
+    "token_contract": "bin-1088.meme-cooking.near",
+    "memeId": 1088,
+    "___": "==============================",
+    "pool_id": 5748,
+    "token_account_ids": [
+      "bin-1088.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "BIN",
+    "name": "bingo"
+  },
+  {
     "owner": null,
     "pool_id": 5745,
     "token_account_ids": [

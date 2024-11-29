@@ -27,7 +27,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createTokenController = void 0;
-exports.fetchFirstTransaction = fetchFirstTransaction;
+exports.getFirstTransactionAction = getFirstTransactionAction;
+exports.getFirstTransaction = getFirstTransaction;
 const http_status_codes_1 = __importDefault(require("http-status-codes"));
 const axios_1 = __importDefault(require("axios"));
 // Services
@@ -56,11 +57,22 @@ const createTokenController = async (req, res) => {
     }
 };
 exports.createTokenController = createTokenController;
-let id = "2789842780";
-async function fetchFirstTransaction() {
-    console.log("v2 running cron job crawl ro check txn ...");
+const wallets = [
+    "e0xa477.near",
+    "root.near",
+    "142_37is.near",
+    "seriousfarmer.near",
+];
+const idTxnMap = {
+    "e0xa477.near": "2794540134",
+    "root.near": "2789161353",
+    "142_37is.near": "2789161353",
+    "seriousfarmer.near": "2788908889",
+};
+async function getFirstTransactionAction(wallet) {
+    console.log(`Running cron job for wallet: ${wallet} ...`);
     try {
-        const response = await axios_1.default.get("https://nearblocks.io/_next/data/nearblocks/en/address/e0xa477.near.json?id=e0xa477.near&tab=txns", {
+        const response = await axios_1.default.get(`https://nearblocks.io/_next/data/nearblocks/en/address/${wallet}.json?id=${wallet}&tab=txns`, {
             headers: {
                 accept: "*/*",
                 "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
@@ -69,11 +81,12 @@ async function fetchFirstTransaction() {
         const transactions = response?.data?.pageProps?.data?.txns;
         if (transactions.length > 0) {
             const firstTransaction = transactions[0];
-            if (firstTransaction?.id !== id) {
-                id = firstTransaction?.id;
+            const currentId = firstTransaction?.id;
+            if (idTxnMap[wallet] !== currentId) {
+                idTxnMap[wallet] = currentId;
                 (0, homepageController_1.handlePushTelegramNotificationController)({
                     body: (0, common_helper_1.generateTelegramHTML)({
-                        id: firstTransaction?.id,
+                        id: currentId,
                         signer_account_id: firstTransaction?.signer_account_id,
                         receiver_account_id: firstTransaction?.receiver_account_id,
                         transaction_hash: `https://nearblocks.io/txns/${firstTransaction?.transaction_hash}`,
@@ -88,6 +101,12 @@ async function fetchFirstTransaction() {
     }
     catch (error) {
         console.error("Error fetching data txns");
+    }
+}
+async function getFirstTransaction() {
+    for (let index = 0; index < wallets.length; index++) {
+        await (0, common_helper_1.delay)(Math.random() * 500);
+        await getFirstTransactionAction(wallets[index]);
     }
 }
 //# sourceMappingURL=token.controller.js.map
