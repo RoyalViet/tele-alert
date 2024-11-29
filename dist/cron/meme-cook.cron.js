@@ -3,14 +3,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getMemeTradesCron = exports.checkMemeCooking = exports.fetchMemeTrades = void 0;
+exports.getMemeTradesCron = exports.checkMemeCooking = exports.isPreListFollowTime = exports.fetchMemeTrades = void 0;
 const axios_1 = __importDefault(require("axios"));
 const cron_1 = require("cron");
+const date_fns_1 = require("date-fns");
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
 const bigNumber_1 = require("../common/helper/bigNumber");
-const homepageController_1 = require("../controllers/common/homepageController");
 const common_helper_1 = require("../common/helper/common.helper");
+const homepageController_1 = require("../controllers/common/homepageController");
+const const_1 = require("./const");
 const pool_token_cron_1 = require("./pool-token.cron");
 const infoDepositPath = path_1.default.join(process.cwd(), "src", "seeds", "info-deposit.seed.json");
 const readInfoFromFile = () => {
@@ -20,29 +22,11 @@ const readInfoFromFile = () => {
 const writeInfoToFile = (info) => {
     fs_1.default.writeFileSync(infoDepositPath, JSON.stringify(info, null, 2), "utf-8");
 };
-const fetchMemeTrades = async (memeId, options
-// decreasing
-) => {
+const fetchMemeTrades = async (memeId, options) => {
     const url = `https://api.meme.cooking/trades?meme_id=${memeId}`;
     try {
         const response = await axios_1.default.get(url, {
-            headers: {
-                accept: "*/*",
-                "accept-language": "en-US,en;q=0.9",
-                "cache-control": "no-cache",
-                "content-type": "application/json",
-                origin: "https://meme.cooking",
-                pragma: "no-cache",
-                priority: "u=1, i",
-                referer: "https://meme.cooking/",
-                "sec-ch-ua": '"Chromium";v="130", "Google Chrome";v="130", "Not?A_Brand";v="99"',
-                "sec-ch-ua-mobile": "?0",
-                "sec-ch-ua-platform": '"macOS"',
-                "sec-fetch-dest": "empty",
-                "sec-fetch-mode": "cors",
-                "sec-fetch-site": "same-site",
-                "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
-            },
+            headers: const_1.HEADER_GET_MEME_TRADER,
         });
         const accountMap = {};
         const uniqueIds = new Set();
@@ -116,10 +100,10 @@ const idsPath = path_1.default.join(process.cwd(), "src", "seeds", "ids-meme-ful
 const readMemeIdsFromFile = () => {
     if (fs_1.default.existsSync(idsPath)) {
         const data = fs_1.default.readFileSync(idsPath, "utf-8"); // Đọc file
-        const memeIdArray = JSON.parse(data); // Chuyển đổi JSON thành mảng
-        return new Set(memeIdArray); // Trả về Set
+        const memeIdArray = JSON.parse(data);
+        return new Set(memeIdArray);
     }
-    return new Set(); // Trả về Set rỗng nếu file không tồn tại
+    return new Set();
 };
 const writeMemeIdsToFile = () => {
     const memeIdArray = Array.from(sentMemeIds);
@@ -206,46 +190,63 @@ const ownerIgnore = [
     "wink_gambler.tg",
     "tigbitties.nea",
 ];
+const isPreListFollowTime = (targetTime) => {
+    try {
+        const now = Date.now();
+        const distance = targetTime - now;
+        const duration = (0, date_fns_1.intervalToDuration)({ start: now, end: targetTime });
+        if (distance > 0 && distance < 10 * 60 * 1000) {
+            console.log("rs :", (0, date_fns_1.formatDuration)(duration, {
+                format: ["years", "months", "days", "hours", "minutes", "seconds"],
+            }));
+        }
+        return distance > 0 && distance < 10 * 60 * 1000;
+    }
+    catch (error) {
+        return false;
+    }
+};
+exports.isPreListFollowTime = isPreListFollowTime;
+const checkPreList = (meme) => {
+    try {
+        const totalDeposit = (0, bigNumber_1.bigNumber)(meme.total_deposit)
+            .dividedBy(Math.pow(10, 24))
+            .toFixed(2);
+        const softCap = (0, bigNumber_1.bigNumber)(meme.soft_cap)
+            .dividedBy(Math.pow(10, 24))
+            .toFixed(2);
+        const hardCap = (0, bigNumber_1.bigNumber)(meme.hard_cap || 0)
+            .dividedBy(Math.pow(10, 24))
+            .toFixed(2);
+        if ((0, bigNumber_1.bigNumber)(totalDeposit).plus(20).gte(softCap) &&
+            (0, exports.isPreListFollowTime)(Number(meme.end_timestamp_ms))) {
+            return true;
+        }
+        else if (meme?.hard_cap &&
+            (0, bigNumber_1.bigNumber)(totalDeposit).plus(60).gte(hardCap) &&
+            meme?.end_timestamp_ms - new Date().getTime() > 0) {
+            return true;
+        }
+    }
+    catch (error) {
+        return false;
+    }
+};
 async function fetchActiveMemes() {
     try {
         const response = await axios_1.default.get("https://api.meme.cooking/meme", {
-            headers: {
-                accept: "*/*",
-                "accept-language": "en-US,en;q=0.9",
-                "cache-control": "no-cache",
-                "content-type": "application/json",
-                origin: "https://meme.cooking",
-                pragma: "no-cache",
-                priority: "u=1, i",
-                referer: "https://meme.cooking/",
-                "sec-ch-ua": '"Google Chrome";v="129", "Not=A?Brand";v="8", "Chromium";v="129"',
-                "sec-ch-ua-mobile": "?0",
-                "sec-ch-ua-platform": '"macOS"',
-                "sec-fetch-dest": "empty",
-                "sec-fetch-mode": "cors",
-                "sec-fetch-site": "same-site",
-                // "user-agent":
-                //   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36",
-            },
+            headers: const_1.HEADER_MEME_COOK,
         });
-        // Lọc các meme còn thời gian
         const activeMemes = response.data;
-        // const currentTime = Date.now();
-        // const activeMemes = response.data.filter(
-        //   (meme) => meme.end_timestamp_ms + 30 * 60 * 1000 > currentTime
-        // );
         response.data.forEach((m) => {
-            const hasHardCap = (0, bigNumber_1.bigNumber)(m.total_deposit).gte(m.hard_cap) &&
-                (0, bigNumber_1.bigNumber)(m.hard_cap).gte(m.soft_cap);
-            if (hasHardCap && !sentMemeIds.has(m.meme_id)) {
+            //
+            if (checkPreList(m) && !sentMemeIds.has(m.meme_id)) {
                 (0, homepageController_1.handlePushTelegramNotificationController)({
                     body: generateTelegramHTMLMemeCook(m),
                 });
                 if (!m.pool_id) {
                     (0, pool_token_cron_1.fetchAndProcessPools)();
                 }
-                // fetchMemeTrades(m.meme_id)
-                // Thêm meme_id vào Set để tránh gửi lại
                 sentMemeIds.add(m.meme_id);
                 console.log([...sentMemeIds]);
                 writeMemeIdsToFile();
@@ -276,9 +277,7 @@ async function fetchActiveMemes() {
             catch (error) {
                 console.log("error :", error);
             }
-            // Thêm các meme mới vào mảng hiện có và ghi lại vào file
             existingMemes.unshift(...newMemes);
-            // const updatedMemes = [...newMemes, ...existingMemes];
             writeExistingMemes(existingMemes);
         }
         return newMemes;

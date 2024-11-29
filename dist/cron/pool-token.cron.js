@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.checkTxn = exports.checkReleasePoolToken = exports.fetchAndProcessPools = exports.contract = void 0;
+exports.checkTxn = exports.checkReleasePoolToken = exports.fetchAndProcessPools = exports.fetchAndProcessTokenPrices = exports.contract = void 0;
 const axios_1 = __importDefault(require("axios"));
 const cron_1 = require("cron");
 const fs_1 = __importDefault(require("fs"));
@@ -11,9 +11,9 @@ const path_1 = __importDefault(require("path"));
 const bigNumber_1 = require("../common/helper/bigNumber");
 const common_helper_1 = require("../common/helper/common.helper");
 const homepageController_1 = require("../controllers/common/homepageController");
-const token_handle_1 = require("../controllers/token/token.handle");
 const ref_finance_controller_1 = require("../controllers/ref-finance/ref-finance.controller");
 const token_controller_1 = require("../controllers/token/token.controller");
+const token_handle_1 = require("../controllers/token/token.handle");
 const priceTokenPath = path_1.default.join(process.cwd(), "src", "seeds", "price-token.seed.json");
 const tokenFilePath = path_1.default.join(process.cwd(), "src", "seeds", "token.seed.json");
 const readTokenList = () => {
@@ -94,6 +94,7 @@ const fetchAndProcessTokenPrices = async () => {
         console.error("Error fetching token prices:", error.message);
     }
 };
+exports.fetchAndProcessTokenPrices = fetchAndProcessTokenPrices;
 const filterValidPools = (data) => {
     return data.filter((i) => (0, bigNumber_1.bigNumber)(i?.tvl).gt(0) &&
         (0, bigNumber_1.bigNumber)(i?.token0_ref_price).gt(0) &&
