@@ -40,6 +40,14 @@ const idTxnMap: Record<string, string> = {
   "4a15a7be78f0cc85772d96000cd9a7c8bbcefdf3e5a1629850c9596f2d88cd83":
     "2794547423",
 };
+const idTxnTokenMap: Record<string, string> = {
+  "e0xa477.near": "ARAwTbXuaUMVXYEipwnTPjT4grpWVA4ooHMKS1EU1Hyv",
+  "root.near": "4TT1GnareFy7awfZu4nZ9zx91E2rAyiMSLHoJF26iJj1",
+  "142_37is.near": "",
+  "seriousfarmer.near": "ACupB9nEhBpqE4bQGFthfFTAn3kbShtrSCeXpUjvSLob",
+  "4a15a7be78f0cc85772d96000cd9a7c8bbcefdf3e5a1629850c9596f2d88cd83":
+    "6Hev9xZAVVhze2okbaiKVYsjYYFf9GTaoEh86G9rcqZe",
+};
 
 export async function getFirstTransactionAction(wallet: string) {
   console.log(`Running cron job for wallet: ${wallet} ...`);
@@ -70,11 +78,48 @@ export async function getFirstTransactionAction(wallet: string) {
             signer_account_id: firstTransaction?.signer_account_id,
             receiver_account_id: firstTransaction?.receiver_account_id,
             transaction_hash: `https://nearblocks.io/txns/${firstTransaction?.transaction_hash}`,
+            dexLink: `https://nearblocks.io/address/${wallet}?tab=txns`,
             balance: formatBalance(
               bigNumber(firstTransaction?.actions?.[0]?.deposit).dividedBy(
                 Math.pow(10, 24)
               )
             ),
+          }),
+        });
+      }
+    } else {
+      console.log("No transactions found.");
+    }
+  } catch (error) {
+    console.error("Error fetching data txns");
+  }
+}
+export async function getFirstTxnTokenAction(wallet: string) {
+  console.log(`Running cron job for wallet txn: ${wallet} ...`);
+
+  try {
+    const response = await axios.get(
+      `https://nearblocks.io/_next/data/nearblocks/en/address/${wallet}.json?id=${wallet}&tab=tokentxns`,
+      {
+        headers: {
+          accept: "*/*",
+          "user-agent":
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+        },
+      }
+    );
+
+    const transactions = response?.data?.pageProps?.data?.txns;
+
+    if (transactions.length > 0) {
+      const firstTransaction = transactions[0];
+      const currentId = firstTransaction?.transaction_hash || "";
+
+      if (idTxnTokenMap[wallet] !== currentId) {
+        idTxnTokenMap[wallet] = currentId;
+        handlePushTelegramNotificationController({
+          body: generateTelegramHTML({
+            transaction_hash: `https://nearblocks.io/address/${wallet}?tab=tokentxns`,
           }),
         });
       }
@@ -91,6 +136,8 @@ export async function getFirstTransaction() {
     if (idTxnMap.hasOwnProperty(key)) {
       await delay(Math.random() * 500);
       await getFirstTransactionAction(key);
+      await delay(Math.random() * 500);
+      await getFirstTxnTokenAction(key);
     }
   }
 }

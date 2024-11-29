@@ -323,7 +323,7 @@ const checkReleasePoolToken = new CronJob(cronExpression15s, async () => {
   fetchAndProcessPools();
 });
 
-const checkTxn = new CronJob(cronExpression10s, async () => {
+const checkTxn = new CronJob(cronExpression15s, async () => {
   await delay(Math.random() * 1500);
   getFirstTransaction();
 });
