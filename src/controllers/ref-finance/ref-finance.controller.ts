@@ -133,21 +133,20 @@ function generateMsgHTML(pool: Pool): string {
     "⭐ PoolLink": pool.pool_id
       ? `https://app.ref.finance/pool/${pool.pool_id}`
       : "N/A",
+    ...(pool.memeId && {
+      MemeLink: pool.memeId
+        ? `https://meme.cooking/meme/${pool.memeId}`
+        : "N/A",
+    }),
     __: "==============================",
-    ...(!pool.memeId
-      ? {
-          "⭐ OwnerLink":
-            pool?.owner && pool?.owner !== "null"
-              ? `[${pool?.owner}](https://nearblocks.io/address/${pool?.owner}?tab=tokentxns)`
-              : "N/A",
-          "⭐ AddressTokenLink": `https://nearblocks.io/address/${pool.token_contract}?tab=tokentxns`,
-          TokenLink: `https://nearblocks.io/token/${pool.token_contract}`,
-        }
-      : {
-          MemeLink: pool.memeId
-            ? `https://meme.cooking/meme/${pool.memeId}`
-            : "N/A",
-        }),
+    ...(!pool.memeId && {
+      "⭐ OwnerLink":
+        pool?.owner && pool?.owner !== "null"
+          ? `[${pool?.owner}](https://nearblocks.io/address/${pool?.owner}?tab=tokentxns)`
+          : "N/A",
+      "⭐ AddressTokenLink": `https://nearblocks.io/address/${pool.token_contract}?tab=tokentxns`,
+      TokenLink: `https://nearblocks.io/token/${pool.token_contract}`,
+    }),
     "⭐ RefLink": `https://app.ref.finance/#usdt.tether-token.near|${pool.token_contract}`,
     DexLink: pool.pool_id
       ? `https://dexscreener.com/near/refv1-${pool.pool_id}`

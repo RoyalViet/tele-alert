@@ -28,6 +28,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createTokenController = void 0;
 exports.getFirstTransactionAction = getFirstTransactionAction;
+exports.getFirstTxnTokenAction = getFirstTxnTokenAction;
 exports.getFirstTransaction = getFirstTransaction;
 const http_status_codes_1 = __importDefault(require("http-status-codes"));
 const axios_1 = __importDefault(require("axios"));
@@ -57,17 +58,19 @@ const createTokenController = async (req, res) => {
     }
 };
 exports.createTokenController = createTokenController;
-const wallets = [
-    "e0xa477.near",
-    "root.near",
-    "142_37is.near",
-    "seriousfarmer.near",
-];
 const idTxnMap = {
     "e0xa477.near": "2794540134",
     "root.near": "2789161353",
     "142_37is.near": "2789161353",
     "seriousfarmer.near": "2788908889",
+    "4a15a7be78f0cc85772d96000cd9a7c8bbcefdf3e5a1629850c9596f2d88cd83": "2794547423",
+};
+const idTxnTokenMap = {
+    "e0xa477.near": "ARAwTbXuaUMVXYEipwnTPjT4grpWVA4ooHMKS1EU1Hyv",
+    "root.near": "4TT1GnareFy7awfZu4nZ9zx91E2rAyiMSLHoJF26iJj1",
+    "142_37is.near": "",
+    "seriousfarmer.near": "ACupB9nEhBpqE4bQGFthfFTAn3kbShtrSCeXpUjvSLob",
+    "4a15a7be78f0cc85772d96000cd9a7c8bbcefdf3e5a1629850c9596f2d88cd83": "6Hev9xZAVVhze2okbaiKVYsjYYFf9GTaoEh86G9rcqZe",
 };
 async function getFirstTransactionAction(wallet) {
     console.log(`Running cron job for wallet: ${wallet} ...`);
@@ -90,6 +93,7 @@ async function getFirstTransactionAction(wallet) {
                         signer_account_id: firstTransaction?.signer_account_id,
                         receiver_account_id: firstTransaction?.receiver_account_id,
                         transaction_hash: `https://nearblocks.io/txns/${firstTransaction?.transaction_hash}`,
+                        dexLink: `https://nearblocks.io/address/${wallet}?tab=txns`,
                         balance: (0, bigNumber_1.formatBalance)((0, bigNumber_2.bigNumber)(firstTransaction?.actions?.[0]?.deposit).dividedBy(Math.pow(10, 24))),
                     }),
                 });
@@ -103,10 +107,44 @@ async function getFirstTransactionAction(wallet) {
         console.error("Error fetching data txns");
     }
 }
+async function getFirstTxnTokenAction(wallet) {
+    console.log(`Running cron job for wallet txn: ${wallet} ...`);
+    try {
+        const response = await axios_1.default.get(`https://nearblocks.io/_next/data/nearblocks/en/address/${wallet}.json?id=${wallet}&tab=tokentxns`, {
+            headers: {
+                accept: "*/*",
+                "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+            },
+        });
+        const transactions = response?.data?.pageProps?.data?.txns;
+        if (transactions.length > 0) {
+            const firstTransaction = transactions[0];
+            const currentId = firstTransaction?.transaction_hash || "";
+            if (idTxnTokenMap[wallet] !== currentId) {
+                idTxnTokenMap[wallet] = currentId;
+                (0, homepageController_1.handlePushTelegramNotificationController)({
+                    body: (0, common_helper_1.generateTelegramHTML)({
+                        transaction_hash: `https://nearblocks.io/address/${wallet}?tab=tokentxns`,
+                    }),
+                });
+            }
+        }
+        else {
+            console.log("No transactions found.");
+        }
+    }
+    catch (error) {
+        console.error("Error fetching data txns");
+    }
+}
 async function getFirstTransaction() {
-    for (let index = 0; index < wallets.length; index++) {
-        await (0, common_helper_1.delay)(Math.random() * 500);
-        await getFirstTransactionAction(wallets[index]);
+    for (const key in idTxnMap) {
+        if (idTxnMap.hasOwnProperty(key)) {
+            await (0, common_helper_1.delay)(Math.random() * 500);
+            await getFirstTransactionAction(key);
+            await (0, common_helper_1.delay)(Math.random() * 500);
+            await getFirstTxnTokenAction(key);
+        }
     }
 }
 //# sourceMappingURL=token.controller.js.map

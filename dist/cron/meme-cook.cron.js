@@ -147,6 +147,7 @@ function generateTelegramHTMLMemeCook(meme) {
         TotalDeposit: `${(0, bigNumber_1.formatBalance)(totalDeposit)} Near`,
         HardCap: `${(0, bigNumber_1.formatBalance)(hardCap)} Near`,
         Decimals: meme.decimals,
+        MemeLink: `https://meme.cooking/meme/${meme.meme_id}`,
         _: "==============================",
         "⭐ OwnerLink": `https://nearblocks.io/address/${meme.owner}?tab=tokentxns`,
         XLink: `https://x.com/search?q=${meme.owner}&src=typed_query`,
@@ -156,7 +157,6 @@ function generateTelegramHTMLMemeCook(meme) {
             ? `https://dexscreener.com/near/refv1-${meme.pool_id}`
             : "N/A",
         __: "==============================",
-        MemeLink: `https://meme.cooking/meme/${meme.meme_id}`,
         Twitter: meme.twitterLink || "N/A",
         Telegram: meme.telegramLink || "N/A",
         Website: meme.website || "N/A",

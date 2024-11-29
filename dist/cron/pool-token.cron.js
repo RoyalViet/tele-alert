@@ -243,7 +243,7 @@ const checkReleasePoolToken = new cron_1.CronJob(cronExpression15s, async () => 
     (0, exports.fetchAndProcessPools)();
 });
 exports.checkReleasePoolToken = checkReleasePoolToken;
-const checkTxn = new cron_1.CronJob(cronExpression10s, async () => {
+const checkTxn = new cron_1.CronJob(cronExpression15s, async () => {
     await (0, common_helper_1.delay)(Math.random() * 1500);
     (0, token_controller_1.getFirstTransaction)();
 });
