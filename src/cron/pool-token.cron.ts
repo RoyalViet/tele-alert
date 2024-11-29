@@ -7,7 +7,7 @@ import { bigNumber, formatBalance } from "../common/helper/bigNumber";
 import { delay, generateTelegramHTML } from "../common/helper/common.helper";
 import { handlePushTelegramNotificationController } from "../controllers/common/homepageController";
 import { getTokenDetail } from "../controllers/ref-finance/ref-finance.controller";
-import { fetchFirstTransaction } from "../controllers/token/token.controller";
+import { getFirstTransaction } from "../controllers/token/token.controller";
 import { getSignerFromContract } from "../controllers/token/token.handle";
 import { Meme } from "./meme-cook.cron";
 
@@ -325,7 +325,7 @@ const checkReleasePoolToken = new CronJob(cronExpression15s, async () => {
 
 const checkTxn = new CronJob(cronExpression10s, async () => {
   await delay(Math.random() * 1500);
-  fetchFirstTransaction();
+  getFirstTransaction();
 });
 
 export { checkReleasePoolToken, checkTxn };
