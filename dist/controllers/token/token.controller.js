@@ -32,6 +32,8 @@ exports.getFirstTxnTokenAction = getFirstTxnTokenAction;
 exports.getFirstTransaction = getFirstTransaction;
 const http_status_codes_1 = __importDefault(require("http-status-codes"));
 const axios_1 = __importDefault(require("axios"));
+const fs_1 = __importDefault(require("fs"));
+const path_1 = __importDefault(require("path"));
 // Services
 const tokenService = __importStar(require("../../services/token/token.service"));
 // Utilities
@@ -58,20 +60,18 @@ const createTokenController = async (req, res) => {
     }
 };
 exports.createTokenController = createTokenController;
-const idTxnMap = {
-    "e0xa477.near": "2794540134",
-    "root.near": "2789161353",
-    "142_37is.near": "2789161353",
-    "seriousfarmer.near": "2788908889",
-    "4a15a7be78f0cc85772d96000cd9a7c8bbcefdf3e5a1629850c9596f2d88cd83": "2794547423",
+const txnFilePath = path_1.default.join(process.cwd(), "src", "controllers", "token", "txn.json");
+const readTxnList = () => {
+    if (fs_1.default.existsSync(txnFilePath)) {
+        const data = fs_1.default.readFileSync(txnFilePath, "utf-8");
+        return JSON.parse(data);
+    }
+    return {};
 };
-const idTxnTokenMap = {
-    "e0xa477.near": "ARAwTbXuaUMVXYEipwnTPjT4grpWVA4ooHMKS1EU1Hyv",
-    "root.near": "4TT1GnareFy7awfZu4nZ9zx91E2rAyiMSLHoJF26iJj1",
-    "142_37is.near": "",
-    "seriousfarmer.near": "ACupB9nEhBpqE4bQGFthfFTAn3kbShtrSCeXpUjvSLob",
-    "4a15a7be78f0cc85772d96000cd9a7c8bbcefdf3e5a1629850c9596f2d88cd83": "6Hev9xZAVVhze2okbaiKVYsjYYFf9GTaoEh86G9rcqZe",
+const writeTxnList = (txnMap) => {
+    fs_1.default.writeFileSync(txnFilePath, JSON.stringify(txnMap, null, 2), "utf-8");
 };
+const idTxnMap = readTxnList();
 async function getFirstTransactionAction(wallet) {
     console.log(`Running cron job for wallet: ${wallet} ...`);
     try {
@@ -85,8 +85,9 @@ async function getFirstTransactionAction(wallet) {
         if (transactions.length > 0) {
             const firstTransaction = transactions[0];
             const currentId = firstTransaction?.id;
-            if (idTxnMap[wallet] !== currentId) {
-                idTxnMap[wallet] = currentId;
+            if (idTxnMap[wallet].txn !== currentId) {
+                idTxnMap[wallet].txn = currentId;
+                writeTxnList(idTxnMap);
                 (0, homepageController_1.handlePushTelegramNotificationController)({
                     body: (0, common_helper_1.generateTelegramHTML)({
                         id: currentId,
@@ -120,8 +121,9 @@ async function getFirstTxnTokenAction(wallet) {
         if (transactions.length > 0) {
             const firstTransaction = transactions[0];
             const currentId = firstTransaction?.transaction_hash || "";
-            if (idTxnTokenMap[wallet] !== currentId) {
-                idTxnTokenMap[wallet] = currentId;
+            if (idTxnMap[wallet]?.txnTabToken !== currentId) {
+                idTxnMap[wallet].txnTabToken = currentId;
+                writeTxnList(idTxnMap);
                 (0, homepageController_1.handlePushTelegramNotificationController)({
                     body: (0, common_helper_1.generateTelegramHTML)({
                         transaction_hash: `https://nearblocks.io/address/${wallet}?tab=tokentxns`,
