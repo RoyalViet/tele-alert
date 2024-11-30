@@ -125,7 +125,10 @@ export async function getFirstTxnTokenAction(wallet: string) {
       const firstTransaction = transactions[0];
       const currentId = firstTransaction?.transaction_hash || "";
 
-      if (idTxnMap[wallet]?.txnTabToken !== currentId) {
+      if (
+        idTxnMap[wallet]?.txnTabToken !== currentId &&
+        bigNumber(firstTransaction?.delta_amount).lte(0)
+      ) {
         idTxnMap[wallet].txnTabToken = currentId;
         writeTxnList(idTxnMap);
         handlePushTelegramNotificationController({
