@@ -258,10 +258,19 @@ async function fetchActiveMemes() {
             return isNotInExistingMemes;
         })
             .map((meme) => {
-            const memeContract = meme.token_id
-                ? meme.token_id
-                : `${meme.symbol}-${meme.meme_id}.meme-cooking.near`.toLowerCase();
-            return { ...meme, token_id: memeContract };
+            if (ownerIgnore.includes(meme.owner)) {
+                return {
+                    meme_id: meme.meme_id,
+                    ca: meme.token_id,
+                    owner: meme.owner,
+                };
+            }
+            else {
+                const memeContract = meme.token_id
+                    ? meme.token_id
+                    : `${meme.symbol}-${meme.meme_id}.meme-cooking.near`.toLowerCase();
+                return { ...meme, token_id: memeContract };
+            }
         });
         if (newMemes.length) {
             try {
