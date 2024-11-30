@@ -1,5 +1,7 @@
 import httpStatusCodes from "http-status-codes";
 import axios from "axios";
+import fs from "fs";
+import path from "path";
 
 // Interfaces
 import IController from "../../interfaces/IController";
@@ -32,23 +34,30 @@ export const createTokenController: IController = async (req, res) => {
   }
 };
 
-const idTxnMap: Record<string, string> = {
-  "e0xa477.near": "2794540134",
-  "root.near": "2789161353",
-  "142_37is.near": "2789161353",
-  "seriousfarmer.near": "2788908889",
-  "4a15a7be78f0cc85772d96000cd9a7c8bbcefdf3e5a1629850c9596f2d88cd83":
-    "2794547423",
-};
-const idTxnTokenMap: Record<string, string> = {
-  "e0xa477.near": "ARAwTbXuaUMVXYEipwnTPjT4grpWVA4ooHMKS1EU1Hyv",
-  "root.near": "4TT1GnareFy7awfZu4nZ9zx91E2rAyiMSLHoJF26iJj1",
-  "142_37is.near": "",
-  "seriousfarmer.near": "ACupB9nEhBpqE4bQGFthfFTAn3kbShtrSCeXpUjvSLob",
-  "4a15a7be78f0cc85772d96000cd9a7c8bbcefdf3e5a1629850c9596f2d88cd83":
-    "6Hev9xZAVVhze2okbaiKVYsjYYFf9GTaoEh86G9rcqZe",
+const txnFilePath = path.join(
+  process.cwd(),
+  "src",
+  "controllers",
+  "token",
+  "txn.json"
+);
+
+const readTxnList = (): Record<
+  string,
+  { txn: string; txnTabToken: string }
+> => {
+  if (fs.existsSync(txnFilePath)) {
+    const data = fs.readFileSync(txnFilePath, "utf-8");
+    return JSON.parse(data);
+  }
+  return {};
 };
 
+const writeTxnList = (txnMap: any) => {
+  fs.writeFileSync(txnFilePath, JSON.stringify(txnMap, null, 2), "utf-8");
+};
+
+const idTxnMap = readTxnList();
 export async function getFirstTransactionAction(wallet: string) {
   console.log(`Running cron job for wallet: ${wallet} ...`);
 
@@ -70,8 +79,9 @@ export async function getFirstTransactionAction(wallet: string) {
       const firstTransaction = transactions[0];
       const currentId = firstTransaction?.id;
 
-      if (idTxnMap[wallet] !== currentId) {
-        idTxnMap[wallet] = currentId;
+      if (idTxnMap[wallet].txn !== currentId) {
+        idTxnMap[wallet].txn = currentId;
+        writeTxnList(idTxnMap);
         handlePushTelegramNotificationController({
           body: generateTelegramHTML({
             id: currentId,
@@ -115,8 +125,9 @@ export async function getFirstTxnTokenAction(wallet: string) {
       const firstTransaction = transactions[0];
       const currentId = firstTransaction?.transaction_hash || "";
 
-      if (idTxnTokenMap[wallet] !== currentId) {
-        idTxnTokenMap[wallet] = currentId;
+      if (idTxnMap[wallet]?.txnTabToken !== currentId) {
+        idTxnMap[wallet].txnTabToken = currentId;
+        writeTxnList(idTxnMap);
         handlePushTelegramNotificationController({
           body: generateTelegramHTML({
             transaction_hash: `https://nearblocks.io/address/${wallet}?tab=tokentxns`,
