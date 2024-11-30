@@ -189,6 +189,7 @@ const ownerIgnore = [
     "w3_lab.tg",
     "wink_gambler.tg",
     "tigbitties.nea",
+    "memechief.near",
 ];
 const isPreListFollowTime = (targetTime) => {
     try {
@@ -261,7 +262,8 @@ async function fetchActiveMemes() {
             if (ownerIgnore.includes(meme.owner)) {
                 return {
                     meme_id: meme.meme_id,
-                    ca: meme.token_id,
+                    ca: meme.token_id ||
+                        `${meme.symbol}-${meme.meme_id}.meme-cooking.near`.toLowerCase(),
                     owner: meme.owner,
                 };
             }
