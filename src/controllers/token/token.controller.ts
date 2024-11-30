@@ -101,7 +101,7 @@ export async function getFirstTransactionAction(wallet: string) {
       console.log("No transactions found.");
     }
   } catch (error) {
-    console.error("Error fetching data txns");
+    console.error("Error getFirstTransactionAction fetching data txns");
   }
 }
 export async function getFirstTxnTokenAction(wallet: string) {
@@ -138,7 +138,7 @@ export async function getFirstTxnTokenAction(wallet: string) {
       console.log("No transactions found.");
     }
   } catch (error) {
-    console.error("Error fetching data txns");
+    console.error("Error getFirstTxnTokenAction fetching data txns");
   }
 }
 
