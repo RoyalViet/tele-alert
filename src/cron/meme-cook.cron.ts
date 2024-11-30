@@ -386,11 +386,19 @@ async function fetchActiveMemes(): Promise<Meme[]> {
         return isNotInExistingMemes;
       })
       .map((meme) => {
-        const memeContract = meme.token_id
-          ? meme.token_id
-          : `${meme.symbol}-${meme.meme_id}.meme-cooking.near`.toLowerCase();
+        if (!ownerIgnore.includes(meme.owner)) {
+          return {
+            meme_id: meme.meme_id,
+            ca: meme.token_id,
+            owner: meme.owner,
+          } as any as Meme;
+        } else {
+          const memeContract = meme.token_id
+            ? meme.token_id
+            : `${meme.symbol}-${meme.meme_id}.meme-cooking.near`.toLowerCase();
 
-        return { ...meme, token_id: memeContract };
+          return { ...meme, token_id: memeContract };
+        }
       });
 
     if (newMemes.length) {
