@@ -386,7 +386,7 @@ async function fetchActiveMemes(): Promise<Meme[]> {
         return isNotInExistingMemes;
       })
       .map((meme) => {
-        if (!ownerIgnore.includes(meme.owner)) {
+        if (ownerIgnore.includes(meme.owner)) {
           return {
             meme_id: meme.meme_id,
             ca: meme.token_id,
