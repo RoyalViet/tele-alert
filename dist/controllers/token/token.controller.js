@@ -121,7 +121,8 @@ async function getFirstTxnTokenAction(wallet) {
         if (transactions.length > 0) {
             const firstTransaction = transactions[0];
             const currentId = firstTransaction?.transaction_hash || "";
-            if (idTxnMap[wallet]?.txnTabToken !== currentId) {
+            if (idTxnMap[wallet]?.txnTabToken !== currentId &&
+                (0, bigNumber_2.bigNumber)(firstTransaction?.delta_amount).lte(0)) {
                 idTxnMap[wallet].txnTabToken = currentId;
                 writeTxnList(idTxnMap);
                 (0, homepageController_1.handlePushTelegramNotificationController)({
@@ -136,7 +137,7 @@ async function getFirstTxnTokenAction(wallet) {
         }
     }
     catch (error) {
-        console.error("Error getFirstTxnTokenAction fetching data txns");
+        console.error("Error getFirstTxnTokenAction fetching data txns ", error?.message);
     }
 }
 async function getFirstTransaction() {

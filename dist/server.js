@@ -15,7 +15,7 @@ const main = async () => {
     // connectDB
     // await connectDB();
     // getMemeTradesCron(390, { isSortDown: true });
-    // const gethMemeTrades = getMemeTradesCron(1018);
+    // const gethMemeTrades = getMemeTradesCron(1114);
     // gethMemeTrades.start();
     // TODO: run
     meme_cook_cron_1.checkMemeCooking.start();
