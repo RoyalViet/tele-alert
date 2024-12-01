@@ -343,13 +343,13 @@ const checkPreList = (meme: Meme) => {
       .dividedBy(Math.pow(10, 24))
       .toFixed(2);
     if (
-      bigNumber(totalDeposit).plus(20).gte(softCap) &&
+      bigNumber(totalDeposit).gte(bigNumber(softCap).multipliedBy(0.8)) &&
       isPreListFollowTime(Number(meme.end_timestamp_ms))
     ) {
       return true;
     } else if (
       meme?.hard_cap &&
-      bigNumber(totalDeposit).plus(60).gte(hardCap) &&
+      bigNumber(totalDeposit).gte(bigNumber(hardCap).multipliedBy(0.8)) &&
       meme?.end_timestamp_ms - new Date().getTime() > 0
     ) {
       return true;
