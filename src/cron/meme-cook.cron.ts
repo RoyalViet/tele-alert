@@ -264,7 +264,7 @@ function generateTelegramHTMLMemeCook(meme: Meme): string {
     "⭐ OwnerLink": `https://nearblocks.io/address/${meme.owner}?tab=tokentxns`,
     XLink: `https://x.com/search?q=${meme.owner}&src=typed_query`,
     TokenLink: `https://nearblocks.io/token/${memeContract}`,
-    "⭐ RefLink": `https://app.ref.finance/#usdt.tether-token.near|${memeContract}`,
+    "⭐ RefLink": `https://app.ref.finance/#${memeContract}|usdt.tether-token.near`,
     "⭐ DexLink": meme.pool_id
       ? `https://dexscreener.com/near/refv1-${meme.pool_id}`
       : "N/A",
