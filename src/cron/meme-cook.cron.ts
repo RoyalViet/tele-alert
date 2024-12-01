@@ -114,7 +114,10 @@ export const fetchMemeTrades = async (
           amount: formatBalance(i.amount) + " Near",
           percent: percent.toFixed(2) + " %",
           numberOfTokens: `Σ1B => ≈ ${formatBigNumberByUnit(
-            bigNumber(1000000000).multipliedBy(percent).dividedBy(100)
+            bigNumber(1000000000)
+              .multipliedBy(percent)
+              .dividedBy(100)
+              .dividedBy(2)
           )}`,
         };
       });
