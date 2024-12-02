@@ -71,7 +71,10 @@ const fetchMemeTrades = async (memeId, options) => {
                 ...i,
                 amount: (0, bigNumber_1.formatBalance)(i.amount) + " Near",
                 percent: percent.toFixed(2) + " %",
-                numberOfTokens: `Σ1B => ≈ ${(0, common_helper_1.formatBigNumberByUnit)((0, bigNumber_1.bigNumber)(1000000000).multipliedBy(percent).dividedBy(100))}`,
+                numberOfTokens: `Σ1B => ≈ ${(0, common_helper_1.formatBigNumberByUnit)((0, bigNumber_1.bigNumber)(1000000000)
+                    .multipliedBy(percent)
+                    .dividedBy(100)
+                    .dividedBy(2))}`,
             };
         });
         console.log(sortedResult, (0, bigNumber_1.formatBalance)(totalAmount, 2) + " Near");
@@ -219,12 +222,12 @@ const checkPreList = (meme) => {
         const hardCap = (0, bigNumber_1.bigNumber)(meme.hard_cap || 0)
             .dividedBy(Math.pow(10, 24))
             .toFixed(2);
-        if ((0, bigNumber_1.bigNumber)(totalDeposit).plus(20).gte(softCap) &&
+        if ((0, bigNumber_1.bigNumber)(totalDeposit).gte((0, bigNumber_1.bigNumber)(softCap).multipliedBy(0.8)) &&
             (0, exports.isPreListFollowTime)(Number(meme.end_timestamp_ms))) {
             return true;
         }
         else if (meme?.hard_cap &&
-            (0, bigNumber_1.bigNumber)(totalDeposit).plus(60).gte(hardCap) &&
+            (0, bigNumber_1.bigNumber)(totalDeposit).gte((0, bigNumber_1.bigNumber)(hardCap).multipliedBy(0.8)) &&
             meme?.end_timestamp_ms - new Date().getTime() > 0) {
             return true;
         }

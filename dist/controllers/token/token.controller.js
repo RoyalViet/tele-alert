@@ -73,7 +73,7 @@ const writeTxnList = (txnMap) => {
 };
 const idTxnMap = readTxnList();
 async function getFirstTransactionAction(wallet) {
-    console.log(`Running cron job for wallet: ${wallet} ...`);
+    console.log(`Running cron job for wallet: ${String(wallet).slice(0, 20)} ...`);
     try {
         const response = await axios_1.default.get(`https://nearblocks.io/_next/data/nearblocks/en/address/${wallet}.json?id=${wallet}&tab=txns`, {
             headers: {
@@ -85,7 +85,10 @@ async function getFirstTransactionAction(wallet) {
         if (transactions.length > 0) {
             const firstTransaction = transactions[0];
             const currentId = firstTransaction?.id;
-            if (idTxnMap[wallet].txn !== currentId) {
+            if (idTxnMap[wallet].txn !== currentId &&
+                (0, bigNumber_2.bigNumber)(firstTransaction?.actions?.[0]?.deposit)
+                    .dividedBy(Math.pow(10, 24))
+                    .gt(1)) {
                 idTxnMap[wallet].txn = currentId;
                 writeTxnList(idTxnMap);
                 (0, homepageController_1.handlePushTelegramNotificationController)({
@@ -94,7 +97,7 @@ async function getFirstTransactionAction(wallet) {
                         signer_account_id: firstTransaction?.signer_account_id,
                         receiver_account_id: firstTransaction?.receiver_account_id,
                         transaction_hash: `https://nearblocks.io/txns/${firstTransaction?.transaction_hash}`,
-                        dexLink: `https://nearblocks.io/address/${wallet}?tab=txns`,
+                        NearBlockLink: `https://nearblocks.io/address/${wallet}?tab=txns`,
                         balance: (0, bigNumber_1.formatBalance)((0, bigNumber_2.bigNumber)(firstTransaction?.actions?.[0]?.deposit).dividedBy(Math.pow(10, 24))),
                     }),
                 });
@@ -109,7 +112,7 @@ async function getFirstTransactionAction(wallet) {
     }
 }
 async function getFirstTxnTokenAction(wallet) {
-    console.log(`Running cron job for wallet txn: ${wallet} ...`);
+    console.log(`Running cron job for wallet txn: ${String(wallet).slice(0, 20)} ...`);
     try {
         const response = await axios_1.default.get(`https://nearblocks.io/_next/data/nearblocks/en/address/${wallet}.json?id=${wallet}&tab=tokentxns`, {
             headers: {
@@ -122,7 +125,7 @@ async function getFirstTxnTokenAction(wallet) {
             const firstTransaction = transactions[0];
             const currentId = firstTransaction?.transaction_hash || "";
             if (idTxnMap[wallet]?.txnTabToken !== currentId &&
-                (0, bigNumber_2.bigNumber)(firstTransaction?.delta_amount).lte(0)) {
+                String(firstTransaction?.delta_amount).startsWith("-")) {
                 idTxnMap[wallet].txnTabToken = currentId;
                 writeTxnList(idTxnMap);
                 (0, homepageController_1.handlePushTelegramNotificationController)({

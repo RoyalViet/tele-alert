@@ -59,7 +59,9 @@ const writeTxnList = (txnMap: any) => {
 
 const idTxnMap = readTxnList();
 export async function getFirstTransactionAction(wallet: string) {
-  console.log(`Running cron job for wallet: ${wallet} ...`);
+  console.log(
+    `Running cron job for wallet: ${String(wallet).slice(0, 20)} ...`
+  );
 
   try {
     const response = await axios.get(
@@ -79,7 +81,12 @@ export async function getFirstTransactionAction(wallet: string) {
       const firstTransaction = transactions[0];
       const currentId = firstTransaction?.id;
 
-      if (idTxnMap[wallet].txn !== currentId) {
+      if (
+        idTxnMap[wallet].txn !== currentId &&
+        bigNumber(firstTransaction?.actions?.[0]?.deposit)
+          .dividedBy(Math.pow(10, 24))
+          .gt(1)
+      ) {
         idTxnMap[wallet].txn = currentId;
         writeTxnList(idTxnMap);
         handlePushTelegramNotificationController({
@@ -88,7 +95,7 @@ export async function getFirstTransactionAction(wallet: string) {
             signer_account_id: firstTransaction?.signer_account_id,
             receiver_account_id: firstTransaction?.receiver_account_id,
             transaction_hash: `https://nearblocks.io/txns/${firstTransaction?.transaction_hash}`,
-            dexLink: `https://nearblocks.io/address/${wallet}?tab=txns`,
+            NearBlockLink: `https://nearblocks.io/address/${wallet}?tab=txns`,
             balance: formatBalance(
               bigNumber(firstTransaction?.actions?.[0]?.deposit).dividedBy(
                 Math.pow(10, 24)
@@ -105,7 +112,9 @@ export async function getFirstTransactionAction(wallet: string) {
   }
 }
 export async function getFirstTxnTokenAction(wallet: string) {
-  console.log(`Running cron job for wallet txn: ${wallet} ...`);
+  console.log(
+    `Running cron job for wallet txn: ${String(wallet).slice(0, 20)} ...`
+  );
 
   try {
     const response = await axios.get(
@@ -127,7 +136,7 @@ export async function getFirstTxnTokenAction(wallet: string) {
 
       if (
         idTxnMap[wallet]?.txnTabToken !== currentId &&
-        bigNumber(firstTransaction?.delta_amount).lte(0)
+        String(firstTransaction?.delta_amount).startsWith("-")
       ) {
         idTxnMap[wallet].txnTabToken = currentId;
         writeTxnList(idTxnMap);

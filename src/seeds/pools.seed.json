@@ -1,5 +1,78 @@
 [
   {
+    "owner": "ailex.near",
+    "token_contract": "ailex-1155.meme-cooking.near",
+    "memeId": 1155,
+    "___": "==============================",
+    "pool_id": 5761,
+    "token_account_ids": [
+      "ailex-1155.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "AILEX",
+    "name": "AILEXAURORADEV"
+  },
+  {
+    "owner": "therealdonaldtrump.near",
+    "pool_id": 5760,
+    "token_account_ids": [
+      "trump.tknx.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "TRUMP",
+    "name": "TRUMP",
+    "token_contract": "trump.tknx.near"
+  },
+  {
+    "owner": "cb40b2c6c151e67e99abbe94ac8eff98dd7b59c89d7d9a73b0d8b5e117e83b66",
+    "token_contract": "dia-1144.meme-cooking.near",
+    "memeId": 1144,
+    "___": "==============================",
+    "pool_id": 5759,
+    "token_account_ids": [
+      "dia-1144.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "DIA",
+    "name": "DeAiCember"
+  },
+  {
+    "owner": "q8i.near",
+    "token_contract": "iota-1123.meme-cooking.near",
+    "memeId": 1123,
+    "___": "==============================",
+    "pool_id": 5758,
+    "token_account_ids": [
+      "iota-1123.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "IOTA",
+    "name": "IOTA sui la!"
+  },
+  {
+    "owner": "operator0.near",
+    "token_contract": "sinners-1137.meme-cooking.near",
+    "memeId": 1137,
+    "___": "==============================",
+    "pool_id": 5756,
+    "token_account_ids": [
+      "sinners-1137.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "SINNERS",
+    "name": "We are sinners"
+  },
+  {
     "owner": "dragons_deploy.near",
     "token_contract": "drags-1124.meme-cooking.near",
     "memeId": 1124,
