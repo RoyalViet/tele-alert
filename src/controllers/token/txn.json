@@ -1,10 +1,10 @@
 {
   "marior.near": {
     "txn": "2814172323",
-    "txnTabToken": "4BUwPagPfoStaUc41b3LKEDZrkGAD2f7Ft4jYHp8t6P8"
+    "txnTabToken": "BjbaKX8JrS3netTutbKrwoqteGHWjUmaFzmjGmXtArom"
   },
   "singularityisnear.near": {
-    "txn": "2818900833",
+    "txn": "2821547422",
     "txnTabToken": "vbqCa1FNGZc3QS7u5mp3cdXDUcYNgukTwuQtB1LUvTe"
   },
   "root.near": {
@@ -27,16 +27,12 @@
     "txn": "2788908889",
     "txnTabToken": "EmP8isCJSA71vwPoE7Fq61ky7GZ61Fwhqf1Faa6r2BcH"
   },
-  "4a15a7be78f0cc85772d96000cd9a7c8bbcefdf3e5a1629850c9596f2d88cd83": {
-    "txn": "2798181885",
-    "txnTabToken": "5cVFEUnWRRxMv9UQZd9MERM792RTise6gNPEbrnuFvUF"
-  },
   "e0xa477.near": {
     "txn": "2794540134",
     "txnTabToken": "ARAwTbXuaUMVXYEipwnTPjT4grpWVA4ooHMKS1EU1Hyv"
   },
   "megdanov.near": {
     "txn": "2794540134",
-    "txnTabToken": "ARAwTbXuaUMVXYEipwnTPjT4grpWVA4ooHMKS1EU1Hyv"
+    "txnTabToken": "52uWWWnG6TuQyJd8Zy8BEJ2csb7o1KbjZpHo9W2yXZxo"
   }
 }
