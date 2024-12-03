@@ -1,5 +1,80 @@
 [
   {
+    "owner": "aescobardap.near",
+    "token_contract": "aesco-1180.meme-cooking.near",
+    "memeId": 1180,
+    "___": "==============================",
+    "pool_id": 5770,
+    "token_account_ids": [
+      "aesco-1180.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "AESCO",
+    "name": "AESCOBAR"
+  },
+  {
+    "owner": "thehatchening.near",
+    "token_contract": "hatchening-1176.meme-cooking.near",
+    "memeId": 1176,
+    "___": "==============================",
+    "pool_id": 5769,
+    "token_account_ids": [
+      "hatchening-1176.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "Hatchening",
+    "name": "The Hatchening"
+  },
+  {
+    "owner": "smokingcatfish.near",
+    "token_contract": "scf-1171.meme-cooking.near",
+    "memeId": 1171,
+    "___": "==============================",
+    "pool_id": 5768,
+    "token_account_ids": [
+      "scf-1171.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "SCF",
+    "name": "Smokingcatfish"
+  },
+  {
+    "owner": "huggies.near",
+    "token_contract": "shit-1170.meme-cooking.near",
+    "memeId": 1170,
+    "___": "==============================",
+    "pool_id": 5767,
+    "token_account_ids": [
+      "shit-1170.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "SHIT",
+    "name": "$SHIT by Huggies"
+  },
+  {
+    "owner": "upcember.near",
+    "token_contract": "upcember-1169.meme-cooking.near",
+    "memeId": 1169,
+    "___": "==============================",
+    "pool_id": 5765,
+    "token_account_ids": [
+      "upcember-1169.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "Upcember",
+    "name": "Upcember"
+  },
+  {
     "owner": "nftgokhanerbatu.near",
     "token_contract": "dememecember-1166.meme-cooking.near",
     "memeId": 1166,
