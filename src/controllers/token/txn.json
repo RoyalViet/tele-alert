@@ -1,19 +1,19 @@
 {
+  "singularityisnear.near": {
+    "txn": "2833771152",
+    "txnTabToken": "4QsLqAf8MFLW9XkWNSLEKS9yancKqrp4jDqWF9uYzYoC"
+  },
   "marior.near": {
     "txn": "2814172323",
-    "txnTabToken": "BjbaKX8JrS3netTutbKrwoqteGHWjUmaFzmjGmXtArom"
-  },
-  "singularityisnear.near": {
-    "txn": "2821547422",
-    "txnTabToken": "vbqCa1FNGZc3QS7u5mp3cdXDUcYNgukTwuQtB1LUvTe"
+    "txnTabToken": "8YfMhUMQaEAnuLzKdB4YZecbYfu4idJYpDYYfbWWEzn6"
   },
   "root.near": {
     "txn": "2789161353",
     "txnTabToken": "9v31qg8jguuS2aCFeTft85MEZRh7jushx9WejWzUKuvi"
   },
   "screamingautist.near": {
-    "txn": "2815872956",
-    "txnTabToken": "7ckgHuJuUmmSxQNTWwoqV7kv13jcD4gf713P94MVX28E"
+    "txn": "2833146092",
+    "txnTabToken": "mhTUsfemgDcGyTmePmxfMP7oGqFxQBWRoMhW6aseduw"
   },
   "lele.near": {
     "txn": "2817890337",
@@ -32,7 +32,11 @@
     "txnTabToken": "ARAwTbXuaUMVXYEipwnTPjT4grpWVA4ooHMKS1EU1Hyv"
   },
   "megdanov.near": {
-    "txn": "2794540134",
-    "txnTabToken": "52uWWWnG6TuQyJd8Zy8BEJ2csb7o1KbjZpHo9W2yXZxo"
+    "txn": "2824391468",
+    "txnTabToken": "A3XGm4WSaSHYk46R8kZ7MdqYf3yyFzC5q1doHtd6ECdS"
+  },
+  "dcc81d49b62bf89e1a07de111c32aa89fb4b6859e8bd47fa73052df9e3599244": {
+    "txn": "2824391468",
+    "txnTabToken": "A3XGm4WSaSHYk46R8kZ7MdqYf3yyFzC5q1doHtd6ECdS"
   }
 }

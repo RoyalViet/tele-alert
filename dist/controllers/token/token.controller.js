@@ -72,6 +72,7 @@ const writeTxnList = (txnMap) => {
     fs_1.default.writeFileSync(txnFilePath, JSON.stringify(txnMap, null, 2), "utf-8");
 };
 // 4a15a7be78f0cc85772d96000cd9a7c8bbcefdf3e5a1629850c9596f2d88cd83
+// singularityisnear.near
 const idTxnMap = readTxnList();
 async function getFirstTransactionAction(wallet) {
     console.log(`Running cron job for wallet: ${String(wallet).slice(0, 20)} ...`);
@@ -83,7 +84,7 @@ async function getFirstTransactionAction(wallet) {
             },
         });
         const transactions = response?.data?.pageProps?.data?.txns;
-        if (transactions.length > 0) {
+        if (transactions?.length > 0) {
             const firstTransaction = transactions[0];
             const currentId = firstTransaction?.id;
             if (idTxnMap[wallet].txn !== currentId &&
@@ -122,7 +123,7 @@ async function getFirstTxnTokenAction(wallet) {
             },
         });
         const transactions = response?.data?.pageProps?.data?.txns;
-        if (transactions.length > 0) {
+        if (transactions?.length > 0) {
             const firstTransaction = transactions[0];
             const currentId = firstTransaction?.transaction_hash || "";
             if (idTxnMap[wallet]?.txnTabToken !== currentId &&

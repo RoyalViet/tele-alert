@@ -58,6 +58,7 @@ const writeTxnList = (txnMap: any) => {
 };
 
 // 4a15a7be78f0cc85772d96000cd9a7c8bbcefdf3e5a1629850c9596f2d88cd83
+// singularityisnear.near
 const idTxnMap = readTxnList();
 export async function getFirstTransactionAction(wallet: string) {
   console.log(
@@ -78,7 +79,7 @@ export async function getFirstTransactionAction(wallet: string) {
 
     const transactions = response?.data?.pageProps?.data?.txns;
 
-    if (transactions.length > 0) {
+    if (transactions?.length > 0) {
       const firstTransaction = transactions[0];
       const currentId = firstTransaction?.id;
 
@@ -131,7 +132,7 @@ export async function getFirstTxnTokenAction(wallet: string) {
 
     const transactions = response?.data?.pageProps?.data?.txns;
 
-    if (transactions.length > 0) {
+    if (transactions?.length > 0) {
       const firstTransaction = transactions[0];
       const currentId = firstTransaction?.transaction_hash || "";
 
