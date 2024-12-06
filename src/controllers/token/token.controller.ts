@@ -58,10 +58,6 @@ const writeTxnList = (txnMap: any) => {
   fs.writeFileSync(txnFilePath, JSON.stringify(txnMap, null, 2), "utf-8");
 };
 
-// 4a15a7be78f0cc85772d96000cd9a7c8bbcefdf3e5a1629850c9596f2d88cd83
-// singularityisnear.near
-// megdanov.near
-// dcc81d49b62bf89e1a07de111c32aa89fb4b6859e8bd47fa73052df9e3599244
 const idTxnMap = readTxnList();
 export async function getFirstTransactionAction(wallet: string) {
   console.log(
