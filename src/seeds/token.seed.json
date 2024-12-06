@@ -1,5 +1,35 @@
 [
   {
+    "owner": "carolin.near",
+    "token_contract": "wmn-1231.meme-cooking.near",
+    "memeId": 1231,
+    "___": "==============================",
+    "pool_id": 5785,
+    "token_account_ids": [
+      "wmn-1231.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "WMN",
+    "name": "Women in Blockchain Meetup 5th December"
+  },
+  {
+    "owner": "a22s.near",
+    "token_contract": "done-1226.meme-cooking.near",
+    "memeId": 1226,
+    "___": "==============================",
+    "pool_id": 5784,
+    "token_account_ids": [
+      "done-1226.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "DONE",
+    "name": "D.O.N.E"
+  },
+  {
     "owner": "a22s.near",
     "token_contract": "done-1213.meme-cooking.near",
     "memeId": 1213,

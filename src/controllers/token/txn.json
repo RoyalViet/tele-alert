@@ -1,11 +1,15 @@
 {
-  "singularityisnear.near": {
+  "funnook7424.near": {
+    "txn": "2833771152",
+    "txnTabToken": "4QsLqAf8MFLW9XkWNSLEKS9yancKqrp4jDqWF9uYzYoC"
+  },
+  "jindoh.near": {
     "txn": "2833771152",
     "txnTabToken": "4QsLqAf8MFLW9XkWNSLEKS9yancKqrp4jDqWF9uYzYoC"
   },
   "marior.near": {
-    "txn": "2814172323",
-    "txnTabToken": "8YfMhUMQaEAnuLzKdB4YZecbYfu4idJYpDYYfbWWEzn6"
+    "txn": "2845267674",
+    "txnTabToken": "H1q5kKB3MccusnNV2hTmCW6kygAsVM5dDvHXvkwx4WNa"
   },
   "root.near": {
     "txn": "2789161353",
@@ -17,7 +21,7 @@
   },
   "lele.near": {
     "txn": "2817890337",
-    "txnTabToken": "C4pDSygKDRQ56F715PTpGUUN2vtjRXkMSG6oeN4k5ysK"
+    "txnTabToken": "2ERUyytZkpqDFv39nfWiaBr6yfFcw843v7V55ipT6bCK"
   },
   "142_37is.near": {
     "txn": "2807487959",
@@ -31,12 +35,8 @@
     "txn": "2794540134",
     "txnTabToken": "ARAwTbXuaUMVXYEipwnTPjT4grpWVA4ooHMKS1EU1Hyv"
   },
-  "megdanov.near": {
-    "txn": "2824391468",
-    "txnTabToken": "A3XGm4WSaSHYk46R8kZ7MdqYf3yyFzC5q1doHtd6ECdS"
-  },
-  "dcc81d49b62bf89e1a07de111c32aa89fb4b6859e8bd47fa73052df9e3599244": {
-    "txn": "2824391468",
-    "txnTabToken": "A3XGm4WSaSHYk46R8kZ7MdqYf3yyFzC5q1doHtd6ECdS"
+  "do_not_fade_anon.near": {
+    "txn": "2838360180",
+    "txnTabToken": "XZ4gH4ybkqPBzuuTnhHuqJXJYLxkTuH1qeMQUuZwBUP"
   }
 }

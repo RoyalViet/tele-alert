@@ -193,6 +193,9 @@ const ownerIgnore = [
     "wink_gambler.tg",
     "tigbitties.nea",
     "memechief.near",
+    "droptheca.near",
+    "meme-creator.near",
+    "meme-cookinq.near",
 ];
 const isPreListFollowTime = (targetTime) => {
     try {

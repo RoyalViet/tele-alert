@@ -16,6 +16,7 @@ import { formatBalance } from "../../common/helper/bigNumber";
 import { bigNumber } from "../../common/helper/bigNumber";
 import { handlePushTelegramNotificationController } from "../common/homepageController";
 import { delay, generateTelegramHTML } from "../../common/helper/common.helper";
+import { bignumber } from "mathjs";
 
 export const createTokenController: IController = async (req, res) => {
   try {
@@ -59,6 +60,8 @@ const writeTxnList = (txnMap: any) => {
 
 // 4a15a7be78f0cc85772d96000cd9a7c8bbcefdf3e5a1629850c9596f2d88cd83
 // singularityisnear.near
+// megdanov.near
+// dcc81d49b62bf89e1a07de111c32aa89fb4b6859e8bd47fa73052df9e3599244
 const idTxnMap = readTxnList();
 export async function getFirstTransactionAction(wallet: string) {
   console.log(
@@ -145,6 +148,14 @@ export async function getFirstTxnTokenAction(wallet: string) {
         handlePushTelegramNotificationController({
           body: generateTelegramHTML({
             transaction_hash: `https://nearblocks.io/address/${wallet}?tab=tokentxns`,
+            affected_account_id: firstTransaction?.affected_account_id,
+            involved_account_id: firstTransaction?.involved_account_id,
+            token: firstTransaction?.ft?.symbol,
+            balance: formatBalance(
+              bigNumber(firstTransaction?.delta_amount).dividedBy(
+                Math.pow(10, firstTransaction?.ft?.decimals || 6)
+              )
+            ),
           }),
         });
       }
