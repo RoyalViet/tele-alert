@@ -141,6 +141,12 @@ export async function getFirstTxnTokenAction(wallet: string) {
       ) {
         idTxnMap[wallet].txnTabToken = currentId;
         writeTxnList(idTxnMap);
+        if (
+          wallet === "stasiey.near" &&
+          ["ABG", "SOL", "PURGE"].includes(firstTransaction?.ft?.symbol)
+        ) {
+          return;
+        }
         handlePushTelegramNotificationController({
           body: generateTelegramHTML({
             transaction_hash: `https://nearblocks.io/address/${wallet}?tab=tokentxns`,

@@ -71,10 +71,6 @@ const readTxnList = () => {
 const writeTxnList = (txnMap) => {
     fs_1.default.writeFileSync(txnFilePath, JSON.stringify(txnMap, null, 2), "utf-8");
 };
-// 4a15a7be78f0cc85772d96000cd9a7c8bbcefdf3e5a1629850c9596f2d88cd83
-// singularityisnear.near
-// megdanov.near
-// dcc81d49b62bf89e1a07de111c32aa89fb4b6859e8bd47fa73052df9e3599244
 const idTxnMap = readTxnList();
 async function getFirstTransactionAction(wallet) {
     console.log(`Running cron job for wallet: ${String(wallet).slice(0, 20)} ...`);
@@ -132,6 +128,10 @@ async function getFirstTxnTokenAction(wallet) {
                 String(firstTransaction?.delta_amount).startsWith("-")) {
                 idTxnMap[wallet].txnTabToken = currentId;
                 writeTxnList(idTxnMap);
+                if (wallet === "stasiey.near" &&
+                    ["ABG", "SOL", "PURGE"].includes(firstTransaction?.ft?.symbol)) {
+                    return;
+                }
                 (0, homepageController_1.handlePushTelegramNotificationController)({
                     body: (0, common_helper_1.generateTelegramHTML)({
                         transaction_hash: `https://nearblocks.io/address/${wallet}?tab=tokentxns`,

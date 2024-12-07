@@ -4,6 +4,7 @@ Nên watch , lái Purge
 // 67ea67ca0a2d9477282e00184ee6129c196c7db0bdfcac6aedba4b3e05c2d4e8
 // dumbowombo.near
 // 83f7c2269855778ad35122ab3b18d4d0ccfbf9f46e7483f1a1cd54433db29756
+// jindoh.near
 
 Tích trữ Purge
 // ca92f4e153a45d63822b61431aa6478ce6f10431bf6308617dd67515bcaaf7b9
@@ -19,3 +20,5 @@ Có thể watch
 // singularityisnear.near
 // megdanov.near
 // dcc81d49b62bf89e1a07de111c32aa89fb4b6859e8bd47fa73052df9e3599244
+// 142_37is.near
+// marior.near

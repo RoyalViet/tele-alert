@@ -52,7 +52,8 @@ const writePriceTokenList = (tokenList: Record<string, any>) => {
 
 let count = 1;
 const MAX_COUNT = 2;
-export const contract = "game.hot.tg";
+export const contract = "rin.tkn.near";
+// export const contract = "game.hot.tg";
 const wNearContract = "wrap.near";
 
 interface TokenPrice {

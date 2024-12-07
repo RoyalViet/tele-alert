@@ -39,7 +39,8 @@ const writePriceTokenList = (tokenList) => {
 };
 let count = 1;
 const MAX_COUNT = 2;
-exports.contract = "game.hot.tg";
+exports.contract = "rin.tkn.near";
+// export const contract = "game.hot.tg";
 const wNearContract = "wrap.near";
 const fetchTokenPrices = async () => {
     const response = await axios_1.default.get(`https://api.ref.finance/list-token-price`);

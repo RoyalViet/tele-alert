@@ -1,5 +1,20 @@
 [
   {
+    "owner": "c808d5b587655a048d3b8da843a6f2c18ffa9e9c8716dd45f3f6854703990682",
+    "token_contract": "gymray-1245.meme-cooking.near",
+    "memeId": 1245,
+    "___": "==============================",
+    "pool_id": 5786,
+    "token_account_ids": [
+      "gymray-1245.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "GYMRAY",
+    "name": "GYMRAY "
+  },
+  {
     "owner": "carolin.near",
     "token_contract": "wmn-1231.meme-cooking.near",
     "memeId": 1231,
