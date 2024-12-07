@@ -97,11 +97,11 @@ export async function getFirstTransactionAction(wallet: string) {
             receiver_account_id: firstTransaction?.receiver_account_id,
             transaction_hash: `https://nearblocks.io/txns/${firstTransaction?.transaction_hash}`,
             NearBlockLink: `https://nearblocks.io/address/${wallet}?tab=txns`,
-            balance: formatBalance(
+            balance: `${formatBalance(
               bigNumber(firstTransaction?.actions?.[0]?.deposit).dividedBy(
                 Math.pow(10, 24)
               )
-            ),
+            )} Near`,
           }),
         });
       }
@@ -152,12 +152,11 @@ export async function getFirstTxnTokenAction(wallet: string) {
             transaction_hash: `https://nearblocks.io/address/${wallet}?tab=tokentxns`,
             affected_account_id: firstTransaction?.affected_account_id,
             involved_account_id: firstTransaction?.involved_account_id,
-            token: firstTransaction?.ft?.symbol,
-            balance: formatBalance(
+            balance: `${formatBalance(
               bigNumber(firstTransaction?.delta_amount).dividedBy(
                 Math.pow(10, firstTransaction?.ft?.decimals || 6)
               )
-            ),
+            )} ${firstTransaction?.ft?.symbol}`,
           }),
         });
       }
