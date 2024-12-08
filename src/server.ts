@@ -18,15 +18,15 @@ const main = async () => {
   // await connectDB();
 
   // getMemeTradesCron(390, { isSortDown: true });
-  const id = 1207;
-  fetchMemeTrades(id);
-  const gethMemeTrades = getMemeTradesCron(id);
-  gethMemeTrades.start();
+  // const id = 1207;
+  // fetchMemeTrades(id);
+  // const gethMemeTrades = getMemeTradesCron(id);
+  // gethMemeTrades.start();
 
   // TODO: run
-  // checkMemeCooking.start();
-  // checkRefPoolToken.start();
-  // checkTxn.start();
+  checkMemeCooking.start();
+  checkRefPoolToken.start();
+  checkTxn.start();
   // checkRadiumPoolToken.start();
 
   // test
