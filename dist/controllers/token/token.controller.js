@@ -128,7 +128,7 @@ async function getFirstTxnTokenAction(wallet) {
                 firstTransaction?.involved_account_id ===
                     "contract.portalbridge.near" &&
                 !String(firstTransaction?.delta_amount).startsWith("-") &&
-                !["SOL"].includes(firstTransaction?.ft?.symbol)) {
+                !["SOL", "wSOL"].includes(firstTransaction?.ft?.symbol)) {
                 (0, homepageController_1.handlePushTelegramNotificationController)({
                     body: (0, common_helper_1.generateTelegramHTML)({
                         transaction_hash: `https://nearblocks.io/address/${wallet}?tab=tokentxns`,
@@ -139,7 +139,8 @@ async function getFirstTxnTokenAction(wallet) {
                 });
             }
             if (idTxnMap[wallet]?.txnTabToken !== currentId &&
-                String(firstTransaction?.delta_amount).startsWith("-")) {
+                !String(firstTransaction?.delta_amount).startsWith("-") &&
+                firstTransaction?.involved_account_id === "v2.ref-finance.near") {
                 idTxnMap[wallet].txnTabToken = currentId;
                 writeTxnList(idTxnMap);
                 if (wallet === "stasiey.near" &&

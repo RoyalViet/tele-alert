@@ -140,7 +140,7 @@ export async function getFirstTxnTokenAction(wallet: string) {
         firstTransaction?.involved_account_id ===
           "contract.portalbridge.near" &&
         !String(firstTransaction?.delta_amount).startsWith("-") &&
-        !["SOL"].includes(firstTransaction?.ft?.symbol)
+        !["SOL", "wSOL"].includes(firstTransaction?.ft?.symbol)
       ) {
         handlePushTelegramNotificationController({
           body: generateTelegramHTML({
@@ -158,7 +158,8 @@ export async function getFirstTxnTokenAction(wallet: string) {
 
       if (
         idTxnMap[wallet]?.txnTabToken !== currentId &&
-        String(firstTransaction?.delta_amount).startsWith("-")
+        !String(firstTransaction?.delta_amount).startsWith("-") &&
+        firstTransaction?.involved_account_id === "v2.ref-finance.near"
       ) {
         idTxnMap[wallet].txnTabToken = currentId;
         writeTxnList(idTxnMap);
