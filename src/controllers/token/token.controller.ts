@@ -140,7 +140,7 @@ export async function getFirstTxnTokenAction(wallet: string) {
         firstTransaction?.involved_account_id ===
           "contract.portalbridge.near" &&
         !String(firstTransaction?.delta_amount).startsWith("-") &&
-        ["SOL"].includes(firstTransaction?.ft?.symbol)
+        !["SOL"].includes(firstTransaction?.ft?.symbol)
       ) {
         handlePushTelegramNotificationController({
           body: generateTelegramHTML({
