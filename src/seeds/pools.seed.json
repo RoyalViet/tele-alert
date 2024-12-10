@@ -1,5 +1,63 @@
 [
   {
+    "owner": "datsyshynroman.near",
+    "token_contract": "nsanta-1274.meme-cooking.near",
+    "memeId": 1274,
+    "___": "==============================",
+    "pool_id": 5796,
+    "token_account_ids": [
+      "nsanta-1274.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "NSANTA",
+    "name": "NEAR SANTA"
+  },
+  {
+    "owner": "purrcoin.near",
+    "pool_id": 5795,
+    "token_account_ids": [
+      "purr.tkn.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "PURR",
+    "name": "Purr Coin",
+    "token_contract": "purr.tkn.near"
+  },
+  {
+    "owner": "mutantonnear.near",
+    "token_contract": "mutant-1282.meme-cooking.near",
+    "memeId": 1282,
+    "___": "==============================",
+    "pool_id": 5794,
+    "token_account_ids": [
+      "mutant-1282.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "MUTANT",
+    "name": "MUTANT"
+  },
+  {
+    "owner": "near_raen.near",
+    "token_contract": "timer-1281.meme-cooking.near",
+    "memeId": 1281,
+    "___": "==============================",
+    "pool_id": 5793,
+    "token_account_ids": [
+      "timer-1281.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "TIMER",
+    "name": "TradeTimer"
+  },
+  {
     "owner": "qiv5da_dragon.dragon_bot.near",
     "token_contract": "bullish-1254.meme-cooking.near",
     "memeId": 1254,
