@@ -96,7 +96,7 @@ async function getFirstTransactionAction(wallet) {
                         id: currentId,
                         signer_account_id: firstTransaction?.signer_account_id,
                         receiver_account_id: firstTransaction?.receiver_account_id,
-                        transaction_hash: `https://nearblocks.io/txns/${firstTransaction?.transaction_hash}`,
+                        // transaction_hash: `https://nearblocks.io/txns/${firstTransaction?.transaction_hash}`,
                         NearBlockLink: `https://nearblocks.io/address/${wallet}?tab=txns`,
                         balance: `${(0, bigNumber_1.formatBalance)((0, bigNumber_2.bigNumber)(firstTransaction?.actions?.[0]?.deposit).dividedBy(Math.pow(10, 24)))} Near`,
                     }),
@@ -124,32 +124,15 @@ async function getFirstTxnTokenAction(wallet) {
         if (transactions?.length > 0) {
             const firstTransaction = transactions[0];
             const currentId = firstTransaction?.transaction_hash || "";
-            if (wallet === "stasiey.near" &&
-                firstTransaction?.involved_account_id ===
-                    "contract.portalbridge.near" &&
-                !String(firstTransaction?.delta_amount).startsWith("-") &&
-                !["SOL", "wSOL"].includes(firstTransaction?.ft?.symbol)) {
-                (0, homepageController_1.handlePushTelegramNotificationController)({
-                    body: (0, common_helper_1.generateTelegramHTML)({
-                        transaction_hash: `https://nearblocks.io/address/${wallet}?tab=tokentxns`,
-                        affected_account_id: firstTransaction?.affected_account_id,
-                        involved_account_id: firstTransaction?.involved_account_id,
-                        balance: `${(0, bigNumber_1.formatBalance)((0, bigNumber_2.bigNumber)(firstTransaction?.delta_amount).dividedBy(Math.pow(10, firstTransaction?.ft?.decimals || 6)))} ${firstTransaction?.ft?.symbol}`,
-                    }),
-                });
-            }
             if (idTxnMap[wallet]?.txnTabToken !== currentId &&
-                !String(firstTransaction?.delta_amount).startsWith("-") &&
-                firstTransaction?.involved_account_id === "v2.ref-finance.near") {
+                ((!String(firstTransaction?.delta_amount).startsWith("-") &&
+                    firstTransaction?.involved_account_id === "v2.ref-finance.near") ||
+                    String(firstTransaction?.delta_amount).startsWith("-"))) {
                 idTxnMap[wallet].txnTabToken = currentId;
                 writeTxnList(idTxnMap);
-                if (wallet === "stasiey.near" &&
-                    ["ABG", "SOL", "PURGE"].includes(firstTransaction?.ft?.symbol)) {
-                    return;
-                }
                 (0, homepageController_1.handlePushTelegramNotificationController)({
                     body: (0, common_helper_1.generateTelegramHTML)({
-                        transaction_hash: `https://nearblocks.io/address/${wallet}?tab=tokentxns`,
+                        NearBlockLink: `https://nearblocks.io/address/${wallet}?tab=tokentxns`,
                         affected_account_id: firstTransaction?.affected_account_id,
                         involved_account_id: firstTransaction?.involved_account_id,
                         balance: `${(0, bigNumber_1.formatBalance)((0, bigNumber_2.bigNumber)(firstTransaction?.delta_amount).dividedBy(Math.pow(10, firstTransaction?.ft?.decimals || 6)))} ${firstTransaction?.ft?.symbol}`,

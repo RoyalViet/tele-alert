@@ -196,6 +196,8 @@ const ownerIgnore = [
     "droptheca.near",
     "meme-creator.near",
     "meme-cookinq.near",
+    "near_raen.near",
+    "catgirlonchain.near",
 ];
 const isPreListFollowTime = (targetTime) => {
     try {
