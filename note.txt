@@ -12,7 +12,6 @@ Tích trữ Purge
 // dullmoth991.near
 // neatrobe8741.near
 // aa53d350bf64aad15276cf412e01d6efb7e6c6600e1754d615b57043d2843300
-// 1c38b126625193eaec8688bea08d1e618ebe34b3e630dc36296c45520decb663
 
 tich nhieu PURGE nhưng có vẻ xả xong vào lại => là user gobl1n.near , nắm bắt thông tin tốt, xem cx dk 
 // 83f7c2269855778ad35122ab3b18d4d0ccfbf9f46e7483f1a1cd54433db29756
