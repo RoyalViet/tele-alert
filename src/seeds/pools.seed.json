@@ -1,5 +1,72 @@
 [
   {
+    "owner": null,
+    "pool_id": 5807,
+    "token_account_ids": [
+      "mi-1319.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "MI",
+    "name": "MaxInvest",
+    "token_contract": "mi-1319.meme-cooking.near"
+  },
+  {
+    "owner": null,
+    "pool_id": 5805,
+    "token_account_ids": [
+      "mi-1319.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "MI",
+    "name": "MaxInvest",
+    "token_contract": "mi-1319.meme-cooking.near"
+  },
+  {
+    "owner": "aiko_is_near.near",
+    "token_contract": "aiko-1317.meme-cooking.near",
+    "memeId": 1317,
+    "___": "==============================",
+    "pool_id": 5803,
+    "token_account_ids": [
+      "aiko-1317.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "AIKO",
+    "name": "AIKO"
+  },
+  {
+    "owner": null,
+    "pool_id": 5802,
+    "token_account_ids": [
+      "shmrt-1315.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "SHMRT",
+    "name": "ShmertCoin",
+    "token_contract": "shmrt-1315.meme-cooking.near"
+  },
+  {
+    "owner": "token.sendertge.near",
+    "pool_id": 5799,
+    "token_account_ids": [
+      "token.sendertge.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "ASI",
+    "name": "Sender AI Token",
+    "token_contract": "token.sendertge.near"
+  },
+  {
     "owner": "datsyshynroman.near",
     "token_contract": "nsanta-1274.meme-cooking.near",
     "memeId": 1274,

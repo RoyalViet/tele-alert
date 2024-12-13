@@ -264,7 +264,7 @@ function generateTelegramHTMLMemeCook(meme: Meme): string {
     "⭐ OwnerLink": `https://nearblocks.io/address/${meme.owner}?tab=tokentxns`,
     XLink: `https://x.com/search?q=${meme.owner}&src=typed_query`,
     TokenLink: `https://nearblocks.io/token/${memeContract}`,
-    "⭐ RefLink": `https://app.ref.finance/#${memeContract}|usdt.tether-token.near`,
+    "⭐ RefLink": `https://app.ref.finance/#usdt.tether-token.near|${memeContract}`,
     "⭐ DexLink": meme.pool_id
       ? `https://dexscreener.com/near/refv1-${meme.pool_id}`
       : "N/A",
@@ -312,6 +312,8 @@ const ownerIgnore = [
   "meme-cookinq.near",
   "near_raen.near",
   "catgirlonchain.near",
+  "farhad_2002.near",
+  // "132426a54bb6eb6df4c81d9464c8e0022a18ae4a57808be278fbf4a6eb7fe8c7",
 ];
 
 export const isPreListFollowTime = (targetTime: number) => {
@@ -392,7 +394,22 @@ async function fetchActiveMemes(): Promise<Meme[]> {
         const isNotInExistingMemes = !existingMemes.some(
           (existingMeme) => existingMeme.meme_id === activeMeme.meme_id
         );
-        return isNotInExistingMemes;
+        const decimals = activeMeme.decimals || 18; // Mặc định là 18 nếu không có
+        const totalSupply = bigNumber(activeMeme.total_supply)
+          .dividedBy(Math.pow(10, decimals))
+          .toFixed(2);
+        const teamAllocation = bigNumber(activeMeme.team_allocation || 0)
+          .dividedBy(Math.pow(10, decimals))
+          .toFixed(2);
+        return (
+          isNotInExistingMemes &&
+          bigNumber(
+            bigNumber(teamAllocation)
+              .dividedBy(totalSupply)
+              .multipliedBy(100)
+              .toFixed(2)
+          ).lt(20)
+        );
       })
       .map((meme) => {
         if (ownerIgnore.includes(meme.owner)) {

@@ -16,7 +16,6 @@ import { formatBalance } from "../../common/helper/bigNumber";
 import { bigNumber } from "../../common/helper/bigNumber";
 import { handlePushTelegramNotificationController } from "../common/homepageController";
 import { delay, generateTelegramHTML } from "../../common/helper/common.helper";
-import { bignumber } from "mathjs";
 
 export const createTokenController: IController = async (req, res) => {
   try {
