@@ -1,5 +1,595 @@
 [
   [
+    1346,
+    "97.32 Near",
+    {
+      "top": 1,
+      "account_id": "tpwuden.near",
+      "amount": "30 Near",
+      "percent": "30.82 %",
+      "numberOfTokens": "Σ1B => ≈ 154.121M"
+    },
+    {
+      "top": 2,
+      "account_id": "1234x.near",
+      "amount": "20 Near",
+      "percent": "20.55 %",
+      "numberOfTokens": "Σ1B => ≈ 102.747M"
+    },
+    {
+      "top": 3,
+      "account_id": "qiv5da_dragon.dragon_bot.near",
+      "amount": "15.075 Near",
+      "percent": "15.49 %",
+      "numberOfTokens": "Σ1B => ≈ 77.446M"
+    },
+    {
+      "top": 4,
+      "account_id": "coldport.near",
+      "amount": "10 Near",
+      "percent": "10.27 %",
+      "numberOfTokens": "Σ1B => ≈ 51.374M"
+    },
+    {
+      "top": 5,
+      "account_id": "luckyuser5291.near",
+      "amount": "10 Near",
+      "percent": "10.27 %",
+      "numberOfTokens": "Σ1B => ≈ 51.374M"
+    },
+    {
+      "top": 6,
+      "account_id": "near_raen.near",
+      "amount": "5 Near",
+      "percent": "5.14 %",
+      "numberOfTokens": "Σ1B => ≈ 25.687M"
+    },
+    {
+      "top": 7,
+      "account_id": "account_01.near",
+      "amount": "3 Near",
+      "percent": "3.08 %",
+      "numberOfTokens": "Σ1B => ≈ 15.413M"
+    },
+    {
+      "top": 8,
+      "account_id": "kvshnir.tg",
+      "amount": "2 Near",
+      "percent": "2.05 %",
+      "numberOfTokens": "Σ1B => ≈ 10.275M"
+    },
+    {
+      "top": 9,
+      "account_id": "successismine.near",
+      "amount": "2 Near",
+      "percent": "2.05 %",
+      "numberOfTokens": "Σ1B => ≈ 10.275M"
+    },
+    {
+      "top": 10,
+      "account_id": "allpress.near",
+      "amount": "0.25 Near",
+      "percent": "0.26 %",
+      "numberOfTokens": "Σ1B => ≈ 1.285M"
+    },
+    {
+      "top": 11,
+      "account_id": "trisharichie.near",
+      "amount": "0.0015 Near",
+      "percent": "0.00 %",
+      "numberOfTokens": "Σ1B => ≈ 7.707K"
+    }
+  ],
+  [
+    1317,
+    "168.2 Near",
+    {
+      "top": 1,
+      "account_id": "132426a54bb6eb6df4c81d9464c8e0022a18ae4a57808be278fbf4a6eb7fe8c7",
+      "amount": "50 Near",
+      "percent": "29.73 %",
+      "numberOfTokens": "Σ1B => ≈ 148.633M"
+    },
+    {
+      "top": 2,
+      "account_id": "1234x.near",
+      "amount": "40 Near",
+      "percent": "23.78 %",
+      "numberOfTokens": "Σ1B => ≈ 118.907M"
+    },
+    {
+      "top": 3,
+      "account_id": "omajari199.near",
+      "amount": "30 Near",
+      "percent": "17.84 %",
+      "numberOfTokens": "Σ1B => ≈ 89.180M"
+    },
+    {
+      "top": 4,
+      "account_id": "whoseurdad.near",
+      "amount": "20 Near",
+      "percent": "11.89 %",
+      "numberOfTokens": "Σ1B => ≈ 59.454M"
+    },
+    {
+      "top": 5,
+      "account_id": "manral.near",
+      "amount": "15 Near",
+      "percent": "8.92 %",
+      "numberOfTokens": "Σ1B => ≈ 44.590M"
+    },
+    {
+      "top": 6,
+      "account_id": "55d22f1a3db66f9adf3c569d228ec1cda5e29c19230fe8184991aa68be6c09c5",
+      "amount": "6 Near",
+      "percent": "3.57 %",
+      "numberOfTokens": "Σ1B => ≈ 17.836M"
+    },
+    {
+      "top": 7,
+      "account_id": "near_raen.near",
+      "amount": "3 Near",
+      "percent": "1.78 %",
+      "numberOfTokens": "Σ1B => ≈ 8.918M"
+    },
+    {
+      "top": 8,
+      "account_id": "brainai.near",
+      "amount": "2 Near",
+      "percent": "1.19 %",
+      "numberOfTokens": "Σ1B => ≈ 5.946M"
+    },
+    {
+      "top": 9,
+      "account_id": "pampet.near",
+      "amount": "1 Near",
+      "percent": "0.59 %",
+      "numberOfTokens": "Σ1B => ≈ 2.973M"
+    },
+    {
+      "top": 10,
+      "account_id": "larryfun.near",
+      "amount": "1 Near",
+      "percent": "0.59 %",
+      "numberOfTokens": "Σ1B => ≈ 2.973M"
+    },
+    {
+      "top": 11,
+      "account_id": "qiv5da_dragon.dragon_bot.near",
+      "amount": "0.15 Near",
+      "percent": "0.09 %",
+      "numberOfTokens": "Σ1B => ≈ 445.898K"
+    },
+    {
+      "top": 12,
+      "account_id": "ath30.near",
+      "amount": "0.05 Near",
+      "percent": "0.03 %",
+      "numberOfTokens": "Σ1B => ≈ 148.633K"
+    }
+  ],
+  [
+    1315,
+    "502.56 Near",
+    {
+      "top": 1,
+      "account_id": "illiacei.near",
+      "amount": "75 Near",
+      "percent": "14.92 %",
+      "numberOfTokens": "Σ1B => ≈ 74.618M"
+    },
+    {
+      "top": 2,
+      "account_id": "casahab.near",
+      "amount": "50 Near",
+      "percent": "9.95 %",
+      "numberOfTokens": "Σ1B => ≈ 49.746M"
+    },
+    {
+      "top": 3,
+      "account_id": "lordadebayo.near",
+      "amount": "50 Near",
+      "percent": "9.95 %",
+      "numberOfTokens": "Σ1B => ≈ 49.746M"
+    },
+    {
+      "top": 4,
+      "account_id": "0455af90423f3dd0204bff2409870bd9ab88d4244bc695d3dd995c1c2e4741f7",
+      "amount": "40.41608191 Near",
+      "percent": "8.04 %",
+      "numberOfTokens": "Σ1B => ≈ 40.211M"
+    },
+    {
+      "top": 5,
+      "account_id": "pouo.near",
+      "amount": "30 Near",
+      "percent": "5.97 %",
+      "numberOfTokens": "Σ1B => ≈ 29.848M"
+    },
+    {
+      "top": 6,
+      "account_id": "omajari199.near",
+      "amount": "30 Near",
+      "percent": "5.97 %",
+      "numberOfTokens": "Σ1B => ≈ 29.848M"
+    },
+    {
+      "top": 7,
+      "account_id": "1234x.near",
+      "amount": "30 Near",
+      "percent": "5.97 %",
+      "numberOfTokens": "Σ1B => ≈ 29.848M"
+    },
+    {
+      "top": 8,
+      "account_id": "paperjeetko.near",
+      "amount": "30 Near",
+      "percent": "5.97 %",
+      "numberOfTokens": "Σ1B => ≈ 29.848M"
+    },
+    {
+      "top": 9,
+      "account_id": "8634d4392ac366a75745af9574ed4a7bc747bdfa1937f5d11a03516680f2f105",
+      "amount": "25 Near",
+      "percent": "4.97 %",
+      "numberOfTokens": "Σ1B => ≈ 24.873M"
+    },
+    {
+      "top": 10,
+      "account_id": "89b1a9b37e0bcc08c9f8cfa933a9092cfc8bce7fb5e7bfd4cfc9ec69069e3a9b",
+      "amount": "25 Near",
+      "percent": "4.97 %",
+      "numberOfTokens": "Σ1B => ≈ 24.873M"
+    },
+    {
+      "top": 11,
+      "account_id": "7f43cbc647b14e6a68698d044d33f5ef381fe24262122f463ae3b52233c56aa2",
+      "amount": "20 Near",
+      "percent": "3.98 %",
+      "numberOfTokens": "Σ1B => ≈ 19.899M"
+    },
+    {
+      "top": 12,
+      "account_id": "unf326.near",
+      "amount": "20 Near",
+      "percent": "3.98 %",
+      "numberOfTokens": "Σ1B => ≈ 19.899M"
+    },
+    {
+      "top": 13,
+      "account_id": "memecooker.near",
+      "amount": "15 Near",
+      "percent": "2.98 %",
+      "numberOfTokens": "Σ1B => ≈ 14.924M"
+    },
+    {
+      "top": 14,
+      "account_id": "as2.near",
+      "amount": "10 Near",
+      "percent": "1.99 %",
+      "numberOfTokens": "Σ1B => ≈ 9.950M"
+    },
+    {
+      "top": 15,
+      "account_id": "64478e9635eb83c59c9bbb0270a2ef287fbd7badc2b92844da69f6db34e875da",
+      "amount": "10 Near",
+      "percent": "1.99 %",
+      "numberOfTokens": "Σ1B => ≈ 9.950M"
+    },
+    {
+      "top": 16,
+      "account_id": "19992.near",
+      "amount": "10 Near",
+      "percent": "1.99 %",
+      "numberOfTokens": "Σ1B => ≈ 9.950M"
+    },
+    {
+      "top": 17,
+      "account_id": "iwealth.near",
+      "amount": "10 Near",
+      "percent": "1.99 %",
+      "numberOfTokens": "Σ1B => ≈ 9.950M"
+    },
+    {
+      "top": 18,
+      "account_id": "arthurkings.near",
+      "amount": "4.99999999 Near",
+      "percent": "0.99 %",
+      "numberOfTokens": "Σ1B => ≈ 4.975M"
+    },
+    {
+      "top": 19,
+      "account_id": "ath30.near",
+      "amount": "5 Near",
+      "percent": "0.99 %",
+      "numberOfTokens": "Σ1B => ≈ 4.975M"
+    },
+    {
+      "top": 20,
+      "account_id": "o0v0o.near",
+      "amount": "5 Near",
+      "percent": "0.99 %",
+      "numberOfTokens": "Σ1B => ≈ 4.975M"
+    },
+    {
+      "top": 21,
+      "account_id": "near_raen.near",
+      "amount": "3 Near",
+      "percent": "0.60 %",
+      "numberOfTokens": "Σ1B => ≈ 2.985M"
+    },
+    {
+      "top": 22,
+      "account_id": "burn_of_poland.tg",
+      "amount": "1.64464129 Near",
+      "percent": "0.33 %",
+      "numberOfTokens": "Σ1B => ≈ 1.637M"
+    },
+    {
+      "top": 23,
+      "account_id": "vytauten.near",
+      "amount": "1.5 Near",
+      "percent": "0.30 %",
+      "numberOfTokens": "Σ1B => ≈ 1.493M"
+    },
+    {
+      "top": 24,
+      "account_id": "successismine.near",
+      "amount": "1 Near",
+      "percent": "0.20 %",
+      "numberOfTokens": "Σ1B => ≈ 994.905K"
+    }
+  ],
+  [
+    1314,
+    "110.04 Near",
+    {
+      "top": 1,
+      "account_id": "qiv5da_dragon.dragon_bot.near",
+      "amount": "30.15 Near",
+      "percent": "27.40 %",
+      "numberOfTokens": "Σ1B => ≈ 136.986M"
+    },
+    {
+      "top": 2,
+      "account_id": "omajari199.near",
+      "amount": "30 Near",
+      "percent": "27.26 %",
+      "numberOfTokens": "Σ1B => ≈ 136.304M"
+    },
+    {
+      "top": 3,
+      "account_id": "zylavein.near",
+      "amount": "10 Near",
+      "percent": "9.09 %",
+      "numberOfTokens": "Σ1B => ≈ 45.435M"
+    },
+    {
+      "top": 4,
+      "account_id": "weak_hands.near",
+      "amount": "10 Near",
+      "percent": "9.09 %",
+      "numberOfTokens": "Σ1B => ≈ 45.435M"
+    },
+    {
+      "top": 5,
+      "account_id": "futurekappa.near",
+      "amount": "5 Near",
+      "percent": "4.54 %",
+      "numberOfTokens": "Σ1B => ≈ 22.718M"
+    },
+    {
+      "top": 6,
+      "account_id": "successismine.near",
+      "amount": "5 Near",
+      "percent": "4.54 %",
+      "numberOfTokens": "Σ1B => ≈ 22.718M"
+    },
+    {
+      "top": 7,
+      "account_id": "brainai.near",
+      "amount": "5 Near",
+      "percent": "4.54 %",
+      "numberOfTokens": "Σ1B => ≈ 22.718M"
+    },
+    {
+      "top": 8,
+      "account_id": "near_raen.near",
+      "amount": "3 Near",
+      "percent": "2.73 %",
+      "numberOfTokens": "Σ1B => ≈ 13.631M"
+    },
+    {
+      "top": 9,
+      "account_id": "a160b7c10097363b1364efdb292d4746b0de434f329d4c50ee1eb0d424c2aef9",
+      "amount": "2.5 Near",
+      "percent": "2.27 %",
+      "numberOfTokens": "Σ1B => ≈ 11.359M"
+    },
+    {
+      "top": 10,
+      "account_id": "vytauten.near",
+      "amount": "2 Near",
+      "percent": "1.82 %",
+      "numberOfTokens": "Σ1B => ≈ 9.087M"
+    },
+    {
+      "top": 11,
+      "account_id": "brightport1397.near",
+      "amount": "2 Near",
+      "percent": "1.82 %",
+      "numberOfTokens": "Σ1B => ≈ 9.087M"
+    },
+    {
+      "top": 12,
+      "account_id": "dchris.near",
+      "amount": "1.2 Near",
+      "percent": "1.09 %",
+      "numberOfTokens": "Σ1B => ≈ 5.453M"
+    },
+    {
+      "top": 13,
+      "account_id": "grabit.near",
+      "amount": "1 Near",
+      "percent": "0.91 %",
+      "numberOfTokens": "Σ1B => ≈ 4.544M"
+    },
+    {
+      "top": 14,
+      "account_id": "hollyboy123.near",
+      "amount": "0.5 Near",
+      "percent": "0.45 %",
+      "numberOfTokens": "Σ1B => ≈ 2.272M"
+    },
+    {
+      "top": 15,
+      "account_id": "0030lonerxoul.near",
+      "amount": "0.5 Near",
+      "percent": "0.45 %",
+      "numberOfTokens": "Σ1B => ≈ 2.272M"
+    },
+    {
+      "top": 16,
+      "account_id": "trisharichie.near",
+      "amount": "0.4 Near",
+      "percent": "0.36 %",
+      "numberOfTokens": "Σ1B => ≈ 1.818M"
+    },
+    {
+      "top": 17,
+      "account_id": "kabirty.near",
+      "amount": "0.3398125 Near",
+      "percent": "0.31 %",
+      "numberOfTokens": "Σ1B => ≈ 1.544M"
+    },
+    {
+      "top": 18,
+      "account_id": "moving_forward.near",
+      "amount": "0.25 Near",
+      "percent": "0.23 %",
+      "numberOfTokens": "Σ1B => ≈ 1.136M"
+    },
+    {
+      "top": 19,
+      "account_id": "petersmd.near",
+      "amount": "0.25 Near",
+      "percent": "0.23 %",
+      "numberOfTokens": "Σ1B => ≈ 1.136M"
+    },
+    {
+      "top": 20,
+      "account_id": "1234x.near",
+      "amount": "0.225 Near",
+      "percent": "0.20 %",
+      "numberOfTokens": "Σ1B => ≈ 1.023M"
+    },
+    {
+      "top": 21,
+      "account_id": "8634d4392ac366a75745af9574ed4a7bc747bdfa1937f5d11a03516680f2f105",
+      "amount": "0.1 Near",
+      "percent": "0.09 %",
+      "numberOfTokens": "Σ1B => ≈ 454.347K"
+    },
+    {
+      "top": 22,
+      "account_id": "luvluvluv50kk.tg",
+      "amount": "0.1 Near",
+      "percent": "0.09 %",
+      "numberOfTokens": "Σ1B => ≈ 454.347K"
+    },
+    {
+      "top": 23,
+      "account_id": "casahab.near",
+      "amount": "0.1 Near",
+      "percent": "0.09 %",
+      "numberOfTokens": "Σ1B => ≈ 454.347K"
+    },
+    {
+      "top": 24,
+      "account_id": "cwpuzzles.near",
+      "amount": "0.1 Near",
+      "percent": "0.09 %",
+      "numberOfTokens": "Σ1B => ≈ 454.347K"
+    },
+    {
+      "top": 25,
+      "account_id": "64478e9635eb83c59c9bbb0270a2ef287fbd7badc2b92844da69f6db34e875da",
+      "amount": "0.04999999 Near",
+      "percent": "0.05 %",
+      "numberOfTokens": "Σ1B => ≈ 227.174K"
+    },
+    {
+      "top": 26,
+      "account_id": "19992.near",
+      "amount": "0.05 Near",
+      "percent": "0.05 %",
+      "numberOfTokens": "Σ1B => ≈ 227.174K"
+    },
+    {
+      "top": 27,
+      "account_id": "55d22f1a3db66f9adf3c569d228ec1cda5e29c19230fe8184991aa68be6c09c5",
+      "amount": "0.05 Near",
+      "percent": "0.05 %",
+      "numberOfTokens": "Σ1B => ≈ 227.174K"
+    },
+    {
+      "top": 28,
+      "account_id": "132426a54bb6eb6df4c81d9464c8e0022a18ae4a57808be278fbf4a6eb7fe8c7",
+      "amount": "0.05 Near",
+      "percent": "0.05 %",
+      "numberOfTokens": "Σ1B => ≈ 227.174K"
+    },
+    {
+      "top": 29,
+      "account_id": "kenny22.near",
+      "amount": "0.0359 Near",
+      "percent": "0.03 %",
+      "numberOfTokens": "Σ1B => ≈ 163.111K"
+    },
+    {
+      "top": 30,
+      "account_id": "464f9ab9b208007a7762e1ad5ceaad8c8c65703d82f2634a9611bad45b131ee4",
+      "amount": "0.02499999 Near",
+      "percent": "0.02 %",
+      "numberOfTokens": "Σ1B => ≈ 113.587K"
+    },
+    {
+      "top": 31,
+      "account_id": "dotman1.near",
+      "amount": "0.025 Near",
+      "percent": "0.02 %",
+      "numberOfTokens": "Σ1B => ≈ 113.587K"
+    },
+    {
+      "top": 32,
+      "account_id": "ath30.near",
+      "amount": "0.025 Near",
+      "percent": "0.02 %",
+      "numberOfTokens": "Σ1B => ≈ 113.587K"
+    },
+    {
+      "top": 33,
+      "account_id": "tuspark.near",
+      "amount": "0.0075 Near",
+      "percent": "0.01 %",
+      "numberOfTokens": "Σ1B => ≈ 34.076K"
+    },
+    {
+      "top": 34,
+      "account_id": "larryfun.near",
+      "amount": "0.01 Near",
+      "percent": "0.01 %",
+      "numberOfTokens": "Σ1B => ≈ 45.435K"
+    },
+    {
+      "top": 35,
+      "account_id": "devchidi.near",
+      "amount": "0.005 Near",
+      "percent": "0.00 %",
+      "numberOfTokens": "Σ1B => ≈ 22.718K"
+    }
+  ],
+  [
     1274,
     "260.44 Near",
     {
