@@ -1,5 +1,85 @@
 [
   {
+    "owner": "rincat.near",
+    "pool_id": 5816,
+    "token_account_ids": [
+      "wrap.near",
+      "rin.tkn.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "RIN",
+    "name": "Rin Cat Girl",
+    "token_contract": "rin.tkn.near"
+  },
+  {
+    "owner": "rincat.near",
+    "pool_id": 5814,
+    "token_account_ids": [
+      "rin.tkn.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "RIN",
+    "name": "Rin Cat Girl",
+    "token_contract": "rin.tkn.near"
+  },
+  {
+    "owner": "rincat.near",
+    "pool_id": 5813,
+    "token_account_ids": [
+      "rin.tkn.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "RIN",
+    "name": "Rin Cat Girl",
+    "token_contract": "rin.tkn.near"
+  },
+  {
+    "owner": "rincat.near",
+    "pool_id": 5813,
+    "token_account_ids": [
+      "rin.tkn.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "RIN",
+    "name": "Rin Cat Girl",
+    "token_contract": "rin.tkn.near"
+  },
+  {
+    "owner": "rincat.near",
+    "pool_id": 5812,
+    "token_account_ids": [
+      "rin.tkn.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "RIN",
+    "name": "Rin Cat Girl",
+    "token_contract": "rin.tkn.near"
+  },
+  {
+    "owner": "qiv5da_dragon.dragon_bot.near",
+    "token_contract": "illiaai-1346.meme-cooking.near",
+    "memeId": 1346,
+    "___": "==============================",
+    "pool_id": 5811,
+    "token_account_ids": [
+      "illiaai-1346.meme-cooking.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "IlliaAI",
+    "name": "👾 IIlia Polosukhin"
+  },
+  {
     "owner": null,
     "pool_id": 5807,
     "token_account_ids": [
