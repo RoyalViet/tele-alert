@@ -1,6 +1,19 @@
 [
   {
     "owner": null,
+    "pool_id": 5824,
+    "token_account_ids": [
+      "doggef.tkn.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "DOGGEF",
+    "name": "Dogge Father",
+    "token_contract": "doggef.tkn.near"
+  },
+  {
+    "owner": null,
     "pool_id": 5820,
     "token_account_ids": [
       "pcat.tknx.near",
