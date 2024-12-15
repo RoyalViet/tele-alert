@@ -1,5 +1,18 @@
 [
   {
+    "owner": null,
+    "pool_id": 5820,
+    "token_account_ids": [
+      "pcat.tknx.near",
+      "wrap.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "PCAT",
+    "name": "PERSIAN CAT",
+    "token_contract": "pcat.tknx.near"
+  },
+  {
     "owner": "rincat.near",
     "pool_id": 5816,
     "token_account_ids": [
