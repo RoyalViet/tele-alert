@@ -83,9 +83,14 @@ export async function getFirstTransactionAction(wallet: string) {
 
       if (
         idTxnMap[wallet].txn !== currentId &&
-        bigNumber(firstTransaction?.actions?.[0]?.deposit)
+        (bigNumber(
+          firstTransaction?.actions?.find(
+            (i: any) => i.method !== "storage_deposit"
+          )?.deposit
+        )
           .dividedBy(Math.pow(10, 24))
-          .gt(1)
+          .gt(1) ||
+          firstTransaction?.actions?.[0]?.method === "storage_deposit")
       ) {
         idTxnMap[wallet].txn = currentId;
         writeTxnList(idTxnMap);

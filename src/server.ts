@@ -10,6 +10,7 @@ import {
 } from "./cron/meme-cook.cron";
 import { checkTxn } from "./cron/pool-token.cron";
 import { checkRefPoolToken } from "./cron/ref-finance.cron";
+import { checkMitteToken } from "./cron/mitte.cron";
 
 const PORT = process.env.PORT || 8000;
 
@@ -26,6 +27,7 @@ const main = async () => {
   // TODO: run
   checkMemeCooking.start();
   checkRefPoolToken.start();
+  checkMitteToken.start();
   checkTxn.start();
   // checkRadiumPoolToken.start();
 

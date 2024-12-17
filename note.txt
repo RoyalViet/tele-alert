@@ -33,6 +33,8 @@ User trader
 // nearjaguar.near
   => lắm tiền, hold giỏi, toàn mua mấy con có vẻ tiềm năng => chú ý máy con token nó mua để trade & hold 1 ít lãi nếu có thể 
 
+// ví thằng ếch thang10b.near
+
 Có thể watch 
 // 4a15a7be78f0cc85772d96000cd9a7c8bbcefdf3e5a1629850c9596f2d88cd83
 // singularityisnear.near
