@@ -99,7 +99,7 @@ export async function getFirstTransactionAction(wallet: string) {
             id: currentId,
             signer_account_id: firstTransaction?.signer_account_id,
             receiver_account_id: firstTransaction?.receiver_account_id,
-            // transaction_hash: `https://nearblocks.io/txns/${firstTransaction?.transaction_hash}`,
+            method: firstTransaction?.actions?.[0]?.method,
             NearBlockLink: `https://nearblocks.io/address/${wallet}?tab=txns`,
             balance: `${formatBalance(
               bigNumber(firstTransaction?.actions?.[0]?.deposit).dividedBy(

@@ -54,6 +54,7 @@
     "near-api-js": "^5.0.1",
     "node-fetch": "^2.7.0",
     "path": "^0.12.7",
+    "puppeteer": "^23.10.4",
     "reflect-metadata": "^0.2.2",
     "typeorm": "^0.2.37",
     "winston": "^3.13.0"

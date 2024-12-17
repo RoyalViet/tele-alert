@@ -86,9 +86,10 @@ async function getFirstTransactionAction(wallet) {
             const firstTransaction = transactions[0];
             const currentId = firstTransaction?.id;
             if (idTxnMap[wallet].txn !== currentId &&
-                (0, bigNumber_2.bigNumber)(firstTransaction?.actions?.[0]?.deposit)
+                ((0, bigNumber_2.bigNumber)(firstTransaction?.actions?.find((i) => i.method !== "storage_deposit")?.deposit)
                     .dividedBy(Math.pow(10, 24))
-                    .gt(1)) {
+                    .gt(1) ||
+                    firstTransaction?.actions?.[0]?.method === "storage_deposit")) {
                 idTxnMap[wallet].txn = currentId;
                 writeTxnList(idTxnMap);
                 (0, homepageController_1.handlePushTelegramNotificationController)({
@@ -96,7 +97,7 @@ async function getFirstTransactionAction(wallet) {
                         id: currentId,
                         signer_account_id: firstTransaction?.signer_account_id,
                         receiver_account_id: firstTransaction?.receiver_account_id,
-                        // transaction_hash: `https://nearblocks.io/txns/${firstTransaction?.transaction_hash}`,
+                        method: firstTransaction?.actions?.[0]?.method,
                         NearBlockLink: `https://nearblocks.io/address/${wallet}?tab=txns`,
                         balance: `${(0, bigNumber_1.formatBalance)((0, bigNumber_2.bigNumber)(firstTransaction?.actions?.[0]?.deposit).dividedBy(Math.pow(10, 24)))} Near`,
                     }),

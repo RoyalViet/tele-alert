@@ -24,7 +24,7 @@ const writeCaList = (cas: string[]) => {
   fs.writeFileSync(caFilePath, JSON.stringify(cas, null, 2), "utf-8");
 };
 
-const existingIds = readCaList();
+let existingIds = readCaList();
 export async function crawlCoins() {
   const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
@@ -45,8 +45,11 @@ export async function crawlCoins() {
     });
     const newIdsSet = new Set(newIds);
     const existingIdsSet = new Set(existingIds);
-    const uniqueNewIds = [...newIdsSet].filter((id) => !existingIdsSet.has(id));
-    writeCaList([...existingIds, ...uniqueNewIds]);
+    const uniqueNewIds = [...newIdsSet].filter(
+      (id: any) => !existingIdsSet.has(id)
+    );
+    existingIds = [...existingIds, ...uniqueNewIds] as string[];
+    writeCaList(existingIds);
     handlePushTelegramNotificationController({
       body: uniqueNewIds
         .map((i: any) =>

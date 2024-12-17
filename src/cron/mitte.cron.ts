@@ -12,5 +12,6 @@ const cronExpression1m = "* * * * *";
 
 export const checkMitteToken = new CronJob(cronExpression50s, async () => {
   await delay(Math.random() * 1500);
+  console.log(`v2 running cron job checkMitteToken...`);
   crawlCoins();
 });
