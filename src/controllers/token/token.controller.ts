@@ -79,15 +79,12 @@ export async function getFirstTransactionAction(wallet: string) {
 
     if (transactions?.length > 0) {
       const firstTransaction = transactions[0];
+      const secondTransaction = transactions[1];
       const currentId = firstTransaction?.id;
 
       if (
         idTxnMap[wallet].txn !== currentId &&
-        (bigNumber(
-          firstTransaction?.actions?.find(
-            (i: any) => i.method !== "storage_deposit"
-          )?.deposit
-        )
+        (bigNumber(firstTransaction?.actions?.[0]?.deposit)
           .dividedBy(Math.pow(10, 24))
           .gt(1) ||
           firstTransaction?.actions?.[0]?.method === "storage_deposit")
