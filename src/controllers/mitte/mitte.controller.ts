@@ -48,19 +48,21 @@ export async function crawlCoins() {
     const uniqueNewIds = [...newIdsSet].filter(
       (id: any) => !existingIdsSet.has(id)
     );
-    existingIds = [...existingIds, ...uniqueNewIds] as string[];
-    writeCaList(existingIds);
-    handlePushTelegramNotificationController({
-      body: uniqueNewIds
-        .map((i: any) =>
-          generateTelegramHTML({
-            contract: i,
-            mitteLink: `https://beta.mitte.gg/meme?c=${i}`,
-            XLink: `https://x.com/search?q=${i}&src=typed_query`,
-          })
-        )
-        .join("\n\n"),
-    });
+    if (uniqueNewIds.length) {
+      existingIds = [...existingIds, ...uniqueNewIds] as string[];
+      writeCaList(existingIds);
+      handlePushTelegramNotificationController({
+        body: uniqueNewIds
+          .map((i: any) =>
+            generateTelegramHTML({
+              contract: i,
+              mitteLink: `https://beta.mitte.gg/meme?c=${i}`,
+              XLink: `https://x.com/search?q=${i}&src=typed_query`,
+            })
+          )
+          .join("\n\n"),
+      });
+    }
   } catch (error) {
     console.error("Error crawling coins");
   } finally {
