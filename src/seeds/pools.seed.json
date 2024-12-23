@@ -1,5 +1,18 @@
 [
   {
+    "owner": "gontlet.near",
+    "pool_id": 5853,
+    "token_account_ids": [
+      "wrap.near",
+      "goti.token0.near"
+    ],
+    "poolKind": "SIMPLE_POOL",
+    "decimals": 18,
+    "symbol": "GOTI",
+    "name": "göntlet",
+    "token_contract": "goti.token0.near"
+  },
+  {
     "owner": null,
     "pool_id": 5837,
     "token_account_ids": [
