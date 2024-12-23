@@ -11,6 +11,7 @@ import {
 import { checkTxn } from "./cron/pool-token.cron";
 import { checkRefPoolToken } from "./cron/ref-finance.cron";
 import { checkMitteToken } from "./cron/mitte.cron";
+import { sendMeAGif } from "./services/telegram/telegramService";
 
 const PORT = process.env.PORT || 8000;
 
@@ -30,6 +31,8 @@ const main = async () => {
   checkMitteToken.start();
   checkTxn.start();
   // checkRadiumPoolToken.start();
+
+  // sendMeAGif();
 
   // test
   // testF();
