@@ -22,7 +22,6 @@ bot token bridge Near
 // stasiey.near 
   => Base 35B36c => 0x2cC808648B96fF3657d6C1611042339C6F35B36c
 
-
 MM của con Purge 
 // farwatch5882.near
 // samekilt8575.near
@@ -42,3 +41,6 @@ Có thể watch
 // dcc81d49b62bf89e1a07de111c32aa89fb4b6859e8bd47fa73052df9e3599244
 // 142_37is.near
 // marior.near
+
+// e0xa477.near
+  => đẩy ABG , có vẻ là nhà nó mua để support vk NF
