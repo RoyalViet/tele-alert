@@ -26,13 +26,13 @@ const main = async () => {
   // gethMemeTrades.start();
 
   // TODO: run
-  checkMemeCooking.start();
-  checkRefPoolToken.start();
+  // checkMemeCooking.start();
+  // checkRefPoolToken.start();
+  // checkTxn.start();
   // checkMitteToken.start();
-  checkTxn.start();
   // checkRadiumPoolToken.start();
 
-  // sendMeAGif();
+  sendMeAGif();
 
   // test
   // testF();
