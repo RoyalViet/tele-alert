@@ -26,9 +26,9 @@ const main = async () => {
   // gethMemeTrades.start();
 
   // TODO: run
-  // checkMemeCooking.start();
-  // checkRefPoolToken.start();
-  // checkTxn.start();
+  checkMemeCooking.start();
+  checkRefPoolToken.start();
+  checkTxn.start();
   // checkMitteToken.start();
   // checkRadiumPoolToken.start();
 
