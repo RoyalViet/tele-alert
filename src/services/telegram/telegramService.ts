@@ -45,6 +45,7 @@ const sendNotification = (
 };
 
 const sendMeAGif = () => {
+  console.log("run sendMeAGif");
   return new Promise((resolve, reject) => {
     try {
       let data = {
@@ -65,11 +66,13 @@ const sendMeAGif = () => {
         })
         .catch((err) => {
           console.log("err sendMeAGif :", err);
-          reject(err);
+          // reject(err);
+          resolve("err done!");
         });
     } catch (e) {
       console.log("e sendMeAGif :", e);
-      reject(e);
+      // reject(e);
+      resolve("err done!");
     }
   });
 };
