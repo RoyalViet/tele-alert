@@ -3,7 +3,7 @@ import fs from "fs";
 import path from "path";
 import { bigNumber, formatBalance } from "../../common/helper/bigNumber";
 import { delay, generateTelegramHTML } from "../../common/helper/common.helper";
-import { handlePushTelegramNotificationController } from "../common/homepageController";
+import { handlePushNotification } from "../common/homepageController";
 import { isToday } from "date-fns";
 
 const poolsFilePath = path.join(
@@ -404,7 +404,7 @@ export async function getPools({
     }
 
     if (newPools.length) {
-      handlePushTelegramNotificationController({
+      handlePushNotification({
         body: newPools.map((i) => generateMsgHTML(i)).join("\n\n"),
         options: { isSol: true },
       });

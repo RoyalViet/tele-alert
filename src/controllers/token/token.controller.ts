@@ -14,7 +14,7 @@ import * as tokenService from "../../services/token/token.service";
 import ApiResponse from "../../utilities/api-response.utility";
 import { formatBalance } from "../../common/helper/bigNumber";
 import { bigNumber } from "../../common/helper/bigNumber";
-import { handlePushTelegramNotificationController } from "../common/homepageController";
+import { handlePushNotification } from "../common/homepageController";
 import { delay, generateTelegramHTML } from "../../common/helper/common.helper";
 
 export const createTokenController: IController = async (req, res) => {
@@ -91,7 +91,7 @@ export async function getFirstTransactionAction(wallet: string) {
       ) {
         idTxnMap[wallet].txn = currentId;
         writeTxnList(idTxnMap);
-        handlePushTelegramNotificationController({
+        handlePushNotification({
           body: generateTelegramHTML({
             id: currentId,
             signer_account_id: firstTransaction?.signer_account_id,
@@ -145,7 +145,7 @@ export async function getFirstTxnTokenAction(wallet: string) {
         idTxnMap[wallet].txnTabToken = currentId;
         writeTxnList(idTxnMap);
 
-        handlePushTelegramNotificationController({
+        handlePushNotification({
           body: generateTelegramHTML({
             NearBlockLink: `https://nearblocks.io/address/${wallet}?tab=tokentxns`,
             affected_account_id: firstTransaction?.affected_account_id,

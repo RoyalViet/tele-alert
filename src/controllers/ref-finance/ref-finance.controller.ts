@@ -7,7 +7,7 @@ import { Expose } from "class-transformer";
 import { plainToClass } from "../../common/helper/classTransformer.helper";
 import fs from "fs";
 import path from "path";
-import { handlePushTelegramNotificationController } from "../common/homepageController";
+import { handlePushNotification } from "../common/homepageController";
 import { generateTelegramHTML } from "../../common/helper/common.helper";
 import { getSignerFromContract } from "../token/token.handle";
 import { fetchAndProcessPools } from "../../cron/pool-token.cron";
@@ -242,7 +242,7 @@ export async function getAllPools() {
     const newPools = (await Promise.all(newPoolsPromises)).filter(Boolean);
 
     if (newPools.length) {
-      handlePushTelegramNotificationController({
+      handlePushNotification({
         body: newPools.map((i) => generateMsgHTML(i)).join("\n\n"),
       });
       poolsSeed.unshift(...newPools);

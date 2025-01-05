@@ -1,3 +1,4 @@
+import { sendMessageDiscord } from "../../services/discord/discordService";
 import * as telegramService from "../../services/telegram/telegramService";
 
 const getHomePage = (params: any, res: any) => {
@@ -24,7 +25,7 @@ const processQueue = async () => {
   if (isProcessing || queue.length === 0) return;
 
   isProcessing = true;
-  const { params, resolve, reject } = queue.shift()!; // Sử dụng '!' để đảm bảo không null
+  const { params, resolve, reject } = queue.shift()!;
 
   try {
     await telegramService.sendNotification(params.body);
@@ -34,12 +35,11 @@ const processQueue = async () => {
     reject(error);
   } finally {
     isProcessing = false;
-    // Gọi lại processQueue sau 1 giây nếu còn yêu cầu trong hàng đợi
     setTimeout(processQueue, 1000);
   }
 };
 
-// const handlePushTelegramNotificationController = (
+// const handlePushNotification = (
 //   params: IParamNotification,
 //   _res?: any
 // ): Promise<void> => {
@@ -49,10 +49,12 @@ const processQueue = async () => {
 //   });
 // };
 
-const handlePushTelegramNotificationController = async (
+const handlePushNotification = async (
   params: IParamNotification
 ): Promise<void> => {
   try {
+    sendMessageDiscord(params.body);
+
     await telegramService.sendNotification(params.body, {
       isSol: params?.options?.isSol,
     });
@@ -61,7 +63,7 @@ const handlePushTelegramNotificationController = async (
   }
 };
 
-const handlePushPhotoTelegramNotificationController = async (
+const handlePushPhotoTelegramNotification = async (
   params: IParamNotification
 ) => {
   try {
@@ -86,6 +88,6 @@ export {
   getHomePage,
   getTelegramPage,
   sendAnimation,
-  handlePushTelegramNotificationController,
-  handlePushPhotoTelegramNotificationController,
+  handlePushNotification,
+  handlePushPhotoTelegramNotification,
 };

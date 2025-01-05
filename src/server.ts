@@ -32,7 +32,7 @@ const main = async () => {
   // checkMitteToken.start();
   // checkRadiumPoolToken.start();
 
-  sendMeAGif();
+  // sendMeAGif();
 
   // test
   // testF();

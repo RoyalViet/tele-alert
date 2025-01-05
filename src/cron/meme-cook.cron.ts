@@ -13,7 +13,7 @@ import {
   formatBigNumberByUnit,
   generateTelegramHTML,
 } from "../common/helper/common.helper";
-import { handlePushTelegramNotificationController } from "../controllers/common/homepageController";
+import { handlePushNotification } from "../controllers/common/homepageController";
 import { HEADER_GET_MEME_TRADER, HEADER_MEME_COOK } from "./const";
 import { fetchAndProcessPools } from "./pool-token.cron";
 
@@ -211,6 +211,7 @@ export interface Meme {
   staker_count: number;
   vesting_duration_ms: number;
   cliff_duration_ms: number;
+  ca?: string;
 }
 
 const filePath = path.join(
@@ -313,7 +314,8 @@ const ownerIgnore = [
   "near_raen.near",
   "catgirlonchain.near",
   "farhad_2002.near",
-  // "132426a54bb6eb6df4c81d9464c8e0022a18ae4a57808be278fbf4a6eb7fe8c7",
+  "qiv5da_dragon.dragon_bot.near",
+  "132426a54bb6eb6df4c81d9464c8e0022a18ae4a57808be278fbf4a6eb7fe8c7",
 ];
 
 export const isPreListFollowTime = (targetTime: number) => {
@@ -376,7 +378,7 @@ async function fetchActiveMemes(): Promise<Meme[]> {
     response.data.forEach((m) => {
       //
       if (checkPreList(m) && !sentMemeIds.has(m.meme_id)) {
-        handlePushTelegramNotificationController({
+        handlePushNotification({
           body: generateTelegramHTMLMemeCook(m),
         });
         if (!m.pool_id) {
@@ -408,7 +410,7 @@ async function fetchActiveMemes(): Promise<Meme[]> {
               .dividedBy(totalSupply)
               .multipliedBy(100)
               .toFixed(2)
-          ).lt(20)
+          ).lt(5)
         );
       })
       .map((meme) => {
@@ -419,7 +421,7 @@ async function fetchActiveMemes(): Promise<Meme[]> {
               meme.token_id ||
               `${meme.symbol}-${meme.meme_id}.meme-cooking.near`.toLowerCase(),
             owner: meme.owner,
-          } as any as Meme;
+          } as Meme;
         } else {
           const memeContract = meme.token_id
             ? meme.token_id
@@ -432,7 +434,7 @@ async function fetchActiveMemes(): Promise<Meme[]> {
     if (newMemes.length) {
       try {
         if (newMemes.filter((i) => !ownerIgnore.includes(i.owner)).length) {
-          handlePushTelegramNotificationController({
+          handlePushNotification({
             body: newMemes
               .filter((i) => !ownerIgnore.includes(i.owner))
               .map((i: any) => generateTelegramHTMLMemeCook(i))
@@ -443,7 +445,19 @@ async function fetchActiveMemes(): Promise<Meme[]> {
         console.log("error :", error);
       }
 
-      existingMemes.unshift(...newMemes);
+      existingMemes.unshift(
+        ...newMemes.map((newMeme) => {
+          return {
+            meme_id: newMeme.meme_id,
+            ca:
+              newMeme.token_id ||
+              (newMeme.symbol
+                ? `${newMeme.symbol}-${newMeme.meme_id}.meme-cooking.near`.toLowerCase()
+                : newMeme.ca),
+            owner: newMeme.owner,
+          } as Meme;
+        })
+      );
       writeExistingMemes(existingMemes);
     }
 

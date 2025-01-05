@@ -5,7 +5,7 @@ import path from "path";
 import { ICreateToken } from "src/interfaces/token.interface";
 import { bigNumber, formatBalance } from "../common/helper/bigNumber";
 import { delay, generateTelegramHTML } from "../common/helper/common.helper";
-import { handlePushTelegramNotificationController } from "../controllers/common/homepageController";
+import { handlePushNotification } from "../controllers/common/homepageController";
 import { getTokenDetail } from "../controllers/ref-finance/ref-finance.controller";
 import { getFirstTransaction } from "../controllers/token/token.controller";
 import { getSignerFromContract } from "../controllers/token/token.handle";
@@ -111,7 +111,7 @@ export const fetchAndProcessTokenPrices = async (): Promise<void> => {
     const notifications = processTokenPrice(listPrice, contract);
 
     if (notifications.length) {
-      handlePushTelegramNotificationController({
+      handlePushNotification({
         body: notifications
           .map((i: any) => generateTelegramHTML(i))
           .join("\n\n"),
@@ -121,7 +121,7 @@ export const fetchAndProcessTokenPrices = async (): Promise<void> => {
     const updates = updatePriceTokenList(listPrice, listPriceSeed);
 
     if (updates.length) {
-      handlePushTelegramNotificationController({
+      handlePushNotification({
         body: updates.map((i: any) => generateTelegramHTML(i)).join("\n\n"),
       });
       writePriceTokenList(listPriceSeed);
@@ -279,7 +279,7 @@ export const fetchAndProcessPools = async (): Promise<any> => {
     tokenSeed.unshift(...newInfoTokens.filter(Boolean));
 
     if (newInfoTokens.length) {
-      handlePushTelegramNotificationController({
+      handlePushNotification({
         body: newInfoTokens.map((i) => generateMsgHTML(i)).join("\n\n"),
       });
       writeTokenList(tokenSeed);
@@ -306,7 +306,7 @@ export const fetchAndProcessPools = async (): Promise<any> => {
 
     if (rsFocus.length && count < MAX_COUNT) {
       count++;
-      handlePushTelegramNotificationController({
+      handlePushNotification({
         body: rsFocus.map((i) => generateTelegramHTML(i)).join("\n\n"),
       });
     }

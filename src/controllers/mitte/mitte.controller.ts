@@ -1,7 +1,7 @@
 import puppeteer from "puppeteer";
 import fs from "fs";
 import path from "path";
-import { handlePushTelegramNotificationController } from "../common/homepageController";
+import { handlePushNotification } from "../common/homepageController";
 import { generateTelegramHTML } from "../../common/helper/common.helper";
 
 const caFilePath = path.join(
@@ -51,7 +51,7 @@ export async function crawlCoins() {
     if (uniqueNewIds.length) {
       existingIds = [...existingIds, ...uniqueNewIds] as string[];
       writeCaList(existingIds);
-      handlePushTelegramNotificationController({
+      handlePushNotification({
         body: uniqueNewIds
           .map((i: any) =>
             generateTelegramHTML({
