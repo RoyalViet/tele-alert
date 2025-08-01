@@ -11,12 +11,13 @@ interface TransactionEvent {
   receiver: string;
   type: string;
   transaction_type: string;
-  token: string;
+  token: string | null;
   amount: string;
   amount_numeric: string;
   timestamp: number;
   block_height: string;
   index: number;
+  "2fa": boolean;
   transaction_view: {
     type?: string;
     amount?: number;
@@ -32,6 +33,9 @@ interface TransactionEvent {
     contract?: string;
     amountInBigDecimal?: number;
     amountOutBigDecimal?: number;
+    status?: boolean;
+    two_fa?: boolean;
+    token?: string;
     [key: string]: any;
   };
   [key: string]: any;
@@ -54,8 +58,26 @@ interface GroupedSwapTransaction {
   swapSteps: SwapStep[];
 }
 
+interface MonitoredTransaction {
+  transaction_id: string;
+  timestamp: number;
+  sender: string;
+  receiver: string;
+  type: string;
+  transaction_type: string;
+  amount: string;
+  amount_numeric: string;
+  block_height: string;
+  direction: string;
+  token?: string | null;
+  "2fa"?: boolean;
+}
+
 const TRANSITION_IDS_FILE = path.join(__dirname, "../seeds/transitionIds.json");
 const MAX_STORED_IDS = 100; // Maximum number of IDs to keep in the array
+
+// Array of receivers to monitor
+const MONITORED_RECEIVERS = ["csp88.near"]; // Can be extended with more addresses
 
 // ?type=&limit=30&offset=0&filters=&eventTypes=&nearMinAmount=0
 class PikespeakMonitor {
@@ -237,6 +259,115 @@ class PikespeakMonitor {
   }
 
   /**
+   * Filter transactions with receiver in monitored receivers array
+   */
+  private filterMonitoredReceiverTransactions(
+    transactions: TransactionEvent[]
+  ): MonitoredTransaction[] {
+    return transactions
+      .filter((tx) => {
+        // Must be in monitored receivers
+        if (!MONITORED_RECEIVERS.includes(tx.receiver)) return false;
+
+        // Check amount > 10
+        const amount = parseFloat(tx.amount_numeric || tx.amount || "0");
+        if (amount <= 10) return false;
+
+        // Get token symbol and skip if it's NEAR
+        const tokenSymbol = tx.token ? this.getTokenSymbol(tx.token) : "NEAR";
+        if (["NEAR", "WNEAR"].includes(tokenSymbol.toUpperCase())) return false;
+
+        return true;
+      })
+      .map((tx) => ({
+        transaction_id: tx.transaction_id,
+        timestamp: tx.timestamp,
+        sender: tx.sender,
+        receiver: tx.receiver,
+        type: tx.type,
+        transaction_type: tx.transaction_type,
+        amount: tx.amount,
+        amount_numeric: tx.amount_numeric,
+        block_height: tx.block_height,
+        direction: tx.direction,
+        token: tx.token,
+        "2fa": tx["2fa"],
+      }));
+  }
+
+  /**
+   * Format monitored transaction for Telegram message
+   */
+  private formatMonitoredTransactionMessage(
+    transaction: MonitoredTransaction
+  ): string {
+    const timestamp = new Date(transaction.timestamp).toLocaleString("vi-VN");
+    const amount = transaction.amount_numeric || transaction.amount || "N/A";
+    const tokenSymbol = transaction.token
+      ? this.getTokenSymbol(transaction.token)
+      : "NEAR";
+
+    // Get transaction type icon
+    const getTypeIcon = (type: string) => {
+      switch (type.toLowerCase()) {
+        case "send_receive":
+          return "💸";
+        case "ft_transfer":
+          return "💸";
+        case "near_transfer":
+          return "🟢";
+        case "transfer":
+          return "💸";
+        case "deposit":
+          return "📥";
+        case "withdraw":
+          return "📤";
+        case "stake":
+          return "🔒";
+        case "unstake":
+          return "🔓";
+        case "claim":
+          return "🎁";
+        case "swap":
+          return "🔄";
+        default:
+          return "📋";
+      }
+    };
+
+    // Format sender address (shorten if too long)
+    const formattedSender =
+      transaction.sender.length > 10
+        ? `${transaction.sender.substring(0, 6)}...${transaction.sender.slice(
+            -4
+          )}`
+        : transaction.sender;
+
+    // Format amount with + or - based on direction
+    const directionSymbol = transaction.direction === "receive" ? "+" : "-";
+    const formattedAmount = `${directionSymbol}${this.formatAmount(amount)}`;
+
+    return `
+${getTypeIcon(
+  transaction.transaction_type
+)} <b>New ${transaction.transaction_type.replace("_", " ")} Transaction!</b>
+
+📊 <b>Transaction ID:</b> <code>${transaction.transaction_id}</code>
+👤 <b>Signer:</b> ${formattedSender}
+💰 <b>Amount:</b> ${formattedAmount} ${tokenSymbol}
+� <b>Contract:</b> ${transaction.receiver}
+🔄 <b>Direction:</b> ${transaction.direction}
+🏷️ <b>Type:</b> ${transaction.type || transaction.transaction_type}
+⏰ <b>Time:</b> ${timestamp}
+🏗️ <b>Block:</b> ${transaction.block_height}
+
+<a href="https://pikespeak.ai/wallet-explorer/${
+      transaction.receiver
+    }/events">View on Pikespeak</a>
+    `.trim();
+  }
+
+  /**
    * Get simplified token symbol from token address
    */
   private getTokenSymbol(tokenAddress: string): string {
@@ -305,7 +436,7 @@ ${swapStepsText}
   }
 
   /**
-   * Check for new SWAP transactions and send notifications
+   * Check for new transactions and send notifications
    */
   public async checkAndNotify(): Promise<void> {
     try {
@@ -317,63 +448,101 @@ ${swapStepsText}
       // Fetch latest data from API
       const transactions = await this.fetchApiData();
 
-      // console.log(`📊 Total transactions fetched: ${transactions.length}`);
+      console.log("� Transactions found:", transactions.length);
 
-      // Log all transaction types for debugging
-      const transactionTypes = transactions.map((tx) => ({
-        id: tx.transaction_id,
-        type: tx.type,
-        transaction_type: tx.transaction_type,
-        index: tx.index,
-      }));
-      // console.log("📋 Transaction types found:", transactionTypes);
-
-      // Group SWAP transactions by transaction_id
+      // Group SWAP transactions by transaction_id (ORIGINAL LOGIC)
       const groupedSwapTransactions = this.groupSwapTransactions(transactions);
-
       console.log(
         `Found ${groupedSwapTransactions.length} grouped SWAP transactions`
       );
 
-      // Check for new transaction IDs (only check once per transaction_id)
-      const newTransactions = groupedSwapTransactions.filter(
+      // Check for new SWAP transaction IDs (ORIGINAL LOGIC)
+      const newSwapTransactions = groupedSwapTransactions.filter(
         (tx) => !existingIds.includes(tx.transaction_id)
       );
 
-      if (newTransactions.length > 0) {
+      if (newSwapTransactions.length > 0) {
         console.log(
-          `🚨 Found ${newTransactions.length} new SWAP transaction(s)!`
+          `🚨 Found ${newSwapTransactions.length} new SWAP transaction(s)!`
         );
 
-        // Send notifications for each new grouped transaction
-        for (const transaction of newTransactions) {
+        for (const transaction of newSwapTransactions) {
           try {
             const message = this.formatGroupedSwapMessage(transaction);
             await sendNotification(message);
             console.log(
-              `✅ Notification sent for transaction: ${transaction.transaction_id}`
+              `✅ SWAP notification sent for transaction: ${transaction.transaction_id}`
             );
           } catch (error) {
             console.error(
-              `❌ Failed to send notification for transaction ${transaction.transaction_id}:`,
+              `❌ Failed to send SWAP notification for transaction ${transaction.transaction_id}:`,
               error
             );
           }
         }
 
         // Update the stored IDs
-        const newIds = newTransactions.map((tx) => tx.transaction_id);
+        const newIds = newSwapTransactions.map((tx) => tx.transaction_id);
         const updatedIds = [...newIds, ...existingIds];
-
-        // Remove duplicates and trim to max size
         const uniqueIds = [...new Set(updatedIds)];
 
         this.saveTransitionIds(uniqueIds);
         console.log(
-          `💾 Updated transition IDs file with ${newIds.length} new IDs`
+          `💾 Updated transition IDs file with ${newIds.length} new SWAP IDs`
         );
       } else {
         console.log("✅ No new SWAP transactions found");
+      }
+
+      // ADDITIONAL LOGIC: Check for monitored receiver transactions (NEW FEATURE)
+      console.log("🔍 Checking for monitored receiver transactions...");
+
+      // Filter transactions with monitored receivers
+      const monitoredReceiverTransactions =
+        this.filterMonitoredReceiverTransactions(transactions);
+      console.log(
+        `Found ${monitoredReceiverTransactions.length} transactions to monitored receivers`
+      );
+
+      // Check for new monitored receiver transaction IDs
+      const newMonitoredTransactions = monitoredReceiverTransactions.filter(
+        (tx) => !existingIds.includes(tx.transaction_id)
+      );
+
+      if (newMonitoredTransactions.length > 0) {
+        console.log(
+          `🚨 Found ${newMonitoredTransactions.length} new monitored receiver transaction(s)!`
+        );
+
+        for (const transaction of newMonitoredTransactions) {
+          try {
+            const message = this.formatMonitoredTransactionMessage(transaction);
+            await sendNotification(message);
+            console.log(
+              `✅ Monitored receiver notification sent for transaction: ${transaction.transaction_id}`
+            );
+          } catch (error) {
+            console.error(
+              `❌ Failed to send monitored receiver notification for transaction ${transaction.transaction_id}:`,
+              error
+            );
+          }
+        }
+
+        // Update the stored IDs with new monitored transactions
+        const newMonitoredIds = newMonitoredTransactions.map(
+          (tx) => tx.transaction_id
+        );
+        const currentIds = this.loadTransitionIds(); // Reload to get latest
+        const updatedIds = [...newMonitoredIds, ...currentIds];
+        const uniqueIds = [...new Set(updatedIds)];
+
+        this.saveTransitionIds(uniqueIds);
+        console.log(
+          `💾 Updated transition IDs file with ${newMonitoredIds.length} new monitored IDs`
+        );
+      } else {
+        console.log("✅ No new monitored receiver transactions found");
       }
     } catch (error) {
       console.error("❌ Error in checkAndNotify:", error);
@@ -382,7 +551,7 @@ ${swapStepsText}
       const errorMessage = `
 ❌ <b>Pikespeak Monitor Error</b>
 
-⚠️ <b>Error:</b> Error occurred while checking for new SWAP transactions
+⚠️ <b>Error:</b> Error occurred while checking for new transactions
 🕐 <b>Time:</b> ${new Date().toLocaleString("vi-VN")}
 📋 <b>Details:</b> ${error instanceof Error ? error.message : "Unknown error"}
 

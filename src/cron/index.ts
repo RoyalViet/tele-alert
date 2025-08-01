@@ -33,9 +33,10 @@ export const startPikespeakMonitor = () => {
 
 The system will notify you when new SWAP transactions are detected.
       `.trim();
-      await require("../services/telegram/telegramService").sendNotification(
-        startupMessage
-      );
+      // await require("../services/telegram/telegramService").sendNotification(
+      //   startupMessage
+      // );
+      console.log(startupMessage);
     } catch (error) {
       console.error("Error in initial check:", error);
     }
