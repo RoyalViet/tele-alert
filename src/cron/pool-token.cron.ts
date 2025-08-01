@@ -225,7 +225,7 @@ function generateMsgHTML(pool: ICreateToken): string {
 }
 
 export const fetchAndProcessPools = async (): Promise<any> => {
-  console.log(`v2 running cron job crawl pool token ${contract}...`);
+  console.log(`v2 fetchAndProcessPools`);
   const tokenSeed = readTokenList();
   try {
     const raw: { data: Array<PoolItem> } = await axios.get(
@@ -241,7 +241,14 @@ export const fetchAndProcessPools = async (): Promise<any> => {
       listInfoToken
         .filter((t) => !tokenSeed.some((i) => i.pool_id === t.pool_id))
         .map(async (t) => {
-          const meme = memeMap.get(t.token_contract);
+          // const meme = memeMap.get(t.token_contract);
+          const meme = {
+            owner: "FakerOwner",
+            meme_id: 123,
+            name: "FakerName",
+            symbol: "FAKERSymbol",
+            decimals: 18,
+          };
           if (!meme) {
             try {
               const [info, owner] = await Promise.all([

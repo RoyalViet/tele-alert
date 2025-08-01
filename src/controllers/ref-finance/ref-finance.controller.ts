@@ -199,7 +199,14 @@ export async function getAllPools() {
       const isNew = !poolsSeed.find((j) => j.pool_id === i.pool_id);
       if (isNew) {
         try {
-          const meme = memeMap.get(i.token_contract);
+          // const meme = memeMap.get(i.token_contract);
+          const meme = {
+            owner: "FakerOwner",
+            meme_id: 123,
+            name: "FakerName",
+            symbol: "FAKERSymbol",
+            decimals: 18,
+          };
           if (!meme) {
             const [info, owner] = await Promise.all([
               getTokenDetail(i.token_contract),

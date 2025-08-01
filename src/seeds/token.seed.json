@@ -1,5 +1,6205 @@
 [
   {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "zec.omft.near",
+    "pool_id": 6065,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "zec.omft.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "ZEC"
+    ],
+    "token_price": 2.793771302582103,
+    "liq": 3407395.2658364777,
+    "network": "Near",
+    "tvl": "3407395.2658364777",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/zec.omft.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|zec.omft.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6065",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "score.aidols.near",
+    "pool_id": 5978,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "score.aidols.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "SCORE"
+    ],
+    "token_price": 2.7036880755632335,
+    "liq": 29666.236725121504,
+    "network": "Near",
+    "tvl": "29666.236725121504",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/score.aidols.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|score.aidols.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5978",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "wbnb.hot.tg",
+    "pool_id": 5154,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "wbnb.hot.tg"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "WBNB"
+    ],
+    "token_price": 2.7387063753323444,
+    "liq": 19678.38070520878,
+    "network": "Near",
+    "tvl": "19678.38070520878",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/wbnb.hot.tg",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|wbnb.hot.tg",
+    "DexLink": "https://dexscreener.com/near/refv1-5154",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "end.aidols.near",
+    "pool_id": 6031,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "end.aidols.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "END"
+    ],
+    "token_price": 2.1781861708869763,
+    "liq": 12841.55780946957,
+    "network": "Near",
+    "tvl": "12841.55780946957",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/end.aidols.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|end.aidols.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6031",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "pepear.aidols.near",
+    "pool_id": 6035,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "pepear.aidols.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "PEPEAR"
+    ],
+    "token_price": 2.703334605614242,
+    "liq": 11297.817865822315,
+    "network": "Near",
+    "tvl": "11297.817865822315",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/pepear.aidols.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|pepear.aidols.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6035",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "broc.aidols.near",
+    "pool_id": 5980,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "broc.aidols.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "BROC"
+    ],
+    "token_price": 2.5741530754784647,
+    "liq": 8792.834754020645,
+    "network": "Near",
+    "tvl": "8792.834754020645",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/broc.aidols.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|broc.aidols.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5980",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "nearai.aidols.near",
+    "pool_id": 5977,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "nearai.aidols.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "NEARAI"
+    ],
+    "token_price": 3.006838426952321,
+    "liq": 7662.144485445435,
+    "network": "Near",
+    "tvl": "7662.144485445435",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/nearai.aidols.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|nearai.aidols.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5977",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "img_8327-1591.meme-cooking.near",
+    "pool_id": 5982,
+    "_": "==============================",
+    "token_account_ids": [
+      "img_8327-1591.meme-cooking.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "IMG_8327",
+      "wNEAR"
+    ],
+    "token_price": 0.00001845548536856229,
+    "liq": 7176.122811799509,
+    "network": "Near",
+    "tvl": "7176.122811799509",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/img_8327-1591.meme-cooking.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|img_8327-1591.meme-cooking.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5982",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "xpost-1634.meme-cooking.near",
+    "pool_id": 6055,
+    "_": "==============================",
+    "token_account_ids": [
+      "xpost-1634.meme-cooking.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "XPOST",
+      "wNEAR"
+    ],
+    "token_price": 0.000006865221932888355,
+    "liq": 6173.163003548611,
+    "network": "Near",
+    "tvl": "6173.163003548611",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/xpost-1634.meme-cooking.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|xpost-1634.meme-cooking.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6055",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "sbr.tkn.near",
+    "pool_id": 6356,
+    "_": "==============================",
+    "token_account_ids": [
+      "sbr.tkn.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "SBR",
+      "wNEAR"
+    ],
+    "token_price": 0.00003926482043842341,
+    "liq": 6010.53296324258,
+    "network": "Near",
+    "tvl": "6010.53296324258",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/sbr.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|sbr.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6356",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "spear-1565.meme-cooking.near",
+    "pool_id": 5936,
+    "_": "==============================",
+    "token_account_ids": [
+      "spear-1565.meme-cooking.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "SPEAR",
+      "wNEAR"
+    ],
+    "token_price": 1.2188316737196505e-10,
+    "liq": 5020.484857577385,
+    "network": "Near",
+    "tvl": "5020.484857577385",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/spear-1565.meme-cooking.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|spear-1565.meme-cooking.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5936",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "frkdat-1662.meme-cooking.near",
+    "pool_id": 6431,
+    "_": "==============================",
+    "token_account_ids": [
+      "frkdat-1662.meme-cooking.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "FRKDAT",
+      "wNEAR"
+    ],
+    "token_price": 0.0000027146505524538274,
+    "liq": 3969.8656980221,
+    "network": "Near",
+    "tvl": "3969.8656980221",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/frkdat-1662.meme-cooking.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|frkdat-1662.meme-cooking.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6431",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "mark.gra-fun.near",
+    "pool_id": 6045,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "mark.gra-fun.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "MARK"
+    ],
+    "token_price": 2.5639992868951476,
+    "liq": 2745.262688135221,
+    "network": "Near",
+    "tvl": "2745.262688135221",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/mark.gra-fun.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|mark.gra-fun.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6045",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "zero.gra-fun.near",
+    "pool_id": 5975,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "zero.gra-fun.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "ZERO"
+    ],
+    "token_price": 2.03530674176666,
+    "liq": 2425.0105145721827,
+    "network": "Near",
+    "tvl": "2425.0105145721827",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/zero.gra-fun.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|zero.gra-fun.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5975",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "gtrump.aidols.near",
+    "pool_id": 5922,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "gtrump.aidols.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "GTRUMP"
+    ],
+    "token_price": 2.7744738586072204,
+    "liq": 2286.0230397162386,
+    "network": "Near",
+    "tvl": "2286.0230397162386",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/gtrump.aidols.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|gtrump.aidols.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5922",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "tee.aidols.near",
+    "pool_id": 5993,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "tee.aidols.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "TEE"
+    ],
+    "token_price": 3.0138130894058293,
+    "liq": 2041.5278910812308,
+    "network": "Near",
+    "tvl": "2041.5278910812308",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/tee.aidols.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|tee.aidols.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5993",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "work-1583.meme-cooking.near",
+    "pool_id": 5960,
+    "_": "==============================",
+    "token_account_ids": [
+      "work-1583.meme-cooking.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "WORK",
+      "wNEAR"
+    ],
+    "token_price": 0.0000014051514289847835,
+    "liq": 2038.2621455062094,
+    "network": "Near",
+    "tvl": "2038.2621455062094",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/work-1583.meme-cooking.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|work-1583.meme-cooking.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5960",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "penis.aidols.near",
+    "pool_id": 6028,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "penis.aidols.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "PENIS"
+    ],
+    "token_price": 3.222708935725447,
+    "liq": 2034.5750660645394,
+    "network": "Near",
+    "tvl": "2034.5750660645394",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/penis.aidols.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|penis.aidols.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6028",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "mark.aidols.near",
+    "pool_id": 6056,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "mark.aidols.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "MARK"
+    ],
+    "token_price": 2.670180238327388,
+    "liq": 1829.3608951404976,
+    "network": "Near",
+    "tvl": "1829.3608951404976",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/mark.aidols.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|mark.aidols.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6056",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "stan.tkn.near",
+    "pool_id": 4400,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "stan.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "STAN"
+    ],
+    "token_price": 2.4854275243509023,
+    "liq": 1730.2974343476087,
+    "network": "Near",
+    "tvl": "1730.2974343476087",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/stan.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|stan.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-4400",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "plb-1567.meme-cooking.near",
+    "pool_id": 5940,
+    "_": "==============================",
+    "token_account_ids": [
+      "plb-1567.meme-cooking.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "PLB",
+      "wNEAR"
+    ],
+    "token_price": 0.0000010173410632988857,
+    "liq": 1674.6929788705852,
+    "network": "Near",
+    "tvl": "1674.6929788705852",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/plb-1567.meme-cooking.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|plb-1567.meme-cooking.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5940",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "jason-1628.meme-cooking.near",
+    "pool_id": 6046,
+    "_": "==============================",
+    "token_account_ids": [
+      "jason-1628.meme-cooking.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "Jason",
+      "wNEAR"
+    ],
+    "token_price": 0.0000010135531779631074,
+    "liq": 1591.5556430468087,
+    "network": "Near",
+    "tvl": "1591.5556430468087",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/jason-1628.meme-cooking.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|jason-1628.meme-cooking.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6046",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "szk-1618.meme-cooking.near",
+    "pool_id": 6027,
+    "_": "==============================",
+    "token_account_ids": [
+      "szk-1618.meme-cooking.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "SZK",
+      "wNEAR"
+    ],
+    "token_price": 7.450121021223978e-7,
+    "liq": 1460.4275973762403,
+    "network": "Near",
+    "tvl": "1460.4275973762403",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/szk-1618.meme-cooking.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|szk-1618.meme-cooking.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6027",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "dom-1568.meme-cooking.near",
+    "pool_id": 5941,
+    "_": "==============================",
+    "token_account_ids": [
+      "dom-1568.meme-cooking.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "DOM",
+      "wNEAR"
+    ],
+    "token_price": 8.623195837060569e-7,
+    "liq": 1432.0949893123839,
+    "network": "Near",
+    "tvl": "1432.0949893123839",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/dom-1568.meme-cooking.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|dom-1568.meme-cooking.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5941",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "pepe.token0.near",
+    "pool_id": 5269,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "pepe.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "PEPE"
+    ],
+    "token_price": 3.0565729195297036,
+    "liq": 1371.0376379160607,
+    "network": "Near",
+    "tvl": "1371.0376379160607",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/pepe.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|pepe.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5269",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "tee-1594.meme-cooking.near",
+    "pool_id": 5994,
+    "_": "==============================",
+    "token_account_ids": [
+      "tee-1594.meme-cooking.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "TEE",
+      "wNEAR"
+    ],
+    "token_price": 6.467916989538638e-7,
+    "liq": 1332.7530561804601,
+    "network": "Near",
+    "tvl": "1332.7530561804601",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/tee-1594.meme-cooking.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|tee-1594.meme-cooking.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5994",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "gooner-1599.meme-cooking.near",
+    "pool_id": 6004,
+    "_": "==============================",
+    "token_account_ids": [
+      "gooner-1599.meme-cooking.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "GOONER",
+      "wNEAR"
+    ],
+    "token_price": 0.00008266663670563212,
+    "liq": 1328.5732565893773,
+    "network": "Near",
+    "tvl": "1328.5732565893773",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/gooner-1599.meme-cooking.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|gooner-1599.meme-cooking.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6004",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "racoonx-1547.meme-cooking.near",
+    "pool_id": 5916,
+    "_": "==============================",
+    "token_account_ids": [
+      "racoonx-1547.meme-cooking.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "RACOONX",
+      "wNEAR"
+    ],
+    "token_price": 8.331837484433585e-7,
+    "liq": 1264.3258621258944,
+    "network": "Near",
+    "tvl": "1264.3258621258944",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/racoonx-1547.meme-cooking.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|racoonx-1547.meme-cooking.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5916",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "gtrump-1548.meme-cooking.near",
+    "pool_id": 5919,
+    "_": "==============================",
+    "token_account_ids": [
+      "gtrump-1548.meme-cooking.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "GTRUMP",
+      "wNEAR"
+    ],
+    "token_price": 6.917712863157837e-7,
+    "liq": 1247.8521631356289,
+    "network": "Near",
+    "tvl": "1247.8521631356289",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/gtrump-1548.meme-cooking.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|gtrump-1548.meme-cooking.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5919",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "noob.token0.near",
+    "pool_id": 6038,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "noob.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "NOOB"
+    ],
+    "token_price": 2.835336833783712,
+    "liq": 1128.235302666173,
+    "network": "Near",
+    "tvl": "1128.235302666173",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/noob.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|noob.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6038",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "poop.token0.near",
+    "pool_id": 6039,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "poop.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "POOP"
+    ],
+    "token_price": 2.829702966559691,
+    "liq": 1093.0802958612237,
+    "network": "Near",
+    "tvl": "1093.0802958612237",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/poop.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|poop.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6039",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "snakesnap-1561.meme-cooking.near",
+    "pool_id": 5937,
+    "_": "==============================",
+    "token_account_ids": [
+      "snakesnap-1561.meme-cooking.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "SNAKESNAP",
+      "wNEAR"
+    ],
+    "token_price": 5.354162332565027e-7,
+    "liq": 1029.0501112420313,
+    "network": "Near",
+    "tvl": "1029.0501112420313",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/snakesnap-1561.meme-cooking.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|snakesnap-1561.meme-cooking.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5937",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "age.token0.near",
+    "pool_id": 5900,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "age.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "AGE"
+    ],
+    "token_price": 2.4791776556331686,
+    "liq": 978.5147549508191,
+    "network": "Near",
+    "tvl": "978.5147549508191",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/age.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|age.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5900",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "watto-1563.meme-cooking.near",
+    "pool_id": 5938,
+    "_": "==============================",
+    "token_account_ids": [
+      "watto-1563.meme-cooking.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "WATTO",
+      "wNEAR"
+    ],
+    "token_price": 2.6863789810976345e-7,
+    "liq": 525.0856227086048,
+    "network": "Near",
+    "tvl": "525.0856227086048",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/watto-1563.meme-cooking.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|watto-1563.meme-cooking.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5938",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "8bowen-1597.meme-cooking.near",
+    "pool_id": 6003,
+    "_": "==============================",
+    "token_account_ids": [
+      "8bowen-1597.meme-cooking.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "8bowen",
+      "wNEAR"
+    ],
+    "token_price": 3.6243122102370885e-7,
+    "liq": 507.0339911583503,
+    "network": "Near",
+    "tvl": "507.0339911583503",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/8bowen-1597.meme-cooking.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|8bowen-1597.meme-cooking.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6003",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "ai-wanted-1617.meme-cooking.near",
+    "pool_id": 6025,
+    "_": "==============================",
+    "token_account_ids": [
+      "ai-wanted-1617.meme-cooking.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "AI-WANTED",
+      "wNEAR"
+    ],
+    "token_price": 2.788461717183868e-7,
+    "liq": 496.3390435082357,
+    "network": "Near",
+    "tvl": "496.3390435082357",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/ai-wanted-1617.meme-cooking.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|ai-wanted-1617.meme-cooking.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6025",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "donor-1517.meme-cooking.near",
+    "pool_id": 5903,
+    "_": "==============================",
+    "token_account_ids": [
+      "donor-1517.meme-cooking.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "DONOR",
+      "wNEAR"
+    ],
+    "token_price": 3.904148613267632e-8,
+    "liq": 493.53747533872234,
+    "network": "Near",
+    "tvl": "493.53747533872234",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/donor-1517.meme-cooking.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|donor-1517.meme-cooking.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5903",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "meta.token0.near",
+    "pool_id": 6070,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "meta.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "META"
+    ],
+    "token_price": 2.106954190770344,
+    "liq": 432.4525487269566,
+    "network": "Near",
+    "tvl": "432.4525487269566",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/meta.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|meta.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6070",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "token.dangelfund.near",
+    "pool_id": 3846,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "token.dangelfund.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "DANGEL"
+    ],
+    "token_price": 2.787368078454764,
+    "liq": 403.6217902360069,
+    "network": "Near",
+    "tvl": "403.6217902360069",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/token.dangelfund.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|token.dangelfund.near",
+    "DexLink": "https://dexscreener.com/near/refv1-3846",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "nezha.token0.near",
+    "pool_id": 6071,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "nezha.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "NEZHA"
+    ],
+    "token_price": 2.2594679806895637,
+    "liq": 377.39705714722413,
+    "network": "Near",
+    "tvl": "377.39705714722413",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/nezha.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|nezha.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6071",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "veax-1499.meme-cooking.near",
+    "pool_id": 5901,
+    "_": "==============================",
+    "token_account_ids": [
+      "veax-1499.meme-cooking.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "VEAX",
+      "wNEAR"
+    ],
+    "token_price": 1.7255704211400782e-7,
+    "liq": 352.52868314176936,
+    "network": "Near",
+    "tvl": "352.52868314176936",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/veax-1499.meme-cooking.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|veax-1499.meme-cooking.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5901",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "pre.meteor-token.near",
+    "pool_id": 5050,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "pre.meteor-token.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "MEPT"
+    ],
+    "token_price": 2.624159364700352,
+    "liq": 333.0627451814181,
+    "network": "Near",
+    "tvl": "333.0627451814181",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/pre.meteor-token.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|pre.meteor-token.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5050",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "hust-1524.meme-cooking.near",
+    "pool_id": 5907,
+    "_": "==============================",
+    "token_account_ids": [
+      "hust-1524.meme-cooking.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "HUST",
+      "wNEAR"
+    ],
+    "token_price": 1.4254498192694846e-7,
+    "liq": 320.5798259480597,
+    "network": "Near",
+    "tvl": "320.5798259480597",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/hust-1524.meme-cooking.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|hust-1524.meme-cooking.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5907",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "c.tkn.near",
+    "pool_id": 4266,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "c.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "C"
+    ],
+    "token_price": 2.7918875650824644,
+    "liq": 316.85005282071916,
+    "network": "Near",
+    "tvl": "316.85005282071916",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/c.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|c.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-4266",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "hot.token0.near",
+    "pool_id": 6078,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "hot.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "HOT"
+    ],
+    "token_price": 2.150593092291678,
+    "liq": 295.9799368650201,
+    "network": "Near",
+    "tvl": "295.9799368650201",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/hot.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|hot.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6078",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "avrit.near",
+    "pool_id": 174,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "avrit.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "AVRIT"
+    ],
+    "token_price": 2.740361350503548,
+    "liq": 278.0554813583682,
+    "network": "Near",
+    "tvl": "278.0554813583682",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/avrit.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|avrit.near",
+    "DexLink": "https://dexscreener.com/near/refv1-174",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "nrtd.token0.near",
+    "pool_id": 6066,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "nrtd.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "NRTD"
+    ],
+    "token_price": 2.2362255376234095,
+    "liq": 263.5580908178083,
+    "network": "Near",
+    "tvl": "263.5580908178083",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/nrtd.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|nrtd.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6066",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "ftai.tknx.near",
+    "pool_id": 5927,
+    "_": "==============================",
+    "token_account_ids": [
+      "ftai.tknx.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "FTAI",
+      "wNEAR"
+    ],
+    "token_price": 0.0000088891788073507,
+    "liq": 220.00198290588474,
+    "network": "Near",
+    "tvl": "220.00198290588474",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/ftai.tknx.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|ftai.tknx.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5927",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "nbtc.toalice.near",
+    "pool_id": 5912,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "nbtc.toalice.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "NBTC"
+    ],
+    "token_price": 2.9412532344682343,
+    "liq": 152.12714630152306,
+    "network": "Near",
+    "tvl": "152.12714630152306",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/nbtc.toalice.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|nbtc.toalice.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5912",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "emerald.tkn.near",
+    "pool_id": 6411,
+    "_": "==============================",
+    "token_account_ids": [
+      "emerald.tkn.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "Emerald",
+      "wNEAR"
+    ],
+    "token_price": 0.0009415302373304162,
+    "liq": 142.49345306823025,
+    "network": "Near",
+    "tvl": "142.49345306823025",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/emerald.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|emerald.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6411",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "ndao.nrc-20.near",
+    "pool_id": 4461,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "ndao.nrc-20.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "NDAO"
+    ],
+    "token_price": 2.560884182958666,
+    "liq": 132.41731810054046,
+    "network": "Near",
+    "tvl": "132.41731810054046",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/ndao.nrc-20.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|ndao.nrc-20.near",
+    "DexLink": "https://dexscreener.com/near/refv1-4461",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "lmb.token0.near",
+    "pool_id": 6089,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "lmb.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "LMB"
+    ],
+    "token_price": 3.1806549919926397,
+    "liq": 110.59254619130483,
+    "network": "Near",
+    "tvl": "110.59254619130483",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/lmb.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|lmb.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6089",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "wins.token0.near",
+    "pool_id": 6119,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "wins.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "WINS"
+    ],
+    "token_price": 2.475470631674217,
+    "liq": 100.81037294823074,
+    "network": "Near",
+    "tvl": "100.81037294823074",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/wins.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|wins.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6119",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "d3vil.token0.near",
+    "pool_id": 6100,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "d3vil.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "D3VIL"
+    ],
+    "token_price": 2.2877633280940355,
+    "liq": 84.92194864553687,
+    "network": "Near",
+    "tvl": "84.92194864553687",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/d3vil.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|d3vil.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6100",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "trmp1.token0.near",
+    "pool_id": 6069,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "trmp1.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "TRMP"
+    ],
+    "token_price": 2.8332355002387635,
+    "liq": 78.13601100998065,
+    "network": "Near",
+    "tvl": "78.13601100998065",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/trmp1.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|trmp1.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6069",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "ads.tkn.near",
+    "pool_id": 6430,
+    "_": "==============================",
+    "token_account_ids": [
+      "ads.tkn.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "ADS",
+      "wNEAR"
+    ],
+    "token_price": 2.7795812666155886e-9,
+    "liq": 73.63626306190692,
+    "network": "Near",
+    "tvl": "73.63626306190692",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/ads.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|ads.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6430",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "yolo1.token0.near",
+    "pool_id": 6079,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "yolo1.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "YOLO"
+    ],
+    "token_price": 2.5620029843330325,
+    "liq": 72.3978675351776,
+    "network": "Near",
+    "tvl": "72.3978675351776",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/yolo1.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|yolo1.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6079",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "neardog.tkn.near",
+    "pool_id": 4433,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "neardog.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "NEARDOG"
+    ],
+    "token_price": 3.7642620169457364,
+    "liq": 63.18013091954744,
+    "network": "Near",
+    "tvl": "63.18013091954744",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/neardog.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|neardog.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-4433",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "mbpp3.token0.near",
+    "pool_id": 6074,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "mbpp3.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "MBPP"
+    ],
+    "token_price": 2.7716069495052515,
+    "liq": 55.214835046717056,
+    "network": "Near",
+    "tvl": "55.214835046717056",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/mbpp3.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|mbpp3.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6074",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "bpanda.token0.near",
+    "pool_id": 6067,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "bpanda.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "BPANDA"
+    ],
+    "token_price": 2.807041469443707,
+    "liq": 50.04337665174833,
+    "network": "Near",
+    "tvl": "50.04337665174833",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/bpanda.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|bpanda.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6067",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "gift.token0.near",
+    "pool_id": 6108,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "gift.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "GIFT"
+    ],
+    "token_price": 2.4249421577228563,
+    "liq": 47.799096104694414,
+    "network": "Near",
+    "tvl": "47.799096104694414",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/gift.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|gift.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6108",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "token.doubleon.near",
+    "pool_id": 5281,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "token.doubleon.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "DOUBLE"
+    ],
+    "token_price": 2.76206613129466,
+    "liq": 43.95843322443089,
+    "network": "Near",
+    "tvl": "43.95843322443089",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/token.doubleon.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|token.doubleon.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5281",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "longcat.token0.near",
+    "pool_id": 6101,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "longcat.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "LONGCAT"
+    ],
+    "token_price": 3.2392992701066317,
+    "liq": 42.98789935323289,
+    "network": "Near",
+    "tvl": "42.98789935323289",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/longcat.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|longcat.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6101",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "hak.tkn.near",
+    "pool_id": 22,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "hak.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "HAK"
+    ],
+    "token_price": 2.889688926249513,
+    "liq": 39.78722529538497,
+    "network": "Near",
+    "tvl": "39.78722529538497",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/hak.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|hak.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-22",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "billy.token0.near",
+    "pool_id": 6172,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "billy.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "BILLY"
+    ],
+    "token_price": 3.165548751255689,
+    "liq": 37.034148920038206,
+    "network": "Near",
+    "tvl": "37.034148920038206",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/billy.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|billy.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6172",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "nug.token0.near",
+    "pool_id": 6293,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "nug.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "NUG"
+    ],
+    "token_price": 2.4133840731820078,
+    "liq": 29.212186641080926,
+    "network": "Near",
+    "tvl": "29.212186641080926",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/nug.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|nug.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6293",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "cm.token0.near",
+    "pool_id": 6280,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "cm.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "CM"
+    ],
+    "token_price": 3.4305270459812607,
+    "liq": 28.894915492225458,
+    "network": "Near",
+    "tvl": "28.894915492225458",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/cm.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|cm.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6280",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "duelx.near",
+    "pool_id": 3792,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "duelx.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "DUELX"
+    ],
+    "token_price": 2.41332813147222,
+    "liq": 28.795378919404534,
+    "network": "Near",
+    "tvl": "28.795378919404534",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/duelx.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|duelx.near",
+    "DexLink": "https://dexscreener.com/near/refv1-3792",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "dogs1.token0.near",
+    "pool_id": 6157,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "dogs1.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "DOGS"
+    ],
+    "token_price": 2.4031086406088584,
+    "liq": 24.9098110412572,
+    "network": "Near",
+    "tvl": "24.9098110412572",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/dogs1.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|dogs1.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6157",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "freedurov1.token0.near",
+    "pool_id": 6080,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "freedurov1.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "FREEDUROV"
+    ],
+    "token_price": 2.7115488068643288,
+    "liq": 22.597114824104025,
+    "network": "Near",
+    "tvl": "22.597114824104025",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/freedurov1.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|freedurov1.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6080",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "hwkth.token0.near",
+    "pool_id": 6181,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "hwkth.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "HWKTH"
+    ],
+    "token_price": 2.5355739270723654,
+    "liq": 22.441266723899677,
+    "network": "Near",
+    "tvl": "22.441266723899677",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/hwkth.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|hwkth.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6181",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "xxx.token0.near",
+    "pool_id": 6083,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "xxx.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "XXX"
+    ],
+    "token_price": 2.483068493150609,
+    "liq": 20.415471679787856,
+    "network": "Near",
+    "tvl": "20.415471679787856",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/xxx.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|xxx.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6083",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "4201.token0.near",
+    "pool_id": 6123,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "4201.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "420"
+    ],
+    "token_price": 2.5579633912800177,
+    "liq": 17.856374426305898,
+    "network": "Near",
+    "tvl": "17.856374426305898",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/4201.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|4201.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6123",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "ysx.tkn.near",
+    "pool_id": 5929,
+    "_": "==============================",
+    "token_account_ids": [
+      "ysx.tkn.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "YSX",
+      "wNEAR"
+    ],
+    "token_price": 7.918574370513399e-7,
+    "liq": 15.838958929309898,
+    "network": "Near",
+    "tvl": "15.838958929309898",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/ysx.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|ysx.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5929",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "yolo.token0.near",
+    "pool_id": 6075,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "yolo.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "YOLO"
+    ],
+    "token_price": 2.8729533554744,
+    "liq": 13.305890116572183,
+    "network": "Near",
+    "tvl": "13.305890116572183",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/yolo.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|yolo.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6075",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "rdoge.token0.near",
+    "pool_id": 6109,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "rdoge.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "RDOGE"
+    ],
+    "token_price": 2.4113236395612,
+    "liq": 13.085378366846054,
+    "network": "Near",
+    "tvl": "13.085378366846054",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/rdoge.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|rdoge.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6109",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "vie1.token0.near",
+    "pool_id": 6269,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "vie1.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "VIE"
+    ],
+    "token_price": 3.227953798300659,
+    "liq": 11.141105355127786,
+    "network": "Near",
+    "tvl": "11.141105355127786",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/vie1.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|vie1.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6269",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "tsts166592.gftest3.near",
+    "pool_id": 5998,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "tsts166592.gftest3.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "tsts166592"
+    ],
+    "token_price": 2.879323745527916,
+    "liq": 10.827185590457402,
+    "network": "Near",
+    "tvl": "10.827185590457402",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/tsts166592.gftest3.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|tsts166592.gftest3.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5998",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "nearpunk.tkn.near",
+    "pool_id": 4421,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "nearpunk.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "NEARPUNK"
+    ],
+    "token_price": 2.640496448486699,
+    "liq": 10.698724600366578,
+    "network": "Near",
+    "tvl": "10.698724600366578",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/nearpunk.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|nearpunk.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-4421",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "ntdarai.tkn.near",
+    "pool_id": 5942,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "ntdarai.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "NTDarai"
+    ],
+    "token_price": 2.2852167428782035,
+    "liq": 10.227011052391754,
+    "network": "Near",
+    "tvl": "10.227011052391754",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/ntdarai.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|ntdarai.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5942",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "aaaaaa20d9e0e2461697782ef11675f668207961.factory.bridge.near",
+    "pool_id": 6452,
+    "_": "==============================",
+    "token_account_ids": [
+      "aaaaaa20d9e0e2461697782ef11675f668207961.factory.bridge.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "AURORA",
+      "wNEAR"
+    ],
+    "token_price": 0.08097599659512543,
+    "liq": 10.159180110091798,
+    "network": "Near",
+    "tvl": "10.159180110091798",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/aaaaaa20d9e0e2461697782ef11675f668207961.factory.bridge.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|aaaaaa20d9e0e2461697782ef11675f668207961.factory.bridge.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6452",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "putin.token0.near",
+    "pool_id": 6084,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "putin.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "PUTIN"
+    ],
+    "token_price": 3.709220765848846,
+    "liq": 9.577824385720586,
+    "network": "Near",
+    "tvl": "9.577824385720586",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/putin.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|putin.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6084",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "stsbtc.tfactory.near",
+    "pool_id": 5248,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "stsbtc.tfactory.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "STSBTC"
+    ],
+    "token_price": 2.4052206362521145,
+    "liq": 9.37617299201289,
+    "network": "Near",
+    "tvl": "9.37617299201289",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/stsbtc.tfactory.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|stsbtc.tfactory.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5248",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "cheez.token0.near",
+    "pool_id": 6149,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "cheez.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "CHEEZ"
+    ],
+    "token_price": 3.40876647835512,
+    "liq": 8.355588895105912,
+    "network": "Near",
+    "tvl": "8.355588895105912",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/cheez.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|cheez.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6149",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "poopcoin.token0.near",
+    "pool_id": 6088,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "poopcoin.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "POOPCOIN"
+    ],
+    "token_price": 3.470855626671483,
+    "liq": 8.188090476024454,
+    "network": "Near",
+    "tvl": "8.188090476024454",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/poopcoin.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|poopcoin.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6088",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "ukr.token0.near",
+    "pool_id": 6106,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "ukr.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "UKR"
+    ],
+    "token_price": 3.0678475840139905,
+    "liq": 7.621315301779133,
+    "network": "Near",
+    "tvl": "7.621315301779133",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/ukr.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|ukr.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6106",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "scam.token0.near",
+    "pool_id": 6133,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "scam.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "SCAM"
+    ],
+    "token_price": 3.4716148597884535,
+    "liq": 7.492037885257521,
+    "network": "Near",
+    "tvl": "7.492037885257521",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/scam.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|scam.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6133",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "yupland.tkn.near",
+    "pool_id": 6017,
+    "_": "==============================",
+    "token_account_ids": [
+      "yupland.tkn.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "YUPLAND",
+      "wNEAR"
+    ],
+    "token_price": 6.694851323327999e-11,
+    "liq": 7.225467658781276,
+    "network": "Near",
+    "tvl": "7.225467658781276",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/yupland.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|yupland.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6017",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "stb.token0.near",
+    "pool_id": 6058,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "stb.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "STB"
+    ],
+    "token_price": 2.863219425823583,
+    "liq": 6.947449143192998,
+    "network": "Near",
+    "tvl": "6.947449143192998",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/stb.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|stb.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6058",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "yupland.tkn.near",
+    "pool_id": 5963,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "yupland.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "YUPLAND"
+    ],
+    "token_price": 2.666610478007126,
+    "liq": 6.894192341149232,
+    "network": "Near",
+    "tvl": "6.894192341149232",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/yupland.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|yupland.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5963",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "wif1.token0.near",
+    "pool_id": 6165,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "wif1.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "WIF"
+    ],
+    "token_price": 2.400511434074898,
+    "liq": 6.732451661441171,
+    "network": "Near",
+    "tvl": "6.732451661441171",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/wif1.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|wif1.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6165",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "cookie.nekotoken.near",
+    "pool_id": 3810,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "cookie.nekotoken.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "COOKIE"
+    ],
+    "token_price": 2.7070302926245464,
+    "liq": 6.692273257552621,
+    "network": "Near",
+    "tvl": "6.692273257552621",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/cookie.nekotoken.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|cookie.nekotoken.near",
+    "DexLink": "https://dexscreener.com/near/refv1-3810",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "nearkat.tkn.near",
+    "pool_id": 1226,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "nearkat.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "NEARKAT"
+    ],
+    "token_price": 3.044259563220746,
+    "liq": 6.6694548799967395,
+    "network": "Near",
+    "tvl": "6.6694548799967395",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/nearkat.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|nearkat.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-1226",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "usmensupport.token0.near",
+    "pool_id": 6116,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "usmensupport.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "USMENSUPPORT"
+    ],
+    "token_price": 2.5662014018348556,
+    "liq": 6.659183176835424,
+    "network": "Near",
+    "tvl": "6.659183176835424",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/usmensupport.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|usmensupport.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6116",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "zeus.token0.near",
+    "pool_id": 6126,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "zeus.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "ZEUS"
+    ],
+    "token_price": 2.076808712700616,
+    "liq": 6.481420128487396,
+    "network": "Near",
+    "tvl": "6.481420128487396",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/zeus.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|zeus.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6126",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "t.tkn.near",
+    "pool_id": 3882,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "t.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "T"
+    ],
+    "token_price": 4.617452641692673,
+    "liq": 6.373020152811632,
+    "network": "Near",
+    "tvl": "6.373020152811632",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/t.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|t.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-3882",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "bonk.token0.near",
+    "pool_id": 6190,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "bonk.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "BONK"
+    ],
+    "token_price": 5.103529089975925,
+    "liq": 6.30598880068322,
+    "network": "Near",
+    "tvl": "6.30598880068322",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/bonk.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|bonk.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6190",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "puta.token0.near",
+    "pool_id": 6197,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "puta.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "PUTA"
+    ],
+    "token_price": 2.928126073970025,
+    "liq": 6.197559767867835,
+    "network": "Near",
+    "tvl": "6.197559767867835",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/puta.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|puta.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6197",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "frdm.token0.near",
+    "pool_id": 6218,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "frdm.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "FRDM"
+    ],
+    "token_price": 3.822789858090719,
+    "liq": 6.071046635152975,
+    "network": "Near",
+    "tvl": "6.071046635152975",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/frdm.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|frdm.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6218",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "nearkat.tkn.near",
+    "pool_id": 4423,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "nearkat.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "NEARKAT"
+    ],
+    "token_price": 3.689053895442259,
+    "liq": 6.0382935830085644,
+    "network": "Near",
+    "tvl": "6.0382935830085644",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/nearkat.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|nearkat.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-4423",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "shot.token0.near",
+    "pool_id": 6223,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "shot.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "SHOT"
+    ],
+    "token_price": 3.1938303025603347,
+    "liq": 5.791062685648763,
+    "network": "Near",
+    "tvl": "5.791062685648763",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/shot.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|shot.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6223",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "neardog.tkn.near",
+    "pool_id": 1224,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "neardog.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "NEARDOG"
+    ],
+    "token_price": 2.992950827710569,
+    "liq": 5.685746087839295,
+    "network": "Near",
+    "tvl": "5.685746087839295",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/neardog.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|neardog.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-1224",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "flea.token0.near",
+    "pool_id": 6162,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "flea.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "FLEA"
+    ],
+    "token_price": 3.2946744338527614,
+    "liq": 5.29598293119059,
+    "network": "Near",
+    "tvl": "5.29598293119059",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/flea.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|flea.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6162",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "rep.tkn.near",
+    "pool_id": 4186,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "rep.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "REP"
+    ],
+    "token_price": 2.5779097630098526,
+    "liq": 4.827881529851091,
+    "network": "Near",
+    "tvl": "4.827881529851091",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/rep.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|rep.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-4186",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "pdd.token0.near",
+    "pool_id": 6193,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "pdd.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "PDD"
+    ],
+    "token_price": 2.393852911997432,
+    "liq": 4.8104320374372325,
+    "network": "Near",
+    "tvl": "4.8104320374372325",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/pdd.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|pdd.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6193",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "bran.token0.near",
+    "pool_id": 6266,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "bran.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "BRAN"
+    ],
+    "token_price": 420.2377739254913,
+    "liq": 4.276767780743326,
+    "network": "Near",
+    "tvl": "4.276767780743326",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/bran.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|bran.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6266",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "raen.token0.near",
+    "pool_id": 6139,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "raen.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "RAEN"
+    ],
+    "token_price": 3.5257057519087445,
+    "liq": 3.8500823598781353,
+    "network": "Near",
+    "tvl": "3.8500823598781353",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/raen.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|raen.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6139",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "ai.token0.near",
+    "pool_id": 6304,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "ai.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "AI"
+    ],
+    "token_price": 2.9910705077441526,
+    "liq": 3.378171116144655,
+    "network": "Near",
+    "tvl": "3.378171116144655",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/ai.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|ai.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6304",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "trans.token0.near",
+    "pool_id": 6303,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "trans.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "TRANS"
+    ],
+    "token_price": 3.055451168233818,
+    "liq": 3.285332689166019,
+    "network": "Near",
+    "tvl": "3.285332689166019",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/trans.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|trans.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6303",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "mineminemine.tkn.primitives.near",
+    "pool_id": 6427,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "mineminemine.tkn.primitives.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "MINEMINEMINE"
+    ],
+    "token_price": 2.886566953875185,
+    "liq": 3.100778344626369,
+    "network": "Near",
+    "tvl": "3.100778344626369",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/mineminemine.tkn.primitives.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|mineminemine.tkn.primitives.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6427",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "ear.token0.near",
+    "pool_id": 6311,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "ear.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "EAR"
+    ],
+    "token_price": 3.283858323885165,
+    "liq": 2.9855196176405796,
+    "network": "Near",
+    "tvl": "2.9855196176405796",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/ear.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|ear.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6311",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "depe.token0.near",
+    "pool_id": 6094,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "depe.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "DEPE"
+    ],
+    "token_price": 105.6503311459335,
+    "liq": 2.9368389823735437,
+    "network": "Near",
+    "tvl": "2.9368389823735437",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/depe.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|depe.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6094",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "ants.tkn.near",
+    "pool_id": 4324,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "ants.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "ANTS"
+    ],
+    "token_price": 2.8102698625701255,
+    "liq": 2.8560557113635134,
+    "network": "Near",
+    "tvl": "2.8560557113635134",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/ants.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|ants.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-4324",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "15338008135.tknx.near",
+    "pool_id": 6022,
+    "_": "==============================",
+    "token_account_ids": [
+      "15338008135.tknx.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "15338008135",
+      "wNEAR"
+    ],
+    "token_price": 3.2586010678398173e-9,
+    "liq": 2.728873377860409,
+    "network": "Near",
+    "tvl": "2.728873377860409",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/15338008135.tknx.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|15338008135.tknx.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6022",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "dcity.tkn.near",
+    "pool_id": 3437,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "dcity.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "DCITY"
+    ],
+    "token_price": 2.3718988328655852,
+    "liq": 2.4713055419278236,
+    "network": "Near",
+    "tvl": "2.4713055419278236",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/dcity.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|dcity.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-3437",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "420.token0.near",
+    "pool_id": 6120,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "420.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "420"
+    ],
+    "token_price": 1.7915866578986017,
+    "liq": 2.4501116074924623,
+    "network": "Near",
+    "tvl": "2.4501116074924623",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/420.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|420.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6120",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "hmstr1.token0.near",
+    "pool_id": 6351,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "hmstr1.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "HMSTR"
+    ],
+    "token_price": 3.611607270042752,
+    "liq": 2.3659481858247355,
+    "network": "Near",
+    "tvl": "2.3659481858247355",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/hmstr1.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|hmstr1.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6351",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "token.jumbo_exchange.near",
+    "pool_id": 2768,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "token.jumbo_exchange.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "JUMBO"
+    ],
+    "token_price": 2.8511963478314866,
+    "liq": 2.280942762509082,
+    "network": "Near",
+    "tvl": "2.280942762509082",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/token.jumbo_exchange.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|token.jumbo_exchange.near",
+    "DexLink": "https://dexscreener.com/near/refv1-2768",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "unidragonworlddragon.tknx.near",
+    "pool_id": 5958,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "unidragonworlddragon.tknx.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "unidragonworlddragon"
+    ],
+    "token_price": 2.815993828749933,
+    "liq": 2.185489383191895,
+    "network": "Near",
+    "tvl": "2.185489383191895",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/unidragonworlddragon.tknx.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|unidragonworlddragon.tknx.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5958",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "grand.token0.near",
+    "pool_id": 6217,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "grand.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "GRAND"
+    ],
+    "token_price": 6.983745823576539,
+    "liq": 1.8523462919911826,
+    "network": "Near",
+    "tvl": "1.8523462919911826",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/grand.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|grand.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6217",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "1ab43204a195a0fd37edec621482afd3792ef90b.factory.bridge.near",
+    "pool_id": 5134,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "1ab43204a195a0fd37edec621482afd3792ef90b.factory.bridge.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "PLY"
+    ],
+    "token_price": 2.899815540592473,
+    "liq": 1.8277085680988427,
+    "network": "Near",
+    "tvl": "1.8277085680988427",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/1ab43204a195a0fd37edec621482afd3792ef90b.factory.bridge.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|1ab43204a195a0fd37edec621482afd3792ef90b.factory.bridge.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5134",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "troll.token0.near",
+    "pool_id": 6352,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "troll.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "TROLL"
+    ],
+    "token_price": 3.504810714772514,
+    "liq": 1.7152605409437816,
+    "network": "Near",
+    "tvl": "1.7152605409437816",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/troll.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|troll.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6352",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "hachi1.token0.near",
+    "pool_id": 6053,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "hachi1.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "HACHI"
+    ],
+    "token_price": 2.856042749427089,
+    "liq": 1.6392591627485666,
+    "network": "Near",
+    "tvl": "1.6392591627485666",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/hachi1.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|hachi1.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6053",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "poweredbyhotwallet.token0.near",
+    "pool_id": 6237,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "poweredbyhotwallet.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "POWEREDBYHOTWALLET"
+    ],
+    "token_price": 2.790491715395409,
+    "liq": 1.635582636115938,
+    "network": "Near",
+    "tvl": "1.635582636115938",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/poweredbyhotwallet.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|poweredbyhotwallet.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6237",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "blum1.token0.near",
+    "pool_id": 6231,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "blum1.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "BLUM"
+    ],
+    "token_price": 3.5178226804209762,
+    "liq": 1.4775658838305086,
+    "network": "Near",
+    "tvl": "1.4775658838305086",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/blum1.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|blum1.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6231",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "hajimitknx.tknx.near",
+    "pool_id": 5195,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "hajimitknx.tknx.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "hajimitknx"
+    ],
+    "token_price": 2.402955742461309,
+    "liq": 1.4220442583814357,
+    "network": "Near",
+    "tvl": "1.4220442583814357",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/hajimitknx.tknx.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|hajimitknx.tknx.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5195",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "duck.tkn.near",
+    "pool_id": 4422,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "duck.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "DUCK"
+    ],
+    "token_price": 2.317132864483837,
+    "liq": 1.359283614228803,
+    "network": "Near",
+    "tvl": "1.359283614228803",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/duck.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|duck.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-4422",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "tre.token0.near",
+    "pool_id": 6234,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "tre.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "TRE"
+    ],
+    "token_price": 13.797857738062532,
+    "liq": 1.3552921204018662,
+    "network": "Near",
+    "tvl": "1.3552921204018662",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/tre.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|tre.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6234",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "aids.token0.near",
+    "pool_id": 6310,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "aids.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "AIDS"
+    ],
+    "token_price": 3.27391995727829,
+    "liq": 1.3471064074545822,
+    "network": "Near",
+    "tvl": "1.3471064074545822",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/aids.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|aids.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6310",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "gold.l2e.near",
+    "pool_id": 2615,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "gold.l2e.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "GOLD"
+    ],
+    "token_price": 3.1892223191898865,
+    "liq": 1.3121978292052907,
+    "network": "Near",
+    "tvl": "1.3121978292052907",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/gold.l2e.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|gold.l2e.near",
+    "DexLink": "https://dexscreener.com/near/refv1-2615",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "gold.l2e.near",
+    "pool_id": 3845,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "gold.l2e.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "GOLD"
+    ],
+    "token_price": 2.5761048455198123,
+    "liq": 1.2982777476095273,
+    "network": "Near",
+    "tvl": "1.2982777476095273",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/gold.l2e.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|gold.l2e.near",
+    "DexLink": "https://dexscreener.com/near/refv1-3845",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "memex.token0.near",
+    "pool_id": 6226,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "memex.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "MEMEX"
+    ],
+    "token_price": 2.670228470782597,
+    "liq": 1.2524473152097837,
+    "network": "Near",
+    "tvl": "1.2524473152097837",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/memex.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|memex.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6226",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "t.tkn.near",
+    "pool_id": 3926,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "t.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "T"
+    ],
+    "token_price": 4.019242240399451,
+    "liq": 1.2254583647832935,
+    "network": "Near",
+    "tvl": "1.2254583647832935",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/t.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|t.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-3926",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "drgl.token0.near",
+    "pool_id": 6121,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "drgl.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "DRGL"
+    ],
+    "token_price": 622481.2156784665,
+    "liq": 1.1694627516493967,
+    "network": "Near",
+    "tvl": "1.1694627516493967",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/drgl.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|drgl.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6121",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "bnear.token0.near",
+    "pool_id": 6145,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "bnear.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "BNEAR"
+    ],
+    "token_price": 2.8357081660653103,
+    "liq": 1.118136107267117,
+    "network": "Near",
+    "tvl": "1.118136107267117",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/bnear.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|bnear.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6145",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "svn.token0.near",
+    "pool_id": 6278,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "svn.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "SVN"
+    ],
+    "token_price": 3.125465190182454,
+    "liq": 1.0923069652865303,
+    "network": "Near",
+    "tvl": "1.0923069652865303",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/svn.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|svn.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6278",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "pepe1.token0.near",
+    "pool_id": 6342,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "pepe1.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "PEPE"
+    ],
+    "token_price": 2.5243171002779605,
+    "liq": 1.0696914942597067,
+    "network": "Near",
+    "tvl": "1.0696914942597067",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/pepe1.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|pepe1.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6342",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "chain.tkn.near",
+    "pool_id": 5116,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "chain.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "CHAIN"
+    ],
+    "token_price": 21.784614718160427,
+    "liq": 0.9513731936593554,
+    "network": "Near",
+    "tvl": "0.9513731936593554",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/chain.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|chain.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5116",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "ntdarai.tkn.near",
+    "pool_id": 5909,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "ntdarai.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "NTDarai"
+    ],
+    "token_price": 3.0503208118913987,
+    "liq": 0.9273495915530009,
+    "network": "Near",
+    "tvl": "0.9273495915530009",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/ntdarai.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|ntdarai.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5909",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "emj.token0.near",
+    "pool_id": 6189,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "emj.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "EMJ"
+    ],
+    "token_price": 2.6985602856773547,
+    "liq": 0.846384702381094,
+    "network": "Near",
+    "tvl": "0.846384702381094",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/emj.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|emj.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6189",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "t.tkn.near",
+    "pool_id": 3922,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "t.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "T"
+    ],
+    "token_price": 4.588360592864031,
+    "liq": 0.84034956938064,
+    "network": "Near",
+    "tvl": "0.84034956938064",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/t.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|t.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-3922",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "aidragon.tkn.near",
+    "pool_id": 5032,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "aidragon.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "AIDragon"
+    ],
+    "token_price": 2.2370043272277944,
+    "liq": 0.8227146799147174,
+    "network": "Near",
+    "tvl": "0.8227146799147174",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/aidragon.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|aidragon.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5032",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "t.tkn.near",
+    "pool_id": 4145,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "t.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "T"
+    ],
+    "token_price": 4.9672319448019255,
+    "liq": 0.7594796245310228,
+    "network": "Near",
+    "tvl": "0.7594796245310228",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/t.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|t.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-4145",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "sstrump.token0.near",
+    "pool_id": 6214,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "sstrump.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "SSTRUMP"
+    ],
+    "token_price": 2.861280031480284,
+    "liq": 0.7546878702850102,
+    "network": "Near",
+    "tvl": "0.7546878702850102",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/sstrump.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|sstrump.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6214",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "shib.token0.near",
+    "pool_id": 6146,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "shib.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "SHIB"
+    ],
+    "token_price": 2.7465555239523205,
+    "liq": 0.7169764988337928,
+    "network": "Near",
+    "tvl": "0.7169764988337928",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/shib.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|shib.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6146",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "not2.token0.near",
+    "pool_id": 6175,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "not2.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "NOT"
+    ],
+    "token_price": 2.2671237748508233,
+    "liq": 0.6435176729775007,
+    "network": "Near",
+    "tvl": "0.6435176729775007",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/not2.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|not2.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6175",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "anear.tkn.near",
+    "pool_id": 6357,
+    "_": "==============================",
+    "token_account_ids": [
+      "anear.tkn.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "ANEAR",
+      "wNEAR"
+    ],
+    "token_price": 1.177216579398035e-8,
+    "liq": 0.6027381610251912,
+    "network": "Near",
+    "tvl": "0.6027381610251912",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/anear.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|anear.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6357",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "moon.token0.near",
+    "pool_id": 6271,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "moon.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "MOON"
+    ],
+    "token_price": 3.6793120225322125,
+    "liq": 0.599313297904009,
+    "network": "Near",
+    "tvl": "0.599313297904009",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/moon.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|moon.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6271",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "wbtc.token0.near",
+    "pool_id": 6192,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "wbtc.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "WBTC"
+    ],
+    "token_price": 3.5327429399223096,
+    "liq": 0.5841541096018679,
+    "network": "Near",
+    "tvl": "0.5841541096018679",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/wbtc.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|wbtc.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6192",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "preton.token0.near",
+    "pool_id": 6323,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "preton.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "PRETON"
+    ],
+    "token_price": 3.0501131831094015,
+    "liq": 0.5520854582337096,
+    "network": "Near",
+    "tvl": "0.5520854582337096",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/preton.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|preton.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6323",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "fnear.token0.near",
+    "pool_id": 6154,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "fnear.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "FNEAR"
+    ],
+    "token_price": 7.910474082780812,
+    "liq": 0.5471128729904067,
+    "network": "Near",
+    "tvl": "0.5471128729904067",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/fnear.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|fnear.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6154",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "med.tkn.near",
+    "pool_id": 6041,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "med.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "MED"
+    ],
+    "token_price": 3.1673828593539883,
+    "liq": 0.506325843187549,
+    "network": "Near",
+    "tvl": "0.506325843187549",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/med.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|med.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6041",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "olympic.token0.near",
+    "pool_id": 6312,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "olympic.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "OLYMPIC"
+    ],
+    "token_price": 2.6306687681100294,
+    "liq": 0.49831639763769514,
+    "network": "Near",
+    "tvl": "0.49831639763769514",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/olympic.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|olympic.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6312",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "google.token0.near",
+    "pool_id": 6171,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "google.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "GOOGLE"
+    ],
+    "token_price": 2.1992524804911855,
+    "liq": 0.49690514474145286,
+    "network": "Near",
+    "tvl": "0.49690514474145286",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/google.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|google.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6171",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "t.tkn.near",
+    "pool_id": 4144,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "t.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "T"
+    ],
+    "token_price": 5.296068339139878,
+    "liq": 0.4865618936749324,
+    "network": "Near",
+    "tvl": "0.4865618936749324",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/t.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|t.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-4144",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "gme.tkn.near",
+    "pool_id": 5078,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "gme.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "GME"
+    ],
+    "token_price": 2.4722373161621025,
+    "liq": 0.44562564367265345,
+    "network": "Near",
+    "tvl": "0.44562564367265345",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/gme.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|gme.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5078",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "btc.token0.near",
+    "pool_id": 6163,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "btc.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "BTC"
+    ],
+    "token_price": 0.8065769445553903,
+    "liq": 0.4123070497143514,
+    "network": "Near",
+    "tvl": "0.4123070497143514",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/btc.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|btc.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6163",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "elixir.l2e.near",
+    "pool_id": 2624,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "elixir.l2e.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "ELIXIR"
+    ],
+    "token_price": 1.7107381151762522,
+    "liq": 0.4033378247733272,
+    "network": "Near",
+    "tvl": "0.4033378247733272",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/elixir.l2e.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|elixir.l2e.near",
+    "DexLink": "https://dexscreener.com/near/refv1-2624",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "moon3.token0.near",
+    "pool_id": 6092,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "moon3.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "MOON"
+    ],
+    "token_price": 2.963861606987559,
+    "liq": 0.3984503154247453,
+    "network": "Near",
+    "tvl": "0.3984503154247453",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/moon3.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|moon3.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6092",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "balls.token0.near",
+    "pool_id": 6087,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "balls.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "BALLS"
+    ],
+    "token_price": 3.6068960886802044,
+    "liq": 0.3609140189246953,
+    "network": "Near",
+    "tvl": "0.3609140189246953",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/balls.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|balls.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6087",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "ccc.tknx.near",
+    "pool_id": 6024,
+    "_": "==============================",
+    "token_account_ids": [
+      "ccc.tknx.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "CCC",
+      "wNEAR"
+    ],
+    "token_price": 1.550910658380752e-9,
+    "liq": 0.3399521010706863,
+    "network": "Near",
+    "tvl": "0.3399521010706863",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/ccc.tknx.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|ccc.tknx.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6024",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "23.contract.portalbridge.near",
+    "pool_id": 4469,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "23.contract.portalbridge.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "Aurora"
+    ],
+    "token_price": 24636.98476378414,
+    "liq": 0.32861948216677705,
+    "network": "Near",
+    "tvl": "0.32861948216677705",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/23.contract.portalbridge.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|23.contract.portalbridge.near",
+    "DexLink": "https://dexscreener.com/near/refv1-4469",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "wood.token0.near",
+    "pool_id": 6167,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "wood.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "WOOD"
+    ],
+    "token_price": 4.24872292458409,
+    "liq": 0.32451677314943195,
+    "network": "Near",
+    "tvl": "0.32451677314943195",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/wood.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|wood.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6167",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "notg.token0.near",
+    "pool_id": 6229,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "notg.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "NOTG"
+    ],
+    "token_price": 4.07260969413512,
+    "liq": 0.3189506227710915,
+    "network": "Near",
+    "tvl": "0.3189506227710915",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/notg.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|notg.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6229",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "floki.tkn.near",
+    "pool_id": 1025,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "floki.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "FLOKI"
+    ],
+    "token_price": 5.020135819691843,
+    "liq": 0.3142792693038662,
+    "network": "Near",
+    "tvl": "0.3142792693038662",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/floki.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|floki.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-1025",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "rs.tkn.near",
+    "pool_id": 3918,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "rs.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "RS"
+    ],
+    "token_price": 2.3144663037794366,
+    "liq": 0.29238934629170454,
+    "network": "Near",
+    "tvl": "0.29238934629170454",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/rs.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|rs.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-3918",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "grecha.tkn.near",
+    "pool_id": 5292,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "grecha.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "GRECHA"
+    ],
+    "token_price": 2.5810359763508113,
+    "liq": 0.2923199762882649,
+    "network": "Near",
+    "tvl": "0.2923199762882649",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/grecha.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|grecha.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5292",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "shitzu.token0.near",
+    "pool_id": 6273,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "shitzu.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "SHITZU"
+    ],
+    "token_price": 3.1760967970550045,
+    "liq": 0.27923109610404906,
+    "network": "Near",
+    "tvl": "0.27923109610404906",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/shitzu.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|shitzu.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6273",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "0.token0.near",
+    "pool_id": 6322,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "0.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "0"
+    ],
+    "token_price": 2.9023254255982023,
+    "liq": 0.2517236913170526,
+    "network": "Near",
+    "tvl": "0.2517236913170526",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/0.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|0.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6322",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "gc25.token0.near",
+    "pool_id": 6254,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "gc25.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "GC25"
+    ],
+    "token_price": 4.002626243078191,
+    "liq": 0.25082046126607177,
+    "network": "Near",
+    "tvl": "0.25082046126607177",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/gc25.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|gc25.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6254",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "elixir.l2e.near",
+    "pool_id": 3511,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "elixir.l2e.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "ELIXIR"
+    ],
+    "token_price": 2.1554364436712756,
+    "liq": 0.24240941346207207,
+    "network": "Near",
+    "tvl": "0.24240941346207207",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/elixir.l2e.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|elixir.l2e.near",
+    "DexLink": "https://dexscreener.com/near/refv1-3511",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "pacman.tkn.near",
+    "pool_id": 6002,
+    "_": "==============================",
+    "token_account_ids": [
+      "pacman.tkn.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "PACMAN",
+      "wNEAR"
+    ],
+    "token_price": 4.455230596483296e-12,
+    "liq": 0.22867052384682135,
+    "network": "Near",
+    "tvl": "0.22867052384682135",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/pacman.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|pacman.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6002",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "donor-1517.meme-cooking.near",
+    "pool_id": 5906,
+    "_": "==============================",
+    "token_account_ids": [
+      "donor-1517.meme-cooking.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "DONOR",
+      "wNEAR"
+    ],
+    "token_price": 4.4856115236814644e-8,
+    "liq": 0.21868201108935426,
+    "network": "Near",
+    "tvl": "0.21868201108935426",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/donor-1517.meme-cooking.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|donor-1517.meme-cooking.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5906",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "mi.tkn.near",
+    "pool_id": 4964,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "mi.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "MI"
+    ],
+    "token_price": 3.3785053629473922,
+    "liq": 0.21779364156789605,
+    "network": "Near",
+    "tvl": "0.21779364156789605",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/mi.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|mi.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-4964",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "17208628f84f5d6ad33f0da3bbbeb27ffcb398eac501a31bd6ad2011e36133a1",
+    "pool_id": 5899,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "17208628f84f5d6ad33f0da3bbbeb27ffcb398eac501a31bd6ad2011e36133a1"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "USDC"
+    ],
+    "token_price": 2.705608045406551,
+    "liq": 0.21566744247890524,
+    "network": "Near",
+    "tvl": "0.21566744247890524",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/17208628f84f5d6ad33f0da3bbbeb27ffcb398eac501a31bd6ad2011e36133a1",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|17208628f84f5d6ad33f0da3bbbeb27ffcb398eac501a31bd6ad2011e36133a1",
+    "DexLink": "https://dexscreener.com/near/refv1-5899",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "t.tkn.near",
+    "pool_id": 4154,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "t.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "T"
+    ],
+    "token_price": 4.344497932364993,
+    "liq": 0.19731142586632022,
+    "network": "Near",
+    "tvl": "0.19731142586632022",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/t.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|t.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-4154",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "meme.token0.near",
+    "pool_id": 6198,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "meme.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "MEME"
+    ],
+    "token_price": 4.420048443016856,
+    "liq": 0.17539823292433138,
+    "network": "Near",
+    "tvl": "0.17539823292433138",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/meme.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|meme.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6198",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "ear.tknx.near",
+    "pool_id": 5216,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "ear.tknx.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "EAR"
+    ],
+    "token_price": 1.8476673021953598,
+    "liq": 0.16381254159855974,
+    "network": "Near",
+    "tvl": "0.16381254159855974",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/ear.tknx.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|ear.tknx.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5216",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "nbtc.token0.near",
+    "pool_id": 6076,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "nbtc.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "NBTC"
+    ],
+    "token_price": 3.158156491540223,
+    "liq": 0.14925277823624467,
+    "network": "Near",
+    "tvl": "0.14925277823624467",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/nbtc.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|nbtc.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6076",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "hot1.token0.near",
+    "pool_id": 6131,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "hot1.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "HOT"
+    ],
+    "token_price": 2.362854592911059,
+    "liq": 0.1434191227709834,
+    "network": "Near",
+    "tvl": "0.1434191227709834",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/hot1.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|hot1.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6131",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "mi.token0.near",
+    "pool_id": 6129,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "mi.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "MI"
+    ],
+    "token_price": 5600069.386801519,
+    "liq": 0.13978250685107402,
+    "network": "Near",
+    "tvl": "0.13978250685107402",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/mi.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|mi.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6129",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "nearbit.tkn.near",
+    "pool_id": 4432,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "nearbit.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "NEARBIT"
+    ],
+    "token_price": 5.6142603602573775,
+    "liq": 0.13899129834336063,
+    "network": "Near",
+    "tvl": "0.13899129834336063",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/nearbit.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|nearbit.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-4432",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "babylonk.tkn.near",
+    "pool_id": 4848,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "babylonk.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "BABYLONK"
+    ],
+    "token_price": 1.5751916135148734,
+    "liq": 0.13298444945975013,
+    "network": "Near",
+    "tvl": "0.13298444945975013",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/babylonk.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|babylonk.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-4848",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "ndn.electrik.near",
+    "pool_id": 3034,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "ndn.electrik.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "ELECTRIK"
+    ],
+    "token_price": 2.4651584507042252,
+    "liq": 0.1315993351964372,
+    "network": "Near",
+    "tvl": "0.1315993351964372",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/ndn.electrik.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|ndn.electrik.near",
+    "DexLink": "https://dexscreener.com/near/refv1-3034",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "brett.token0.near",
+    "pool_id": 6281,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "brett.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "BRETT"
+    ],
+    "token_price": 2.6054556506704625,
+    "liq": 0.11718771290629704,
+    "network": "Near",
+    "tvl": "0.11718771290629704",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/brett.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|brett.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6281",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "urukche.tkn.near",
+    "pool_id": 5948,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "urukche.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "URUKCHE"
+    ],
+    "token_price": 2.711699294592565,
+    "liq": 0.11602736082170971,
+    "network": "Near",
+    "tvl": "0.11602736082170971",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/urukche.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|urukche.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5948",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "elixir.l2e.near",
+    "pool_id": 3837,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "elixir.l2e.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "ELIXIR"
+    ],
+    "token_price": 2.420964393211043,
+    "liq": 0.11532485998328287,
+    "network": "Near",
+    "tvl": "0.11532485998328287",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/elixir.l2e.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|elixir.l2e.near",
+    "DexLink": "https://dexscreener.com/near/refv1-3837",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "t.tkn.near",
+    "pool_id": 3883,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "t.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "T"
+    ],
+    "token_price": 5.316750521115926,
+    "liq": 0.1049877788115744,
+    "network": "Near",
+    "tvl": "0.1049877788115744",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/t.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|t.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-3883",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "sfv.token0.near",
+    "pool_id": 6068,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "sfv.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "SFV"
+    ],
+    "token_price": 3491.5516851645684,
+    "liq": 0.08734417691144748,
+    "network": "Near",
+    "tvl": "0.08734417691144748",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/sfv.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|sfv.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6068",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "hamster.tkn.near",
+    "pool_id": 4881,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "hamster.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "HAMSTER"
+    ],
+    "token_price": 2.2820054229976456,
+    "liq": 0.08627134278965627,
+    "network": "Near",
+    "tvl": "0.08627134278965627",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/hamster.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|hamster.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-4881",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "mew.token0.near",
+    "pool_id": 6170,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "mew.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "MEW"
+    ],
+    "token_price": 2.4196199329306496,
+    "liq": 0.07461357891055137,
+    "network": "Near",
+    "tvl": "0.07461357891055137",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/mew.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|mew.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6170",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "microsoft.token0.near",
+    "pool_id": 6284,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "microsoft.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "MICROSOFT"
+    ],
+    "token_price": 1.5912166675949202,
+    "liq": 0.07401393113499724,
+    "network": "Near",
+    "tvl": "0.07401393113499724",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/microsoft.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|microsoft.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6284",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "babyneko.tkn.near",
+    "pool_id": 4850,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "babyneko.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "babyneko"
+    ],
+    "token_price": 2.442813682706363,
+    "liq": 0.06959587441152745,
+    "network": "Near",
+    "tvl": "0.06959587441152745",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/babyneko.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|babyneko.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-4850",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "banana.token0.near",
+    "pool_id": 6143,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "banana.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "BANANA"
+    ],
+    "token_price": 7.172879836674601,
+    "liq": 0.06331444295622583,
+    "network": "Near",
+    "tvl": "0.06331444295622583",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/banana.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|banana.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6143",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "not1.token0.near",
+    "pool_id": 6240,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "not1.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "NOT"
+    ],
+    "token_price": 524327.8923817228,
+    "liq": 0.06134793006387875,
+    "network": "Near",
+    "tvl": "0.06134793006387875",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/not1.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|not1.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6240",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "wst.tkn.near",
+    "pool_id": 338,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "wst.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "WST"
+    ],
+    "token_price": 0.9094619046118989,
+    "liq": 0.059189431511324775,
+    "network": "Near",
+    "tvl": "0.059189431511324775",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/wst.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|wst.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-338",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "deezz.near",
+    "pool_id": 4480,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "deezz.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "$deezz"
+    ],
+    "token_price": 4.226950842603961,
+    "liq": 0.0564464037937035,
+    "network": "Near",
+    "tvl": "0.0564464037937035",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/deezz.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|deezz.near",
+    "DexLink": "https://dexscreener.com/near/refv1-4480",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "catz.token0.near",
+    "pool_id": 6130,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "catz.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "CATZ"
+    ],
+    "token_price": 3.570923638755155,
+    "liq": 0.05358445113579301,
+    "network": "Near",
+    "tvl": "0.05358445113579301",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/catz.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|catz.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6130",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "jna.tkn.near",
+    "pool_id": 5926,
+    "_": "==============================",
+    "token_account_ids": [
+      "jna.tkn.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "JNA",
+      "wNEAR"
+    ],
+    "token_price": 1.4704869669670457e-7,
+    "liq": 0.046990931731891006,
+    "network": "Near",
+    "tvl": "0.046990931731891006",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/jna.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|jna.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5926",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "moon2.token0.near",
+    "pool_id": 6091,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "moon2.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "MOON"
+    ],
+    "token_price": 3.10558136038491,
+    "liq": 0.04119369138018872,
+    "network": "Near",
+    "tvl": "0.04119369138018872",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/moon2.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|moon2.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6091",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "nbtc.bridge.near",
+    "pool_id": 6438,
+    "_": "==============================",
+    "token_account_ids": [
+      "nbtc.bridge.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "NBTC",
+      "wNEAR"
+    ],
+    "token_price": 103873.12851252993,
+    "liq": 0.037869198873609095,
+    "network": "Near",
+    "tvl": "0.037869198873609095",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/nbtc.bridge.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|nbtc.bridge.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6438",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "done.token.workinghard.near",
+    "pool_id": 5976,
+    "_": "==============================",
+    "token_account_ids": [
+      "done.token.workinghard.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "done",
+      "wNEAR"
+    ],
+    "token_price": 2.885255071392725e-10,
+    "liq": 0.033380745027326464,
+    "network": "Near",
+    "tvl": "0.033380745027326464",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/done.token.workinghard.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|done.token.workinghard.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5976",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "android.token0.near",
+    "pool_id": 6286,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "android.token0.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "ANDROID"
+    ],
+    "token_price": 19.45167410713983,
+    "liq": 0.03245898502231524,
+    "network": "Near",
+    "tvl": "0.03245898502231524",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/android.token0.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|android.token0.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6286",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "31.contract.portalbridge.near",
+    "pool_id": 4909,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "31.contract.portalbridge.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "Sybzero"
+    ],
+    "token_price": 0.830420508841479,
+    "liq": 0.03184090912406923,
+    "network": "Near",
+    "tvl": "0.03184090912406923",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/31.contract.portalbridge.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|31.contract.portalbridge.near",
+    "DexLink": "https://dexscreener.com/near/refv1-4909",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "reps.tkn.near",
+    "pool_id": 5075,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "reps.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "REPS"
+    ],
+    "token_price": 31.901364594419128,
+    "liq": 0.03142373164084176,
+    "network": "Near",
+    "tvl": "0.03142373164084176",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/reps.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|reps.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5075",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "boobs.tkn.near",
+    "pool_id": 5013,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "boobs.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "BOOBS"
+    ],
+    "token_price": 3.633901662217386,
+    "liq": 0.030800613645035738,
+    "network": "Near",
+    "tvl": "0.030800613645035738",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/boobs.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|boobs.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5013",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "2260fac5e5542a773aa44fbcfedf7c193bc2c599.factory.bridge.near",
+    "pool_id": 2758,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "2260fac5e5542a773aa44fbcfedf7c193bc2c599.factory.bridge.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "WBTC"
+    ],
+    "token_price": 2.850937823177709,
+    "liq": 0.02814495353173585,
+    "network": "Near",
+    "tvl": "0.02814495353173585",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/2260fac5e5542a773aa44fbcfedf7c193bc2c599.factory.bridge.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|2260fac5e5542a773aa44fbcfedf7c193bc2c599.factory.bridge.near",
+    "DexLink": "https://dexscreener.com/near/refv1-2758",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "adtoken.near",
+    "pool_id": 498,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "adtoken.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "AD"
+    ],
+    "token_price": 6.564256565252452,
+    "liq": 0.027905507626502353,
+    "network": "Near",
+    "tvl": "0.027905507626502353",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/adtoken.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|adtoken.near",
+    "DexLink": "https://dexscreener.com/near/refv1-498",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "usnd.tkn.near",
+    "pool_id": 5407,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "usnd.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "USND"
+    ],
+    "token_price": 0.2612311403134966,
+    "liq": 0.02781026986000289,
+    "network": "Near",
+    "tvl": "0.02781026986000289",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/usnd.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|usnd.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5407",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "time.tkn.near",
+    "pool_id": 6359,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "time.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "TIME"
+    ],
+    "token_price": 300.80111470450606,
+    "liq": 0.027074972591569355,
+    "network": "Near",
+    "tvl": "0.027074972591569355",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/time.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|time.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6359",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "nearrewards.near",
+    "pool_id": 6457,
+    "_": "==============================",
+    "token_account_ids": [
+      "nearrewards.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "NearRewards.com",
+      "wNEAR"
+    ],
+    "token_price": 0.00179678382358202,
+    "liq": 0.026667543438659312,
+    "network": "Near",
+    "tvl": "0.026667543438659312",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/nearrewards.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|nearrewards.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6457",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "chipscasino.near",
+    "pool_id": 4723,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "chipscasino.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "CHIPS"
+    ],
+    "token_price": 0.00210232559153845,
+    "liq": 0.02506071666834709,
+    "network": "Near",
+    "tvl": "0.02506071666834709",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/chipscasino.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|chipscasino.near",
+    "DexLink": "https://dexscreener.com/near/refv1-4723",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "duelx.near",
+    "pool_id": 3791,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "duelx.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "DUELX"
+    ],
+    "token_price": 1.2985587503785658,
+    "liq": 0.020889691902109427,
+    "network": "Near",
+    "tvl": "0.020889691902109427",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/duelx.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|duelx.near",
+    "DexLink": "https://dexscreener.com/near/refv1-3791",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "hbsc.tkn.near",
+    "pool_id": 3671,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "hbsc.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "HBSC"
+    ],
+    "token_price": 2.6122791481174397,
+    "liq": 0.019875398024469516,
+    "network": "Near",
+    "tvl": "0.019875398024469516",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/hbsc.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|hbsc.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-3671",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "play.tkn.near",
+    "pool_id": 5043,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "play.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "PLAY"
+    ],
+    "token_price": 2.1338579141770153,
+    "liq": 0.016696779813067976,
+    "network": "Near",
+    "tvl": "0.016696779813067976",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/play.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|play.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5043",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "t.tkn.near",
+    "pool_id": 4157,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "t.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "T"
+    ],
+    "token_price": 6.895872331999683,
+    "liq": 0.015745564704071256,
+    "network": "Near",
+    "tvl": "0.015745564704071256",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/t.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|t.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-4157",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "t.tkn.near",
+    "pool_id": 4052,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "t.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "T"
+    ],
+    "token_price": 4.217390859504047,
+    "liq": 0.015124581363202948,
+    "network": "Near",
+    "tvl": "0.015124581363202948",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/t.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|t.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-4052",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "t.tkn.near",
+    "pool_id": 4170,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "t.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "T"
+    ],
+    "token_price": 5.13229376865915,
+    "liq": 0.015008784140139045,
+    "network": "Near",
+    "tvl": "0.015008784140139045",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/t.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|t.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-4170",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "t.tkn.near",
+    "pool_id": 3917,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "t.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "T"
+    ],
+    "token_price": 6.084198610472134,
+    "liq": 0.009406159510847573,
+    "network": "Near",
+    "tvl": "0.009406159510847573",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/t.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|t.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-3917",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "nbtc.toalice.near",
+    "pool_id": 5913,
+    "_": "==============================",
+    "token_account_ids": [
+      "nbtc.toalice.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "NBTC",
+      "wNEAR"
+    ],
+    "token_price": 332614.32489523385,
+    "liq": 0.009397273375578616,
+    "network": "Near",
+    "tvl": "0.009397273375578616",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/nbtc.toalice.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|nbtc.toalice.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5913",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "adg.tkn.near",
+    "pool_id": 5031,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "adg.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "ADG"
+    ],
+    "token_price": 0.6889932860284844,
+    "liq": 0.009220215988335133,
+    "network": "Near",
+    "tvl": "0.009220215988335133",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/adg.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|adg.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5031",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "fukrug.rug-testing.near",
+    "pool_id": 6040,
+    "_": "==============================",
+    "token_account_ids": [
+      "fukrug.rug-testing.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "fukrug",
+      "wNEAR"
+    ],
+    "token_price": 4.6640765513409435e-8,
+    "liq": 0.00790791748499739,
+    "network": "Near",
+    "tvl": "0.00790791748499739",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/fukrug.rug-testing.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|fukrug.rug-testing.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6040",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "elixir.l2e.near",
+    "pool_id": 3838,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "elixir.l2e.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "ELIXIR"
+    ],
+    "token_price": 3.246538225215255,
+    "liq": 0.005523776911373644,
+    "network": "Near",
+    "tvl": "0.005523776911373644",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/elixir.l2e.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|elixir.l2e.near",
+    "DexLink": "https://dexscreener.com/near/refv1-3838",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "gold.l2e.near",
+    "pool_id": 2704,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "gold.l2e.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "GOLD"
+    ],
+    "token_price": 4.077646246929972,
+    "liq": 0.0054167338428846665,
+    "network": "Near",
+    "tvl": "0.0054167338428846665",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/gold.l2e.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|gold.l2e.near",
+    "DexLink": "https://dexscreener.com/near/refv1-2704",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "token.v1.realisnetwork.near",
+    "pool_id": 3828,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "token.v1.realisnetwork.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "LIS"
+    ],
+    "token_price": 70.39128479995202,
+    "liq": 0.0046852861551005456,
+    "network": "Near",
+    "tvl": "0.0046852861551005456",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/token.v1.realisnetwork.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|token.v1.realisnetwork.near",
+    "DexLink": "https://dexscreener.com/near/refv1-3828",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "nbtc.bridge.near",
+    "pool_id": 6437,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "nbtc.bridge.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "NBTC"
+    ],
+    "token_price": 3.5073822676721096,
+    "liq": 0.004262364971619301,
+    "network": "Near",
+    "tvl": "0.004262364971619301",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/nbtc.bridge.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|nbtc.bridge.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6437",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "t.tkn.near",
+    "pool_id": 4139,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "t.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "T"
+    ],
+    "token_price": 7.604264212516702,
+    "liq": 0.003967566880662441,
+    "network": "Near",
+    "tvl": "0.003967566880662441",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/t.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|t.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-4139",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "infinity.tkn.near",
+    "pool_id": 1271,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "infinity.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "INFINITY"
+    ],
+    "token_price": 0.0012883608729410733,
+    "liq": 0.0032995601881828716,
+    "network": "Near",
+    "tvl": "0.0032995601881828716",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/infinity.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|infinity.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-1271",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "t.tkn.near",
+    "pool_id": 4152,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "t.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "T"
+    ],
+    "token_price": 4.735211570965507,
+    "liq": 0.002116326252240924,
+    "network": "Near",
+    "tvl": "0.002116326252240924",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/t.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|t.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-4152",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "t.tkn.near",
+    "pool_id": 4153,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "t.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "T"
+    ],
+    "token_price": 7.210600089680679,
+    "liq": 0.002112994924263926,
+    "network": "Near",
+    "tvl": "0.002112994924263926",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/t.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|t.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-4153",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "neardog.tkn.near",
+    "pool_id": 5952,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "neardog.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "NEARDOG"
+    ],
+    "token_price": 80.00471143142266,
+    "liq": 0.0010773297943103399,
+    "network": "Near",
+    "tvl": "0.0010773297943103399",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/neardog.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|neardog.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5952",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "bgn.tkn.near",
+    "pool_id": 5099,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "bgn.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "BGN"
+    ],
+    "token_price": 2.51041455337375,
+    "liq": 0.0008053542523833038,
+    "network": "Near",
+    "tvl": "0.0008053542523833038",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/bgn.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|bgn.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5099",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "t.tkn.near",
+    "pool_id": 4164,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "t.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "T"
+    ],
+    "token_price": 6.096280631200922,
+    "liq": 0.0007820770569397077,
+    "network": "Near",
+    "tvl": "0.0007820770569397077",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/t.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|t.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-4164",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "t.tkn.near",
+    "pool_id": 4284,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "t.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "T"
+    ],
+    "token_price": 5.285037986423265,
+    "liq": 0.0003584097887517607,
+    "network": "Near",
+    "tvl": "0.0003584097887517607",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/t.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|t.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-4284",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "t.tkn.near",
+    "pool_id": 3891,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "t.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "T"
+    ],
+    "token_price": 6.116474634531286,
+    "liq": 0.00011852958451374962,
+    "network": "Near",
+    "tvl": "0.00011852958451374962",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/t.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|t.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-3891",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "hak.tkn.near",
+    "pool_id": 226,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "hak.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "HAK"
+    ],
+    "token_price": 2.889565253579343,
+    "liq": 0.0000984074182599804,
+    "network": "Near",
+    "tvl": "9.84074182599804e-05",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/hak.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|hak.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-226",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "17208628f84f5d6ad33f0da3bbbeb27ffcb398eac501a31bd6ad2011e36133a1",
+    "pool_id": 6415,
+    "_": "==============================",
+    "token_account_ids": [
+      "17208628f84f5d6ad33f0da3bbbeb27ffcb398eac501a31bd6ad2011e36133a1",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "USDC",
+      "wNEAR"
+    ],
+    "token_price": 0.9021234992516574,
+    "liq": 0.00003803670998503315,
+    "network": "Near",
+    "tvl": "3.803670998503315e-05",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/17208628f84f5d6ad33f0da3bbbeb27ffcb398eac501a31bd6ad2011e36133a1",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|17208628f84f5d6ad33f0da3bbbeb27ffcb398eac501a31bd6ad2011e36133a1",
+    "DexLink": "https://dexscreener.com/near/refv1-6415",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "yupland.tkn.near",
+    "pool_id": 5961,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "yupland.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "YUPLAND"
+    ],
+    "token_price": 3.0176898681924653,
+    "liq": 0.000037359392998961085,
+    "network": "Near",
+    "tvl": "3.7359392998961085e-05",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/yupland.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|yupland.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5961",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "t.tkn.near",
+    "pool_id": 4151,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "t.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "T"
+    ],
+    "token_price": 3.9050574338486084,
+    "liq": 0.000022963350692482402,
+    "network": "Near",
+    "tvl": "2.2963350692482402e-05",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/t.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|t.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-4151",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "yupland.tkn.near",
+    "pool_id": 5962,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "yupland.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "YUPLAND"
+    ],
+    "token_price": 0.002472846189431373,
+    "liq": 0.000014527593889304356,
+    "network": "Near",
+    "tvl": "1.4527593889304356e-05",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/yupland.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|yupland.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-5962",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "cfi.tkn.primitives.near",
+    "pool_id": 6005,
+    "_": "==============================",
+    "token_account_ids": [
+      "cfi.tkn.primitives.near",
+      "wrap.near"
+    ],
+    "token_symbols": [
+      "CFI",
+      "wNEAR"
+    ],
+    "token_price": 1.2784795765804121e-8,
+    "liq": 0.0000030613082586490203,
+    "network": "Near",
+    "tvl": "3.0613082586490203e-06",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/cfi.tkn.primitives.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|cfi.tkn.primitives.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6005",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "t.tkn.near",
+    "pool_id": 4159,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "t.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "T"
+    ],
+    "token_price": 1.389274966293268,
+    "liq": 0.000002836214452514532,
+    "network": "Near",
+    "tvl": "2.836214452514532e-06",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/t.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|t.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-4159",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "duck.tkn.near",
+    "pool_id": 1225,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "duck.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "DUCK"
+    ],
+    "token_price": 0.16115637317191772,
+    "liq": 7.948446910928686e-7,
+    "network": "Near",
+    "tvl": "7.948446910928686e-07",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/duck.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|duck.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-1225",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "nearpunk.tkn.near",
+    "pool_id": 1222,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "nearpunk.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "NEARPUNK"
+    ],
+    "token_price": 1.744687205805963,
+    "liq": 8.015600817473739e-8,
+    "network": "Near",
+    "tvl": "8.015600817473739e-08",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/nearpunk.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|nearpunk.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-1222",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "23.contract.portalbridge.near",
+    "pool_id": 4546,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "23.contract.portalbridge.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "Aurora"
+    ],
+    "token_price": 16.853440679668555,
+    "liq": 3.0675970291533414e-8,
+    "network": "Near",
+    "tvl": "3.0675970291533414e-08",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/23.contract.portalbridge.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|23.contract.portalbridge.near",
+    "DexLink": "https://dexscreener.com/near/refv1-4546",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "vlt.tkn.near",
+    "pool_id": 6057,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "vlt.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "VLT"
+    ],
+    "token_price": 2.5124425124400007,
+    "liq": 3.080628608600177e-9,
+    "network": "Near",
+    "tvl": "3.080628608600177e-09",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/vlt.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|vlt.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-6057",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "nearkat.tkn.near",
+    "pool_id": 1391,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "nearkat.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "NEARKAT"
+    ],
+    "token_price": 0.00006279354877629928,
+    "liq": 8.33997839067103e-11,
+    "network": "Near",
+    "tvl": "8.33997839067103e-11",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/nearkat.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|nearkat.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-1391",
+    "name": "FakerName"
+  },
+  {
+    "owner": "FakerOwner",
+    "decimals": 18,
+    "___": "==============================",
+    "token_contract": "duck.tkn.near",
+    "pool_id": 1390,
+    "_": "==============================",
+    "token_account_ids": [
+      "wrap.near",
+      "duck.tkn.near"
+    ],
+    "token_symbols": [
+      "wNEAR",
+      "DUCK"
+    ],
+    "token_price": 695.4760183132261,
+    "liq": 7.531231549012812e-12,
+    "network": "Near",
+    "tvl": "7.531231549012812e-12",
+    "__": "==============================",
+    "TokenLink": "https://nearblocks.io/token/duck.tkn.near",
+    "RefLink": "https://app.ref.finance/#usdt.tether-token.near|duck.tkn.near",
+    "DexLink": "https://dexscreener.com/near/refv1-1390",
+    "name": "FakerName"
+  },
+  {
     "owner": "operator6.near",
     "token_contract": "purge-558.meme-cooking.near",
     "memeId": 558,

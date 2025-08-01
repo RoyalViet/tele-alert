@@ -14,6 +14,7 @@
     "add-build": "git add dist",
     "build": "rimraf dist && tsc",
     "start": "node dist/server.js",
+    "test:pikespeak": "ts-node src/cron/test-pikespeak.ts",
     "migration:generate": "typeorm migration:create -n",
     "migration:run": "ts-node ./node_modules/typeorm/cli.js migration:run",
     "migration:revert": "ts-node ./node_modules/typeorm/cli.js migration:revert"
@@ -28,6 +29,7 @@
   "license": "ISC",
   "dependencies": {
     "@near-wallet-selector/core": "^7.0.0",
+    "@types/node-cron": "^3.0.11",
     "axios": "^1.7.7",
     "bcrypt": "^5.1.1",
     "big.js": "^6.2.2",
@@ -52,6 +54,7 @@
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
     "near-api-js": "^5.0.1",
+    "node-cron": "^4.2.1",
     "node-fetch": "^2.7.0",
     "path": "^0.12.7",
     "puppeteer": "^23.10.4",

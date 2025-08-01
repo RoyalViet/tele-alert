@@ -30,7 +30,7 @@ User trader
 // 8295e30f6b3e658318ad847bd9cc1a4d01de5c2ae81b52216559e60c35db0494
   => nó biết tin gì đó nên đã mua Purge sớm , mua hẳn 4k và sau đó trade ???
 // nearjaguar.near
-  => lắm tiền, hold giỏi, toàn mua mấy con có vẻ tiềm năng => chú ý máy con token nó mua để trade & hold 1 ít lãi nếu có thể 
+  => lắm tiền, hold giỏi, toàn mua mấy con có vẻ tiềm năng => chú ý mấy con token nó mua để trade & hold 1 ít lãi nếu có thể 
 
 // ví thằng ếch thang10b.near
 

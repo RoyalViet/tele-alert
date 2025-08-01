@@ -148,7 +148,10 @@ export const ftGetTokensMetadata = async (
   const tokensMetadata = await Promise.all(
     ids.map(
       (id: string) =>
-        allTokens?.[id] || ftGetTokenMetadata(id).catch(() => null)
+        allTokens?.[id] ||
+        ftGetTokenMetadata(id).catch(() => {
+          //
+        })
     )
   );
 

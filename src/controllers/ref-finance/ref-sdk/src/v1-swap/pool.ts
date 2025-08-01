@@ -73,7 +73,9 @@ export const getRefPools = async (
 
 export const fetchAllPools = async (perPage?: number) => {
   try {
-    const pools = await fetch(`${config.indexerUrl}/fetchAllPools`).then(
+    // const pools = await fetch(`${config.indexerUrl}/fetchAllPools`).then(
+    console.log("config.indexerUrl", `${config.indexerUrl}/list-top-pools`);
+    const pools = await fetch(`${config.indexerUrl}/list-top-pools`).then(
       (res) => res.json()
     );
     if (pools.code !== 0 || !pools.simplePools) throw Error();
