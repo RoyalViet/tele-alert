@@ -317,7 +317,7 @@ ${swapStepsText}
       // Fetch latest data from API
       const transactions = await this.fetchApiData();
 
-      console.log(`📊 Total transactions fetched: ${transactions.length}`);
+      // console.log(`📊 Total transactions fetched: ${transactions.length}`);
 
       // Log all transaction types for debugging
       const transactionTypes = transactions.map((tx) => ({
@@ -326,7 +326,7 @@ ${swapStepsText}
         transaction_type: tx.transaction_type,
         index: tx.index,
       }));
-      console.log("📋 Transaction types found:", transactionTypes);
+      // console.log("📋 Transaction types found:", transactionTypes);
 
       // Group SWAP transactions by transaction_id
       const groupedSwapTransactions = this.groupSwapTransactions(transactions);
