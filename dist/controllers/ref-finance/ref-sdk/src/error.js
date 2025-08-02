@@ -1,0 +1,33 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.OrderNoRemainedAmount = exports.NoOrderFound = exports.SlippageError = exports.NoPoolOnThisPair = exports.DCLInValid = exports.NoFeeToPool = exports.NoAccountIdFound = exports.NoCredential = exports.AccountIdMisMatch = exports.InValidAccessKeyError = exports.NoLocalSignerError = exports.NoPuiblicKeyError = exports.TokenNotExistError = exports.SwapRouteError = exports.NotLoginError = exports.NoPoolError = exports.ZeroInputError = exports.SameInputTokenError = exports.unNamedError = exports.formatError = exports.DCL_POOL_FEE_LIST = void 0;
+const constant_1 = require("./constant");
+exports.DCL_POOL_FEE_LIST = [100, 400, 2000, 10000];
+const formatError = (msg) => {
+    return new Error(msg);
+};
+exports.formatError = formatError;
+exports.unNamedError = (0, exports.formatError)("Something wrong happened");
+exports.SameInputTokenError = (0, exports.formatError)("Input token should be different with output token");
+exports.ZeroInputError = (0, exports.formatError)("Input amount should be greater than 0");
+exports.NoPoolError = (0, exports.formatError)("No pool found for the input tokens");
+exports.NotLoginError = (0, exports.formatError)("Please login in first");
+exports.SwapRouteError = (0, exports.formatError)("Something wrong happened, we don't get correct routes corrreponding to current input");
+const TokenNotExistError = (id) => (0, exports.formatError)(`${id} doesn't exist in ${(0, constant_1.getConfig)().networkId}`);
+exports.TokenNotExistError = TokenNotExistError;
+exports.NoPuiblicKeyError = (0, exports.formatError)("No public key found");
+exports.NoLocalSignerError = (0, exports.formatError)("No local signer found");
+exports.InValidAccessKeyError = (0, exports.formatError)("Invalid access key");
+exports.AccountIdMisMatch = (0, exports.formatError)("Your input account id doesn't match the account id in the credential");
+exports.NoCredential = (0, exports.formatError)("No Credential to such path");
+exports.NoAccountIdFound = (0, exports.formatError)("No account id found");
+const NoFeeToPool = (fee) => (0, exports.formatError)(`InValid fee ${fee} to DCL pool, the valid fee should be one of ${exports.DCL_POOL_FEE_LIST}`);
+exports.NoFeeToPool = NoFeeToPool;
+exports.DCLInValid = (0, exports.formatError)(`DCL contract currently in Valid on ${constant_1.config.networkId}`);
+const NoPoolOnThisPair = (tokenA, tokenB) => (0, exports.formatError)(`No pools on pair ${tokenA} <> ${tokenB}`);
+exports.NoPoolOnThisPair = NoPoolOnThisPair;
+exports.SlippageError = (0, exports.formatError)("slippage tolerance should be in range (0, 100)");
+const NoOrderFound = (order_id) => (0, exports.formatError)(`No order ${order_id || ""} found`);
+exports.NoOrderFound = NoOrderFound;
+exports.OrderNoRemainedAmount = (0, exports.formatError)("No remained amount on this order");
+//# sourceMappingURL=error.js.map
