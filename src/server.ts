@@ -1,10 +1,4 @@
 require("dotenv").config();
-<<<<<<< HEAD
-import express from "express";
-import bodyParser from "body-parser";
-
-const app = express();
-=======
 import "module-alias/register";
 
 import app from "./configs/express.config";
@@ -19,17 +13,9 @@ import logger from "./configs/logger.config";
 // import { checkMitteToken } from "./cron/mitte.cron";
 // import { sendMeAGif } from "./services/telegram/telegramService";
 import { startAllCronJobs } from "./cron/index";
->>>>>>> develop
 
 const PORT = process.env.PORT || 8000;
 
-<<<<<<< HEAD
-//config view Engine
-
-//init all web routes
-
-let port = process.env.PORT || 8080;
-=======
 const main = async () => {
   // connectDB
   // await connectDB();
@@ -49,7 +35,6 @@ const main = async () => {
 
   // Start Pikespeak SWAP monitor
   startAllCronJobs();
->>>>>>> develop
 
   // sendMeAGif();
 
