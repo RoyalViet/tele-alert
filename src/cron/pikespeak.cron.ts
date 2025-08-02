@@ -2,6 +2,7 @@ import axios from "axios";
 import * as fs from "fs";
 import * as path from "path";
 import { sendNotification } from "../services/telegram/telegramService";
+import { formatBalance } from "../common/helper/bigNumber";
 
 interface TransactionEvent {
   transaction_id: string;
@@ -183,36 +184,6 @@ class PikespeakMonitor {
   }
 
   /**
-   * Format transaction data for Telegram message
-   */
-  private formatTelegramMessage(transaction: TransactionEvent): string {
-    const timestamp = transaction.timestamp
-      ? new Date(transaction.timestamp).toLocaleString("vi-VN")
-      : "N/A";
-
-    const amount = transaction.amount_numeric || transaction.amount || "N/A";
-    const sender = transaction.sender || "Unknown";
-    const receiver = transaction.receiver || "Unknown";
-    const type = transaction.type || transaction.transaction_type || "Unknown";
-
-    return `
-🔄 <b>New SWAP Transaction Detected!</b>
-
-📊 <b>Transaction ID:</b> <code>${transaction.transaction_id}</code>
-📋 <b>Receipt ID:</b> <code>${transaction.receipt_id}</code>
-💰 <b>Amount:</b> ${amount}
-📤 <b>Sender:</b> ${sender}
-📥 <b>Receiver:</b> ${receiver}
-� <b>Direction:</b> ${transaction.direction}
-🏷️ <b>Type:</b> ${type}
-⏰ <b>Time:</b> ${timestamp}
-� <b>Block:</b> ${transaction.block_height}
-
-<a href="https://pikespeak.ai/wallet-explorer/${receiver}/events">View on Pikespeak</a>
-    `.trim();
-  }
-
-  /**
    * Group SWAP transactions by transaction_id and combine their steps
    */
   private groupSwapTransactions(
@@ -302,7 +273,13 @@ class PikespeakMonitor {
     transaction: MonitoredTransaction
   ): string {
     const timestamp = new Date(transaction.timestamp).toLocaleString("vi-VN");
-    const amount = transaction.amount_numeric || transaction.amount || "N/A";
+    const amount = formatBalance(
+      transaction.amount_numeric || transaction.amount || "0",
+      6,
+      {
+        clearTrailingZeros: true,
+      }
+    );
     const tokenSymbol = transaction.token
       ? this.getTokenSymbol(transaction.token)
       : "NEAR";
@@ -345,7 +322,9 @@ class PikespeakMonitor {
 
     // Format amount with + or - based on direction
     const directionSymbol = transaction.direction === "receive" ? "+" : "-";
-    const formattedAmount = `${directionSymbol}${this.formatAmount(amount)}`;
+    const formattedAmount = `${directionSymbol}${formatBalance(amount, 6, {
+      clearTrailingZeros: true,
+    })}`;
 
     return `
 ${getTypeIcon(
@@ -384,14 +363,21 @@ ${getTypeIcon(
   }
 
   /**
-   * Format amount to readable format
+   * Format amount to readable format using formatBalance
    */
   private formatAmount(amount: string | number): string {
-    const num = typeof amount === "string" ? parseFloat(amount) : amount;
-    if (num >= 1000) {
-      return num.toLocaleString("en-US", { maximumFractionDigits: 2 });
+    try {
+      return formatBalance(amount, 6, {
+        clearTrailingZeros: true,
+      });
+    } catch (error) {
+      console.error("Error formatting amount:", error);
+      const num = typeof amount === "string" ? parseFloat(amount) : amount;
+      if (num >= 1000) {
+        return num.toLocaleString("en-US", { maximumFractionDigits: 2 });
+      }
+      return num.toFixed(2);
     }
-    return num.toFixed(2);
   }
 
   /**
